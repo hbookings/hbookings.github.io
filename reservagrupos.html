@@ -2104,114 +2104,7 @@ const templateParams = {
 };
 
 
-    resultado.innerHTML =
-
-        "<strong>Solicitud preparada correctamente.</strong><br><br>" +
-
-        "Nombre: " +
-        escapeHTML(nombre) +
-        "<br>" +
-
-        "Empresa / Agencia: " +
-        escapeHTML(empresa || "No indicado") +
-        "<br>" +
-
-        "Email: " +
-        escapeHTML(email) +
-        "<br>" +
-
-        "Teléfono: " +
-        escapeHTML(telefono) +
-        "<br>" +
-
-        "Nombre de Grupo: " +
-        escapeHTML(nombreGrupo) +
-        "<br>" +
-
-        "Destino: " +
-        escapeHTML(destino) +
-        "<br>" +
-
-        "Alojamiento: " +
-        escapeHTML(alojamiento) +
-        "<br>" +
-
-        "Entrada: " +
-        escapeHTML(entrada) +
-        "<br>" +
-
-        "Salida: " +
-        escapeHTML(salida) +
-        "<br><br>" +
-
-        "<strong>Pasajeros</strong><br>" +
-
-        "Adultos: " +
-        totales.adultos +
-        "<br>" +
-
-        "Niños: " +
-        totales.ninos +
-        "<br>" +
-
-        "Bebés: " +
-        totales.bebes +
-        "<br>" +
-
-        "Bebés con solicitud de Cuna: " +
-        totales.cunas +
-        "<br>" +
-
-        "<strong>TOTAL PAX: " +
-        totales.totalPax +
-        "</strong><br><br>" +
-
-        "<strong>Habitaciones</strong><br>" +
-
-        "Individuales: " +
-        individuales +
-        "<br>" +
-
-        "Dobles Double Bed: " +
-        doblesDouble +
-        "<br>" +
-
-        "Dobles Twin Bed: " +
-        doblesTwin +
-        "<br>" +
-
-        "Triples: " +
-        triples +
-        "<br>" +
-
-        "Cuádruples: " +
-        cuadruples +
-        "<br>" +
-
-        "Otros: " +
-        otros +
-        "<br>" +
-
-        "<strong>TOTAL HABITACIONES: " +
-        totales.totalHabitaciones +
-        "</strong><br><br>" +
-
-        "Régimen: " +
-        escapeHTML(regimen) +
-        "<br>" +
-
-        "Tipo de grupo: " +
-        escapeHTML(tipoGrupo) +
-        "<br><br>" +
-
-        "Observaciones: " +
-        escapeHTML(observaciones || "Ninguna") +
-        "<br><br>" +
-
-        "La solicitud se ha validado correctamente. " +
-        "El envío por correo se configurará posteriormente.";
-
-
+    
 try {
 
     await emailjs.send(
@@ -2223,17 +2116,13 @@ try {
         }
     );
 
-    resultado.innerHTML =
-        "<strong>Solicitud enviada correctamente.</strong><br><br>" +
-        resultado.innerHTML;
+    alert("Solicitud enviada correctamente.");
 
 } catch (error) {
 
     console.error("Error al enviar el correo:", error);
 
-    resultado.innerHTML =
-        "<strong>La solicitud se ha validado, pero no se pudo enviar el correo.</strong><br><br>" +
-        resultado.innerHTML;
+    alert("No se pudo enviar la solicitud.");
 
 } finally {
 
@@ -2243,17 +2132,6 @@ try {
 }
 
 
-
-
-    resultado.classList.add("show");
-
-
-    resultado.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-}
 
 
      /* =========================
