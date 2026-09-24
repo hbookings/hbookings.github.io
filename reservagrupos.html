@@ -763,6 +763,27 @@
         }
     }
 
+
+.success-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border: 2px solid #15438B;
+    padding: 25px 35px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+    color: #28a745;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    z-index: 9999;
+}
+
+
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -976,7 +997,7 @@
                  <div class="form-group">
 
                      <label for="nombre">
-                         Nombre <span class="required">*</span>
+                         Nombre y Apellidos <span class="required">*</span>
                      </label>
 
                      <input
@@ -1070,6 +1091,68 @@
              </div>
 
          </section>
+
+
+     <!-- =========================
+              TIPO DE GRUPO
+         ========================== -->
+
+         <section class="form-section">
+
+             <h2 class="form-section-title">
+                 Tipo de Grupo
+             </h2>
+
+             <div class="form-group">
+
+                 <select
+                     id="tipoGrupo"
+                     name="tipoGrupo"
+                     required
+                 >
+
+                     <option value="">
+                         Selecciona el tipo de grupo
+                     </option>
+
+ <option value="Turísticos">
+     Turísticos
+ </option>
+ <option value="Estudiantes">
+     Estudiantes
+ </option>
+ <option value="Deportivos">
+     Deportivos
+ </option>
+ <option value="Jubilados">
+     Jubilados
+ </option>
+ <option value="Empresas">
+     Empresas
+ </option>
+ <option value="Negocios">
+     Negocios
+ </option>
+ <option value="Profesionales">
+     Profesionales
+ </option>
+ <option value="Convenciones">
+     Convenciones
+ </option>
+ <option value="Música&Fiestas">
+     Música&Fiestas
+ </option>
+ <option value="Otros">
+     Otros
+ </option>
+
+                 </select>
+
+             </div>
+
+         </section>
+
+
 
 
          <!-- =========================
@@ -1207,13 +1290,13 @@
 
 
          <!-- =========================
-              CLIENTES
+              PERSONAS
          ========================== -->
 
          <section class="form-section">
 
              <h2 class="form-section-title">
-                 Número de clientes
+                 Número de personas
              </h2>
 
              <div class="form-grid">
@@ -1548,65 +1631,6 @@ Camas Separadas
          </section>
 
 
-         <!-- =========================
-              TIPO DE GRUPO
-         ========================== -->
-
-         <section class="form-section">
-
-             <h2 class="form-section-title">
-                 Tipo de grupo
-             </h2>
-
-             <div class="form-group">
-
-                 <select
-                     id="tipoGrupo"
-                     name="tipoGrupo"
-                     required
-                 >
-
-                     <option value="">
-                         Selecciona el tipo de grupo
-                     </option>
-
- <option value="Turísticos">
-     Turísticos
- </option>
- <option value="Estudiantes">
-     Estudiantes
- </option>
- <option value="Deportivos">
-     Deportivos
- </option>
- <option value="Jubilados">
-     Jubilados
- </option>
- <option value="Empresas">
-     Empresas
- </option>
- <option value="Negocios">
-     Negocios
- </option>
- <option value="Profesionales">
-     Profesionales
- </option>
- <option value="Convenciones">
-     Convenciones
- </option>
- <option value="Música&Fiestas">
-     Música&Fiestas
- </option>
- <option value="Otros">
-     Otros
- </option>
-
-                 </select>
-
-             </div>
-
-         </section>
-
 
          <!-- =========================
               OBSERVACIONES
@@ -1904,6 +1928,16 @@ Camas Separadas
          });
 
 
+
+function formatearFecha(fecha) {
+    if (!fecha) return "";
+
+    const partes = fecha.split("-");
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+}
+
+
+
      /* =========================
         ENVIAR FORMULARIO
      ========================== */
@@ -2081,8 +2115,8 @@ const templateParams = {
     nombre_grupo: nombreGrupoLimpio,
     destino: destino,
     alojamiento: alojamiento,
-    entrada: entrada,
-    salida: salida,
+    entrada: formatearFecha(entrada),
+    salida: formatearFecha(salida),
     adultos: totales.adultos,
     ninos: totales.ninos,
     bebes: totales.bebes,
@@ -2113,7 +2147,14 @@ try {
         }
     );
 
-    alert("Solicitud enviada correctamente.");
+    const successPopup =
+    document.getElementById("successPopup");
+
+successPopup.style.display = "block";
+
+setTimeout(function() {
+    successPopup.style.display = "none";
+}, 1100);
 
 } catch (error) {
 
@@ -2207,6 +2248,11 @@ document.addEventListener("click", function(event) {
 
 
  </script>
+
+
+<div id="successPopup" class="success-popup">
+    Solicitud enviada correctamente.
+</div>
 
 
  </body>
