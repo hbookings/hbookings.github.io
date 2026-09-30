@@ -4154,6 +4154,21 @@ actualizarSummary();
                  obtenerValor("bebes") +
                  obtenerValor("cunas"),
 
+             individuales_pax:
+                 (parseInt(individuales, 10) || 0) * 1,
+
+             dobles_double_pax:
+                 (parseInt(doblesDouble, 10) || 0) * 2,
+
+             dobles_twin_pax:
+                 (parseInt(doblesTwin, 10) || 0) * 2,
+
+             triples_pax:
+                 (parseInt(triples, 10) || 0) * 3,
+
+             cuadruples_pax:
+                 (parseInt(cuadruples, 10) || 0) * 4,
+
              resumen_pax_ad:
                  obtenerValor("adultos") +
                  obtenerValor("familiarAdults") +
