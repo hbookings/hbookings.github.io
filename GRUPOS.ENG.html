@@ -3737,6 +3737,28 @@ actualizarSummary();
      }
 
 
+     function calcularDias(entrada, salida) {
+
+         if (!entrada || !salida) {
+             return 0;
+         }
+
+         const fechaEntrada =
+             new Date(entrada + "T00:00:00");
+
+         const fechaSalida =
+             new Date(salida + "T00:00:00");
+
+         return Math.max(
+             0,
+             Math.round(
+                 (fechaSalida - fechaEntrada) /
+                 (1000 * 60 * 60 * 24)
+             )
+         );
+     }
+
+
      /* =========================
         ENVIAR FORMULARIO
      ========================== */
@@ -3973,6 +3995,9 @@ actualizarSummary();
 
              salida:
                  formatearFecha(salida),
+
+             dias:
+                 calcularDias(entrada, salida),
 
              adultos:
                  totales.adultos,
