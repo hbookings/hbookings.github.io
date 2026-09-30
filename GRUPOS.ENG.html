@@ -4187,10 +4187,17 @@ actualizarSummary();
                  suiteAdults + suiteNinos + suiteBebes + suiteCunas,
 
              total_habs_standard:
-                 individuales + doblesDouble + doblesTwin + triples + cuadruples,
+                 (parseInt(individuales, 10) || 0) +
+                 (parseInt(doblesDouble, 10) || 0) +
+                 (parseInt(doblesTwin, 10) || 0) +
+                 (parseInt(triples, 10) || 0) +
+                 (parseInt(cuadruples, 10) || 0),
 
              total_habs_especiales:
-                 familiar + junior + superior + suite,
+                 (parseInt(familiar, 10) || 0) +
+                 (parseInt(junior, 10) || 0) +
+                 (parseInt(superior, 10) || 0) +
+                 (parseInt(suite, 10) || 0),
 
              total_habitaciones:
                  totales.totalHabitaciones,
