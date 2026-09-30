@@ -4064,6 +4064,66 @@ actualizarSummary();
              suiteCunas:
                  suiteCunas,
 
+             standard_ad: 
+                 obtenerValor("adultos"),
+
+             standard_ni: 
+                 obtenerValor("ninos"),
+
+             standard_bb: 
+                 obtenerValor("bebes"),
+
+             standard_bc: 
+                 obtenerValor("cunas"),
+
+             standard_pax_total: 
+                 obtenerValor("adultos") +
+                 obtenerValor("ninos") +
+                 obtenerValor("bebes") +
+                 obtenerValor("cunas"),
+
+             especial_ad: 
+                 obtenerValor("familiarAdults") +
+                 obtenerValor("juniorAdults") +
+                 obtenerValor("superiorAdults") +
+                 obtenerValor("suiteAdults"),
+
+             especial_ni: 
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos"),
+
+             especial_bb: 
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes"),
+
+             especial_bc: 
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas"),
+
+             especial_pax_total: 
+                 obtenerValor("familiarAdults") +
+                 obtenerValor("juniorAdults") +
+                 obtenerValor("superiorAdults") +
+                 obtenerValor("suiteAdults") +
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos") +
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes") +
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas"),
+
              total_habitaciones:
                  totales.totalHabitaciones,
 
