@@ -2176,7 +2176,7 @@
                     <div class="rooms-section-double-values">
 
                         <div>
-                            <span>Camera doppia Bed</span>
+                            <span>Letto matrimoniale</span>
                             <select
                                 id="doblesDouble"
                                 name="doblesDouble"
@@ -2184,7 +2184,7 @@
                         </div>
 
                         <div>
-                            <span>Due letti singoli</span>
+                            <span>Letti singoli</span>
                             <select
                                 id="doblesTwin"
                                 name="doblesTwin"
@@ -2435,12 +2435,12 @@
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">DOUBLE CAMERE<br>DOUBLE BED</span>
+            <span class="total-box-label">DOUBLE CAMERE<br>Letto matrimoniale</span>
             <span class="total-box-value" id="totalDoubleDouble"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">DOUBLE CAMERE<br>TWIN BEDS</span>
+            <span class="total-box-label">DOUBLE CAMERE<br>Letti singoli</span>
             <span class="total-box-value" id="totalDoubleTwin"></span>
         </div>
 
@@ -4201,7 +4201,7 @@ actualizarSummary();
              </div>
          `;
 
-         const mensaje_usuario_sin_ceros = mensaje_usuario.replace(/>0</g, "><");
+         const mensaje_usuario_sin_ceros = mensaje_usuario.replace(/>\s*0\s*</g, "><");
 
 
 

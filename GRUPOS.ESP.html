@@ -2435,12 +2435,12 @@
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">HABITACIONES DOBLES<br>CAMA DOBLE</span>
+            <span class="total-box-label">HABITACIONES DOBLES<br>Cama doble</span>
             <span class="total-box-value" id="totalDoubleDouble"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">HABITACIONES DOBLES<br>CAMAS INDIVIDUALES</span>
+            <span class="total-box-label">HABITACIONES DOBLES<br>Camas individuales</span>
             <span class="total-box-value" id="totalDoubleTwin"></span>
         </div>
 
@@ -4201,7 +4201,7 @@ actualizarSummary();
              </div>
          `;
 
-         const mensaje_usuario_sin_ceros = mensaje_usuario.replace(/>0</g, "><");
+         const mensaje_usuario_sin_ceros = mensaje_usuario.replace(/>\s*0\s*</g, "><");
 
 
 
