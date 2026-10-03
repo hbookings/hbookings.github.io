@@ -1812,44 +1812,34 @@
                      </label>
 
                      <select
-                         id="alojamiento"
-                         name="alojamiento"
-                         required
-                     >
+    id="alojamiento"
+    name="alojamiento"
+    required
+>
+    <option value="">
+        Select an option
+    </option>
 
-                         <option value="">
-                             Select an option
-                         </option>
+    <option value="Hotel">
+        Hotel
+    </option>
 
-                         <option value="Hotel">
-                             Hotel
-                         </option>
+    <option value="Hostel">
+        Hostel
+    </option>
 
-                         <option value="Apartments">
-                             Apartments
-                         </option>
+    <option value="Apartments">
+        Apartments
+    </option>
 
-                         <option value="Guesthouse">
-                             Guesthouse
-                         </option>
+    <option value="Resort">
+        Resort
+    </option>
 
-                         <option value="Bed & Breakfast">
-                             Bed & Breakfast
-                         </option>
-
-                         <option value="Hostel">
-                             Hostel
-                         </option>
-
-                         <option value="Resort">
-                             Resort
-                         </option>
-
-                         <option value="Other">
-                             Other
-                         </option>
-
-                     </select>
+    <option value="Other">
+        Other
+    </option>
+</select>
 
                  </div>
 
@@ -4051,7 +4041,7 @@ actualizarSummary();
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Children (aged 3 to 12):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Children (aged 3 to 12):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babies (aged 0 to 3):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Babies (aged 0 to 3):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babies + Cot:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Babies + Cot:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL GUESTS:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTAL GUESTS:</strong> ${totales.totalPax}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL GUESTS:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTAL GUESTS:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
                  </table>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NUMBER OF ROOMS</h3>
