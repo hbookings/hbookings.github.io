@@ -1825,7 +1825,7 @@
     </option>
 
     <option value="Hostel">
-        Auberge
+                Hostal
     </option>
 
     <option value="Apartments">
@@ -4201,12 +4201,15 @@ actualizarSummary();
              </div>
          `;
 
+         const mensaje_usuario_sin_ceros = mensaje_usuario.replace(/>0</g, "><");
+
+
 
          const templateParams = {
 
              asunto_usuario: asunto_usuario,
 
-             mensaje_usuario: mensaje_usuario,
+             mensaje_usuario: mensaje_usuario_sin_ceros,
 
              nombre: nombre,
              empresa: empresa || "No indicado",
@@ -4553,6 +4556,13 @@ actualizarSummary();
                  observaciones || "Ninguna"
 
          };
+
+
+         Object.keys(templateParams).forEach(function(key) {
+             if (templateParams[key] === 0 || templateParams[key] === "0") {
+                 templateParams[key] = "";
+             }
+         });
 
 
          /* =========================
