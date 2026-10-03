@@ -1,0 +1,4735 @@
+ <!DOCTYPE html>
+
+ <html lang="de-DE">
+ <head>
+
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Gruppenreservierung | Hotelreservierungen</title>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link
+     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+     rel="stylesheet"
+ >
+
+<style>
+
+    /* =========================
+       ESTILOS GENERALES
+    ========================= */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: #f5f7fa;
+        color: #333333;
+    }
+
+    a {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
+
+    .navbar {
+        width: 100%;
+        background-color: #15438B;
+    }
+
+    .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        padding: 8px 0;
+    }
+
+    .nav-logo img {
+        display: block;
+        width: 230px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-item > a {
+        display: block;
+        padding: 17px 15px;
+
+        color: #ffffff;
+        background-color: #15438B;
+
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+
+        white-space: nowrap;
+    }
+
+    .nav-item > a:hover {
+        background-color: #1d4f9b;
+    }
+
+
+    /* =========================
+       MENÚS DESPLEGABLES
+    ========================= */
+
+    /* Escritorio */
+
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        min-width: 220px;
+
+        background-color: #ffffff;
+
+        border-radius: 0 0 5px 5px;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+        display: none;
+
+        z-index: 1000;
+    }
+
+    .nav-item:hover > .dropdown {
+        display: block;
+    }
+
+    .dropdown a {
+        display: block;
+
+        padding: 11px 15px;
+
+        color: #333333;
+        background-color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 400;
+
+        white-space: nowrap;
+    }
+
+    .dropdown a:hover {
+        color: #ffffff;
+        background-color: #666666;
+    }
+
+
+    /* =========================
+       CONTENIDO
+    ========================= */
+
+    .page-container {
+        max-width: 1050px;
+        margin: 40px auto;
+        padding: 0 18px;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .page-header h1 {
+        margin-bottom: 10px;
+
+        color: #15438B;
+
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .page-header p {
+        color: #666666;
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       FORMULARIO
+    ========================= */
+
+    .group-form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+
+    /* =========================
+       SECCIONES
+    ========================= */
+
+    .form-section {
+        margin-bottom: 30px;
+    }
+
+    .form-section:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .form-section-title {
+        margin-bottom: 18px;
+        padding-bottom: 9px;
+
+        color: #15438B;
+
+        border-bottom: 2px solid #15438B;
+
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+
+    /* =========================
+       GRID
+    ========================= */
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+
+
+    /* =========================
+       ETIQUETAS
+    ========================= */
+
+    .form-group label {
+        margin-bottom: 7px;
+
+        color: #333333;
+
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .required {
+        color: #d35400;
+    }
+
+
+    /* =========================
+       INPUTS
+    ========================= */
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 13px;
+
+        background-color: #ffffff;
+        color: #333333;
+
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+
+        font-size: 14px;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+
+        border-color: #15438B;
+
+        box-shadow:
+            0 0 0 2px rgba(21, 67, 139, 0.12);
+    }
+
+    .form-group textarea {
+        min-height: 140px;
+        resize: vertical;
+    }
+
+
+    /* =========================
+       FECHAS
+    ========================= */
+
+    .date-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+
+    /* =========================
+       GESAMTSUMMEN DE PASAJEROS
+    ========================= */
+
+    .pax-totals {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+
+        margin-top: 20px;
+    }
+
+    .pax-totals .total-box {
+        background-color: #eef4fb;
+
+        border: 1px solid #cbdcf1;
+        border-radius: 5px;
+
+        text-align: center;
+    }
+
+    .pax-totals .total-box-label {
+        display: block;
+
+        min-height: 25px;
+        margin-bottom: 5px;
+
+        color: #15438B;
+
+        font-size: 13px;
+        font-weight: 500;
+
+        line-height: 1.2;
+    }
+
+    .pax-totals .total-box-value {
+        display: block;
+
+        color: #15438B;
+
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+
+    /* GESAMT GÄSTE */
+
+    .pax-totals .total-box-final {
+        background-color: #15438B;
+        border: 1px solid #15438B;
+    }
+
+    .pax-totals .total-box-final .total-box-label {
+        color: #ffffff;
+    }
+
+    .pax-totals .total-box-final .total-box-value {
+        color: #ffffff;
+        background-color: transparent;
+    }
+
+
+    /* =========================
+   ZIMMER
+========================= */
+
+.rooms-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.rooms-section-column {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.rooms-section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+    padding: 8px 10px;
+
+    background-color: #15438B;
+    color: #ffffff;
+
+    text-align: center;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.rooms-section-subtitle {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.rooms-section-table {
+    width: 100%;
+    flex: 1;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rooms-section-row {
+    display: grid;
+    grid-template-columns: 45% 55%;
+
+    min-height: 46px;
+
+    border-bottom: 1px solid #cccccc;
+}
+ .rooms-section-row:last-child {
+    border-bottom: none;
+}
+
+/* TABLA ESPECIALES: misma altura exterior que su tabla homóloga,
+   pero con filas internas independientes y uniformes. */
+.special-rooms-table {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Las 4 filas de tipos ocupan uniformemente todo el espacio
+   disponible hasta la fila GESAMT. */
+.special-room-row {
+    flex: 1 1 0;
+    height: auto;
+    min-height: 46px;
+    max-height: none;
+    box-sizing: border-box;
+}
+
+/* FILA GESAMT ESPECIALES: misma altura que GESAMT STANDARD,
+   sin que el contenido interno pueda hacerla crecer. */
+.special-rooms-table > .special-room-total-row {
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    overflow: hidden !important;
+    flex: 0 0 46px !important;
+}
+
+.rooms-section-label {
+    display: flex;
+    align-items: center;
+
+    padding: 7px 10px;
+
+    border-right: 1px solid #cccccc;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.rooms-section-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 10px;
+}
+
+.rooms-section-value select {
+    width: 100%;
+
+    padding: 8px 10px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+
+    font-size: 13px;
+}
+
+.special-room-value {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    align-items: stretch;
+    padding: 0;
+}
+
+.special-room-quantity,
+.special-room-pax,
+.special-room-total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.special-room-quantity,
+.special-room-pax {
+    border-right: 1px solid #cccccc;
+}
+
+.special-room-quantity {
+    flex-direction: column;
+    gap: 1px;
+}
+
+.special-room-quantity-label {
+    font-size: 8px;
+    line-height: 1;
+    text-align: center;
+    font-weight: 700;
+}
+
+.special-room-quantity select {
+    width: 100%;
+    padding: 2px 3px;
+    font-size: 11px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 0.75px solid #cccccc;
+    border-radius: 4px;
+}
+
+.special-room-pax {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.special-room-pax > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 0;
+}
+
+.special-room-pax span {
+    font-size: 8px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.special-room-pax select {
+    width: 100%;
+    min-width: 100%;
+    padding: 2px 2px;
+    font-size: 10px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 0.75px solid #cccccc;
+    border-radius: 4px;
+}
+
+/* Misma anchura visual que las cajas de cantidad ZIMMER */
+.special-room-pax > div {
+    padding: 0;
+}
+
+.special-room-pax select {
+    width: calc(100% + 3px);
+    min-width: calc(100% + 3px);
+}
+
+.special-room-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #15438B;
+}
+
+.special-room-total-label {
+    font-size: 8px;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.rooms-section-table > .rooms-section-row:last-child {
+    height: 46px;
+    min-height: 46px;
+    max-height: 46px;
+    box-sizing: border-box;
+}
+
+.special-room-total-row {
+    display: block !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}
+
+.special-room-total-row .special-room-total-summary {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: 100%;
+}
+
+.special-room-total-summary > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    height: 46px !important;
+    max-height: 46px !important;
+    box-sizing: border-box;
+    padding: 3px 4px;
+    border-right: 1px solid #cccccc;
+}
+
+.special-room-total-summary > div:last-child {
+    border-right: none;
+}
+
+.special-room-total-summary span:first-child {
+    font-size: 8px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.special-room-total-summary span:last-child {
+    margin-top: 3px;
+    color: #15438B;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.rooms-section-double-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.rooms-section-double-values > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+    padding: 6px;
+
+    text-align: center;
+}
+
+.rooms-section-double-values > div + div {
+    border-left: 1px solid #cccccc;
+}
+
+.rooms-section-double-values span {
+    font-size: 9px;
+    line-height: 1.2;
+}
+
+.rooms-section-double-values select {
+    width: 100%;
+
+    padding: 7px 6px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+
+    font-size: 12px;
+}
+
+
+    /* =========================
+       GESAMTSUMMEN DE ZIMMER
+    ========================= */
+
+    .rooms-totals {
+        display: grid;
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+        gap: 6px;
+
+        margin-top: 20px;
+    }
+
+    .rooms-totals .total-box {
+        background-color: #eef4fb;
+
+        border: 1px solid #cbdcf1;
+        border-radius: 5px;
+
+        text-align: center;
+    }
+
+    .rooms-totals .total-box-label {
+        display: block;
+
+        min-height: 25px;
+        margin-bottom: 4px;
+
+        color: #15438B;
+
+        font-size: 10px;
+        font-weight: 500;
+
+        line-height: 1.15;
+    }
+
+    .rooms-totals .total-box-value {
+        display: block;
+
+        color: #15438B;
+
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+
+    /* GESAMT ZIMMER */
+
+    .rooms-totals .total-box-final {
+        background-color: #15438B;
+        border: 1px solid #15438B;
+    }
+
+    .rooms-totals .total-box-final .total-box-label {
+        color: #ffffff;
+    }
+
+    .rooms-totals .total-box-final .total-box-value {
+        color: #ffffff;
+        background-color: transparent;
+    }
+
+
+    /* =========================
+       CONFIGURACIÓN COMÚN
+       GESAMTSUMMEN GÄSTE + ZIMMER
+    ========================= */
+
+    .pax-totals .total-box,
+    .rooms-totals .total-box {
+        height: 80px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* =========================
+       GESAMTSUMMEN FINALES
+    ========================= */
+
+    .final-totals-box {
+        width: 100%;
+        max-width: 390px;
+        margin: 15px auto 0;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .final-totals-title {
+        padding: 7px 10px;
+        background-color: #15438B;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .final-totals-head,
+    .final-totals-values {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .final-totals-head > div {
+        padding: 5px 8px;
+        color: #15438B;
+        font-size: 10px;
+        font-weight: 600;
+        border-bottom: 1px solid #cccccc;
+    }
+
+    .final-totals-head > div + div,
+    .final-totals-values > div + div {
+        border-left: 1px solid #cccccc;
+    }
+
+    .final-totals-values > div {
+        padding: 7px 8px;
+        color: #15438B;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    /* =========================
+       MENSAJES
+    ========================= */
+
+    .result-message {
+        display: none;
+
+        margin-top: 25px;
+        padding: 18px;
+
+        background-color: #eaf7ed;
+        color: #246b35;
+
+        border: 1px solid #b9dfc2;
+        border-radius: 5px;
+
+        font-size: 14px;
+    }
+
+    .result-message.show {
+        display: block;
+    }
+
+    .error-message {
+        display: none;
+
+        margin-top: 10px;
+        padding: 10px 12px;
+
+        background-color: #fff0f0;
+        color: #b3261e;
+
+        border: 1px solid #f0b5b5;
+        border-radius: 4px;
+
+        font-size: 13px;
+    }
+
+    .error-message.show {
+        display: block;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        margin-top: 50px;
+        padding: 30px 20px;
+
+        background-color: #15438B;
+        color: #ffffff;
+
+        text-align: center;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        margin-bottom: 15px;
+    }
+
+    .footer-links a {
+        display: block;
+        padding: 10px 15px;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    footer p {
+        color: #ffffff;
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 900px) {
+
+        .nav-container {
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            padding: 10px 15px;
+        }
+
+        .nav-menu {
+            flex-wrap: wrap;
+        }
+
+        .pax-totals,
+        .rooms-totals {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+    }
+
+
+    /* =========================
+       MÓVIL
+    ========================= */
+
+    @media (max-width: 700px) {
+
+        .nav-container {
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px 0 0;
+        }
+
+        .nav-logo {
+            justify-content: center;
+            padding: 5px 15px 10px;
+        }
+
+        .nav-logo img {
+            width: 210px;
+        }
+
+        .nav-menu {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .nav-item {
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav-item > a {
+            width: 100%;
+            text-align: center;
+        }
+
+
+        /* =========================
+           DESPLEGABLES EN MÓVIL
+        ========================= */
+
+        .dropdown {
+            position: static;
+
+            width: 100%;
+            min-width: 0;
+
+            border-radius: 0;
+
+            box-shadow: none;
+        }
+
+        /* En móvil se controla mediante JavaScript */
+
+        .nav-item:hover > .dropdown {
+            display: none;
+        }
+
+        .nav-item.dropdown-open > .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            text-align: center;
+            white-space: normal;
+        }
+
+
+        /* =========================
+           CONTENIDO MÓVIL
+        ========================= */
+
+        .page-container {
+            margin: 30px auto;
+            padding: 0 12px;
+        }
+
+        .page-header h1 {
+            font-size: 25px;
+        }
+
+        .group-form {
+            padding: 22px 18px;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full-width {
+            grid-column: auto;
+        }
+
+        .date-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .pax-totals,
+        .rooms-totals {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+
+    /* =========================
+       MÓVILES PEQUEÑOS
+    ========================= */
+
+    @media (max-width: 400px) {
+
+        .group-form {
+            padding: 18px 14px;
+        }
+
+        .form-section-title {
+            font-size: 18px;
+        }
+
+        .pax-totals,
+        .rooms-totals {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+
+    /* =========================
+       POPUP DE ÉXITO
+    ========================= */
+
+    .success-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background: #ffffff;
+
+        border: 2px solid #15438B;
+
+        padding: 70px 110px;
+
+        border-radius: 6px;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+
+        color: #28a745;
+
+        font-size: 22px;
+        font-weight: 600;
+
+        text-align: center;
+
+        z-index: 9999;
+    }
+
+
+    /* =========================
+       PERSONAS
+    ========================= */
+
+    .persons-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .persons-section-column {
+        min-width: 0;
+    }
+
+    .persons-section-title {
+        margin-bottom: 10px;
+        padding: 8px 10px;
+
+        background-color: #15438B;
+        color: #ffffff;
+
+        text-align: center;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        border-radius: 4px;
+    }
+
+    .persons-section-table {
+        width: 100%;
+
+        background-color: #ffffff;
+
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+
+        overflow: hidden;
+    }
+
+    .persons-section-row {
+        display: grid;
+        grid-template-columns: 55% 45%;
+
+        min-height: 42px;
+
+        border-bottom: 1px solid #cccccc;
+    }
+
+    .persons-section-row:last-child {
+        border-bottom: none;
+    }
+
+    .persons-section-label {
+        display: flex;
+        align-items: center;
+
+        padding: 7px 10px;
+
+        font-size: 12px;
+        font-weight: 500;
+
+        border-right: 1px solid #cccccc;
+    }
+
+    .persons-section-value {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 7px 10px;
+
+        color: #15438B;
+
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .persons-section-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .persons-section-subtitle {
+        font-size: 9px;
+        font-weight: 400;
+        line-height: 1.2;
+        font-style: normal;
+    }
+
+    .persons-section-value select {
+        width: 100%;
+
+        padding: 7px 10px;
+
+        background-color: #ffffff;
+        color: #333333;
+
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+
+        font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+
+        .persons-section {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+
+    /* =========================
+       BOTONES
+    ========================= */
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+
+        margin-top: 35px;
+        padding-top: 25px;
+
+        border-top: 1px solid #dddddd;
+    }
+
+    .btn {
+        padding: 13px 30px;
+
+        border: none;
+        border-radius: 4px;
+
+        font-size: 14px;
+        font-weight: 500;
+
+        cursor: pointer;
+        text-decoration: none;
+
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-primary {
+        background-color: #e67e22;
+        color: #ffffff;
+    }
+
+    .btn-primary:hover {
+        background-color: #cf6d17;
+    }
+
+    .btn-secondary {
+        background-color: #15438B;
+        color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+        background-color: #1d4f9b;
+    }
+
+
+
+    /* =========================
+       RESUMEN
+    ========================== */
+
+    .summary-section {
+        margin-top: 24px;
+    }
+
+    .summary-table-wrap {
+        width: 100%;
+        overflow-x: hidden;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+
+    .summary-table {
+        width: 100%;
+        min-width: 0;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    .summary-table th,
+    .summary-table td {
+        border: 1px solid #cccccc;
+        padding: 4px 3px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 9px;
+    }
+
+    .summary-table thead th {
+        color: #15438B;
+        font-weight: 600;
+        background-color: #ffffff;
+    }
+
+    .summary-table .summary-main-head {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+
+    .summary-table .summary-sub-head {
+        font-size: 9px;
+        font-weight: 500;
+    }
+
+    .summary-table .summary-total td {
+        color: #15438B;
+        font-weight: 600;
+        background-color: #ffffff;
+    }
+
+    .summary-table .summary-value {
+        color: #15438B;
+        font-weight: 600;
+    }
+
+    .summary-table .summary-check {
+        font-weight: 600;
+    }
+
+    .summary-table .summary-ok {
+        color: #15438B;
+    }
+
+    .summary-table .summary-warning {
+        color: #9a6700;
+    }
+
+    .summary-check-row td {
+        border-top: none;
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .summary-table .summary-standard-edge {
+        border-right: 3px solid #000000 !important;
+        font-weight: 700 !important;
+    }
+
+.summary-table .summary-special-bold {
+    font-weight: 700 !important;
+}
+
+.summary-check-message {
+    display: none;
+    width: 100%;
+    margin-top: 6px;
+    color: #c00000;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.summary-check-message.show {
+    display: block;
+    animation: summaryBlink 0.9s step-start infinite;
+}
+
+.summary-table .summary-check-error {
+    color: #c00000 !important;
+    font-weight: 700 !important;
+    animation: summaryBlink 0.9s step-start infinite;
+}
+
+@keyframes summaryBlink {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+ </head>
+
+ <body>
+
+
+ <!-- =========================
+     NAVEGACIÓN + LOGO
+========================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+
+        <a
+            class="nav-logo"
+            href="index.html"
+            aria-label="Hotelreservierungen - Home"
+        >
+            <img
+                src="images/hb.png"
+                alt="Hotelreservierungen"
+            >
+        </a>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <div class="nav-menu">
+
+
+            <!-- ALOJAMIENTO Y VUELOS -->
+
+            <div class="nav-item">
+
+                <a href="#">
+                    Unterkünfte & Flüge
+                </a>
+
+            </div>
+
+
+            <!-- VISITA ESPAÑA -->
+
+            <div class="nav-item">
+
+                <a href="#" aria-haspopup="true">
+                    Spanien besuchen ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="#">Madrid</a>
+                    <a href="#">Barcelona</a>
+                    <a href="#">Valencia</a>
+                    <a href="#">Palma de Mallorca</a>
+                    <a href="#">Alicante</a>
+                    <a href="#">Córdoba</a>
+                    <a href="#">Granada</a>
+                    <a href="#">Santiago de Compostela</a>
+                    <a href="#">Benidorm</a>
+                    <a href="#">Segovia</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISITA COSTA BRAVA -->
+
+            <div class="nav-item">
+
+                <a href="#" aria-haspopup="true">
+                    Costa Brava besuchen ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="#">Blanes</a>
+                    <a href="#">Lloret de Mar</a>
+                    <a href="#">Palafrugell</a>
+                    <a href="#">Sant Feliu de Guíxols</a>
+                    <a href="#">Roses</a>
+                    <a href="#">Platja d'Aro</a>
+                    <a href="#">L'Escala</a>
+                    <a href="#">Tossa de Mar</a>
+                    <a href="#">Cadaqués</a>
+                    <a href="#">Begur</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESERVA DE GRUPOS -->
+
+            <div class="nav-item">
+
+                <a href="reservas-grupos.html">
+                    Gruppenreservierung
+                </a>
+
+            </div>
+
+
+            <!-- IDIOMAS -->
+
+            <div class="nav-item">
+
+                <a href="#" aria-haspopup="true">
+                    Sprachen ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('es'); return false;"
+                    >
+                        Spanish
+                    </a>
+
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('en'); return false;"
+                    >
+                        English
+                    </a>
+
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('fr'); return false;"
+                    >
+                        French
+                    </a>
+
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('de'); return false;"
+                    >
+                        German
+                    </a>
+
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('it'); return false;"
+                    >
+                        Italian
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+ <!-- =========================
+      CONTENIDO
+ ========================== -->
+
+ <main class="page-container">
+
+     <div class="page-header">
+
+         <h1>
+             Gruppenreservierung
+         </h1>
+
+         <p>
+             Bitte füllen Sie das folgende Formular aus.
+         </p>
+
+     </div>
+
+
+     <!-- =========================
+          FORMULARIO
+     ========================== -->
+
+     <form
+         class="group-form"
+         id="groupForm"
+         onsubmit="enviarFormulario(event)"
+     >
+
+
+         <!-- =========================
+              DATOS DE CONTACTO
+         ========================== -->
+
+         <section class="form-section">
+
+             <h2 class="form-section-title">
+                 Contact details
+             </h2>
+
+             <div class="form-grid">
+
+                 <div class="form-group">
+
+                     <label for="nombre">
+                         Full name <span class="required">*</span>
+                     </label>
+
+                     <input
+                         type="text"
+                         id="nombre"
+                         name="nombre"
+                         required
+                     >
+
+                 </div>
+
+
+                 <div class="form-group">
+
+                     <label for="empresa">
+                         Company / Travel Agency
+                     </label>
+
+                     <input
+                         type="text"
+                         id="empresa"
+                         name="empresa"
+                     >
+
+                 </div>
+
+
+                 <div class="form-group">
+
+                     <label for="email">
+                         Email <span class="required">*</span>
+                     </label>
+
+                     <input
+                         type="email"
+                         id="email"
+                         name="email"
+                         required
+                     >
+
+                 </div>
+
+
+                 <div class="form-group">
+
+                     <label for="telefono">
+                         Telephone <span class="required">*</span>
+                     </label>
+
+                     <input
+                         type="tel"
+                         id="telefono"
+                         name="telefono"
+                         required
+                     >
+
+                 </div>
+
+             </div>
+
+         </section>
+
+
+         <!-- =========================
+              NOMBRE DE GRUPO
+         ========================== -->
+
+         <section class="form-section">
+
+             <h2 class="form-section-title">
+                 Group Name
+             </h2>
+
+             <div class="form-grid">
+
+                 <div class="form-group">
+
+                     <label for="nombre_grupo">
+                         Group Name <span class="required">*</span>
+                     </label>
+
+                     <input
+                         type="text"
+                         id="nombre_grupo"
+                         name="nombre_grupo"
+                         required
+                     >
+
+                 </div>
+
+             </div>
+
+         </section>
+
+
+     <!-- =========================
+              TYPE DE GRUPO
+         ========================== -->
+
+         <section class="form-section">
+
+             <h2 class="form-section-title">
+                 Group Type
+             </h2>
+
+             <div class="form-group">
+
+                 <select
+                     id="tipoGrupo"
+                     name="tipoGrupo"
+                     required
+                 >
+
+                     <option value="">
+                         Select group type
+                     </option>
+
+ <option value="Tourist">
+     Tourist
+ </option>
+ <option value="Students">
+     Students
+ </option>
+ <option value="Sports">
+     Sports
+ </option>
+ <option value="Senior Citizens">
+     Senior Citizens
+ </option>
+ <option value="Corporate">
+     Corporate
+ </option>
+ <option value="Business">
+     Business
+ </option>
+ <option value="Professional">
+     Professional
+ </option>
+ <option value="Conferences">
+     Conferences
+ </option>
+ <option value="Music & Parties">
+     Music & Parties
+ </option>
+ <option value="Other">
+     Other
+ </option>
+
+                 </select>
+
+             </div>
+
+         </section>
+
+
+
+
+         <!-- =========================
+              DESTINO Y ALOJAMIENTO
+         ========================== -->
+
+         <section class="form-section">
+
+             <h2 class="form-section-title">
+                 Reiseziel & accommodation
+             </h2>
+
+             <div class="form-grid">
+
+                 <div class="form-group">
+
+                     <label for="destino">
+                         Reiseziel <span class="required">*</span>
+                     </label>
+
+                     <input
+                         type="text"
+                         id="destino"
+                         name="destino"
+                         placeholder="City or destination"
+                         required
+                     >
+
+                 </div>
+
+
+                 <div class="form-group">
+
+                     <label for="alojamiento">
+                         Unterkunft <span class="required">*</span>
+                     </label>
+
+                     <select
+    id="alojamiento"
+    name="alojamiento"
+    required
+>
+    <option value="">
+        Select an option
+    </option>
+
+    <option value="Hotel">
+        Hotel
+    </option>
+
+    <option value="Hostel">
+        Hostel
+    </option>
+
+    <option value="Apartments">
+        Apartments
+    </option>
+
+    <option value="Resort">
+        Resort
+    </option>
+
+    <option value="Other">
+        Other
+    </option>
+</select>
+
+                 </div>
+
+
+                 <div class="form-group full-width">
+
+                     <label>
+                         Anreise / Abreise Dates
+                         <span class="required">*</span>
+                     </label>
+
+                     <div class="date-grid">
+
+                         <div>
+
+                             <label for="entrada">
+                                 Anreise
+                             </label>
+
+                             <input
+                                 type="date"
+                                 id="entrada"
+                                 name="entrada"
+                                 required
+                             >
+
+                         </div>
+
+
+                         <div>
+
+                             <label for="salida">
+                                 Abreise
+                             </label>
+
+                             <input
+                                 type="date"
+                                 id="salida"
+                                 name="salida"
+                                 required
+                             >
+
+                         </div>
+
+                     </div>
+
+                     <div
+                         class="error-message"
+                         id="dateError"
+                     >
+                         The check-out date must be after the check-in date.
+                     </div>
+
+                 </div>
+
+
+                 <div class="form-group full-width">
+
+                     <label for="regimen">
+                         Board basis <span class="required">*</span>
+                     </label>
+
+                     <select
+                         id="regimen"
+                         name="regimen"
+                         required
+                     >
+
+                         <option value="">
+                             Select board basis
+                         </option>
+
+                         <option value="Room Only">
+                             Room Only
+                         </option>
+
+                         <option value="Bed & Breakfast">
+                             Bed & Breakfast
+                         </option>
+
+                         <option value="Half Board">
+                             Half Board
+                         </option>
+
+                         <option value="Full Board">
+                             Full Board
+                         </option>
+
+                         <option value="All Inclusive">
+                             All Inclusive
+                         </option>
+
+                     </select>
+
+                 </div>
+
+             </div>
+
+         </section>
+
+
+         <!-- =========================
+              PERSONAS
+         ========================== -->
+
+         <section class="form-section">
+
+             <h2 class="form-section-title">
+                 Number of guests
+             </h2>
+
+             <div class="persons-section">
+
+                 <!-- ZIMMER STANDARD -->
+
+                 <div class="persons-section-column">
+
+                     <h3 class="persons-section-title">
+                         <span>NO. OF GÄSTE IN STANDARDZIMMER</span>
+                         <span class="persons-section-subtitle">
+                             (Einzelzimmer, Doppelzimmer, Dreibettzimmer, Vierbettzimmer)
+                         </span>
+                     </h3>
+
+                     <div class="persons-section-table">
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Erwachsene
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="adultos" name="adultos"></select>
+                             </div>
+                         </div>
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Kinder (aged 3 to 12)
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="ninos" name="ninos"></select>
+                             </div>
+                         </div>
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Babys (aged 0 to 3)
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="bebes" name="bebes"></select>
+                             </div>
+                         </div>
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Babys requiring a cot
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="cunas" name="cunas"></select>
+                             </div>
+                         </div>
+
+
+<div class="persons-section-row">
+    <div class="persons-section-label">
+        GESAMT GÄSTE
+    </div>
+    <div class="persons-section-value">
+        <span id="totalPaxStandard">0</span>
+    </div>
+</div>
+
+
+
+                     </div>
+
+                 </div>
+
+
+                 <!-- ZIMMER ESPECIALES -->
+
+                 <div class="persons-section-column">
+
+                     <h3 class="persons-section-title">
+                         <span>NO. OF GÄSTE IN SONDERZIMMER</span>
+                         <span class="persons-section-subtitle">
+                             (Familienzimmer, Junior, Superior-Zimmer, Suite)
+                         </span>
+                     </h3>
+
+                     <div class="persons-section-table">
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Erwachsene
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="familiarErwachsene" name="familiarErwachsene"></select>
+                             </div>
+                         </div>
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Kinder (aged 3 to 12)
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="familiarNinos" name="familiarNinos"></select>
+                             </div>
+                         </div>
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Babys (aged 0 to 3)
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="familiarBebes" name="familiarBebes"></select>
+                             </div>
+                         </div>
+
+                         <div class="persons-section-row">
+                             <div class="persons-section-label">
+                                 Babys requiring a cot
+                             </div>
+                             <div class="persons-section-value">
+                                 <select id="familiarCunas" name="familiarCunas"></select>
+                             </div>
+                         </div>
+
+<div class="persons-section-row">
+    <div class="persons-section-label">
+        GESAMT GÄSTE
+    </div>
+    <div class="persons-section-value">
+        <span id="totalPaxEspeciales">0</span>
+    </div>
+</div>
+
+
+                     </div>
+
+                 </div>
+
+             </div>
+
+
+             <!-- =========================
+                  GESAMTSUMMEN
+             ========================== -->
+
+             <div class="pax-totals">
+
+                 <div class="total-box">
+                     <span class="total-box-label">GESAMT ERWACHSENE</span>
+                     <span class="total-box-value" id="totalErwachsene">0</span>
+                 </div>
+
+                 <div class="total-box">
+                     <span class="total-box-label">GESAMT KINDER</span>
+                     <span class="total-box-value" id="totalNinos">0</span>
+                 </div>
+
+                 <div class="total-box">
+                     <span class="total-box-label">GESAMT BABYS</span>
+                     <span class="total-box-value" id="totalBebes">0</span>
+                 </div>
+
+                 <div class="total-box">
+                     <span class="total-box-label">BABYS WITH COT</span>
+                     <span class="total-box-value" id="totalCunas">0</span>
+                 </div>
+
+                 <div class="total-box total-box-final">
+                     <span class="total-box-label">GESAMT GÄSTE</span>
+                     <span class="total-box-value" id="totalPax">0</span>
+                 </div>
+
+             </div>
+
+
+             <div
+                 class="error-message"
+                 id="paxError"
+             >
+                 There must be at least 1 guest.
+             </div>
+
+         </section>
+
+
+         <!-- =========================
+     ZIMMER
+========================== -->
+
+<section class="form-section">
+
+    <h2 class="form-section-title">
+        Number of rooms
+    </h2>
+
+    <div class="rooms-section">
+
+        <!-- ZIMMER STANDARD -->
+
+        <div class="rooms-section-column">
+
+            <h3 class="rooms-section-title">
+                <span>NO. OF STANDARDZIMMER</span>
+                <span class="rooms-section-subtitle">
+                    (Einzelzimmer, Doppelzimmer, Dreibettzimmer, Vierbettzimmer)
+                </span>
+            </h3>
+
+            <div class="rooms-section-table">
+
+                <div class="rooms-section-row">
+                    <div class="rooms-section-label">
+                        Einzelzimmer
+                    </div>
+                    <div class="rooms-section-value">
+                        <select
+                            id="individuales"
+                            name="individuales"
+                        ></select>
+                    </div>
+                </div>
+
+
+                <div class="rooms-section-row rooms-section-double">
+
+                    <div class="rooms-section-label">
+                        Doppelzimmer
+                    </div>
+
+                    <div class="rooms-section-double-values">
+
+                        <div>
+                            <span>Doppelzimmer Bed</span>
+                            <select
+                                id="doblesDoppelzimmer"
+                                name="doblesDoppelzimmer"
+                            ></select>
+                        </div>
+
+                        <div>
+                            <span>Zwei Einzelbetten</span>
+                            <select
+                                id="doblesTwin"
+                                name="doblesTwin"
+                            ></select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="rooms-section-row">
+                    <div class="rooms-section-label">
+                        Dreibettzimmer
+                    </div>
+                    <div class="rooms-section-value">
+                        <select
+                            id="triples"
+                            name="triples"
+                        ></select>
+                    </div>
+                </div>
+
+
+                <div class="rooms-section-row">
+                    <div class="rooms-section-label">
+                        Vierbettzimmer
+                    </div>
+                    <div class="rooms-section-value">
+                        <select
+                            id="cuadruples"
+                            name="cuadruples"
+                        ></select>
+                    </div>
+                </div>
+
+
+                <!-- GESAMT STANDARD -->
+
+                <div class="rooms-section-row">
+                    <div class="rooms-section-label">
+                        GESAMT ZIMMER
+                    </div>
+                    <div class="rooms-section-value">
+                        <span id="totalHabitacionesStandardTabla">0</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ZIMMER ESPECIALES -->
+
+        <div class="rooms-section-column">
+
+            <h3 class="rooms-section-title">
+                <span>NO. OF SONDERZIMMER</span>
+                <span class="rooms-section-subtitle">
+                    (Familienzimmer, Junior, Superior-Zimmer, Suite)
+                </span>
+            </h3>
+
+            <div class="rooms-section-table special-rooms-table">
+
+                <div class="rooms-section-row special-room-row">
+                    <div class="rooms-section-label">
+                        Familienzimmer
+                    </div>
+                    <div class="special-room-value">
+                        <div class="special-room-quantity">
+                            <span class="special-room-quantity-label">ZIMMER</span>
+                            <select id="familiar" name="familiar"></select>
+                        </div>
+                        <div class="special-room-pax">
+                            <div>
+                                <span>AD</span>
+                                <select id="familiarHabitacionErwachsene" name="familiarHabitacionErwachsene"></select>
+                            </div>
+                            <div>
+                                <span>CH</span>
+                                <select id="familiarHabitacionNinos" name="familiarHabitacionNinos"></select>
+                            </div>
+                            <div>
+                                <span>BB</span>
+                                <select id="familiarHabitacionBebes" name="familiarHabitacionBebes"></select>
+                            </div>
+                            <div>
+                                <span>B+C</span>
+                                <select id="familiarHabitacionCunas" name="familiarHabitacionCunas"></select>
+                            </div>
+                        </div>
+                        <div class="special-room-total">
+                            <span class="special-room-total-label">GÄSTE</span>
+                            <span id="totalPaxFamiliarHabitacion">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rooms-section-row special-room-row">
+                    <div class="rooms-section-label">
+                        Junior
+                    </div>
+                    <div class="special-room-value">
+                        <div class="special-room-quantity">
+                            <span class="special-room-quantity-label">ZIMMER</span>
+                            <select id="junior" name="junior"></select>
+                        </div>
+                        <div class="special-room-pax">
+                            <div>
+                                <span>AD</span>
+                                <select id="juniorHabitacionErwachsene" name="juniorHabitacionErwachsene"></select>
+                            </div>
+                            <div>
+                                <span>CH</span>
+                                <select id="juniorHabitacionNinos" name="juniorHabitacionNinos"></select>
+                            </div>
+                            <div>
+                                <span>BB</span>
+                                <select id="juniorHabitacionBebes" name="juniorHabitacionBebes"></select>
+                            </div>
+                            <div>
+                                <span>B+C</span>
+                                <select id="juniorHabitacionCunas" name="juniorHabitacionCunas"></select>
+                            </div>
+                        </div>
+                        <div class="special-room-total">
+                            <span class="special-room-total-label">GÄSTE</span>
+                            <span id="totalPaxJuniorHabitacion">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rooms-section-row special-room-row">
+                    <div class="rooms-section-label">
+                        Superior-Zimmer
+                    </div>
+                    <div class="special-room-value">
+                        <div class="special-room-quantity">
+                            <span class="special-room-quantity-label">ZIMMER</span>
+                            <select id="superior" name="superior"></select>
+                        </div>
+                        <div class="special-room-pax">
+                            <div>
+                                <span>AD</span>
+                                <select id="superiorHabitacionErwachsene" name="superiorHabitacionErwachsene"></select>
+                            </div>
+                            <div>
+                                <span>CH</span>
+                                <select id="superiorHabitacionNinos" name="superiorHabitacionNinos"></select>
+                            </div>
+                            <div>
+                                <span>BB</span>
+                                <select id="superiorHabitacionBebes" name="superiorHabitacionBebes"></select>
+                            </div>
+                            <div>
+                                <span>B+C</span>
+                                <select id="superiorHabitacionCunas" name="superiorHabitacionCunas"></select>
+                            </div>
+                        </div>
+                        <div class="special-room-total">
+                            <span class="special-room-total-label">GÄSTE</span>
+                            <span id="totalPaxSuperior-ZimmerHabitacion">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rooms-section-row special-room-row">
+                    <div class="rooms-section-label">
+                        Suite
+                    </div>
+                    <div class="special-room-value">
+                        <div class="special-room-quantity">
+                            <span class="special-room-quantity-label">ZIMMER</span>
+                            <select id="suite" name="suite"></select>
+                        </div>
+                        <div class="special-room-pax">
+                            <div>
+                                <span>AD</span>
+                                <select id="suiteHabitacionErwachsene" name="suiteHabitacionErwachsene"></select>
+                            </div>
+                            <div>
+                                <span>CH</span>
+                                <select id="suiteHabitacionNinos" name="suiteHabitacionNinos"></select>
+                            </div>
+                            <div>
+                                <span>BB</span>
+                                <select id="suiteHabitacionBebes" name="suiteHabitacionBebes"></select>
+                            </div>
+                            <div>
+                                <span>B+C</span>
+                                <select id="suiteHabitacionCunas" name="suiteHabitacionCunas"></select>
+                            </div>
+                        </div>
+                        <div class="special-room-total">
+                            <span class="special-room-total-label">GÄSTE</span>
+                            <span id="totalPaxSuiteHabitacion">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rooms-section-row special-room-total-row">
+                    <div class="special-room-total-summary">
+                        <div>
+                            <span>GESAMT ZIMMER</span>
+                            <span id="totalHabitacionesEspecialesTabla">0</span>
+                        </div>
+                        <div>
+                            <span>AD</span>
+                            <span id="totalHabitacionesEspecialesAD">0</span>
+                        </div>
+                        <div>
+                            <span>CH</span>
+                            <span id="totalHabitacionesEspecialesNI">0</span>
+                        </div>
+                        <div>
+                            <span>BB</span>
+                            <span id="totalHabitacionesEspecialesBE">0</span>
+                        </div>
+                        <div>
+                            <span>B+C</span>
+                            <span id="totalHabitacionesEspecialesCunas">0</span>
+                        </div>
+                        <div>
+                            <span>GESAMT GÄSTE</span>
+                            <span id="totalPaxHabitacionesEspeciales">0</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         GESAMTSUMMEN
+    ========================== -->
+
+    <div class="rooms-totals">
+
+        <div class="total-box">
+            <span class="total-box-label">SINGLE ZIMMER</span>
+            <span class="total-box-value" id="totalEinzelzimmer">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">DOUBLE ZIMMER<br>DOUBLE BED</span>
+            <span class="total-box-value" id="totalDoppelzimmerDoppelzimmer">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">DOUBLE ZIMMER<br>TWIN BEDS</span>
+            <span class="total-box-value" id="totalDoppelzimmerTwin">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">TRIPLE ZIMMER</span>
+            <span class="total-box-value" id="totalDreibettzimmer">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">QUADRUPLE ZIMMER</span>
+            <span class="total-box-value" id="totalCuadruples">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">FAMILY ZIMMER</span>
+            <span class="total-box-value" id="totalFamilienzimmerHabitaciones">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">JUNIOR SUITE</span>
+            <span class="total-box-value" id="totalJuniorHabitaciones">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">SUPERIOR ZIMMER</span>
+            <span class="total-box-value" id="totalSuperiorHabitaciones">0</span>
+        </div>
+
+        <div class="total-box">
+            <span class="total-box-label">SUITES</span>
+            <span class="total-box-value" id="totalSuiteHabitaciones">0</span>
+        </div>
+
+
+        <div class="total-box total-box-final">
+            <span class="total-box-label">GESAMT ZIMMER</span>
+            <span class="total-box-value" id="totalHabitaciones">0</span>
+        </div>
+
+    </div>
+
+
+    <div class="special-pax-storage" aria-hidden="true" style="display:none;">
+        <span id="totalFamilienzimmer">0</span>
+        <span id="totalJunior">0</span>
+        <span id="totalSuperior-Zimmer">0</span>
+        <span id="totalSuite">0</span>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESUMEN
+========================== -->
+
+<section class="form-section summary-section">
+
+    <h2 class="form-section-title">
+        Summary
+    </h2>
+
+    <div class="summary-table-wrap">
+
+        <table class="summary-table">
+            
+<colgroup>
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+  <col style="width: 7.142857%;">
+</colgroup>
+
+            <thead>
+                <tr>
+                    <th colspan="5" class="summary-main-head summary-standard-edge">STANDARDZIMMER</th>
+                    <th colspan="9" class="summary-main-head summary-special-bold">SONDERZIMMER</th>
+                </tr>
+                <tr>
+                    <th colspan="2" rowspan="3" class="summary-sub-head">GÄSTE ENTERED</th>
+                    <th colspan="3" class="summary-sub-head summary-standard-edge">ZIMMER ENTERED</th>
+                    <th colspan="2" rowspan="3" class="summary-sub-head">GÄSTE ENTERED</th>
+                    <th colspan="7" class="summary-sub-head summary-special-bold">ZIMMER ENTERED</th>
+                </tr>
+                <tr>
+                    <th rowspan="2">TYPE</th>
+                    <th rowspan="2">ZIMMER</th>
+                    <th rowspan="2" class="summary-standard-edge">GÄSTE</th>
+                    <th rowspan="2">TYPE</th>
+                    <th rowspan="2">NO.</th>
+                    <th colspan="4">GÄSTE</th>
+                    <th rowspan="2" class="summary-special-bold">GESAMT GÄSTE</th>
+                </tr>
+                <tr>
+                    <th>AD</th>
+                    <th>CH</th>
+                    <th>BB</th>
+                    <th>B+C</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>AD</td>
+                    <td id="resumenStandardAD">0</td>
+                    <td>SGL</td>
+                    <td id="resumenHabitacionesEinzelzimmer">0</td>
+                    <td id="resumenCapacidadEinzelzimmer" class="summary-standard-edge">0</td>
+                    <td>AD</td>
+                    <td id="resumenEspecialAD">0</td>
+                    <td>FAM</td>
+                    <td id="resumenFamiliarHabitaciones">0</td>
+                    <td id="resumenFamiliarAD">0</td>
+                    <td id="resumenFamiliarNI">0</td>
+                    <td id="resumenFamiliarBB">0</td>
+                    <td id="resumenFamiliarBC">0</td>
+                    <td id="resumenFamiliarTotal" class="summary-special-bold">0</td>
+                </tr>
+                <tr>
+                    <td>CH</td>
+                    <td id="resumenStandardNI">0</td>
+                    <td>DBL</td>
+                    <td id="resumenHabitacionesDoppelzimmer">0</td>
+                    <td id="resumenCapacidadDoppelzimmer" class="summary-standard-edge">0</td>
+                    <td>CH</td>
+                    <td id="resumenEspecialNI">0</td>
+                    <td>JUN</td>
+                    <td id="resumenJuniorHabitaciones">0</td>
+                    <td id="resumenJuniorAD">0</td>
+                    <td id="resumenJuniorNI">0</td>
+                    <td id="resumenJuniorBB">0</td>
+                    <td id="resumenJuniorBC">0</td>
+                    <td id="resumenJuniorTotal" class="summary-special-bold">0</td>
+                </tr>
+                <tr>
+                    <td>BB</td>
+                    <td id="resumenStandardBB">0</td>
+                    <td>TRI</td>
+                    <td id="resumenHabitacionesDreibettzimmer">0</td>
+                    <td id="resumenCapacidadDreibettzimmer" class="summary-standard-edge">0</td>
+                    <td>BB</td>
+                    <td id="resumenEspecialBB">0</td>
+                    <td>SUP</td>
+                    <td id="resumenSuperior-ZimmerHabitaciones">0</td>
+                    <td id="resumenSuperior-ZimmerAD">0</td>
+                    <td id="resumenSuperior-ZimmerNI">0</td>
+                    <td id="resumenSuperior-ZimmerBB">0</td>
+                    <td id="resumenSuperior-ZimmerBC">0</td>
+                    <td id="resumenSuperior-ZimmerTotal" class="summary-special-bold">0</td>
+                </tr>
+                <tr>
+                    <td>B+C</td>
+                    <td id="resumenStandardBC">0</td>
+                    <td>QUAD</td>
+                    <td id="resumenHabitacionesCuadruples">0</td>
+                    <td id="resumenCapacidadCuadruples" class="summary-standard-edge">0</td>
+                    <td> B+C</td>
+                    <td id="resumenEspecialBC">0</td>
+                    <td>SUI</td>
+                    <td id="resumenSuiteHabitaciones">0</td>
+                    <td id="resumenSuiteAD">0</td>
+                    <td id="resumenSuiteNI">0</td>
+                    <td id="resumenSuiteBB">0</td>
+                    <td id="resumenSuiteBC">0</td>
+                    <td id="resumenSuiteTotal" class="summary-special-bold">0</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">BABYS</td>
+                    <td id="resumenBebesHabitaciones" class="summary-standard-edge">0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">BABYS + A COT</td>
+                    <td id="resumenBebesCunaHabitaciones" class="summary-standard-edge">0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="summary-total">
+                    <td>GESAMT</td>
+                    <td id="resumenStandardTotal">0</td>
+                    <td>GESAMT</td>
+                    <td id="resumenHabitacionesStandardTotal">0</td>
+                    <td id="resumenStandardCapacidadTotal" class="summary-standard-edge">0</td>
+                    <td>GESAMT</td>
+                    <td id="resumenEspecialTotal">0</td>
+                    <td>GESAMT</td>
+                    <td id="resumenEspecialHabitacionesTotal">0</td>
+                    <td id="resumenEspecialADTotal">0</td>
+                    <td id="resumenEspecialNITotal">0</td>
+                    <td id="resumenEspecialBBTotal">0</td>
+                    <td id="resumenEspecialBCTotal">0</td>
+                    <td id="resumenEspecialPaxTotal" class="summary-special-bold" style="font-weight: 700;">0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="resumenCheckMessage" class="summary-check-message"></div>
+
+    </div>
+
+</section>
+
+
+
+
+         <div class="final-totals-box">
+    <div class="final-totals-title">GESAMTSUMMEN</div>
+    <div class="final-totals-head">
+        <div>ZIMMER</div>
+        <div>GÄSTE</div>
+    </div>
+    <div class="final-totals-values">
+        <div id="totalHabitacionesFinal">0</div>
+        <div id="totalPaxFinal">0</div>
+    </div>
+</div>
+
+
+<!-- =========================
+              OBSERVACIONES
+         ========================== -->
+
+         <section class="form-section">
+
+             <h2 class="form-section-title">
+                 Anmerkungen
+             </h2>
+
+             <div class="form-group">
+
+                 <label for="observaciones">
+                     Anmerkungen oder besondere Wünsche
+                 </label>
+
+                 <textarea
+                     id="observaciones"
+                     name="observaciones"
+                     placeholder="Geben Sie hier weitere INFORMATIONen ein..."
+                 ></textarea>
+
+             </div>
+
+         </section>
+
+
+<!-- =========================
+              BOTONES
+========================== -->
+
+<!-- =========================
+     INFORMACIÓN HOTELRESERVIERUNGEN
+========================== -->
+
+<div style="margin:0 0 24px;color:#666666;font-size:12px;line-height:1.5;text-align:justify;">
+
+    <p style="margin:0 0 12px;text-align:justify;">
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings ist ein Online-Dienst, der Unterkünfte für Gruppen in Hotels, Apartments, Resorts usw. vermittelt.
+    </p>
+
+    <p style="margin:0 0 12px;text-align:justify;">
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings informs you that, once accommodation has been found for the applicant’s Group, the accommodation provider will deal directly with the applicant with regard to everything relating to the Group, rooming lists, requests, confirmation, invoicing, etc.
+    </p>
+
+    <p style="margin:0 0 12px;text-align:justify;">
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings will charge 10% of the total cost of the Group booking, payable prior to the Group’s arrival at the accommodation.
+    </p>
+
+    <p style="margin:0 0 12px;text-align:justify;">
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings Ltd., as the party responsible for the data and the website, in accordance with the applicable legislation and, in particular, with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (GDPR), as well as Law 34/2002 of 11 July on INFORMATION Society Services and Electronic Commerce (LSSICE), informs you that we have implemented technical and organisational measures to guarantee and protect the confidentiality, integrity and availability of your personal data.
+    </p>
+
+    <p style="margin:0;text-align:justify;">
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings accepts no responsibility for any behaviour or damage that may have been caused by clients.
+    </p>
+
+</div>
+
+
+         <div class="form-actions">
+
+             <a
+                 href="index.html"
+                 class="btn btn-secondary"
+             >
+                 Back
+             </a>
+
+             
+<button
+    type="submit"
+    id="btnEnviar"
+    class="btn btn-primary"
+>
+    Anfrage senden
+</button>
+
+         </div>
+
+
+         <!-- =========================
+              RESULTADO
+         ========================== -->
+
+         <div
+             class="result-message"
+             id="resultMessage"
+         ></div>
+
+     </form>
+
+ </main>
+
+
+ <!-- =========================
+      FOOTER
+ ========================== -->
+
+ <footer>
+
+     <div class="footer-links">
+
+         <a href="index.html">
+             Home
+         </a>
+
+         <a href="index.html">
+             Unterkunft
+         </a>
+
+         <a href="index.html">
+             Reiseziels
+         </a>
+
+         <a href="reservas-grupos.html">
+             Gruppenreservierung
+         </a>
+
+         <a href="#">
+             Contact
+         </a>
+
+         <a href="#">
+             Privacy
+         </a>
+
+     </div>
+
+     <p>
+         © 2026 Hotelreservierungen · All rights reserved
+     </p>
+
+ </footer>
+
+
+ <!-- =========================
+      JAVASCRIPT
+ ========================== -->
+
+<script>
+
+     /* =========================
+        CREAR DESPLEGABLES
+     ========================== */
+
+     function crearOpciones(id, maximo) {
+
+         const select =
+             document.getElementById(id);
+
+         if (!select) {
+             return;
+         }
+
+         for (let i = 0; i <= maximo; i++) {
+
+             const option =
+                 document.createElement("option");
+
+             option.value = i;
+             option.textContent = i;
+
+             select.appendChild(option);
+         }
+     }
+
+
+     /* =========================
+        OBTENER VALOR
+     ========================== */
+
+     function obtenerValor(id) {
+
+         const elemento =
+             document.getElementById(id);
+
+         if (!elemento) {
+             return 0;
+         }
+
+         return Number(elemento.value) || 0;
+     }
+
+
+     /* =========================
+        PASAJEROS
+     ========================== */
+
+     crearOpciones("adultos", 100);
+     crearOpciones("ninos", 50);
+     crearOpciones("bebes", 20);
+     crearOpciones("cunas", 20);
+
+
+     /* =========================
+        ZIMMER
+     ========================== */
+
+     crearOpciones("individuales", 50);
+     crearOpciones("doblesDoppelzimmer", 50);
+     crearOpciones("doblesTwin", 50);
+     crearOpciones("triples", 50);
+     crearOpciones("cuadruples", 50);
+
+     crearOpciones("familiar", 10);
+     crearOpciones("junior", 10);
+     crearOpciones("superior", 10);
+     crearOpciones("suite", 10);
+
+     [
+         "familiar",
+         "junior",
+         "superior",
+         "suite"
+     ].forEach(function(tipo) {
+         crearOpciones(tipo + "HabitacionErwachsene", 25);
+         crearOpciones(tipo + "HabitacionNinos", 25);
+         crearOpciones(tipo + "HabitacionBebes", 10);
+         crearOpciones(tipo + "HabitacionCunas", 10);
+     });
+
+
+     /* =========================
+        GÄSTE ZIMMER ESPECIALES
+     ========================== */
+
+     crearOpciones("familiarErwachsene", 25);
+     crearOpciones("familiarNinos", 25);
+     crearOpciones("familiarBebes", 10);
+     crearOpciones("familiarCunas", 10);
+
+     crearOpciones("juniorErwachsene", 10);
+     crearOpciones("juniorNinos", 10);
+     crearOpciones("juniorBebes", 10);
+     crearOpciones("juniorCunas", 10);
+
+     crearOpciones("superiorErwachsene", 10);
+     crearOpciones("superiorNinos", 10);
+     crearOpciones("superiorBebes", 10);
+     crearOpciones("superiorCunas", 10);
+
+     crearOpciones("suiteErwachsene", 10);
+     crearOpciones("suiteNinos", 10);
+     crearOpciones("suiteBebes", 10);
+     crearOpciones("suiteCunas", 10);
+
+
+     /* =========================
+        CALCULAR GÄSTE ESPECIAL
+     ========================== */
+
+     function calcularPaxEspecial(tipo) {
+
+         const adultos =
+             obtenerValor(tipo + "Erwachsene");
+
+         const ninos =
+             obtenerValor(tipo + "Ninos");
+
+         const bebes =
+             obtenerValor(tipo + "Bebes");
+
+         const cunas =
+             obtenerValor(tipo + "Cunas");
+
+         const total =
+             adultos +
+             ninos +
+             bebes +
+             cunas;
+
+         const nombreTipo =
+             tipo.charAt(0).toUpperCase() +
+             tipo.slice(1);
+
+         const totalElemento =
+             document.getElementById("total" + nombreTipo);
+
+         if (totalElemento) {
+
+             totalElemento.textContent =
+                 total;
+
+         }
+
+         calcularTotales();
+     }
+
+
+     /* =========================
+        INICIALIZAR GÄSTE ESPECIAL
+     ========================== */
+
+     [
+         "familiar",
+         "junior",
+         "superior",
+         "suite"
+     ].forEach(function(tipo) {
+
+         calcularPaxEspecial(tipo);
+
+     });
+
+
+     /* =========================
+        CALCULAR GÄSTE DE ZIMMER ESPECIALES
+     ========================== */
+
+     function calcularPaxHabitacionEspecial(tipo) {
+
+         const adultos = obtenerValor(tipo + "HabitacionErwachsene");
+         const ninos = obtenerValor(tipo + "HabitacionNinos");
+         const bebes = obtenerValor(tipo + "HabitacionBebes");
+         const cunas = obtenerValor(tipo + "HabitacionCunas");
+
+         const total =
+             adultos +
+             ninos +
+             bebes +
+             cunas;
+
+         const elemento =
+             document.getElementById("totalPax" +
+                 tipo.charAt(0).toUpperCase() + tipo.slice(1) +
+                 "Habitacion");
+
+         if (elemento) {
+             elemento.textContent = total;
+         }
+
+         return total;
+     }
+
+
+
+     function actualizarTotalesHabitacionesEspeciales() {
+
+         const tipos = [
+             "familiar",
+             "junior",
+             "superior",
+             "suite"
+         ];
+
+         let habitaciones = 0;
+         let adultos = 0;
+         let ninos = 0;
+         let bebes = 0;
+         let cunas = 0;
+
+         tipos.forEach(function(tipo) {
+
+             const cantidadHabitaciones = obtenerValor(tipo);
+
+             habitaciones += cantidadHabitaciones;
+             adultos += obtenerValor(tipo + "HabitacionErwachsene");
+             ninos += obtenerValor(tipo + "HabitacionNinos");
+             bebes += obtenerValor(tipo + "HabitacionBebes");
+             cunas += obtenerValor(tipo + "HabitacionCunas");
+         });
+
+         const valores = {
+             totalHabitacionesEspecialesTabla: habitaciones,
+             totalHabitacionesEspecialesAD: adultos,
+             totalHabitacionesEspecialesNI: ninos,
+             totalHabitacionesEspecialesBE: bebes,
+             totalHabitacionesEspecialesCunas: cunas,
+             totalPaxHabitacionesEspeciales: adultos + ninos + bebes + cunas
+         };
+
+         Object.keys(valores).forEach(function(id) {
+             const elemento = document.getElementById(id);
+             if (elemento) {
+                 elemento.textContent = valores[id];
+             }
+         });
+     }
+
+
+     function calcularTotalPaxHabitacionesEspeciales() {
+
+         const total =
+             calcularPaxHabitacionEspecial("familiar") +
+             calcularPaxHabitacionEspecial("junior") +
+             calcularPaxHabitacionEspecial("superior") +
+             calcularPaxHabitacionEspecial("suite");
+
+         const elemento =
+             document.getElementById("totalPaxHabitacionesEspeciales");
+
+         if (elemento) {
+             elemento.textContent = total;
+         }
+
+         return total;
+     }
+
+
+     /* =========================
+        CALCULAR GESAMTSUMMEN
+     ========================== */
+
+     function calcularTotales() {
+
+         /* =========================
+            GÄSTE STANDARD
+         ========================== */
+
+         const standardErwachsene =
+             obtenerValor("adultos");
+
+         const standardNinos =
+             obtenerValor("ninos");
+
+         const standardBebes =
+             obtenerValor("bebes");
+
+         const standardCunas =
+             obtenerValor("cunas");
+
+
+         /* =========================
+            GÄSTE ESPECIALES
+         ========================== */
+
+         const especialErwachsene =
+             obtenerValor("familiarErwachsene") +
+             obtenerValor("juniorErwachsene") +
+             obtenerValor("superiorErwachsene") +
+             obtenerValor("suiteErwachsene");
+
+         const especialNinos =
+             obtenerValor("familiarNinos") +
+             obtenerValor("juniorNinos") +
+             obtenerValor("superiorNinos") +
+             obtenerValor("suiteNinos");
+
+         const especialBebes =
+             obtenerValor("familiarBebes") +
+             obtenerValor("juniorBebes") +
+             obtenerValor("superiorBebes") +
+             obtenerValor("suiteBebes");
+
+         const especialCunas =
+             obtenerValor("familiarCunas") +
+             obtenerValor("juniorCunas") +
+             obtenerValor("superiorCunas") +
+             obtenerValor("suiteCunas");
+
+
+         /* =========================
+            GESAMTSUMMEN GENERALES
+         ========================== */
+
+         const adultos =
+             standardErwachsene +
+             especialErwachsene;
+
+         const ninos =
+             standardNinos +
+             especialNinos;
+
+         const bebes =
+             standardBebes +
+             especialBebes;
+
+         const cunas =
+             standardCunas +
+             especialCunas;
+
+         const totalPax =
+             adultos +
+             ninos +
+             bebes +
+             cunas;
+
+const totalPaxStandard =
+    standardErwachsene +
+    standardNinos +
+    standardBebes +
+    standardCunas;
+
+const totalPaxEspeciales =
+    especialErwachsene +
+    especialNinos +
+    especialBebes +
+    especialCunas;
+
+
+         /* =========================
+            MOSTRAR GESAMTSUMMEN PERSONAS
+         ========================== */
+
+         const totalErwachsene =
+             document.getElementById("totalErwachsene");
+
+         if (totalErwachsene) {
+             totalErwachsene.textContent =
+                 adultos;
+         }
+
+         const totalNinos =
+             document.getElementById("totalNinos");
+
+         if (totalNinos) {
+             totalNinos.textContent =
+                 ninos;
+         }
+
+         const totalBebes =
+             document.getElementById("totalBebes");
+
+         if (totalBebes) {
+             totalBebes.textContent =
+                 bebes;
+         }
+
+         const totalCunas =
+             document.getElementById("totalCunas");
+
+         if (totalCunas) {
+             totalCunas.textContent =
+                 cunas;
+         }
+
+         const totalPaxElemento =
+             document.getElementById("totalPax");
+
+         if (totalPaxElemento) {
+             totalPaxElemento.textContent =
+                 totalPax;
+         }
+
+const totalPaxStandardElemento =
+    document.getElementById("totalPaxStandard");
+
+if (totalPaxStandardElemento) {
+    totalPaxStandardElemento.textContent =
+        totalPaxStandard;
+}
+
+const totalPaxEspecialesElemento =
+    document.getElementById("totalPaxEspeciales");
+
+if (totalPaxEspecialesElemento) {
+    totalPaxEspecialesElemento.textContent =
+        totalPaxEspeciales;
+}
+
+
+         /* =========================
+            MOSTRAR GESAMT DE ZIMMER
+         ========================== */
+
+         const individuales =
+             obtenerValor("individuales");
+
+         const doblesDoppelzimmer =
+             obtenerValor("doblesDoppelzimmer");
+
+         const doblesTwin =
+             obtenerValor("doblesTwin");
+
+         const triples =
+             obtenerValor("triples");
+
+         const cuadruples =
+             obtenerValor("cuadruples");
+
+         const familiar =
+             obtenerValor("familiar");
+
+         const junior =
+             obtenerValor("junior");
+
+         const superior =
+             obtenerValor("superior");
+
+         const suite =
+             obtenerValor("suite");
+
+
+         const totalHabitaciones =
+             individuales +
+             doblesDoppelzimmer +
+             doblesTwin +
+             triples +
+             cuadruples +
+             familiar +
+             junior +
+             superior +
+             suite;
+
+const totalHabitacionesStandard =
+    individuales +
+    doblesDoppelzimmer +
+    doblesTwin +
+    triples +
+    cuadruples;
+
+const totalHabitacionesEspeciales =
+    familiar +
+    junior +
+    superior +
+    suite;
+
+         const totalHabitacionesElemento =
+             document.getElementById("totalHabitaciones");
+
+         if (totalHabitacionesElemento) {
+             totalHabitacionesElemento.textContent =
+                 totalHabitaciones;
+         }
+
+
+
+const totalHabitacionesStandardTablaElemento =
+    document.getElementById("totalHabitacionesStandardTabla");
+
+if (totalHabitacionesStandardTablaElemento) {
+    totalHabitacionesStandardTablaElemento.textContent =
+        totalHabitacionesStandard;
+}
+
+const totalHabitacionesEspecialesTablaElemento =
+    document.getElementById("totalHabitacionesEspecialesTabla");
+
+if (totalHabitacionesEspecialesTablaElemento) {
+    totalHabitacionesEspecialesTablaElemento.textContent =
+        totalHabitacionesEspeciales;
+}
+
+actualizarTotalesHabitacionesEspeciales();
+calcularTotalPaxHabitacionesEspeciales();
+actualizarSummary();
+
+
+
+         /* =========================
+            GESAMTSUMMEN POR TYPE
+         ========================== */
+
+         const totalIds = {
+
+             totalEinzelzimmer: individuales,
+             totalDoppelzimmerDoppelzimmer: doblesDoppelzimmer,
+             totalDoppelzimmerTwin: doblesTwin,
+             totalDreibettzimmer: triples,
+             totalCuadruples: cuadruples,
+             totalFamilienzimmerHabitaciones: familiar,
+             totalJuniorHabitaciones: junior,
+             totalSuperiorHabitaciones: superior,
+             totalSuiteHabitaciones: suite
+
+         };
+
+
+         Object.keys(totalIds).forEach(function(id) {
+
+             const elemento =
+                 document.getElementById(id);
+
+             if (elemento) {
+
+                 elemento.textContent =
+                     totalIds[id];
+
+             }
+
+         });
+
+
+         actualizarSummary();
+         actualizarTotalesFinales();
+
+         return {
+
+             adultos,
+             ninos,
+             bebes,
+             cunas,
+             totalPax,
+             totalHabitaciones
+
+         };
+
+     }
+
+
+     actualizarTotalesHabitacionesEspeciales();
+     calcularTotalPaxHabitacionesEspeciales();
+
+
+     /* =========================
+        ACTUALIZAR RESUMEN
+     ========================== */
+
+     function actualizarSummary() {
+
+         const standardAD = obtenerValor("adultos");
+         const standardNI = obtenerValor("ninos");
+         const standardBB = obtenerValor("bebes");
+         const standardBC = obtenerValor("cunas");
+
+         const habitacionesEinzelzimmer = obtenerValor("individuales");
+         const habitacionesDoppelzimmer =
+             obtenerValor("doblesDoppelzimmer") +
+             obtenerValor("doblesTwin");
+         const habitacionesDreibettzimmer = obtenerValor("triples");
+         const habitacionesCuadruples = obtenerValor("cuadruples");
+
+         const totalHabitacionesStandardSummary =
+             habitacionesEinzelzimmer +
+             habitacionesDoppelzimmer +
+             habitacionesDreibettzimmer +
+             habitacionesCuadruples;
+
+         const capacidadStandard =
+             habitacionesEinzelzimmer +
+             (habitacionesDoppelzimmer * 2) +
+             (habitacionesDreibettzimmer * 3) +
+             (habitacionesCuadruples * 4);
+
+         const standardTotal =
+             standardAD + standardNI + standardBB + standardBC;
+
+         const especialTipos = [
+             { codigo: "FAM", tipo: "familiar" },
+             { codigo: "JUN", tipo: "junior" },
+             { codigo: "SUP", tipo: "superior" },
+             { codigo: "SUI", tipo: "suite" }
+         ];
+
+         let especialHabitaciones = 0;
+         let especialAD = 0;
+         let especialNI = 0;
+         let especialBB = 0;
+         let especialBC = 0;
+
+         especialTipos.forEach(function(item) {
+             const tipo = item.tipo;
+             const habitaciones = obtenerValor(tipo);
+             const ad = obtenerValor(tipo + "HabitacionErwachsene");
+             const ni = obtenerValor(tipo + "HabitacionNinos");
+             const bb = obtenerValor(tipo + "HabitacionBebes");
+             const bc = obtenerValor(tipo + "HabitacionCunas");
+             const total = ad + ni + bb + bc;
+
+             especialHabitaciones += habitaciones;
+             especialAD += ad;
+             especialNI += ni;
+             especialBB += bb;
+             especialBC += bc;
+
+             const valores = {
+                 ["resumen" + tipo.charAt(0).toUpperCase() + tipo.slice(1) + "Habitaciones"]: habitaciones,
+                 ["resumen" + tipo.charAt(0).toUpperCase() + tipo.slice(1) + "AD"]: ad,
+                 ["resumen" + tipo.charAt(0).toUpperCase() + tipo.slice(1) + "NI"]: ni,
+                 ["resumen" + tipo.charAt(0).toUpperCase() + tipo.slice(1) + "BB"]: bb,
+                 ["resumen" + tipo.charAt(0).toUpperCase() + tipo.slice(1) + "BC"]: bc,
+                 ["resumen" + tipo.charAt(0).toUpperCase() + tipo.slice(1) + "Total"]: total
+             };
+
+             Object.keys(valores).forEach(function(id) {
+                 const elemento = document.getElementById(id);
+                 if (elemento) {
+                     elemento.textContent = valores[id];
+                 }
+             });
+         });
+
+         const especialTotal =
+             especialAD + especialNI + especialBB + especialBC;
+
+         // Los totales de AD, NI, BB y B+C de las ZIMMER ESPECIALES
+         // deben coincidir por separado con los totales introducidos en
+         // "NO. OF GÄSTE IN SONDERZIMMER".
+         const especialADIntroducidos =
+             obtenerValor("familiarErwachsene") +
+             obtenerValor("juniorErwachsene") +
+             obtenerValor("superiorErwachsene") +
+             obtenerValor("suiteErwachsene");
+
+         const especialNIIntroducidos =
+             obtenerValor("familiarNinos") +
+             obtenerValor("juniorNinos") +
+             obtenerValor("superiorNinos") +
+             obtenerValor("suiteNinos");
+
+         const especialBBIntroducidos =
+             obtenerValor("familiarBebes") +
+             obtenerValor("juniorBebes") +
+             obtenerValor("superiorBebes") +
+             obtenerValor("suiteBebes");
+
+         const especialBCIntroducidos =
+             obtenerValor("familiarCunas") +
+             obtenerValor("juniorCunas") +
+             obtenerValor("superiorCunas") +
+             obtenerValor("suiteCunas");
+
+         const especialPaxIntroducidas =
+             especialADIntroducidos +
+             especialNIIntroducidos +
+             especialBBIntroducidos +
+             especialBCIntroducidos;
+
+         const resumenCheckMessage =
+             document.getElementById("resumenCheckMessage");
+
+         const standardPaxTotalElemento =
+             document.getElementById("resumenStandardCapacidadTotal");
+
+         const especialPaxTotalElemento =
+             document.getElementById("resumenEspecialPaxTotal");
+
+         // La capacidad de camas Standard se calcula solo con AD + NI.
+         // Los bebés (BB + B+C) no ocupan cama, pero sí cuentan en el GESAMT GÄSTE.
+         const capacidadStandardConBebes =
+             capacidadStandard + standardBB + standardBC;
+
+         const standardDescuadre =
+             capacidadStandardConBebes !== standardTotal;
+
+         const especialDescuadre =
+             especialAD !== especialADIntroducidos ||
+             especialNI !== especialNIIntroducidos ||
+             especialBB !== especialBBIntroducidos ||
+             especialBC !== especialBCIntroducidos;
+
+         if (resumenCheckMessage) {
+             if (standardDescuadre || especialDescuadre) {
+                 resumenCheckMessage.textContent =
+                     "GÄSTE in the ZIMMER ENTERED do NOT match the GÄSTE ENTERED !!";
+                 resumenCheckMessage.classList.add("show");
+             } else {
+                 resumenCheckMessage.textContent = "";
+                 resumenCheckMessage.classList.remove("show");
+             }
+         }
+
+         if (standardPaxTotalElemento) {
+             standardPaxTotalElemento.classList.toggle(
+                 "summary-check-error",
+                 standardDescuadre
+             );
+         }
+
+         if (especialPaxTotalElemento) {
+             especialPaxTotalElemento.classList.toggle(
+                 "summary-check-error",
+                 especialDescuadre
+             );
+         }
+
+         const valoresSummary = {
+             resumenStandardAD: standardAD,
+             resumenStandardNI: standardNI,
+             resumenStandardBB: standardBB,
+             resumenStandardBC: standardBC,
+             resumenStandardTotal: standardTotal,
+             resumenCapacidadEinzelzimmer: habitacionesEinzelzimmer,
+             resumenCapacidadDoppelzimmer: habitacionesDoppelzimmer * 2,
+             resumenCapacidadDreibettzimmer: habitacionesDreibettzimmer * 3,
+             resumenCapacidadCuadruples: habitacionesCuadruples * 4,
+             resumenStandardCapacidadTotal: capacidadStandardConBebes,
+             resumenHabitacionesEinzelzimmer: habitacionesEinzelzimmer,
+             resumenHabitacionesDoppelzimmer: habitacionesDoppelzimmer,
+             resumenHabitacionesDreibettzimmer: habitacionesDreibettzimmer,
+             resumenHabitacionesCuadruples: habitacionesCuadruples,
+             resumenBebesHabitaciones: standardBB,
+             resumenBebesCunaHabitaciones: standardBC,
+             resumenHabitacionesStandardTotal: totalHabitacionesStandardSummary,
+             resumenEspecialAD: especialAD,
+             resumenEspecialNI: especialNI,
+             resumenEspecialBB: especialBB,
+             resumenEspecialBC: especialBC,
+             resumenEspecialTotal: especialTotal,
+             resumenEspecialHabitacionesTotal: especialHabitaciones,
+             resumenEspecialADTotal: especialAD,
+             resumenEspecialNITotal: especialNI,
+             resumenEspecialBBTotal: especialBB,
+             resumenEspecialBCTotal: especialBC,
+             resumenEspecialPaxTotal: especialTotal
+         };
+
+         Object.keys(valoresSummary).forEach(function(id) {
+             const elemento = document.getElementById(id);
+             if (elemento) {
+                 elemento.textContent = valoresSummary[id];
+             }
+         });
+     }
+
+     /* =========================
+        GESAMTSUMMEN FINALES
+     ========================== */
+
+     function actualizarTotalesFinales() {
+         const habitaciones = document.getElementById("totalHabitaciones");
+         const pax = document.getElementById("totalPax");
+         const habitacionesFinal = document.getElementById("totalHabitacionesFinal");
+         const paxFinal = document.getElementById("totalPaxFinal");
+
+         if (habitacionesFinal) {
+             habitacionesFinal.textContent =
+                 habitaciones ? habitaciones.textContent : "0";
+         }
+
+         if (paxFinal) {
+             paxFinal.textContent =
+                 pax ? pax.textContent : "0";
+         }
+     }
+
+     /* =========================
+        ACTUALIZACIÓN AUTOMÁTICA
+     ========================== */
+
+     [
+         "adultos",
+         "ninos",
+         "bebes",
+         "cunas",
+         "individuales",
+         "doblesDoppelzimmer",
+         "doblesTwin",
+         "triples",
+         "cuadruples",
+         "familiar",
+         "junior",
+         "superior",
+         "suite"
+     ].forEach(function(id) {
+
+         const elemento =
+             document.getElementById(id);
+
+         if (elemento) {
+
+             elemento.addEventListener(
+                 "change",
+                 calcularTotales
+             );
+
+         }
+
+     });
+
+
+     /* =========================
+        ACTUALIZACIÓN GÄSTE ESPECIAL
+     ========================== */
+
+     [
+         "familiar",
+         "junior",
+         "superior",
+         "suite"
+     ].forEach(function(tipo) {
+
+         [
+             "Erwachsene",
+             "Ninos",
+             "Bebes",
+             "Cunas"
+         ].forEach(function(tipoPax) {
+
+             const elemento =
+                 document.getElementById(
+                     tipo + tipoPax
+                 );
+
+             if (elemento) {
+
+                 elemento.addEventListener(
+                     "change",
+                     function() {
+
+                         calcularPaxEspecial(tipo);
+
+                     }
+                 );
+
+             }
+
+         });
+
+     });
+
+
+     [
+         "familiar", "junior", "superior", "suite"
+     ].forEach(function(tipo) {
+
+         [
+             "Erwachsene", "Ninos", "Bebes", "Cunas"
+         ].forEach(function(tipoPax) {
+
+             const elemento = document.getElementById(
+                 tipo + "Habitacion" + tipoPax
+             );
+
+             if (elemento) {
+                 elemento.addEventListener("change", function() {
+                     actualizarTotalesHabitacionesEspeciales();
+                     calcularTotalPaxHabitacionesEspeciales();
+                     actualizarSummary();
+                 });
+             }
+         });
+     });
+
+
+     /* =========================
+        FECHA MÍNIMA
+     ========================== */
+
+     const hoy =
+         new Date()
+             .toISOString()
+             .split("T")[0];
+
+     document
+         .getElementById("entrada")
+         .setAttribute("min", hoy);
+
+     document
+         .getElementById("salida")
+         .setAttribute("min", hoy);
+
+
+     /* =========================
+        VALIDAR FECHAS
+     ========================== */
+
+     document
+         .getElementById("entrada")
+         .addEventListener("change", function() {
+
+             const entrada =
+                 this.value;
+
+             document
+                 .getElementById("salida")
+                 .setAttribute("min", entrada);
+
+         });
+
+
+     /* =========================
+        FORMATEAR FECHA
+     ========================== */
+
+     function formatearFecha(fecha) {
+
+         if (!fecha) {
+             return "";
+         }
+
+         const partes =
+             fecha.split("-");
+
+         return `${partes[2]}/${partes[1]}/${partes[0]}`;
+     }
+
+
+     function calcularDias(entrada, salida) {
+
+         if (!entrada || !salida) {
+             return 0;
+         }
+
+         const fechaEntrada =
+             new Date(entrada + "T00:00:00");
+
+         const fechaSalida =
+             new Date(salida + "T00:00:00");
+
+         return Math.max(
+             0,
+             Math.round(
+                 (fechaSalida - fechaEntrada) /
+                 (1000 * 60 * 60 * 24)
+             )
+         );
+     }
+
+
+     /* =========================
+        ENVIAR FORMULARIO
+     ========================== */
+
+     async function enviarFormulario(event) {
+
+         event.preventDefault();
+
+         const btnEnviar =
+             document.getElementById("btnEnviar");
+
+         if (btnEnviar.disabled) {
+             return;
+         }
+
+         btnEnviar.disabled = true;
+         btnEnviar.textContent =
+             "Wird gesendet...";
+
+
+         const entrada =
+             document.getElementById("entrada").value;
+
+         const salida =
+             document.getElementById("salida").value;
+
+
+         const dateError =
+             document.getElementById("dateError");
+
+         const paxError =
+             document.getElementById("paxError");
+
+
+         dateError.classList.remove("show");
+         paxError.classList.remove("show");
+
+
+         /* =========================
+            COMPROBAR FECHAS
+         ========================== */
+
+         if (!entrada ||
+             !salida ||
+             salida <= entrada) {
+
+             dateError.classList.add("show");
+
+             document
+                 .getElementById("salida")
+                 .focus();
+
+             btnEnviar.disabled = false;
+             btnEnviar.textContent =
+                 "Anfrage senden";
+
+             return;
+         }
+
+
+         /* =========================
+            CALCULAR GESAMTSUMMEN
+         ========================== */
+
+         const totales =
+             calcularTotales();
+
+
+         /* =========================
+            COMPROBAR PASAJEROS
+         ========================== */
+
+         if (totales.totalPax <= 0) {
+
+             paxError.classList.add("show");
+
+             document
+                 .getElementById("adultos")
+                 .focus();
+
+             btnEnviar.disabled = false;
+             btnEnviar.textContent =
+                 "Anfrage senden";
+
+             return;
+         }
+
+
+         /* =========================
+            DATOS
+         ========================== */
+
+         const nombre =
+             document.getElementById("nombre").value;
+
+         const empresa =
+             document.getElementById("empresa").value;
+
+         const email =
+             document.getElementById("email").value;
+
+         const telefono =
+             document.getElementById("telefono").value;
+
+         const nombreGrupo =
+             document.getElementById("nombre_grupo").value;
+
+         const nombreGrupoLimpio =
+             nombreGrupo.trim();
+
+         const destino =
+             document.getElementById("destino").value;
+
+         const alojamiento =
+             document.getElementById("alojamiento").value;
+
+         const regimen =
+             document.getElementById("regimen").value;
+
+         const tipoGrupo =
+             document.getElementById("tipoGrupo").value;
+
+         const observaciones =
+             document.getElementById("observaciones").value;
+
+
+         /* =========================
+            ZIMMER
+         ========================== */
+
+         const individuales =
+             String(obtenerValor("individuales"));
+
+         const doblesDoppelzimmer =
+             String(obtenerValor("doblesDoppelzimmer"));
+
+         const doblesTwin =
+             String(obtenerValor("doblesTwin"));
+
+         const triples =
+             String(obtenerValor("triples"));
+
+         const cuadruples =
+             String(obtenerValor("cuadruples"));
+
+         const familiar =
+             String(obtenerValor("familiar"));
+
+         const junior =
+             String(obtenerValor("junior"));
+
+         const superior =
+             String(obtenerValor("superior"));
+
+         const suite =
+             String(obtenerValor("suite"));
+
+
+         /* =========================
+            GÄSTE ESPECIALES
+         ========================== */
+
+         const familiarErwachsene =
+             obtenerValor("familiarErwachsene");
+
+         const familiarNinos =
+             obtenerValor("familiarNinos");
+
+         const familiarBebes =
+             obtenerValor("familiarBebes");
+
+         const familiarCunas =
+             obtenerValor("familiarCunas");
+
+
+         const juniorErwachsene =
+             obtenerValor("juniorErwachsene");
+
+         const juniorNinos =
+             obtenerValor("juniorNinos");
+
+         const juniorBebes =
+             obtenerValor("juniorBebes");
+
+         const juniorCunas =
+             obtenerValor("juniorCunas");
+
+
+         const superiorErwachsene =
+             obtenerValor("superiorErwachsene");
+
+         const superiorNinos =
+             obtenerValor("superiorNinos");
+
+         const superiorBebes =
+             obtenerValor("superiorBebes");
+
+         const superiorCunas =
+             obtenerValor("superiorCunas");
+
+
+         const suiteErwachsene =
+             obtenerValor("suiteErwachsene");
+
+         const suiteNinos =
+             obtenerValor("suiteNinos");
+
+         const suiteBebes =
+             obtenerValor("suiteBebes");
+
+         const suiteCunas =
+             obtenerValor("suiteCunas");
+
+
+         /* =========================
+            EMAILJS
+         ========================== */
+
+
+         /* =========================
+            COPIA PARA EL USUARIO
+         ========================== */
+
+         const asunto_usuario =
+             "Neue Anfrage für eine Gruppenreservierung " +
+             nombreGrupoLimpio;
+
+         const mensaje_usuario = `
+             <div style="font-family:Arial,Helvetica,sans-serif;color:#222;max-width:900px;margin:0 auto;font-size:13px;line-height:1.35;">
+
+                 <div style="text-align:center;margin-bottom:18px;">
+                     <div style="font-size:18px;font-weight:700;letter-spacing:.5px;">HOTELRESERVIERUNGEN</div>
+                     <div style="font-size:16px;font-weight:700;margin-top:5px;">Neue Anfrage für eine Gruppenreservierung ${escapeHTML(nombreGrupoLimpio)}</div>
+                 </div>
+
+                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">KONTAKTDATEN</h3>
+                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
+                     <tr><td width="50%"><strong>Vollständiger Name:</strong> ${escapeHTML(nombre)}</td><td width="50%"><strong>Unternehmen / Reiseagentur:</strong> ${escapeHTML(empresa || "Keine")}</td></tr>
+                     <tr><td><strong>E-Mail:</strong> ${escapeHTML(email)}</td><td><strong>Telefon:</strong> ${escapeHTML(telefono)}</td></tr>
+                 </table>
+
+                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">GRUPPE</h3>
+                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
+                     <tr><td width="50%"><strong>Gruppenname:</strong> ${escapeHTML(nombreGrupoLimpio)}</td><td width="50%"><strong>Gruppentyp:</strong> ${escapeHTML(tipoGrupo || "Keine")}</td></tr>
+                 </table>
+
+                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">REISEZIEL &amp; UNTERKUNFT</h3>
+                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
+                     <tr><td width="50%"><strong>Reiseziel:</strong> ${escapeHTML(destino)}</td><td width="50%"><strong>Unterkunft:</strong> ${escapeHTML(alojamiento)}</td></tr>
+                     <tr><td><strong>Anreise:</strong> ${escapeHTML(formatearFecha(entrada))}</td><td><strong>Abreise:</strong> ${escapeHTML(formatearFecha(salida))}</td></tr>
+                     <tr><td><strong>Days:</strong> ${calcularDias(entrada, salida)}</td><td><strong>Board basis:</strong> ${escapeHTML(regimen)}</td></tr>
+                 </table>
+
+                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NUMBER OF PEOPLE</h3>
+                 <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;">
+                     <tr>
+                         <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">NO. OF GÄSTE IN STANDARDZIMMER<br><span style="font-size:11px;font-weight:normal;">Einzelzimmer, Doppelzimmer, Dreibettzimmer, Vierbettzimmer</span></th>
+                         <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">NO. OF GÄSTE IN SONDERZIMMER<br><span style="font-size:11px;font-weight:normal;">Familienzimmer, Junior, Superior-Zimmer, Suite</span></th>
+                     </tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Erwachsene:</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Erwachsene:</strong> ${familiarErwachsene + juniorErwachsene + superiorErwachsene + suiteErwachsene}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Kinder (aged 3 to 12):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Kinder (aged 3 to 12):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys (aged 0 to 3):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Babys (aged 0 to 3):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys + Cot:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Babys + Cot:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>GESAMT GÄSTE:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>GESAMT GÄSTE:</strong> ${familiarErwachsene + familiarNinos + familiarBebes + familiarCunas + juniorErwachsene + juniorNinos + juniorBebes + juniorCunas + superiorErwachsene + superiorNinos + superiorBebes + superiorCunas + suiteErwachsene + suiteNinos + suiteBebes + suiteCunas}</td></tr>
+                 </table>
+
+                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">ANZAHL DER ZIMMER</h3>
+                 <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;font-size:12px;">
+                     <colgroup>
+                         <col style="width:18%;">
+                         <col style="width:8%;">
+                         <col style="width:8%;">
+                         <col style="width:18%;">
+                         <col style="width:8%;">
+                         <col style="width:8%;">
+                         <col style="width:8%;">
+                         <col style="width:8%;">
+                         <col style="width:8%;">
+                         <col style="width:8%;">
+                     </colgroup>
+                     <tr>
+                         <th colspan="3" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;width:38%;">NO. STANDARDZIMMER<br><span style="font-size:11px;font-weight:normal;">Einzelzimmer, Doppelzimmer, Dreibettzimmer, Vierbettzimmer</span></th>
+                         <th colspan="7" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;width:62%;">NO. SONDERZIMMER<br><span style="font-size:11px;font-weight:normal;">Familienzimmer, Junior, Superior-Zimmer, Suite</span></th>
+                     </tr>
+                     <tr>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TYPE</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">NO. ZIMMER</th>
+                         <th style="border:1px solid #bbb;border-right:4px solid #000;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">GÄSTE</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TYPE</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">NO. ZIMMER</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">AD</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">CH</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">BB</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">COT</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1665%;">GESAMT GÄSTE</th>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;"><strong>Einzelzimmer</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${individuales}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(individuales,10)||0)*1}</td>
+                         <td style="border:1px solid #bbb;"><strong>Familienzimmer</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiar}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarErwachsene}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarErwachsene + familiarNinos + familiarBebes + familiarCunas}</td>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;"><strong>Doppelzimmer (Doppelzimmer Bed)</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${doblesDoppelzimmer}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesDoppelzimmer,10)||0)*2}</td>
+                         <td style="border:1px solid #bbb;"><strong>Junior</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${junior}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorErwachsene}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${juniorErwachsene + juniorNinos + juniorBebes + juniorCunas}</td>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;"><strong>Doppelzimmer (Zwei Einzelbetten)</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesTwin,10)||0)*2}</td>
+                         <td style="border:1px solid #bbb;"><strong>Superior-Zimmer</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superior}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorErwachsene}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${superiorErwachsene + superiorNinos + superiorBebes + superiorCunas}</td>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;"><strong>Dreibettzimmer</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${triples}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(triples,10)||0)*3}</td>
+                         <td style="border:1px solid #bbb;"><strong>Suite</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suite}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteErwachsene}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${suiteErwachsene + suiteNinos + suiteBebes + suiteCunas}</td>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;"><strong>Vierbettzimmer</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(cuadruples,10)||0)*4}</td>
+                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">GESAMTSUMMEN</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarErwachsene + juniorErwachsene + superiorErwachsene + suiteErwachsene}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarErwachsene + familiarNinos + familiarBebes + familiarCunas + juniorErwachsene + juniorNinos + juniorBebes + juniorCunas + superiorErwachsene + superiorNinos + superiorBebes + superiorCunas + suiteErwachsene + suiteNinos + suiteBebes + suiteCunas}</td>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;"><strong>Babys</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">—</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+                         <td colspan="7" style="border:1px solid #bbb;"></td>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;"><strong>Babys with Cot</strong></td>
+                         <td style="border:1px solid #bbb;text-align:center;">—</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+                         <td colspan="7" style="border:1px solid #bbb;"></td>
+                     </tr>
+                     <tr>
+                         <td style="border:1px solid #bbb;font-weight:700;">NO. STANDARDZIMMER</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDoppelzimmer,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDoppelzimmer,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4}</td>
+                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">NO. SONDERZIMMER</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
+                         <td colspan="4" style="border:1px solid #bbb;text-align:left;font-weight:700;">GESAMT GÄSTE</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarErwachsene + familiarNinos + familiarBebes + familiarCunas + juniorErwachsene + juniorNinos + juniorBebes + juniorCunas + superiorErwachsene + superiorNinos + superiorBebes + superiorCunas + suiteErwachsene + suiteNinos + suiteBebes + suiteCunas}</td>
+                     </tr>
+                 </table>
+
+                 <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin:8px auto 0;table-layout:fixed;">
+                     <tr>
+                         <td width="48%" style="vertical-align:top;padding-right:6px;">
+                             <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
+                                 <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">GUEST SUMMARY</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">GESAMT</th></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Erwachsene</td><td style="border:1px solid #bbb;text-align:center;">${totales.adultos}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Kinder (aged 3 to 12)</td><td style="border:1px solid #bbb;text-align:center;">${totales.ninos}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Babys (aged 0 to 3)</td><td style="border:1px solid #bbb;text-align:center;">${totales.bebes}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Babys + Cot</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">GESAMT GÄSTE</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalPax}</td></tr>
+                             </table>
+                         </td>
+                         <td width="52%" style="vertical-align:top;padding-left:6px;">
+                             <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
+                                 <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">ROOM SUMMARY</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">GESAMT</th></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">SGL</td><td style="border:1px solid #bbb;text-align:center;">${individuales}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Doppelzimmer Bed)</td><td style="border:1px solid #bbb;text-align:center;">${doblesDoppelzimmer}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Zwei Einzelbetten)</td><td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">TRI</td><td style="border:1px solid #bbb;text-align:center;">${triples}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">QUAD</td><td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">FAM</td><td style="border:1px solid #bbb;text-align:center;">${familiar}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">JUN</td><td style="border:1px solid #bbb;text-align:center;">${junior}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">SUP</td><td style="border:1px solid #bbb;text-align:center;">${superior}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">SUI</td><td style="border:1px solid #bbb;text-align:center;">${suite}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">GESAMT ZIMMER</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalHabitaciones}</td></tr>
+                             </table>
+                         </td>
+                     </tr>
+                 </table>
+
+                 <div style="text-align:center;margin:16px 0;">
+                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin:0 auto;border:2px solid #333;min-width:260px;">
+                         <tr><td style="border-bottom:1px solid #999;font-weight:700;">GESAMT GÄSTE</td><td style="border-bottom:1px solid #999;font-weight:700;">${totales.totalPax}</td></tr>
+                         <tr><td style="font-weight:700;">GESAMT ZIMMER</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
+                     </table>
+                 </div>
+
+                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">ANMERKUNGEN</h3>
+                 <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Keine")}</div>
+
+             </div>
+         `;
+
+
+         const templateParams = {
+
+             asunto_usuario: asunto_usuario,
+
+             mensaje_usuario: mensaje_usuario,
+
+             nombre: nombre,
+             empresa: empresa || "No indicado",
+             email: email,
+             telefono: telefono,
+
+             nombre_grupo:
+                 nombreGrupoLimpio,
+
+             destino: destino,
+             alojamiento: alojamiento,
+
+             entrada:
+                 formatearFecha(entrada),
+
+             salida:
+                 formatearFecha(salida),
+
+             dias:
+                 calcularDias(entrada, salida),
+
+             adultos:
+                 totales.adultos,
+
+             ninos:
+                 totales.ninos,
+
+             bebes:
+                 totales.bebes,
+
+             cunas:
+                 totales.cunas,
+
+             total_pax:
+                 totales.totalPax,
+
+             individuales:
+                 individuales,
+
+             dobles_double:
+                 doblesDoppelzimmer,
+
+             dobles_twin:
+                 doblesTwin,
+
+             triples:
+                 triples,
+
+             cuadruples:
+                 cuadruples,
+
+             familiar:
+                 familiar,
+
+             junior:
+                 junior,
+
+             superior:
+                 superior,
+
+             suite:
+                 suite,
+
+             familiarErwachsene:
+                 familiarErwachsene,
+
+             familiarNinos:
+                 familiarNinos,
+
+             familiarBebes:
+                 familiarBebes,
+
+             familiarCunas:
+                 familiarCunas,
+
+             juniorErwachsene:
+                 juniorErwachsene,
+
+             juniorNinos:
+                 juniorNinos,
+
+             juniorBebes:
+                 juniorBebes,
+
+             juniorCunas:
+                 juniorCunas,
+
+             superiorErwachsene:
+                 superiorErwachsene,
+
+             superiorNinos:
+                 superiorNinos,
+
+             superiorBebes:
+                 superiorBebes,
+
+             superiorCunas:
+                 superiorCunas,
+
+             suiteErwachsene:
+                 suiteErwachsene,
+
+             suiteNinos:
+                 suiteNinos,
+
+             suiteBebes:
+                 suiteBebes,
+
+             suiteCunas:
+                 suiteCunas,
+
+             familiarHabitacionErwachsene:
+                 obtenerValor("familiarHabitacionErwachsene"),
+
+             familiarHabitacionNinos:
+                 obtenerValor("familiarHabitacionNinos"),
+
+             familiarHabitacionBebes:
+                 obtenerValor("familiarHabitacionBebes"),
+
+             familiarHabitacionCunas:
+                 obtenerValor("familiarHabitacionCunas"),
+
+             familiarHabitacionTotal:
+                 obtenerValor("familiarHabitacionErwachsene") +
+                 obtenerValor("familiarHabitacionNinos") +
+                 obtenerValor("familiarHabitacionBebes") +
+                 obtenerValor("familiarHabitacionCunas"),
+
+             juniorHabitacionErwachsene:
+                 obtenerValor("juniorHabitacionErwachsene"),
+
+             juniorHabitacionNinos:
+                 obtenerValor("juniorHabitacionNinos"),
+
+             juniorHabitacionBebes:
+                 obtenerValor("juniorHabitacionBebes"),
+
+             juniorHabitacionCunas:
+                 obtenerValor("juniorHabitacionCunas"),
+
+             juniorHabitacionTotal:
+                 obtenerValor("juniorHabitacionErwachsene") +
+                 obtenerValor("juniorHabitacionNinos") +
+                 obtenerValor("juniorHabitacionBebes") +
+                 obtenerValor("juniorHabitacionCunas"),
+
+             superiorHabitacionErwachsene:
+                 obtenerValor("superiorHabitacionErwachsene"),
+
+             superiorHabitacionNinos:
+                 obtenerValor("superiorHabitacionNinos"),
+
+             superiorHabitacionBebes:
+                 obtenerValor("superiorHabitacionBebes"),
+
+             superiorHabitacionCunas:
+                 obtenerValor("superiorHabitacionCunas"),
+
+             superiorHabitacionTotal:
+                 obtenerValor("superiorHabitacionErwachsene") +
+                 obtenerValor("superiorHabitacionNinos") +
+                 obtenerValor("superiorHabitacionBebes") +
+                 obtenerValor("superiorHabitacionCunas"),
+
+             suiteHabitacionErwachsene:
+                 obtenerValor("suiteHabitacionErwachsene"),
+
+             suiteHabitacionNinos:
+                 obtenerValor("suiteHabitacionNinos"),
+
+             suiteHabitacionBebes:
+                 obtenerValor("suiteHabitacionBebes"),
+
+             suiteHabitacionCunas:
+                 obtenerValor("suiteHabitacionCunas"),
+
+             suiteHabitacionTotal:
+                 obtenerValor("suiteHabitacionErwachsene") +
+                 obtenerValor("suiteHabitacionNinos") +
+                 obtenerValor("suiteHabitacionBebes") +
+                 obtenerValor("suiteHabitacionCunas"),
+
+             standard_ad: 
+                 obtenerValor("adultos"),
+
+             standard_ni: 
+                 obtenerValor("ninos"),
+
+             standard_bb: 
+                 obtenerValor("bebes"),
+
+             standard_bc: 
+                 obtenerValor("cunas"),
+
+             standard_pax_total: 
+                 obtenerValor("adultos") +
+                 obtenerValor("ninos") +
+                 obtenerValor("bebes") +
+                 obtenerValor("cunas"),
+
+             individuales_pax:
+                 (parseInt(individuales, 10) || 0) * 1,
+
+             dobles_double_pax:
+                 (parseInt(doblesDoppelzimmer, 10) || 0) * 2,
+
+             dobles_twin_pax:
+                 (parseInt(doblesTwin, 10) || 0) * 2,
+
+             triples_pax:
+                 (parseInt(triples, 10) || 0) * 3,
+
+             cuadruples_pax:
+                 (parseInt(cuadruples, 10) || 0) * 4,
+
+             resumen_pax_ad:
+                 obtenerValor("adultos") +
+                 obtenerValor("familiarErwachsene") +
+                 obtenerValor("juniorErwachsene") +
+                 obtenerValor("superiorErwachsene") +
+                 obtenerValor("suiteErwachsene"),
+
+             resumen_pax_ni:
+                 obtenerValor("ninos") +
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos"),
+
+             resumen_pax_bb:
+                 obtenerValor("bebes") +
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes"),
+
+             resumen_pax_bc:
+                 obtenerValor("cunas") +
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas"),
+
+             resumen_pax_total:
+                 obtenerValor("adultos") +
+                 obtenerValor("ninos") +
+                 obtenerValor("bebes") +
+                 obtenerValor("cunas") +
+                 obtenerValor("familiarErwachsene") +
+                 obtenerValor("juniorErwachsene") +
+                 obtenerValor("superiorErwachsene") +
+                 obtenerValor("suiteErwachsene") +
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos") +
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes") +
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas"),
+
+             especial_ad: 
+                 obtenerValor("familiarErwachsene") +
+                 obtenerValor("juniorErwachsene") +
+                 obtenerValor("superiorErwachsene") +
+                 obtenerValor("suiteErwachsene"),
+
+             especial_ni: 
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos"),
+
+             especial_bb: 
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes"),
+
+             especial_bc: 
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas"),
+
+             especial_pax_total: 
+                 obtenerValor("familiarErwachsene") +
+                 obtenerValor("juniorErwachsene") +
+                 obtenerValor("superiorErwachsene") +
+                 obtenerValor("suiteErwachsene") +
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos") +
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes") +
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas"),
+
+             familiarTotal:
+                 familiarErwachsene + familiarNinos + familiarBebes + familiarCunas,
+
+             juniorTotal:
+                 juniorErwachsene + juniorNinos + juniorBebes + juniorCunas,
+
+             superiorTotal:
+                 superiorErwachsene + superiorNinos + superiorBebes + superiorCunas,
+
+             suiteTotal:
+                 suiteErwachsene + suiteNinos + suiteBebes + suiteCunas,
+
+             total_habs_standard:
+                 (parseInt(individuales, 10) || 0) +
+                 (parseInt(doblesDoppelzimmer, 10) || 0) +
+                 (parseInt(doblesTwin, 10) || 0) +
+                 (parseInt(triples, 10) || 0) +
+                 (parseInt(cuadruples, 10) || 0),
+
+             total_habs_especiales:
+                 (parseInt(familiar, 10) || 0) +
+                 (parseInt(junior, 10) || 0) +
+                 (parseInt(superior, 10) || 0) +
+                 (parseInt(suite, 10) || 0),
+
+             total_habitaciones:
+                 totales.totalHabitaciones,
+
+             regimen:
+                 regimen,
+
+             tipo_grupo:
+                 tipoGrupo,
+
+             observaciones:
+                 observaciones || "Ninguna"
+
+         };
+
+
+         /* =========================
+            ENVIAR EMAIL
+         ========================== */
+
+         try {
+
+             await emailjs.send(
+                 "service_puextzd",
+                 "template_w4owh89",
+                 templateParams,
+                 {
+                     publicKey:
+                         "rjDLduVYx6zc6cRL3"
+                 }
+             );
+
+
+             const successPopup =
+                 document.getElementById(
+                     "successPopup"
+                 );
+
+
+             document.getElementById("groupForm").reset();
+
+             calcularTotales();
+
+
+             successPopup.style.display =
+                 "block";
+
+
+             setTimeout(function() {
+
+                 successPopup.style.display =
+                     "none";
+
+             }, 1100);
+
+
+         } catch (error) {
+
+             console.error(
+                 "Error al enviar el correo:",
+                 error
+             );
+
+             alert(
+                 "The request could not be sent."
+             );
+
+
+         } finally {
+
+             btnEnviar.disabled = false;
+
+             btnEnviar.textContent =
+                 "Anfrage senden";
+
+         }
+
+     }
+
+
+     /* =========================
+        SEGURIDAD
+     ========================== */
+
+     function escapeHTML(texto) {
+
+         const div =
+             document.createElement("div");
+
+         div.textContent =
+             texto;
+
+         return div.innerHTML;
+     }
+
+
+     /* =========================
+        INICIALIZACIÓN
+     ========================== */
+
+     calcularTotales();
+
+
+     /* =========================
+        MENÚS DESPLEGABLES
+     ========================== */
+
+     const navItemsWithDropdown =
+         document.querySelectorAll(
+             ".nav-item > a[aria-haspopup='true']"
+         );
+
+
+     navItemsWithDropdown.forEach(
+         function(link) {
+
+             link.addEventListener(
+                 "click",
+                 function(event) {
+
+                     event.preventDefault();
+
+                     const navItem =
+                         this.parentElement;
+
+
+                     document
+                         .querySelectorAll(
+                             ".nav-item.dropdown-open"
+                         )
+                         .forEach(function(item) {
+
+                             if (item !== navItem) {
+
+                                 item.classList.remove(
+                                     "dropdown-open"
+                                 );
+
+                             }
+
+                         });
+
+
+                     navItem.classList.toggle(
+                         "dropdown-open"
+                     );
+
+                 }
+             );
+
+         }
+     );
+
+
+     /* =========================
+        CERRAR MENÚS
+     ========================== */
+
+     document.addEventListener(
+         "click",
+         function(event) {
+
+             if (!event.target.closest(
+                 ".nav-menu"
+             )) {
+
+                 document
+                     .querySelectorAll(
+                         ".nav-item.dropdown-open"
+                     )
+                     .forEach(function(item) {
+
+                         item.classList.remove(
+                             "dropdown-open"
+                         );
+
+                     });
+
+             }
+
+         }
+     );
+
+</script>
+
+
+<div id="successPopup" class="success-popup">
+    Anfrage erfolgreich gesendet.
+</div>
+
+
+ </body>
+ </html>
+
