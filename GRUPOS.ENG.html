@@ -4135,18 +4135,16 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Babies</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Babies with Cot</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babies</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babies with Cot</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">NO. STANDARD ROOMS</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
