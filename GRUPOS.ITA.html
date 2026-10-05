@@ -3709,7 +3709,7 @@ actualizarSummary();
      ========================== */
 
      const hoy =
-         new Data()
+         new Date()
              .toISOString()
              .split("T")[0];
 
@@ -3764,10 +3764,10 @@ actualizarSummary();
          }
 
          const fechaEntrada =
-             new Data(entrada + "T00:00:00");
+             new Date(entrada + "T00:00:00");
 
          const fechaSalida =
-             new Data(salida + "T00:00:00");
+             new Date(salida + "T00:00:00");
 
          return Math.max(
              0,
