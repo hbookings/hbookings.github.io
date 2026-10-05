@@ -1,6 +1,6 @@
- <!DOCTIPO html>
+ <!DOCTYPE html>
 
- <html lang="it-IT">
+ <html lang="es-ES">
  <head>
 
 
@@ -321,7 +321,7 @@
 
 
     /* =========================
-       TOTALI DE PASAJEROS
+       TOTALS DE PASAJEROS
     ========================= */
 
     .pax-totals {
@@ -365,7 +365,7 @@
     }
 
 
-    /* TOTALE OSPITI */
+    /* TOTAL GUESTS */
 
     .pax-totals .total-box-final {
         background-color: #15438B;
@@ -383,7 +383,7 @@
 
 
     /* =========================
-   CAMERE
+   ROOMS
 ========================= */
 
 .rooms-section {
@@ -462,7 +462,7 @@
 }
 
 /* Las 4 filas de tipos ocupan uniformemente todo el espacio
-   disponible hasta la fila TOTALE. */
+   disponible hasta la fila TOTAL. */
 .special-room-row {
     flex: 1 1 0;
     height: auto;
@@ -471,7 +471,7 @@
     box-sizing: border-box;
 }
 
-/* FILA TOTALE ESPECIALES: misma altura que TOTALE STANDARD,
+/* FILA TOTAL ESPECIALES: misma altura que TOTAL STANDARD,
    sin que el contenido interno pueda hacerla crecer. */
 .special-rooms-table > .special-room-total-row {
     height: 46px !important;
@@ -592,7 +592,7 @@
     border-radius: 4px;
 }
 
-/* Misma anchura visual que las cajas de cantidad CAMERE */
+/* Misma anchura visual que las cajas de cantidad ROOMS */
 .special-room-pax > div {
     padding: 0;
 }
@@ -716,7 +716,7 @@
 
 
     /* =========================
-       TOTALI DE CAMERE
+       TOTALS DE ROOMS
     ========================= */
 
     .rooms-totals {
@@ -760,7 +760,7 @@
     }
 
 
-    /* TOTALE CAMERE */
+    /* TOTAL ROOMS */
 
     .rooms-totals .total-box-final {
         background-color: #15438B;
@@ -779,7 +779,7 @@
 
     /* =========================
        CONFIGURACIÓN COMÚN
-       TOTALI OSPITI + CAMERE
+       TOTALS GUESTS + ROOMS
     ========================= */
 
     .pax-totals .total-box,
@@ -795,7 +795,7 @@
 
 
     /* =========================
-       TOTALI FINALES
+       TOTALS FINALES
     ========================= */
 
     .final-totals-box {
@@ -1428,11 +1428,11 @@
         <a
             class="nav-logo"
             href="index.html"
-            aria-label="Hotel Bookings - Home"
+            aria-label"Hotel Bookings - Inicio"
         >
             <img
                 src="images/hb.png"
-                alt="Hotel Bookings"
+                alt"Hotel Bookings"
             >
         </a>
 
@@ -1530,35 +1530,35 @@
                         href="#"
                         onclick="cambiarIdioma('es'); return false;"
                     >
-                        Spanish
+                        Spagnolo
                     </a>
 
                     <a
                         href="#"
                         onclick="cambiarIdioma('en'); return false;"
                     >
-                        English
+                        Inglese
                     </a>
 
                     <a
                         href="#"
                         onclick="cambiarIdioma('fr'); return false;"
                     >
-                        French
+                        Francese
                     </a>
 
                     <a
                         href="#"
                         onclick="cambiarIdioma('de'); return false;"
                     >
-                        German
+                        Tedesco
                     </a>
 
                     <a
                         href="#"
                         onclick="cambiarIdioma('it'); return false;"
                     >
-                        Italian
+                        Italiano
                     </a>
 
                 </div>
@@ -1715,7 +1715,7 @@
 
 
      <!-- =========================
-              TIPO DE GRUPO
+              TYPE DE GRUPO
          ========================== -->
 
          <section class="form-section">
@@ -1746,7 +1746,7 @@
      Sportivo
  </option>
  <option value="Senior Citizens">
-     Senior
+     Terza età
  </option>
  <option value="Corporate">
      Aziendale
@@ -1783,7 +1783,7 @@
          <section class="form-section">
 
              <h2 class="form-section-title">
-                 Destinazione & accommodation
+                 Destinazione e alloggio
              </h2>
 
              <div class="form-grid">
@@ -1798,7 +1798,7 @@
                          type="text"
                          id="destino"
                          name="destino"
-                         placeholder="City or destination"
+                         placeholder"Città o destinazione"
                          required
                      >
 
@@ -1817,7 +1817,7 @@
     required
 >
     <option value="">
-        Seleziona un’opzione
+        Seleziona un'opzione
     </option>
 
     <option value="Hotel">
@@ -1847,7 +1847,7 @@
                  <div class="form-group full-width">
 
                      <label>
-                         Arrivo / Partenza Dates
+                         Date di arrivo / partenza
                          <span class="required">*</span>
                      </label>
 
@@ -1890,7 +1890,7 @@
                          class="error-message"
                          id="dateError"
                      >
-                         The check-out date must be after the check-in date.
+                         La data di partenza deve essere successiva alla data di arrivo.
                      </div>
 
                  </div>
@@ -1953,12 +1953,12 @@
 
              <div class="persons-section">
 
-                 <!-- CAMERE STANDARD -->
+                 <!-- ROOMS STANDARD -->
 
                  <div class="persons-section-column">
 
                      <h3 class="persons-section-title">
-                         <span>N. OSPITI IN CAMERE STANDARD</span>
+                         <span>N. PAX IN CAMERE STANDARD</span>
                          <span class="persons-section-subtitle">
                              (Camera singola, Camera doppia, Camera tripla, Camera quadrupla)
                          </span>
@@ -1995,7 +1995,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Neonati + Culla
+                                 Neonati che necessitano di Culla
                              </div>
                              <div class="persons-section-value">
                                  <select id="cunas" name="cunas"></select>
@@ -2005,7 +2005,7 @@
 
 <div class="persons-section-row">
     <div class="persons-section-label">
-        TOTALE OSPITI
+        TOTALE PAX
     </div>
     <div class="persons-section-value">
         <span id="totalPaxStandard"></span>
@@ -2019,12 +2019,12 @@
                  </div>
 
 
-                 <!-- CAMERE ESPECIALES -->
+                 <!-- ROOMS ESPECIALES -->
 
                  <div class="persons-section-column">
 
                      <h3 class="persons-section-title">
-                         <span>N. OSPITI IN CAMERE SPECIALI</span>
+                         <span>N. PAX IN CAMERE SPECIALI</span>
                          <span class="persons-section-subtitle">
                              (Camera familiare, Junior, Camera Superior, Suite)
                          </span>
@@ -2061,7 +2061,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Neonati + Culla
+                                 Neonati che necessitano di Culla
                              </div>
                              <div class="persons-section-value">
                                  <select id="familiarCunas" name="familiarCunas"></select>
@@ -2070,7 +2070,7 @@
 
 <div class="persons-section-row">
     <div class="persons-section-label">
-        TOTALE OSPITI
+        TOTALE PAX
     </div>
     <div class="persons-section-value">
         <span id="totalPaxEspeciales"></span>
@@ -2086,7 +2086,7 @@
 
 
              <!-- =========================
-                  TOTALI
+                  TOTALS
              ========================== -->
 
              <div class="pax-totals">
@@ -2107,12 +2107,12 @@
                  </div>
 
                  <div class="total-box">
-                     <span class="total-box-label">NEONATI + CULLA</span>
+                     <span class="total-box-label">NEONATI CON CULLA</span>
                      <span class="total-box-value" id="totalCunas"></span>
                  </div>
 
                  <div class="total-box total-box-final">
-                     <span class="total-box-label">TOTALE OSPITI</span>
+                     <span class="total-box-label">TOTALE PAX</span>
                      <span class="total-box-value" id="totalPax"></span>
                  </div>
 
@@ -2123,14 +2123,14 @@
                  class="error-message"
                  id="paxError"
              >
-                 There must be at least 1 guest.
+                 Deve esserci almeno 1 ospite.
              </div>
 
          </section>
 
 
          <!-- =========================
-     CAMERE
+     ROOMS
 ========================== -->
 
 <section class="form-section">
@@ -2141,7 +2141,7 @@
 
     <div class="rooms-section">
 
-        <!-- CAMERE STANDARD -->
+        <!-- ROOMS STANDARD -->
 
         <div class="rooms-section-column">
 
@@ -2184,7 +2184,7 @@
                         </div>
 
                         <div>
-                            <span>Letti singoli</span>
+                            <span>Due letti singoli</span>
                             <select
                                 id="doblesTwin"
                                 name="doblesTwin"
@@ -2222,7 +2222,7 @@
                 </div>
 
 
-                <!-- TOTALE STANDARD -->
+                <!-- TOTAL STANDARD -->
 
                 <div class="rooms-section-row">
                     <div class="rooms-section-label">
@@ -2238,7 +2238,7 @@
         </div>
 
 
-        <!-- CAMERE ESPECIALES -->
+        <!-- ROOMS ESPECIALES -->
 
         <div class="rooms-section-column">
 
@@ -2266,20 +2266,20 @@
                                 <select id="familiarHabitacionAdults" name="familiarHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>BA</span>
+                                <span>CH</span>
                                 <select id="familiarHabitacionNinos" name="familiarHabitacionNinos"></select>
                             </div>
                             <div>
-                                <span>NE</span>
+                                <span>BB</span>
                                 <select id="familiarHabitacionBebes" name="familiarHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="familiarHabitacionCunas" name="familiarHabitacionCunas"></select>
                             </div>
                         </div>
                         <div class="special-room-total">
-                            <span class="special-room-total-label">OSPITI</span>
+                            <span class="special-room-total-label">PAX</span>
                             <span id="totalPaxFamiliarHabitacion"></span>
                         </div>
                     </div>
@@ -2300,11 +2300,11 @@
                                 <select id="juniorHabitacionAdults" name="juniorHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>BA</span>
+                                <span>CH</span>
                                 <select id="juniorHabitacionNinos" name="juniorHabitacionNinos"></select>
                             </div>
                             <div>
-                                <span>NE</span>
+                                <span>BB</span>
                                 <select id="juniorHabitacionBebes" name="juniorHabitacionBebes"></select>
                             </div>
                             <div>
@@ -2313,7 +2313,7 @@
                             </div>
                         </div>
                         <div class="special-room-total">
-                            <span class="special-room-total-label">OSPITI</span>
+                            <span class="special-room-total-label">PAX</span>
                             <span id="totalPaxJuniorHabitacion"></span>
                         </div>
                     </div>
@@ -2321,7 +2321,7 @@
 
                 <div class="rooms-section-row special-room-row">
                     <div class="rooms-section-label">
-                        Camera Superior
+                        Superior
                     </div>
                     <div class="special-room-value">
                         <div class="special-room-quantity">
@@ -2334,11 +2334,11 @@
                                 <select id="superiorHabitacionAdults" name="superiorHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>BA</span>
+                                <span>CH</span>
                                 <select id="superiorHabitacionNinos" name="superiorHabitacionNinos"></select>
                             </div>
                             <div>
-                                <span>NE</span>
+                                <span>BB</span>
                                 <select id="superiorHabitacionBebes" name="superiorHabitacionBebes"></select>
                             </div>
                             <div>
@@ -2347,7 +2347,7 @@
                             </div>
                         </div>
                         <div class="special-room-total">
-                            <span class="special-room-total-label">OSPITI</span>
+                            <span class="special-room-total-label">PAX</span>
                             <span id="totalPaxSuperiorHabitacion"></span>
                         </div>
                     </div>
@@ -2368,11 +2368,11 @@
                                 <select id="suiteHabitacionAdults" name="suiteHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>BA</span>
+                                <span>CH</span>
                                 <select id="suiteHabitacionNinos" name="suiteHabitacionNinos"></select>
                             </div>
                             <div>
-                                <span>NE</span>
+                                <span>BB</span>
                                 <select id="suiteHabitacionBebes" name="suiteHabitacionBebes"></select>
                             </div>
                             <div>
@@ -2381,7 +2381,7 @@
                             </div>
                         </div>
                         <div class="special-room-total">
-                            <span class="special-room-total-label">OSPITI</span>
+                            <span class="special-room-total-label">PAX</span>
                             <span id="totalPaxSuiteHabitacion"></span>
                         </div>
                     </div>
@@ -2398,11 +2398,11 @@
                             <span id="totalHabitacionesEspecialesAD"></span>
                         </div>
                         <div>
-                            <span>BA</span>
+                            <span>CH</span>
                             <span id="totalHabitacionesEspecialesNI"></span>
                         </div>
                         <div>
-                            <span>NE</span>
+                            <span>BB</span>
                             <span id="totalHabitacionesEspecialesBE"></span>
                         </div>
                         <div>
@@ -2410,7 +2410,7 @@
                             <span id="totalHabitacionesEspecialesCunas"></span>
                         </div>
                         <div>
-                            <span>TOTALE OSPITI</span>
+                            <span>TOTALE PAX</span>
                             <span id="totalPaxHabitacionesEspeciales"></span>
                         </div>
                     </div>
@@ -2424,38 +2424,38 @@
 
 
     <!-- =========================
-         TOTALI
+         TOTALS
     ========================== -->
 
     <div class="rooms-totals">
 
         <div class="total-box">
-            <span class="total-box-label">SINGLE CAMERE</span>
+            <span class="total-box-label">CAMERE SINGOLE</span>
             <span class="total-box-value" id="totalSingle"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">DOUBLE CAMERE<br>Letto matrimoniale</span>
+            <span class="total-box-label">CAMERE DOPPIE<br>Letto matrimoniale</span>
             <span class="total-box-value" id="totalDoubleDouble"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">DOUBLE CAMERE<br>Letti singoli</span>
+            <span class="total-box-label">CAMERE DOPPIE<br>Due letti singoli</span>
             <span class="total-box-value" id="totalDoubleTwin"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">TRIPLE CAMERE</span>
+            <span class="total-box-label">CAMERE TRIPLE</span>
             <span class="total-box-value" id="totalTriple"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">QUADRUPLE CAMERE</span>
+            <span class="total-box-label">CAMERE QUADRUPLE</span>
             <span class="total-box-value" id="totalCuadruples"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">FAMILY CAMERE</span>
+            <span class="total-box-label">CAMERE FAMILIARI</span>
             <span class="total-box-value" id="totalFamilyHabitaciones"></span>
         </div>
 
@@ -2465,12 +2465,12 @@
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">SUPERIOR CAMERE</span>
+            <span class="total-box-label">CAMERE SUPERIOR</span>
             <span class="total-box-value" id="totalSuperiorHabitaciones"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">SUITES</span>
+            <span class="total-box-label">SUITE</span>
             <span class="total-box-value" id="totalSuiteHabitaciones"></span>
         </div>
 
@@ -2500,7 +2500,7 @@
 <section class="form-section summary-section">
 
     <h2 class="form-section-title">
-        Summary
+        Riepilogo
     </h2>
 
     <div class="summary-table-wrap">
@@ -2530,24 +2530,24 @@
                     <th colspan="9" class="summary-main-head summary-special-bold">CAMERE SPECIALI</th>
                 </tr>
                 <tr>
-                    <th colspan="2" rowspan="3" class="summary-sub-head">OSPITI INSERITI</th>
+                    <th colspan="2" rowspan="3" class="summary-sub-head">PAX INSERITI</th>
                     <th colspan="3" class="summary-sub-head summary-standard-edge">CAMERE INSERITE</th>
-                    <th colspan="2" rowspan="3" class="summary-sub-head">OSPITI INSERITI</th>
+                    <th colspan="2" rowspan="3" class="summary-sub-head">PAX INSERITI</th>
                     <th colspan="7" class="summary-sub-head summary-special-bold">CAMERE INSERITE</th>
                 </tr>
                 <tr>
                     <th rowspan="2">TIPO</th>
                     <th rowspan="2">CAMERE</th>
-                    <th rowspan="2" class="summary-standard-edge">OSPITI</th>
+                    <th rowspan="2" class="summary-standard-edge">PAX</th>
                     <th rowspan="2">TIPO</th>
-                    <th rowspan="2">NO.</th>
-                    <th colspan="4">OSPITI</th>
-                    <th rowspan="2" class="summary-special-bold">TOTALE OSPITI</th>
+                    <th rowspan="2">N.</th>
+                    <th colspan="4">PAX</th>
+                    <th rowspan="2" class="summary-special-bold">TOTALE PAX</th>
                 </tr>
                 <tr>
                     <th>AD</th>
-                    <th>BA</th>
-                    <th>NE</th>
+                    <th>CH</th>
+                    <th>BB</th>
                     <th>B+C</th>
                 </tr>
             </thead>
@@ -2570,12 +2570,12 @@
                     <td id="resumenFamiliarTotal" class="summary-special-bold"></td>
                 </tr>
                 <tr>
-                    <td>BA</td>
+                    <td>CH</td>
                     <td id="resumenStandardNI"></td>
                     <td>DBL</td>
                     <td id="resumenHabitacionesDouble"></td>
                     <td id="resumenCapacidadDouble" class="summary-standard-edge"></td>
-                    <td>BA</td>
+                    <td>CH</td>
                     <td id="resumenEspecialNI"></td>
                     <td>JUN</td>
                     <td id="resumenJuniorHabitaciones"></td>
@@ -2586,12 +2586,12 @@
                     <td id="resumenJuniorTotal" class="summary-special-bold"></td>
                 </tr>
                 <tr>
-                    <td>NE</td>
+                    <td>BB</td>
                     <td id="resumenStandardBB"></td>
                     <td>TRI</td>
                     <td id="resumenHabitacionesTriple"></td>
                     <td id="resumenCapacidadTriple" class="summary-standard-edge"></td>
-                    <td>NE</td>
+                    <td>BB</td>
                     <td id="resumenEspecialBB"></td>
                     <td>SUP</td>
                     <td id="resumenSuperiorHabitaciones"></td>
@@ -2679,7 +2679,7 @@
     <div class="final-totals-title">TOTALI</div>
     <div class="final-totals-head">
         <div>CAMERE</div>
-        <div>OSPITI</div>
+        <div>PAX</div>
     </div>
     <div class="final-totals-values">
         <div id="totalHabitacionesFinal"></div>
@@ -2707,7 +2707,7 @@
                  <textarea
                      id="observaciones"
                      name="observaciones"
-                     placeholder="Inserisci qui eventuali informazioni aggiuntive..."
+                     placeholder"Inserisci qui eventuali informazioni aggiuntive..."
                  ></textarea>
 
              </div>
@@ -2720,29 +2720,29 @@
 ========================== -->
 
 <!-- =========================
-     INFORMACIÓN PRENOTAZIONI ALBERGHIERE
+     INFORMACIÓN HOTEL BOOKINGS
 ========================== -->
 
 <div style="margin:0 0 24px;color:#666666;font-size:12px;line-height:1.5;text-align:justify;">
 
     <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings è un servizio online che offre sistemazioni per gruppi in hotel, appartamenti, resort, ecc.
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings es un servicio en línea que proporciona alojamiento para grupos en hoteles, apartamentos, resorts, etc.
     </p>
 
     <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings informa che, una volta individuata una sistemazione per il Gruppo del richiedente, la struttura ricettiva si occuperà direttamente con il richiedente di tutto ciò che riguarda il Gruppo, le rooming list, le richieste, la conferma, la fatturazione, ecc.
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings informa de que, una vez encontrado el alojamiento para el grupo del solicitante, el proveedor de alojamiento tratará directamente con el solicitante todo lo relacionado con el grupo, las listas de habitaciones, las solicitudes, la confirmación, la facturación, etc.
     </p>
 
     <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings applicherà una commissione del 10% sul costo totale della prenotazione del Gruppo, da corrispondere prima dell’arrivo del Gruppo presso la struttura ricettiva.
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings cobrará el 10 % del coste total de la reserva de grupo, pagadero antes de la llegada del grupo al alojamiento.
     </p>
 
     <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings Ltd., in qualità di soggetto responsabile dei dati e del sito web, in conformità alla normativa applicabile e, in particolare, al Regolamento (UE) 2016/679 del Parlamento europeo e del Consiglio del 27 aprile 2016 relativo alla tutela delle persone fisiche con riguardo al trattamento dei dati personali e alla libera circolazione di tali dati (GDPR), nonché alla Legge 34/2002 dell’11 luglio sui servizi della società dell’informazione e sul commercio elettronico (LSSICE), informa che sono state adottate misure tecniche e organizzative per garantire e tutelare la riservatezza, l’integrità e la disponibilità dei dati personali.
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings Ltd., como responsable de los datos y del sitio web, de conformidad con la legislación aplicable y, en particular, con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de dichos datos (RGPD), así como con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), le informa de que hemos implantado medidas técnicas y organizativas para garantizar y proteger la confidencialidad, integridad y disponibilidad de sus datos personales.
     </p>
 
     <p style="margin:0;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings declina ogni responsabilità per qualsiasi comportamento o danno che possa essere stato causato dai clienti.
+        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings no acepta responsabilidad alguna por cualquier comportamiento o daño que puedan haber causado los clientes.
     </p>
 
 </div>
@@ -2884,7 +2884,7 @@
 
 
      /* =========================
-        CAMERE
+        ROOMS
      ========================== */
 
      crearOpciones("individuales", 50);
@@ -2912,7 +2912,7 @@
 
 
      /* =========================
-        OSPITI CAMERE ESPECIALES
+        PAX ROOMS ESPECIALES
      ========================== */
 
      crearOpciones("familiarAdults", 25);
@@ -2937,7 +2937,7 @@
 
 
      /* =========================
-        CALCULAR OSPITI ESPECIAL
+        CALCULAR PAX ESPECIAL
      ========================== */
 
      function calcularPaxEspecial(tipo) {
@@ -2979,7 +2979,7 @@
 
 
      /* =========================
-        INICIALIZAR OSPITI ESPECIAL
+        INICIALIZAR PAX ESPECIAL
      ========================== */
 
      [
@@ -2995,7 +2995,7 @@
 
 
      /* =========================
-        CALCULAR OSPITI DE CAMERE ESPECIALES
+        CALCULAR PAX DE ROOMS ESPECIALES
      ========================== */
 
      function calcularPaxHabitacionEspecial(tipo) {
@@ -3089,13 +3089,13 @@
 
 
      /* =========================
-        CALCULAR TOTALI
+        CALCULAR TOTALS
      ========================== */
 
      function calcularTotales() {
 
          /* =========================
-            OSPITI STANDARD
+            PAX STANDARD
          ========================== */
 
          const standardAdults =
@@ -3112,7 +3112,7 @@
 
 
          /* =========================
-            OSPITI ESPECIALES
+            PAX ESPECIALES
          ========================== */
 
          const especialAdults =
@@ -3141,7 +3141,7 @@
 
 
          /* =========================
-            TOTALI GENERALES
+            TOTALS GENERALES
          ========================== */
 
          const adultos =
@@ -3180,7 +3180,7 @@ const totalPaxEspeciales =
 
 
          /* =========================
-            MOSTRAR TOTALI PERSONAS
+            MOSTRAR TOTALS PERSONAS
          ========================== */
 
          const totalAdults =
@@ -3241,7 +3241,7 @@ if (totalPaxEspecialesElemento) {
 
 
          /* =========================
-            MOSTRAR TOTALE DE CAMERE
+            MOSTRAR TOTAL DE ROOMS
          ========================== */
 
          const individuales =
@@ -3329,7 +3329,7 @@ actualizarSummary();
 
 
          /* =========================
-            TOTALI POR TIPO
+            TOTALS POR TYPE
          ========================== */
 
          const totalIds = {
@@ -3464,9 +3464,9 @@ actualizarSummary();
          const especialTotal =
              especialAD + especialNI + especialBB + especialBC;
 
-         // Los totales de AD, NI, BB y B+C de las CAMERE ESPECIALES
+         // Los totales de AD, NI, BB y B+C de las ROOMS ESPECIALES
          // deben coincidir por separado con los totales introducidos en
-         // "NO. OF OSPITI IN CAMERE SPECIALI".
+         // "N.º DE PAX EN HABITACIONES ESPECIALES".
          const especialADIntroducidos =
              obtenerValor("familiarAdults") +
              obtenerValor("juniorAdults") +
@@ -3507,7 +3507,7 @@ actualizarSummary();
              document.getElementById("resumenEspecialPaxTotal");
 
          // La capacidad de camas Standard se calcula solo con AD + NI.
-         // Los bebés (BB + B+C) no ocupan cama, pero sí cuentan en el TOTALE OSPITI.
+         // Los bebés (BB + B+C) no ocupan cama, pero sí cuentan en el TOTAL PAX.
          const capacidadStandardConBebes =
              capacidadStandard + standardBB + standardBC;
 
@@ -3523,7 +3523,7 @@ actualizarSummary();
          if (resumenCheckMessage) {
              if (standardDescuadre || especialDescuadre) {
                  resumenCheckMessage.textContent =
-                     "OSPITI in the CAMERE INSERITE do NOT match the OSPITI INSERITI !!";
+                     "I PAX DELLE CAMERE INSERITE NON CORRISPONDONO AI PAX INSERITI.";
                  resumenCheckMessage.classList.add("show");
              } else {
                  resumenCheckMessage.textContent = "";
@@ -3585,7 +3585,7 @@ actualizarSummary();
      }
 
      /* =========================
-        TOTALI FINALES
+        TOTALS FINALES
      ========================== */
 
      function actualizarTotalesFinales() {
@@ -3641,7 +3641,7 @@ actualizarSummary();
 
 
      /* =========================
-        ACTUALIZACIÓN OSPITI ESPECIAL
+        ACTUALIZACIÓN PAX ESPECIAL
      ========================== */
 
      [
@@ -3840,7 +3840,7 @@ actualizarSummary();
 
 
          /* =========================
-            CALCULAR TOTALI
+            CALCULAR TOTALS
          ========================== */
 
          const totales =
@@ -3906,7 +3906,7 @@ actualizarSummary();
 
 
          /* =========================
-            CAMERE
+            ROOMS
          ========================== */
 
          const individuales =
@@ -3938,7 +3938,7 @@ actualizarSummary();
 
 
          /* =========================
-            OSPITI ESPECIALES
+            PAX ESPECIALES
          ========================== */
 
          const familiarAdults =
@@ -4003,49 +4003,49 @@ actualizarSummary();
          ========================== */
 
          const asunto_usuario =
-             "Nuova richiesta di prenotazione di gruppo " +
+             "Nueva solicitud de reserva de grupo " +
              nombreGrupoLimpio;
 
          const mensaje_usuario = `
              <div style="font-family:Arial,Helvetica,sans-serif;color:#222;max-width:900px;margin:0 auto;font-size:13px;line-height:1.35;">
 
                  <div style="text-align:center;margin-bottom:18px;">
-                     <div style="font-size:18px;font-weight:700;letter-spacing:.5px;">PRENOTAZIONI ALBERGHIERE</div>
-                     <div style="font-size:16px;font-weight:700;margin-top:5px;">Nuova richiesta di prenotazione di gruppo ${escapeHTML(nombreGrupoLimpio)}</div>
+                     <div style="font-size:18px;font-weight:700;letter-spacing:.5px;">RESERVAS DE HOTEL</div>
+                     <div style="font-size:16px;font-weight:700;margin-top:5px;">Nueva solicitud de reserva de grupo ${escapeHTML(nombreGrupoLimpio)}</div>
                  </div>
 
-                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">DATI DI CONTATTO</h3>
+                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">DATOS DE CONTACTO</h3>
                  <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
-                     <tr><td width="50%"><strong>Nome e cognome:</strong> ${escapeHTML(nombre)}</td><td width="50%"><strong>Azienda / Agenzia di viaggi:</strong> ${escapeHTML(empresa || "Nessuna")}</td></tr>
-                     <tr><td><strong>E-mail:</strong> ${escapeHTML(email)}</td><td><strong>Telefono:</strong> ${escapeHTML(telefono)}</td></tr>
+                     <tr><td width="50%"><strong>Nombre completo:</strong> ${escapeHTML(nombre)}</td><td width="50%"><strong>Empresa / Agencia de viajes:</strong> ${escapeHTML(empresa || "Ninguna")}</td></tr>
+                     <tr><td><strong>Email:</strong> ${escapeHTML(email)}</td><td><strong>Teléfono:</strong> ${escapeHTML(telefono)}</td></tr>
                  </table>
 
-                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">GRUPPO</h3>
+                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">GRUPO</h3>
                  <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
-                     <tr><td width="50%"><strong>Nome del gruppo:</strong> ${escapeHTML(nombreGrupoLimpio)}</td><td width="50%"><strong>Tipologia di gruppo:</strong> ${escapeHTML(tipoGrupo || "Nessuna")}</td></tr>
+                     <tr><td width="50%"><strong>Nombre del grupo:</strong> ${escapeHTML(nombreGrupoLimpio)}</td><td width="50%"><strong>Tipo de grupo:</strong> ${escapeHTML(tipoGrupo || "Ninguna")}</td></tr>
                  </table>
 
-                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">DESTINAZIONE &amp; ALLOGGIO</h3>
+                 <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">DESTINO Y ALOJAMIENTO</h3>
                  <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
-                     <tr><td width="50%"><strong>Destinazione:</strong> ${escapeHTML(destino)}</td><td width="50%"><strong>Alloggio:</strong> ${escapeHTML(alojamiento)}</td></tr>
-                     <tr><td><strong>Arrivo:</strong> ${escapeHTML(formatearFecha(entrada))}</td><td><strong>Partenza:</strong> ${escapeHTML(formatearFecha(salida))}</td></tr>
-                     <tr><td><strong>Giorni:</strong> ${calcularDias(entrada, salida)}</td><td><strong>Regime di trattamento:</strong> ${escapeHTML(regimen)}</td></tr>
+                     <tr><td width="50%"><strong>Destino:</strong> ${escapeHTML(destino)}</td><td width="50%"><strong>Alojamiento:</strong> ${escapeHTML(alojamiento)}</td></tr>
+                     <tr><td><strong>Entrada:</strong> ${escapeHTML(formatearFecha(entrada))}</td><td><strong>Salida:</strong> ${escapeHTML(formatearFecha(salida))}</td></tr>
+                     <tr><td><strong>Días:</strong> ${calcularDias(entrada, salida)}</td><td><strong>Régimen:</strong> ${escapeHTML(regimen)}</td></tr>
                  </table>
 
-                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NUMERO DI PERSONE</h3>
+                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NÚMERO DE PAX</h3>
                  <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;">
                      <tr>
-                         <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">N. OSPITI IN CAMERE STANDARD<br><span style="font-size:11px;font-weight:normal;">Camera singola, Camera doppia, Camera tripla, Camera quadrupla</span></th>
-                         <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">N. OSPITI IN CAMERE SPECIALI<br><span style="font-size:11px;font-weight:normal;">Camera familiare, Junior, Camera Superior, Suite</span></th>
+                         <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">N.º DE PAX EN HABITACIONES ESTÁNDAR<br><span style="font-size:11px;font-weight:normal;">Individual, Doble, Triple, Cuádruple</span></th>
+                         <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">N.º DE PAX EN HABITACIONES ESPECIALES<br><span style="font-size:11px;font-weight:normal;">Familiar, Junior, Superior, Suite</span></th>
                      </tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adulti:</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Adulti:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bambini (da 3 a 12 anni):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Bambini (da 3 a 12 anni):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + Culla:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Neonati + Culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTALE OSPITI:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTALE OSPITI:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adultos:</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Adultos:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Niños (de 3 a 12 años):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Niños (de 3 a 12 años):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bebés (de 0 a 3 años):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Bebés (de 0 a 3 años):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bebés + Cuna:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Bebés + Cuna:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL DE PAX:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTAL DE PAX:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
                  </table>
 
-                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NUMERO DI CAMERE</h3>
+                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NÚMERO DE HABITACIONES</h3>
                  <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;font-size:12px;">
                      <colgroup>
                          <col style="width:18%;">
@@ -4060,26 +4060,26 @@ actualizarSummary();
                          <col style="width:8%;">
                      </colgroup>
                      <tr>
-                         <th colspan="3" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;width:38%;">N. CAMERE STANDARD<br><span style="font-size:11px;font-weight:normal;">Camera singola, Camera doppia, Camera tripla, Camera quadrupla</span></th>
-                         <th colspan="7" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;width:62%;">N. CAMERE SPECIALI<br><span style="font-size:11px;font-weight:normal;">Camera familiare, Junior, Camera Superior, Suite</span></th>
+                         <th colspan="3" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;width:38%;">N.º DE HABITACIONES ESTÁNDAR<br><span style="font-size:11px;font-weight:normal;">Individual, Doble, Triple, Cuádruple</span></th>
+                         <th colspan="7" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;width:62%;">N.º DE HABITACIONES ESPECIALES<br><span style="font-size:11px;font-weight:normal;">Familiar, Junior, Superior, Suite</span></th>
                      </tr>
                      <tr>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TIPO</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">N. CAMERE</th>
-                         <th style="border:1px solid #bbb;border-right:4px solid #000;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">OSPITI</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">N.º HABITACIONES</th>
+                         <th style="border:1px solid #bbb;border-right:4px solid #000;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">PAX</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TIPO</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">N. CAMERE</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">N.º HABITACIONES</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">AD</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">BA</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">NE</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">CULLE</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1665%;">TOTALE OSPITI</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">CH</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">BB</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">COT</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1665%;">TOTAL PAX</th>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Camera singola</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Individual</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${individuales}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(individuales,10)||0)*1}</td>
-                         <td style="border:1px solid #bbb;"><strong>Camera familiare</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Familiar</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${familiar}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${familiarAdults}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${familiarNinos}</td>
@@ -4088,7 +4088,7 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas}</td>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Camera doppia (Camera doppia Bed)</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Doble (Cama doble)</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesDouble,10)||0)*2}</td>
                          <td style="border:1px solid #bbb;"><strong>Junior</strong></td>
@@ -4100,10 +4100,10 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${juniorAdults + juniorNinos + juniorBebes + juniorCunas}</td>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Camera doppia (Due letti singoli)</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Doble (Camas individuales)</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesTwin,10)||0)*2}</td>
-                         <td style="border:1px solid #bbb;"><strong>Camera Superior</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Superior</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${superior}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${superiorAdults}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${superiorNinos}</td>
@@ -4112,7 +4112,7 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${superiorAdults + superiorNinos + superiorBebes + superiorCunas}</td>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Camera tripla</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Triple</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${triples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(triples,10)||0)*3}</td>
                          <td style="border:1px solid #bbb;"><strong>Suite</strong></td>
@@ -4124,10 +4124,10 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Camera quadrupla</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Cuádruple</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(cuadruples,10)||0)*4}</td>
-                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALI</td>
+                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALES</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td>
@@ -4136,22 +4136,22 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
 <tr>
-    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Neonati</strong></td>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés</strong></td>
     <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
 <tr>
-    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Neonati + Culla</strong></td>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés + Cuna</strong></td>
     <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;font-weight:700;">N. CAMERE STANDARD</td>
+                         <td style="border:1px solid #bbb;font-weight:700;">N.º DE HABITACIONES ESTÁNDAR</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4}</td>
-                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">N. CAMERE SPECIALI</td>
+                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">N.º DE HABITACIONES ESPECIALES</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
-                         <td colspan="4" style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALE OSPITI</td>
+                         <td colspan="4" style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PAX</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
                  </table>
@@ -4160,27 +4160,27 @@ actualizarSummary();
                      <tr>
                          <td width="48%" style="vertical-align:top;padding-right:6px;">
                              <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
-                                 <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">RIEPILOGO OSPITI</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTALE</th></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Adulti</td><td style="border:1px solid #bbb;text-align:center;">${totales.adultos}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bambini (da 3 a 12 anni)</td><td style="border:1px solid #bbb;text-align:center;">${totales.ninos}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Neonati (da 0 a 3 anni)</td><td style="border:1px solid #bbb;text-align:center;">${totales.bebes}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Neonati + Culla</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALE OSPITI</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalPax}</td></tr>
+                                 <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">RESUMEN DE PAX</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTAL</th></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Adultos</td><td style="border:1px solid #bbb;text-align:center;">${totales.adultos}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Niños (de 3 a 12 años)</td><td style="border:1px solid #bbb;text-align:center;">${totales.ninos}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bebés (de 0 a 3 años)</td><td style="border:1px solid #bbb;text-align:center;">${totales.bebes}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bebés + Cuna</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PAX</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalPax}</td></tr>
                              </table>
                          </td>
                          <td width="52%" style="vertical-align:top;padding-left:6px;">
                              <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
-                                 <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">RIEPILOGO CAMERE</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTALE</th></tr>
+                                 <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">RESUMEN DE HABITACIONES</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTAL</th></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">SGL</td><td style="border:1px solid #bbb;text-align:center;">${individuales}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Camera doppia Bed)</td><td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Due letti singoli)</td><td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Cama doble)</td><td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Camas individuales)</td><td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">TRI</td><td style="border:1px solid #bbb;text-align:center;">${triples}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">QUAD</td><td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">FAM</td><td style="border:1px solid #bbb;text-align:center;">${familiar}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">JUN</td><td style="border:1px solid #bbb;text-align:center;">${junior}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">SUP</td><td style="border:1px solid #bbb;text-align:center;">${superior}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">SUI</td><td style="border:1px solid #bbb;text-align:center;">${suite}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALE CAMERE</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalHabitaciones}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL HABITACIONES</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalHabitaciones}</td></tr>
                              </table>
                          </td>
                      </tr>
@@ -4188,13 +4188,13 @@ actualizarSummary();
 
                  <div style="text-align:center;margin:16px 0;">
                      <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin:0 auto;border:2px solid #333;min-width:260px;">
-                         <tr><td style="border-bottom:1px solid #999;font-weight:700;">TOTALE OSPITI</td><td style="border-bottom:1px solid #999;font-weight:700;">${totales.totalPax}</td></tr>
-                         <tr><td style="font-weight:700;">TOTALE CAMERE</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
+                         <tr><td style="border-bottom:1px solid #999;font-weight:700;">TOTAL PAX</td><td style="border-bottom:1px solid #999;font-weight:700;">${totales.totalPax}</td></tr>
+                         <tr><td style="font-weight:700;">TOTAL HABITACIONES</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
                      </table>
                  </div>
 
-                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OSSERVAZIONI</h3>
-                 <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Nessuna")}</div>
+                 <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OBSERVACIONES</h3>
+                 <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Ninguna")}</div>
 
              </div>
          `;
@@ -4734,7 +4734,7 @@ actualizarSummary();
 
 
 <div id="successPopup" class="success-popup">
-    Richiesta inviata con successo.
+    Solicitud enviada correctamente.
 </div>
 
 
