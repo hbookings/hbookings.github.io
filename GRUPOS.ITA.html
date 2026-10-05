@@ -1995,7 +1995,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Neonati con culla
+                                 Neonati + Culla
                              </div>
                              <div class="persons-section-value">
                                  <select id="cunas" name="cunas"></select>
@@ -2061,7 +2061,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Neonati con culla
+                                 Neonati + Culla
                              </div>
                              <div class="persons-section-value">
                                  <select id="familiarCunas" name="familiarCunas"></select>
@@ -2107,7 +2107,7 @@
                  </div>
 
                  <div class="total-box">
-                     <span class="total-box-label">NEONATI CON CULLA</span>
+                     <span class="total-box-label">NEONATI + CULLA</span>
                      <span class="total-box-value" id="totalCunas"></span>
                  </div>
 
@@ -4041,7 +4041,7 @@ actualizarSummary();
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adulti:</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Adulti:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bambini (da 3 a 12 anni):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Bambini (da 3 a 12 anni):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + culla:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Neonati + culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + Culla:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Neonati + Culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTALE OSPITI:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTALE OSPITI:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
                  </table>
 
@@ -4135,18 +4135,16 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Neonati</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Neonati con culla</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Neonati</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Neonati + Culla</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">N. CAMERE STANDARD</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
@@ -4166,7 +4164,7 @@ actualizarSummary();
                                  <tr><td style="border:1px solid #bbb;text-align:left;">Adulti</td><td style="border:1px solid #bbb;text-align:center;">${totales.adultos}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">Bambini (da 3 a 12 anni)</td><td style="border:1px solid #bbb;text-align:center;">${totales.ninos}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">Neonati (da 0 a 3 anni)</td><td style="border:1px solid #bbb;text-align:center;">${totales.bebes}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Neonati + culla</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Neonati + Culla</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALE OSPITI</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalPax}</td></tr>
                              </table>
                          </td>

@@ -4041,7 +4041,7 @@ actualizarSummary();
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adultes :</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Adultes :</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Enfants (de 3 à 12 ans) :</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Enfants (de 3 à 12 ans) :</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés (de 0 à 3 ans) :</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Bébés (de 0 à 3 ans) :</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés + lit bébé :</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Bébés + lit bébé :</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés + Lit bébé :</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Bébés + Lit bébé :</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL DES PERSONNES :</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTAL DES PERSONNES :</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
                  </table>
 
@@ -4135,18 +4135,16 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Bébés</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Bébés avec lit bébé</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bébés</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bébés + Lit bébé</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">N° CHAMBRES STANDARD</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
@@ -4166,7 +4164,7 @@ actualizarSummary();
                                  <tr><td style="border:1px solid #bbb;text-align:left;">Adultes</td><td style="border:1px solid #bbb;text-align:center;">${totales.adultos}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">Enfants (de 3 à 12 ans)</td><td style="border:1px solid #bbb;text-align:center;">${totales.ninos}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">Bébés (de 0 à 3 ans)</td><td style="border:1px solid #bbb;text-align:center;">${totales.bebes}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bébés + lit bébé</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bébés + Lit bébé</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PERSONNES</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalPax}</td></tr>
                              </table>
                          </td>

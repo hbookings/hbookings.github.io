@@ -1995,7 +1995,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Babys mit Babybett
+                                 Babys + Babybett
                              </div>
                              <div class="persons-section-value">
                                  <select id="cunas" name="cunas"></select>
@@ -2061,7 +2061,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Babys mit Babybett
+                                 Babys + Babybett
                              </div>
                              <div class="persons-section-value">
                                  <select id="familiarCunas" name="familiarCunas"></select>
@@ -2107,7 +2107,7 @@
                  </div>
 
                  <div class="total-box">
-                     <span class="total-box-label">BABYS MIT BABYBETT</span>
+                     <span class="total-box-label">BABYS + BABYBETT</span>
                      <span class="total-box-value" id="totalCunas"></span>
                  </div>
 
@@ -4135,18 +4135,16 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarErwachsene + familiarNinos + familiarBebes + familiarCunas + juniorErwachsene + juniorNinos + juniorBebes + juniorCunas + superiorErwachsene + superiorNinos + superiorBebes + superiorCunas + suiteErwachsene + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Babys</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Babys mit Babybett</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babys</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babys + Babybett</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">NO. STANDARDZIMMER</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDoppelzimmer,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>

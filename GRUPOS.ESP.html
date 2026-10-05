@@ -2274,7 +2274,7 @@
                                 <select id="familiarHabitacionBebes" name="familiarHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="familiarHabitacionCunas" name="familiarHabitacionCunas"></select>
                             </div>
                         </div>
@@ -4135,18 +4135,16 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Bebés</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
-                     <tr>
-                         <td style="border:1px solid #bbb;"><strong>Bebés con cuna</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">—</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
-                         <td colspan="7" style="border:1px solid #bbb;"></td>
-                     </tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
+<tr>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés + Cuna</strong></td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td colspan="7" style="border:1px solid #bbb;"></td>
+</tr>
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">N.º DE HABITACIONES ESTÁNDAR</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
