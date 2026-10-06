@@ -829,6 +829,7 @@
         font-size: 10px;
         font-weight: 600;
         border-bottom: 1px solid #cccccc;
+        
     }
 
     .final-totals-head > div + div,
@@ -1388,13 +1389,12 @@
 
 .summary-check-message.show {
     display: block;
-    animation: summaryBlink 0.9s step-start infinite;
 }
 
 .summary-table .summary-check-error {
     color: #c00000 !important;
     font-weight: 700 !important;
-    animation: summaryBlink 0.9s step-start infinite;
+    animation: summaryBlink 2s step-start infinite;
 }
 
 @keyframes summaryBlink {
@@ -1748,17 +1748,14 @@
  <option value="Senior Citizens">
      Senior Citizens
  </option>
- <option value="Corporate">
-     Corporate
- </option>
  <option value="Business">
      Business
  </option>
  <option value="Professional">
      Professional
  </option>
- <option value="Conferences">
-     Conferences
+ <option value="Conventions">
+     Conventions
  </option>
  <option value="Music & Parties">
      Music & Parties
@@ -1824,7 +1821,7 @@
         Hotel
     </option>
 
-    <option value="Hostel">
+    <option value="Hostal">
                 Hostal
     </option>
 
@@ -2274,7 +2271,7 @@
                                 <select id="familiarHabitacionBebes" name="familiarHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="familiarHabitacionCunas" name="familiarHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2308,7 +2305,7 @@
                                 <select id="juniorHabitacionBebes" name="juniorHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="juniorHabitacionCunas" name="juniorHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2342,7 +2339,7 @@
                                 <select id="superiorHabitacionBebes" name="superiorHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="superiorHabitacionCunas" name="superiorHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2376,7 +2373,7 @@
                                 <select id="suiteHabitacionBebes" name="suiteHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="suiteHabitacionCunas" name="suiteHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2406,7 +2403,7 @@
                             <span id="totalHabitacionesEspecialesBE"></span>
                         </div>
                         <div>
-                            <span>B+C</span>
+                            <span>BB+C</span>
                             <span id="totalHabitacionesEspecialesCunas"></span>
                         </div>
                         <div>
@@ -2430,47 +2427,47 @@
     <div class="rooms-totals">
 
         <div class="total-box">
-            <span class="total-box-label">SINGLE ROOMS</span>
+            <span class="total-box-label">SINGLE</span>
             <span class="total-box-value" id="totalSingle"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">DOUBLE ROOMS<br>Double bed</span>
+            <span class="total-box-label">DOUBLE<br>Double bed</span>
             <span class="total-box-value" id="totalDoubleDouble"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">DOUBLE ROOMS<br>Twin beds</span>
+            <span class="total-box-label">DOUBLE<br>Twin beds</span>
             <span class="total-box-value" id="totalDoubleTwin"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">TRIPLE ROOMS</span>
+            <span class="total-box-label">TRIPLE</span>
             <span class="total-box-value" id="totalTriple"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">QUADRUPLE ROOMS</span>
+            <span class="total-box-label">QUADRUPLE</span>
             <span class="total-box-value" id="totalCuadruples"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">FAMILY ROOMS</span>
+            <span class="total-box-label">FAMILY</span>
             <span class="total-box-value" id="totalFamilyHabitaciones"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">JUNIOR SUITE</span>
+            <span class="total-box-label">JUNIOR</span>
             <span class="total-box-value" id="totalJuniorHabitaciones"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">SUPERIOR ROOMS</span>
+            <span class="total-box-label">SUPERIOR</span>
             <span class="total-box-value" id="totalSuperiorHabitaciones"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">SUITES</span>
+            <span class="total-box-label">SUITE</span>
             <span class="total-box-value" id="totalSuiteHabitaciones"></span>
         </div>
 
@@ -2537,7 +2534,7 @@
                 </tr>
                 <tr>
                     <th rowspan="2">TYPE</th>
-                    <th rowspan="2">ROOMS</th>
+                    <th rowspan="2">NO.</th>
                     <th rowspan="2" class="summary-standard-edge">GUESTS</th>
                     <th rowspan="2">TYPE</th>
                     <th rowspan="2">NO.</th>
@@ -2548,7 +2545,7 @@
                     <th>AD</th>
                     <th>CH</th>
                     <th>BB</th>
-                    <th>B+C</th>
+                    <th>BB+C</th>
                 </tr>
             </thead>
 
@@ -2602,12 +2599,12 @@
                     <td id="resumenSuperiorTotal" class="summary-special-bold"></td>
                 </tr>
                 <tr>
-                    <td>B+C</td>
+                    <td>BB+C</td>
                     <td id="resumenStandardBC"></td>
                     <td>QUAD</td>
                     <td id="resumenHabitacionesCuadruples"></td>
                     <td id="resumenCapacidadCuadruples" class="summary-standard-edge"></td>
-                    <td> B+C</td>
+                    <td> BB+C</td>
                     <td id="resumenEspecialBC"></td>
                     <td>SUI</td>
                     <td id="resumenSuiteHabitaciones"></td>
@@ -2620,7 +2617,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">BABIES</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">BABIES</td>
                     <td id="resumenBebesHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -2635,7 +2632,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">BABIES + COT</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">BABIES + COT</td>
                     <td id="resumenBebesCunaHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -3454,17 +3451,18 @@ actualizarSummary();
              };
 
              Object.keys(valores).forEach(function(id) {
-                 const elemento = document.getElementById(id);
-                 if (elemento) {
-                     elemento.textContent = valores[id];
-                 }
-             });
+    const elemento = document.getElementById(id);
+    if (elemento) {
+        elemento.textContent =
+            valores[id] === 0 ? "" : valores[id];
+    }
+});
          });
 
          const especialTotal =
              especialAD + especialNI + especialBB + especialBC;
 
-         // Los totales de AD, NI, BB y B+C de las ROOMS ESPECIALES
+         // Los totales de AD, NI, BB y BB+C de las ROOMS ESPECIALES
          // deben coincidir por separado con los totales introducidos en
          // "NO. OF GUESTS IN SPECIAL ROOMS".
          const especialADIntroducidos =
@@ -3507,7 +3505,7 @@ actualizarSummary();
              document.getElementById("resumenEspecialPaxTotal");
 
          // La capacidad de camas Standard se calcula solo con AD + NI.
-         // Los bebés (BB + B+C) no ocupan cama, pero sí cuentan en el TOTAL GUESTS.
+         // Los bebés (BB + BB+C) no ocupan cama, pero sí cuentan en el TOTAL GUESTS.
          const capacidadStandardConBebes =
              capacidadStandard + standardBB + standardBC;
 
@@ -3577,11 +3575,13 @@ actualizarSummary();
          };
 
          Object.keys(valoresSummary).forEach(function(id) {
-             const elemento = document.getElementById(id);
-             if (elemento) {
-                 elemento.textContent = valoresSummary[id];
-             }
-         });
+    const elemento = document.getElementById(id);
+
+    if (elemento) {
+        elemento.textContent =
+            valoresSummary[id] === 0 ? "" : valoresSummary[id];
+    }
+});
      }
 
      /* =========================

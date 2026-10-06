@@ -1388,13 +1388,12 @@
 
 .summary-check-message.show {
     display: block;
-    animation: summaryBlink 0.9s step-start infinite;
 }
 
 .summary-table .summary-check-error {
     color: #c00000 !important;
     font-weight: 700 !important;
-    animation: summaryBlink 0.9s step-start infinite;
+    animation: summaryBlink 2s step-start infinite;
 }
 
 @keyframes summaryBlink {
@@ -1736,34 +1735,31 @@
                          Seleziona il tipo di gruppo
                      </option>
 
- <option value="Tourist">
+ <option value="Turistico">
      Turistico
  </option>
- <option value="Students">
+ <option value="Studenti">
      Studenti
  </option>
- <option value="Sports">
+ <option value="Sportivo">
      Sportivo
  </option>
- <option value="Senior Citizens">
-     Terza età
- </option>
- <option value="Corporate">
-     Aziendale
+ <option value="Senior">
+     Senior
  </option>
  <option value="Business">
      Business
  </option>
- <option value="Professional">
+ <option value="Professionale">
      Professionale
  </option>
- <option value="Conferences">
-     Congressi
+ <option value="Convenzioni">
+     Convenzioni
  </option>
- <option value="Music & Parties">
+ <option value="Musica e feste">
      Musica e feste
  </option>
- <option value="Other">
+ <option value="Altro">
      Altro
  </option>
 
@@ -1824,11 +1820,11 @@
         Hotel
     </option>
 
-    <option value="Hostel">
-                Hostal
+    <option value="Hostal">
+        Hostal
     </option>
 
-    <option value="Apartments">
+    <option value="Appartamenti">
         Appartamenti
     </option>
 
@@ -1836,7 +1832,7 @@
         Resort
     </option>
 
-    <option value="Other">
+    <option value="Altro">
         Altro
     </option>
 </select>
@@ -1912,20 +1908,20 @@
                              Seleziona il regime di trattamento
                          </option>
 
-                         <option value="Room Only">
-                             Solo pernottamento
+                         <option value="Solo Pernottamento">
+                             Solo Pernottamento
                          </option>
 
-                         <option value="Bed & Breakfast">
-                             Pernottamento e colazione
+                         <option value="Pernottamento e Colazione">
+                             Pernottamento e Colazione
                          </option>
 
-                         <option value="Half Board">
-                             Mezza pensione
+                         <option value="Mezza Pensione">
+                             Mezza Pensione
                          </option>
 
-                         <option value="Full Board">
-                             Pensione completa
+                         <option value="Pensione Completa">
+                             Pensione Completa
                          </option>
 
                          <option value="All Inclusive">
@@ -1958,7 +1954,7 @@
                  <div class="persons-section-column">
 
                      <h3 class="persons-section-title">
-                         <span>N. PAX IN CAMERE STANDARD</span>
+                         <span>N. PERSONE IN CAMERE STANDARD</span>
                          <span class="persons-section-subtitle">
                              (Camera singola, Camera doppia, Camera tripla, Camera quadrupla)
                          </span>
@@ -1995,7 +1991,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Neonati che necessitano di Culla
+                                 Neonati, con richiesta di Culla
                              </div>
                              <div class="persons-section-value">
                                  <select id="cunas" name="cunas"></select>
@@ -2005,7 +2001,7 @@
 
 <div class="persons-section-row">
     <div class="persons-section-label">
-        TOTALE PAX
+        TOTALE PERSONE
     </div>
     <div class="persons-section-value">
         <span id="totalPaxStandard"></span>
@@ -2024,7 +2020,7 @@
                  <div class="persons-section-column">
 
                      <h3 class="persons-section-title">
-                         <span>N. PAX IN CAMERE SPECIALI</span>
+                         <span>N. PERSONE IN CAMERE SPECIALI</span>
                          <span class="persons-section-subtitle">
                              (Camera familiare, Junior, Camera Superior, Suite)
                          </span>
@@ -2061,7 +2057,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Neonati che necessitano di Culla
+                                 Neonati, con richiesta di Culla
                              </div>
                              <div class="persons-section-value">
                                  <select id="familiarCunas" name="familiarCunas"></select>
@@ -2070,7 +2066,7 @@
 
 <div class="persons-section-row">
     <div class="persons-section-label">
-        TOTALE PAX
+        TOTALE PERSONE
     </div>
     <div class="persons-section-value">
         <span id="totalPaxEspeciales"></span>
@@ -2112,7 +2108,7 @@
                  </div>
 
                  <div class="total-box total-box-final">
-                     <span class="total-box-label">TOTALE PAX</span>
+                     <span class="total-box-label">TOTALE PERSONE</span>
                      <span class="total-box-value" id="totalPax"></span>
                  </div>
 
@@ -2308,7 +2304,7 @@
                                 <select id="juniorHabitacionBebes" name="juniorHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="juniorHabitacionCunas" name="juniorHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2342,7 +2338,7 @@
                                 <select id="superiorHabitacionBebes" name="superiorHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="superiorHabitacionCunas" name="superiorHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2376,7 +2372,7 @@
                                 <select id="suiteHabitacionBebes" name="suiteHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+C</span>
                                 <select id="suiteHabitacionCunas" name="suiteHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2406,11 +2402,11 @@
                             <span id="totalHabitacionesEspecialesBE"></span>
                         </div>
                         <div>
-                            <span>B+C</span>
+                            <span>BB+C</span>
                             <span id="totalHabitacionesEspecialesCunas"></span>
                         </div>
                         <div>
-                            <span>TOTALE PAX</span>
+                            <span>TOTALE PERSONE</span>
                             <span id="totalPaxHabitacionesEspeciales"></span>
                         </div>
                     </div>
@@ -2430,42 +2426,42 @@
     <div class="rooms-totals">
 
         <div class="total-box">
-            <span class="total-box-label">CAMERE SINGOLE</span>
+            <span class="total-box-label">SINGOLE</span>
             <span class="total-box-value" id="totalSingle"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">CAMERE DOPPIE<br>Letto matrimoniale</span>
+            <span class="total-box-label">DOPPIE<br>Letto matrimoniale</span>
             <span class="total-box-value" id="totalDoubleDouble"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">CAMERE DOPPIE<br>Due letti singoli</span>
+            <span class="total-box-label">DOPPIE<br>Due letti singoli</span>
             <span class="total-box-value" id="totalDoubleTwin"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">CAMERE TRIPLE</span>
+            <span class="total-box-label">TRIPLE</span>
             <span class="total-box-value" id="totalTriple"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">CAMERE QUADRUPLE</span>
+            <span class="total-box-label">QUADRUPLE</span>
             <span class="total-box-value" id="totalCuadruples"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">CAMERE FAMILIARI</span>
+            <span class="total-box-label">FAMILIARI</span>
             <span class="total-box-value" id="totalFamilyHabitaciones"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">JUNIOR SUITE</span>
+            <span class="total-box-label">JUNIOR</span>
             <span class="total-box-value" id="totalJuniorHabitaciones"></span>
         </div>
 
         <div class="total-box">
-            <span class="total-box-label">CAMERE SUPERIOR</span>
+            <span class="total-box-label">SUPERIOR</span>
             <span class="total-box-value" id="totalSuperiorHabitaciones"></span>
         </div>
 
@@ -2537,7 +2533,7 @@
                 </tr>
                 <tr>
                     <th rowspan="2">TIPO</th>
-                    <th rowspan="2">CAMERE</th>
+                    <th rowspan="2">N.</th>
                     <th rowspan="2" class="summary-standard-edge">PAX</th>
                     <th rowspan="2">TIPO</th>
                     <th rowspan="2">N.</th>
@@ -2548,7 +2544,7 @@
                     <th>AD</th>
                     <th>CH</th>
                     <th>BB</th>
-                    <th>B+C</th>
+                    <th>BB+C</th>
                 </tr>
             </thead>
 
@@ -2602,12 +2598,12 @@
                     <td id="resumenSuperiorTotal" class="summary-special-bold"></td>
                 </tr>
                 <tr>
-                    <td>B+C</td>
+                    <td>BB+C</td>
                     <td id="resumenStandardBC"></td>
                     <td>QUAD</td>
                     <td id="resumenHabitacionesCuadruples"></td>
                     <td id="resumenCapacidadCuadruples" class="summary-standard-edge"></td>
-                    <td> B+C</td>
+                    <td> BB+C</td>
                     <td id="resumenEspecialBC"></td>
                     <td>SUI</td>
                     <td id="resumenSuiteHabitaciones"></td>
@@ -2620,7 +2616,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">NEONATI</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">NEONATI</td>
                     <td id="resumenBebesHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -2635,7 +2631,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">NEONATI + CULLA</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">NEONATI + CULLA</td>
                     <td id="resumenBebesCunaHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -2679,7 +2675,7 @@
     <div class="final-totals-title">TOTALI</div>
     <div class="final-totals-head">
         <div>CAMERE</div>
-        <div>PAX</div>
+        <div>PERSONE</div>
     </div>
     <div class="final-totals-values">
         <div id="totalHabitacionesFinal"></div>
@@ -2725,25 +2721,25 @@
 
 <div style="margin:0 0 24px;color:#666666;font-size:12px;line-height:1.5;text-align:justify;">
 
-    <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings es un servicio en línea que proporciona alojamiento para grupos en hoteles, apartamentos, resorts, etc.
-    </p>
+<p style="margin:0 0 12px;text-align:justify;">
+    <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings è un servizio online che fornisce sistemazioni per gruppi in hotel, appartamenti, resort, ecc.
+</p>
 
-    <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings informa de que, una vez encontrado el alojamiento para el grupo del solicitante, el proveedor de alojamiento tratará directamente con el solicitante todo lo relacionado con el grupo, las listas de habitaciones, las solicitudes, la confirmación, la facturación, etc.
-    </p>
+<p style="margin:0 0 12px;text-align:justify;">
+    <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings informa che, una volta individuata la sistemazione per il gruppo del richiedente, il fornitore dell’alloggio gestirà direttamente con il richiedente tutti gli aspetti relativi al gruppo, comprese le liste delle camere, le richieste, la conferma, la fatturazione, ecc.
+</p>
 
-    <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings cobrará el 10 % del coste total de la reserva de grupo, pagadero antes de la llegada del grupo al alojamiento.
-    </p>
+<p style="margin:0 0 12px;text-align:justify;">
+    <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings addebiterà il 10% del costo totale della prenotazione di gruppo, da corrispondere prima dell’arrivo del gruppo presso la struttura ricettiva.
+</p>
 
-    <p style="margin:0 0 12px;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings Ltd., como responsable de los datos y del sitio web, de conformidad con la legislación aplicable y, en particular, con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de dichos datos (RGPD), así como con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), le informa de que hemos implantado medidas técnicas y organizativas para garantizar y proteger la confidencialidad, integridad y disponibilidad de sus datos personales.
-    </p>
+<p style="margin:0 0 12px;text-align:justify;">
+    <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings Ltd., in qualità di titolare del trattamento dei dati e del sito web, in conformità alla normativa applicabile e, in particolare, al Regolamento (UE) 2016/679 del Parlamento Europeo e del Consiglio del 27 aprile 2016 relativo alla protezione delle persone fisiche con riguardo al trattamento dei dati personali e alla libera circolazione di tali dati (GDPR), informa che sono state adottate misure tecniche e organizzative adeguate per garantire e proteggere la riservatezza, l’integrità e la disponibilità dei dati personali.
+</p>
 
-    <p style="margin:0;text-align:justify;">
-        <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings no acepta responsabilidad alguna por cualquier comportamiento o daño que puedan haber causado los clientes.
-    </p>
+<p style="margin:0;text-align:justify;">
+    <strong style="font-weight:700;">•</strong>&nbsp;HotelBookings non si assume alcuna responsabilità per eventuali comportamenti o danni causati dai clienti.
+</p>
 
 </div>
 
@@ -3454,17 +3450,18 @@ actualizarSummary();
              };
 
              Object.keys(valores).forEach(function(id) {
-                 const elemento = document.getElementById(id);
-                 if (elemento) {
-                     elemento.textContent = valores[id];
-                 }
-             });
+    const elemento = document.getElementById(id);
+    if (elemento) {
+        elemento.textContent =
+            valores[id] === 0 ? "" : valores[id];
+    }
+});
          });
 
          const especialTotal =
              especialAD + especialNI + especialBB + especialBC;
 
-         // Los totales de AD, NI, BB y B+C de las ROOMS ESPECIALES
+         // Los totales de AD, NI, BB y BB+C de las ROOMS ESPECIALES
          // deben coincidir por separado con los totales introducidos en
          // "N.º DE PAX EN HABITACIONES ESPECIALES".
          const especialADIntroducidos =
@@ -3507,7 +3504,7 @@ actualizarSummary();
              document.getElementById("resumenEspecialPaxTotal");
 
          // La capacidad de camas Standard se calcula solo con AD + NI.
-         // Los bebés (BB + B+C) no ocupan cama, pero sí cuentan en el TOTAL PAX.
+         // Los bebés (BB + BB+C) no ocupan cama, pero sí cuentan en el TOTAL PAX.
          const capacidadStandardConBebes =
              capacidadStandard + standardBB + standardBC;
 
@@ -3577,11 +3574,13 @@ actualizarSummary();
          };
 
          Object.keys(valoresSummary).forEach(function(id) {
-             const elemento = document.getElementById(id);
-             if (elemento) {
-                 elemento.textContent = valoresSummary[id];
-             }
-         });
+    const elemento = document.getElementById(id);
+
+    if (elemento) {
+        elemento.textContent =
+            valoresSummary[id] === 0 ? "" : valoresSummary[id];
+    }
+});
      }
 
      /* =========================

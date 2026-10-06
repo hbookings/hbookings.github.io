@@ -1388,13 +1388,12 @@
 
 .summary-check-message.show {
     display: block;
-    animation: summaryBlink 0.9s step-start infinite;
 }
 
 .summary-table .summary-check-error {
     color: #c00000 !important;
     font-weight: 700 !important;
-    animation: summaryBlink 0.9s step-start infinite;
+    animation: summaryBlink 2s step-start infinite;
 }
 
 @keyframes summaryBlink {
@@ -1736,34 +1735,31 @@
                          Gruppentyp auswählen
                      </option>
 
- <option value="Tourist">
+ <option value="Touristisch">
      Touristisch
  </option>
- <option value="Students">
+ <option value="Studenten">
      Studenten
  </option>
- <option value="Sports">
+ <option value="Sport">
      Sport
  </option>
- <option value="Senior Citizens">
+ <option value="Senioren">
      Senioren
  </option>
- <option value="Corporate">
-     Firmen
+ <option value="Geschäftsgruppen">
+     Geschäftsgruppen
  </option>
- <option value="Business">
-     Geschäftsreisen
+ <option value="Fachleute">
+     Fachleute
  </option>
- <option value="Professional">
-     Beruflich
+ <option value="Kongresse">
+     Kongresse
  </option>
- <option value="Conferences">
-     Konferenzen
- </option>
- <option value="Music & Parties">
+ <option value="Musik & Partys">
      Musik & Partys
  </option>
- <option value="Other">
+ <option value="Sonstige">
      Sonstige
  </option>
 
@@ -1824,12 +1820,12 @@
         Hotel
     </option>
 
-    <option value="Hostel">
-                Hostal
+    <option value="Hostal">
+        Hostal
     </option>
 
-    <option value="Apartments">
-        Ferienwohnungen
+    <option value="Appartements">
+        Appartements
     </option>
 
     <option value="Resort">
@@ -1912,19 +1908,19 @@
                              Verpflegung auswählen
                          </option>
 
-                         <option value="Room Only">
+                         <option value="Nur Übernachtung">
                              Nur Übernachtung
                          </option>
 
-                         <option value="Bed & Breakfast">
+                         <option value="Übernachtung mit Frühstück">
                              Übernachtung mit Frühstück
                          </option>
 
-                         <option value="Half Board">
+                         <option value="Halbpension">
                              Halbpension
                          </option>
 
-                         <option value="Full Board">
+                         <option value="Vollpension">
                              Vollpension
                          </option>
 
@@ -2274,7 +2270,7 @@
                                 <select id="familiarHabitacionBebes" name="familiarHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+BBETT</span>
                                 <select id="familiarHabitacionCunas" name="familiarHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2308,7 +2304,7 @@
                                 <select id="juniorHabitacionBebes" name="juniorHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+BBETT</span>
                                 <select id="juniorHabitacionCunas" name="juniorHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2342,7 +2338,7 @@
                                 <select id="superiorHabitacionBebes" name="superiorHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+BBETT</span>
                                 <select id="superiorHabitacionCunas" name="superiorHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2376,7 +2372,7 @@
                                 <select id="suiteHabitacionBebes" name="suiteHabitacionBebes"></select>
                             </div>
                             <div>
-                                <span>B+C</span>
+                                <span>BB+BBETT</span>
                                 <select id="suiteHabitacionCunas" name="suiteHabitacionCunas"></select>
                             </div>
                         </div>
@@ -2406,7 +2402,7 @@
                             <span id="totalHabitacionesEspecialesBE"></span>
                         </div>
                         <div>
-                            <span>B+C</span>
+                            <span>BB+BBETT</span>
                             <span id="totalHabitacionesEspecialesCunas"></span>
                         </div>
                         <div>
@@ -2530,14 +2526,14 @@
                     <th colspan="9" class="summary-main-head summary-special-bold">SONDERZIMMER</th>
                 </tr>
                 <tr>
-                    <th colspan="2" rowspan="3" class="summary-sub-head">EINGEGEBENE GÄSTE</th>
+                    <th colspan="2" rowspan="3" class="summary-sub-head">EINGEGEBENE PERSONEN</th>
                     <th colspan="3" class="summary-sub-head summary-standard-edge">EINGEGEBENE ZIMMER</th>
-                    <th colspan="2" rowspan="3" class="summary-sub-head">EINGEGEBENE GÄSTE</th>
+                    <th colspan="2" rowspan="3" class="summary-sub-head">EINGEGEBENE PERSONEN</th>
                     <th colspan="7" class="summary-sub-head summary-special-bold">EINGEGEBENE ZIMMER</th>
                 </tr>
                 <tr>
                     <th rowspan="2">TYP</th>
-                    <th rowspan="2">ZIMMER</th>
+                    <th rowspan="2">NO.</th>
                     <th rowspan="2" class="summary-standard-edge">GÄSTE</th>
                     <th rowspan="2">TYP</th>
                     <th rowspan="2">NO.</th>
@@ -2548,7 +2544,7 @@
                     <th>AD</th>
                     <th>CH</th>
                     <th>BB</th>
-                    <th>B+C</th>
+                    <th>BB+BBETT</th>
                 </tr>
             </thead>
 
@@ -2594,20 +2590,20 @@
                     <td>BB</td>
                     <td id="resumenEspecialBB"></td>
                     <td>SUP</td>
-                    <td id="resumenSuperior-ZimmerHabitaciones"></td>
-                    <td id="resumenSuperior-ZimmerAD"></td>
-                    <td id="resumenSuperior-ZimmerNI"></td>
-                    <td id="resumenSuperior-ZimmerBB"></td>
-                    <td id="resumenSuperior-ZimmerBC"></td>
-                    <td id="resumenSuperior-ZimmerTotal" class="summary-special-bold"></td>
+                    <td id="resumenSuperiorHabitaciones"></td>
+                    <td id="resumenSuperiorAD"></td>
+                    <td id="resumenSuperiorNI"></td>
+                    <td id="resumenSuperiorBB"></td>
+                    <td id="resumenSuperiorBC"></td>
+                    <td id="resumenSuperiorTotal" class="summary-special-bold"></td>
                 </tr>
                 <tr>
-                    <td>B+C</td>
+                    <td>BB+BBETT</td>
                     <td id="resumenStandardBC"></td>
                     <td>QUAD</td>
                     <td id="resumenHabitacionesCuadruples"></td>
                     <td id="resumenCapacidadCuadruples" class="summary-standard-edge"></td>
-                    <td> B+C</td>
+                    <td> BB+BBETT</td>
                     <td id="resumenEspecialBC"></td>
                     <td>SUI</td>
                     <td id="resumenSuiteHabitaciones"></td>
@@ -2620,7 +2616,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">BABYS</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">BABYS</td>
                     <td id="resumenBebesHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -2635,7 +2631,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: left; vertical-align: middle; padding-left: calc(2.5% + 3px);">BABYS + BABYBETT</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">BABYS + BABYBETT</td>
                     <td id="resumenBebesCunaHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -3454,17 +3450,19 @@ actualizarSummary();
              };
 
              Object.keys(valores).forEach(function(id) {
-                 const elemento = document.getElementById(id);
-                 if (elemento) {
-                     elemento.textContent = valores[id];
-                 }
-             });
+    const elemento = document.getElementById(id);
+    if (elemento) {
+        elemento.textContent =
+            valores[id] === 0 ? "" : valores[id];
+    }
+});
+
          });
 
          const especialTotal =
              especialAD + especialNI + especialBB + especialBC;
 
-         // Los totales de AD, NI, BB y B+C de las ZIMMER ESPECIALES
+         // Los totales de AD, NI, BB y BB+BBETT de las ZIMMER ESPECIALES
          // deben coincidir por separado con los totales introducidos en
          // "ANZAHL DER GÄSTE IN SONDERZIMMERN".
          const especialADIntroducidos =
@@ -3507,7 +3505,7 @@ actualizarSummary();
              document.getElementById("resumenEspecialPaxTotal");
 
          // La capacidad de camas Standard se calcula solo con AD + NI.
-         // Los bebés (BB + B+C) no ocupan cama, pero sí cuentan en el GESAMT GÄSTE.
+         // Los bebés (BB + BB+BBETT) no ocupan cama, pero sí cuentan en el GESAMT GÄSTE.
          const capacidadStandardConBebes =
              capacidadStandard + standardBB + standardBC;
 
@@ -3577,11 +3575,13 @@ actualizarSummary();
          };
 
          Object.keys(valoresSummary).forEach(function(id) {
-             const elemento = document.getElementById(id);
-             if (elemento) {
-                 elemento.textContent = valoresSummary[id];
-             }
-         });
+    const elemento = document.getElementById(id);
+
+    if (elemento) {
+        elemento.textContent =
+            valoresSummary[id] === 0 ? "" : valoresSummary[id];
+    }
+});
      }
 
      /* =========================
