@@ -4037,10 +4037,18 @@ actualizarSummary();
                          <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">N. PAX IN CAMERE STANDARD<br><span style="font-size:11px;font-weight:normal;">Singola, Doppia, Tripla, Quadrupla</span></th>
                          <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">N. PAX IN CAMERE SPECIALI<br><span style="font-size:11px;font-weight:normal;">Familiaree, Junior, Superior, Suite</span></th>
                      </tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adulti:</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Adulti:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bambini (da 3 a 12 anni):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Bambini (da 3 a 12 anni):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + Culla:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Neonati + Culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;">
+        <strong>Adulti:</strong> ${obtenerValor("adultos")}
+    </td><td style="border:1px solid #bbb;">
+        <strong>Adulti:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}
+    </td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;">
+        <strong>Bambini (da 3 a 12 anni):</strong> ${obtenerValor("ninos")}
+    </td><td style="border:1px solid #bbb;">
+        <strong>Bambini (da 3 a 12 anni):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}
+    </td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + Culla:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Neonati + Culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTALE PAX:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTALE PAX:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
                  </table>
 
