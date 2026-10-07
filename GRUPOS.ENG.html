@@ -4038,11 +4038,18 @@ actualizarSummary();
                          <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">NO. OF GUESTS IN STANDARD ROOMS<br><span style="font-size:11px;font-weight:normal;">Single, Double, Triple, Quadruple</span></th>
                          <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">NO. OF GUESTS IN SPECIAL ROOMS<br><span style="font-size:11px;font-weight:normal;">Family, Junior, Superior, Suite</span></th>
                      </tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adults:</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Adults:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Children (aged 3 to 12):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Children (aged 3 to 12):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babies (aged 0 to 3):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Babies (aged 0 to 3):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babies + Cot:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Babies + Cot:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL GUESTS:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTAL GUESTS:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adults :</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Adults:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Children (aged 3 to 12):</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Children (aged 3 to 12):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
+<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babies (aged 0 to 3):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Babies (aged 0 to 3):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
+
+
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babies + Cot:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Babies + Cot:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL GUESTS :</strong>
+${obtenerValor("adultos")
+ + obtenerValor("ninos")
+ + obtenerValor("bebes")
+ + obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>TOTAL GUESTS:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
                  </table>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NUMBER OF ROOMS</h3>
@@ -4135,20 +4142,25 @@ actualizarSummary();
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
+
+
 <tr>
     <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babies</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("bebes")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
+
 <tr>
     <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babies + Cot</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("cunas")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
+
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">NO. STANDARD ROOMS</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4+(obtenerValor("bebes") || 0)
+ +(obtenerValor("cunas") || 0)}</td>
                          <td style="border:1px solid #bbb;text-align:left;font-weight:700;">NO. SPECIAL ROOMS</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
                          <td colspan="4" style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL GUESTS</td>
