@@ -4038,11 +4038,14 @@ actualizarSummary();
                          <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">ANZAHL DER GÄSTE IN STANDARDZIMMERN<br><span style="font-size:11px;font-weight:normal;">Einzelzimmer, Doppelzimmer, Dreibettzimmer, Vierbettzimmer</span></th>
                          <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">ANZAHL DER GÄSTE IN SONDERZIMMERN<br><span style="font-size:11px;font-weight:normal;">Familienzimmer, Junior, Superior-Zimmer, Suite</span></th>
                      </tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Erwachsene:</strong> ${totales.adultos}</td><td style="border:1px solid #bbb;"><strong>Erwachsene:</strong> ${familiarErwachsene + juniorErwachsene + superiorErwachsene + suiteErwachsene}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Kinder (3 bis 12 Jahre):</strong> ${totales.ninos}</td><td style="border:1px solid #bbb;"><strong>Kinder (3 bis 12 Jahre):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys (0 bis 3 Jahre):</strong> ${totales.bebes}</td><td style="border:1px solid #bbb;"><strong>Babys (0 bis 3 Jahre):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys + Babybett:</strong> ${totales.cunas}</td><td style="border:1px solid #bbb;"><strong>Babys + Babybett:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>GESAMT GÄSTE:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>GESAMT GÄSTE:</strong> ${familiarErwachsene + familiarNinos + familiarBebes + familiarCunas + juniorErwachsene + juniorNinos + juniorBebes + juniorCunas + superiorErwachsene + superiorNinos + superiorBebes + superiorCunas + suiteErwachsene + suiteNinos + suiteBebes + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Erwachsene:</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Erwachsene:</strong> ${familiarErwachsene + juniorErwachsene + superiorErwachsene + suiteErwachsene}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Kinder (3 bis 12 Jahre):</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Kinder (3 bis 12 Jahre):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys (0 bis 3 Jahre):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Babys (0 bis 3 Jahre):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys + Babybett:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Babys + Babybett:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>GESAMT GÄSTE:</strong> ${obtenerValor("adultos")
+ + obtenerValor("ninos")
+ + obtenerValor("bebes")
+ + obtenerValor("cunas")}</td></tr>
                  </table>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">ANZAHL DER ZIMMER</h3>
@@ -4137,18 +4140,20 @@ actualizarSummary();
                      </tr>
 <tr>
     <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babys</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("bebes")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
+
 <tr>
     <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babys + Babybett</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("cunas")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">NO. STANDARDZIMMER</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDoppelzimmer,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDoppelzimmer,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDoppelzimmer,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4+(obtenerValor("bebes") || 0)
+ +(obtenerValor("cunas") || 0)}</td>
                          <td style="border:1px solid #bbb;text-align:left;font-weight:700;">NO. SONDERZIMMER</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
                          <td colspan="4" style="border:1px solid #bbb;text-align:left;font-weight:700;">GESAMT GÄSTE</td>
