@@ -4049,7 +4049,13 @@ actualizarSummary();
     </td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + Culla:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Neonati + Culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTALE PAX:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;"><strong>TOTALE PAX:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTALE PAX:</strong> ${totales.totalPax}</td><td style="border:1px solid #bbb;">
+        <strong>TOTALE PAX:</strong>
+        ${familiarAdults + familiarNinos + familiarBebes + familiarCunas +
+          juniorAdults + juniorNinos + juniorBebes + juniorCunas +
+          superiorAdults + superiorNinos + superiorBebes + superiorCunas +
+          suiteAdults + suiteNinos + suiteBebes + suiteCunas}
+    </td></tr>
                  </table>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NUMERO DI CAMERE</h3>
@@ -4144,12 +4150,12 @@ actualizarSummary();
                      </tr>
 <tr>
     <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Neonati</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.bebes}</td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("bebes")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
 <tr>
     <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Neonati + Cuna</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${totales.cunas}</td>
+    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("cunas")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
                      <tr>
