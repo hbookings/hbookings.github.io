@@ -2261,7 +2261,7 @@
                                 <select id="familiarHabitacionAdults" name="familiarHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>CH</span>
+                                <span>NI</span>
                                 <select id="familiarHabitacionNinos" name="familiarHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2295,7 +2295,7 @@
                                 <select id="juniorHabitacionAdults" name="juniorHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>CH</span>
+                                <span>NI</span>
                                 <select id="juniorHabitacionNinos" name="juniorHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2329,7 +2329,7 @@
                                 <select id="superiorHabitacionAdults" name="superiorHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>CH</span>
+                                <span>NI</span>
                                 <select id="superiorHabitacionNinos" name="superiorHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2363,7 +2363,7 @@
                                 <select id="suiteHabitacionAdults" name="suiteHabitacionAdults"></select>
                             </div>
                             <div>
-                                <span>CH</span>
+                                <span>NI</span>
                                 <select id="suiteHabitacionNinos" name="suiteHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2393,7 +2393,7 @@
                             <span id="totalHabitacionesEspecialesAD"></span>
                         </div>
                         <div>
-                            <span>CH</span>
+                            <span>NI</span>
                             <span id="totalHabitacionesEspecialesNI"></span>
                         </div>
                         <div>
@@ -2541,7 +2541,7 @@
                 </tr>
                 <tr>
                     <th>AD</th>
-                    <th>CH</th>
+                    <th>NI</th>
                     <th>BB</th>
                     <th>BB+C</th>
                 </tr>
@@ -2565,12 +2565,12 @@
                     <td id="resumenFamiliarTotal" class="summary-special-bold"></td>
                 </tr>
                 <tr>
-                    <td>CH</td>
+                    <td>NI</td>
                     <td id="resumenStandardNI"></td>
                     <td>DBL</td>
                     <td id="resumenHabitacionesDouble"></td>
                     <td id="resumenCapacidadDouble" class="summary-standard-edge"></td>
-                    <td>CH</td>
+                    <td>NI</td>
                     <td id="resumenEspecialNI"></td>
                     <td>JUN</td>
                     <td id="resumenJuniorHabitaciones"></td>
@@ -4049,7 +4049,7 @@ ${obtenerValor("adultos")
                  </table>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NÚMERO DE HABITACIONES</h3>
-                 <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;font-size:12px;">
+                 <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;font-size:12px;width:100%;">
                      <colgroup>
                          <col style="width:18%;">
                          <col style="width:8%;">
@@ -4062,22 +4062,25 @@ ${obtenerValor("adultos")
                          <col style="width:8%;">
                          <col style="width:8%;">
                      </colgroup>
+
                      <tr>
-                         <th colspan="3" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;width:38%;">N.º DE HABITACIONES ESTÁNDAR<br><span style="font-size:11px;font-weight:normal;">Individual, Doble, Triple, Cuádruple</span></th>
-                         <th colspan="7" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;width:62%;">N.º DE HABITACIONES ESPECIALES<br><span style="font-size:11px;font-weight:normal;">Familiar, Junior, Superior, Suite</span></th>
+                         <th colspan="3" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">N.º DE HABITACIONES ESTÁNDAR<br><span style="font-size:11px;font-weight:normal;">Individual, Doble, Triple, Cuádruple</span></th>
+                         <th colspan="7" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">N.º DE HABITACIONES ESPECIALES<br><span style="font-size:11px;font-weight:normal;">Familiar, Junior, Superior, Suite</span></th>
                      </tr>
+
                      <tr>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TIPO</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">N.º HABITACIONES</th>
-                         <th style="border:1px solid #bbb;border-right:4px solid #000;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">PAX</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">N.º HAB.</th>
+                         <th style="border:1px solid #bbb;border-right:4px solid #000;background:#f5f5f5;text-align:center;">PAX</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TIPO</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">N.º HABITACIONES</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">AD</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">CH</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">BB</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">COT</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1665%;">TOTAL PAX</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">N.º HAB.</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">AD</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">NI</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">BB</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">BB+C</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTAL PAX</th>
                      </tr>
+
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Individual</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${individuales}</td>
@@ -4090,6 +4093,7 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;text-align:center;">${familiarCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas}</td>
                      </tr>
+
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Doble (Cama doble)</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td>
@@ -4102,6 +4106,7 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;text-align:center;">${juniorCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${juniorAdults + juniorNinos + juniorBebes + juniorCunas}</td>
                      </tr>
+
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Doble (Camas individuales)</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td>
@@ -4114,6 +4119,7 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;text-align:center;">${superiorCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${superiorAdults + superiorNinos + superiorBebes + superiorCunas}</td>
                      </tr>
+
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Triple</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${triples}</td>
@@ -4126,11 +4132,12 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;text-align:center;">${suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
+
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Cuádruple</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(cuadruples,10)||0)*4}</td>
-                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALES</td>
+                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALES ESPECIALES</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td>
@@ -4138,22 +4145,23 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
                      </tr>
-<tr>
-    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("bebes")}</td>
-    <td colspan="7" style="border:1px solid #bbb;"></td>
-</tr>
 
-<tr>
-    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés + Cuna</strong></td>
-    <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("cunas")}</td>
-    <td colspan="7" style="border:1px solid #bbb;"></td>
-</tr>
+                     <tr>
+                         <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés</strong></td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("bebes")}</td>
+                         <td colspan="7" style="border:1px solid #bbb;"></td>
+                     </tr>
+
+                     <tr>
+                         <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés + Cuna</strong></td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("cunas")}</td>
+                         <td colspan="7" style="border:1px solid #bbb;"></td>
+                     </tr>
+
                      <tr>
                          <td style="border:1px solid #bbb;font-weight:700;">N.º DE HABITACIONES ESTÁNDAR</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)+(parseInt(doblesTwin,10)||0)+(parseInt(triples,10)||0)+(parseInt(cuadruples,10)||0)}</td>
-                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4+(obtenerValor("bebes") || 0)
- +(obtenerValor("cunas") || 0)}</td>
+                         <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4+(obtenerValor("bebes")||0)+(obtenerValor("cunas")||0)}</td>
                          <td style="border:1px solid #bbb;text-align:left;font-weight:700;">N.º DE HABITACIONES ESPECIALES</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
                          <td colspan="4" style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PAX</td>
