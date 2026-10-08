@@ -3998,6 +3998,55 @@ actualizarSummary();
 
 
          /* =========================
+            VALORES DE HABITACIONES ESPECIALES PARA COPIA USUARIO
+            Se congelan por fila para evitar cualquier ambigüedad de renderizado.
+         ========================== */
+         const usuarioFamiliar = {
+             habitaciones: familiar,
+             ad: familiarAdults,
+             ni: familiarNinos,
+             bb: familiarBebes,
+             bbc: familiarCunas,
+             pax: familiarAdults + familiarNinos + familiarBebes + familiarCunas
+         };
+
+         const usuarioJunior = {
+             habitaciones: junior,
+             ad: juniorAdults,
+             ni: juniorNinos,
+             bb: juniorBebes,
+             bbc: juniorCunas,
+             pax: juniorAdults + juniorNinos + juniorBebes + juniorCunas
+         };
+
+         const usuarioSuperior = {
+             habitaciones: superior,
+             ad: superiorAdults,
+             ni: superiorNinos,
+             bb: superiorBebes,
+             bbc: superiorCunas,
+             pax: superiorAdults + superiorNinos + superiorBebes + superiorCunas
+         };
+
+         const usuarioSuite = {
+             habitaciones: suite,
+             ad: suiteAdults,
+             ni: suiteNinos,
+             bb: suiteBebes,
+             bbc: suiteCunas,
+             pax: suiteAdults + suiteNinos + suiteBebes + suiteCunas
+         };
+
+         const usuarioTotalesEspeciales = {
+             habitaciones: (parseInt(familiar,10)||0) + (parseInt(junior,10)||0) + (parseInt(superior,10)||0) + (parseInt(suite,10)||0),
+             ad: usuarioFamiliar.ad + usuarioJunior.ad + usuarioSuperior.ad + usuarioSuite.ad,
+             ni: usuarioFamiliar.ni + usuarioJunior.ni + usuarioSuperior.ni + usuarioSuite.ni,
+             bb: usuarioFamiliar.bb + usuarioJunior.bb + usuarioSuperior.bb + usuarioSuite.bb,
+             bbc: usuarioFamiliar.bbc + usuarioJunior.bbc + usuarioSuperior.bbc + usuarioSuite.bbc,
+             pax: usuarioFamiliar.pax + usuarioJunior.pax + usuarioSuperior.pax + usuarioSuite.pax
+         };
+
+         /* =========================
             COPIA PARA EL USUARIO
          ========================== */
 
@@ -4006,6 +4055,7 @@ actualizarSummary();
              nombreGrupoLimpio;
 
          const mensaje_usuario = `
+             <div style="font-family:Arial,Helvetica,sans-serif;color:#222;max-width:900px;margin:0 auto;font-size:13px;line-height:1.35;">
 
                  <div style="text-align:center;margin-bottom:18px;">
                      <div style="font-size:18px;font-weight:700;letter-spacing:.5px;">RESERVAS DE HOTEL</div>
@@ -4036,15 +4086,15 @@ actualizarSummary();
                          <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">N.º DE PAX EN HABITACIONES ESTÁNDAR<br><span style="font-size:11px;font-weight:normal;">Individual, Doble, Triple, Cuádruple</span></th>
                          <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">N.º DE PAX EN HABITACIONES ESPECIALES<br><span style="font-size:11px;font-weight:normal;">Familiar, Junior, Superior, Suite</span></th>
                      </tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adultos :</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Adultos:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Niños (de 3 a 12 años) :</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Niños (de 3 a 12 años):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bebés (de 0 a 3 años) :</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Bebés (de 0 a 3 años):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bebés + Cuna :</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Bebés + Cuna:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adultos :</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Adultos:</strong> ${usuarioTotalesEspeciales.ad}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Niños (de 3 a 12 años) :</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Niños (de 3 a 12 años):</strong> ${usuarioTotalesEspeciales.ni}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bebés (de 0 a 3 años) :</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Bebés (de 0 a 3 años):</strong> ${usuarioTotalesEspeciales.bb}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bebés + Cuna :</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Bebés + Cuna:</strong> ${usuarioTotalesEspeciales.bbc}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL DE PAX:</strong>
 ${obtenerValor("adultos")
  + obtenerValor("ninos")
  + obtenerValor("bebes")
- + obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>TOTAL DE PAX:</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
+ + obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>TOTAL DE PAX:</strong> ${usuarioTotalesEspeciales.pax}</td></tr>
                  </table>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NÚMERO DE HABITACIONES</h3>
@@ -4082,60 +4132,60 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;text-align:center;">${individuales}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(individuales,10)||0)*1}</td>
                          <td style="border:1px solid #bbb;"><strong>Familiar</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiar}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioFamiliar.habitaciones}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioFamiliar.ad}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioFamiliar.ni}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioFamiliar.bb}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioFamiliar.bbc}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioFamiliar.pax}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Doble (Cama doble)</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesDouble,10)||0)*2}</td>
                          <td style="border:1px solid #bbb;"><strong>Junior</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">${junior}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${juniorAdults + juniorNinos + juniorBebes + juniorCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioJunior.habitaciones}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioJunior.ad}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioJunior.ni}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioJunior.bb}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioJunior.bbc}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioJunior.pax}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Doble (Camas individuales)</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesTwin,10)||0)*2}</td>
                          <td style="border:1px solid #bbb;"><strong>Superior</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superior}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${superiorAdults + superiorNinos + superiorBebes + superiorCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuperior.habitaciones}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuperior.ad}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuperior.ni}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuperior.bb}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuperior.bbc}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioSuperior.pax}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Triple</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${triples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(triples,10)||0)*3}</td>
                          <td style="border:1px solid #bbb;"><strong>Suite</strong></td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suite}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuite.habitaciones}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuite.ad}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuite.ni}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuite.bb}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${usuarioSuite.bbc}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioSuite.pax}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Cuádruple</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(cuadruples,10)||0)*4}</td>
                          <td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALES</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.habitaciones}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.ad}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.ni}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.bb}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.bbc}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.pax}</td>
                      </tr>
 <tr>
     <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés</strong></td>
@@ -4154,9 +4204,9 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;font-weight:700;">${(parseInt(individuales,10)||0)+(parseInt(doblesDouble,10)||0)*2+(parseInt(doblesTwin,10)||0)*2+(parseInt(triples,10)||0)*3+(parseInt(cuadruples,10)||0)*4+(obtenerValor("bebes") || 0)
  +(obtenerValor("cunas") || 0)}</td>
                          <td style="border:1px solid #bbb;text-align:left;font-weight:700;">N.º DE HABITACIONES ESPECIALES</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.habitaciones}</td>
                          <td colspan="4" style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PAX</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioTotalesEspeciales.pax}</td>
                      </tr>
                  </table>
 
@@ -4180,10 +4230,10 @@ ${obtenerValor("adultos")
                                  <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Camas individuales)</td><td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">TRI</td><td style="border:1px solid #bbb;text-align:center;">${triples}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">QUAD</td><td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">FAM</td><td style="border:1px solid #bbb;text-align:center;">${familiar}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">JUN</td><td style="border:1px solid #bbb;text-align:center;">${junior}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">SUP</td><td style="border:1px solid #bbb;text-align:center;">${superior}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">SUI</td><td style="border:1px solid #bbb;text-align:center;">${suite}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">FAM</td><td style="border:1px solid #bbb;text-align:center;">${usuarioFamiliar.habitaciones}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">JUN</td><td style="border:1px solid #bbb;text-align:center;">${usuarioJunior.habitaciones}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">SUP</td><td style="border:1px solid #bbb;text-align:center;">${usuarioSuperior.habitaciones}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">SUI</td><td style="border:1px solid #bbb;text-align:center;">${usuarioSuite.habitaciones}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL HABITACIONES</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalHabitaciones}</td></tr>
                              </table>
                          </td>
@@ -4200,12 +4250,10 @@ ${obtenerValor("adultos")
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OBSERVACIONES</h3>
                  <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Ninguna")}</div>
 
+             </div>
          `;
 
          const mensaje_usuario_sin_ceros = mensaje_usuario.replace(/>\s*0\s*</g, "><");
-
-         // EmailJS Auto-Reply debe insertar este HTML directamente con {{{mensaje_usuario}}}.
-         // No se modifica la estructura ni las dimensiones de las tablas.
 
 
 
