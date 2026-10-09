@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactez Hotel Bookings. Envoyez-nous votre demande et nous vous répondrons dans les meilleurs délais.">
+  <title>Contact | Hotel Bookings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    body{background:#f5f7fb;color:#333;min-height:100vh;display:flex;flex-direction:column}
+    .navbar{background:#15438B;padding:10px 20px}
+    .nav-container{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .nav-logo img{display:block;width:210px;max-width:60vw;height:auto}
+    .home-link{color:#fff;text-decoration:none;font-size:14px;font-weight:500;padding:10px 14px;border:1px solid rgba(255,255,255,.45);border-radius:5px}
+    .home-link:hover{background:#1d4f9b}
+    main{width:min(760px,calc(100% - 32px));margin:46px auto;flex:1}
+    .intro{text-align:center;margin-bottom:25px}
+    .eyebrow{color:#e67e22;text-transform:uppercase;letter-spacing:1.5px;font-size:12px;font-weight:700;margin-bottom:8px}
+    h1{font-size:clamp(28px,4vw,36px);line-height:1.25;color:#15438B;margin-bottom:12px}
+    .intro p{font-size:15px;line-height:1.7;color:#606775}
+    .contact-card{background:#fff;padding:clamp(22px,5vw,38px);border-radius:12px;box-shadow:0 8px 28px rgba(25,55,95,.09);border:1px solid #e8edf5}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .field{display:flex;flex-direction:column;gap:7px;min-width:0}
+    .field.full{grid-column:1/-1}
+    label{font-size:13px;font-weight:600;color:#344054}
+    input,select,textarea{width:100%;padding:12px 13px;border:1px solid #cfd6e2;border-radius:6px;background:#fff;color:#333;font-size:14px;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:#15438B;box-shadow:0 0 0 3px rgba(21,67,139,.12)}
+    textarea{min-height:150px;resize:vertical}
+    .consent{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.6;color:#606775}
+    .consent input{width:16px;height:16px;margin-top:3px;flex:0 0 auto}
+    .consent a{color:#15438B}
+    .submit-btn{width:100%;border:0;border-radius:6px;padding:14px 20px;background:#e67e22;color:#fff;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s}
+    .submit-btn:hover{background:#cf6d17}
+    .privacy-note{text-align:center;font-size:11px;color:#737b89;margin-top:14px;line-height:1.6}
+    footer{background:#15438B;color:#fff;text-align:center;padding:22px 16px;font-size:12px;line-height:1.8}
+    footer a{color:#fff;margin:0 8px;text-decoration:none}
+    @media(max-width:600px){.nav-container{gap:10px}.nav-logo img{width:165px}.home-link{font-size:12px;padding:8px 10px}main{margin:30px auto}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.fr.html" aria-label="Hotel Bookings, inicio"><img src="images/hb.png" alt="Hotel Bookings"></a>
+      <a class="home-link" href="index.fr.html">← Retour à l’accueil</a>
+    </div>
+  </header>
+  <main>
+    <div class="intro">
+      <h1>Contactez-nous</h1>
+      <p>Vous avez une question ou souhaitez obtenir plus d’informations ? Envoyez-nous votre message et nous vous répondrons dans les meilleurs délais.</p>
+    </div>
+    <section class="contact-card" aria-label="Formulaire de contact">
+      <form action="https://formsubmit.co/1ba50078d576fa4f54eb27863bae4983" method="POST">
+        <input type="hidden" name="_subject" value="Nouveau message de contact - Hotel Bookings">
+        <input type="hidden" name="_next" value="https://hbookings.github.io/gracias.fr.html">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Nom *</label>
+            <input id="name" type="text" name="name" placeholder="Votre nom" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Adresse e-mail *</label>
+            <input id="email" type="email" name="email" placeholder="votre@email.com" autocomplete="email" required>
+          </div>
+          <div class="field full">
+            <label for="topic">Sujet *</label>
+            <select id="topic" name="Asunto" required>
+              <option value="" disabled selected>Sélectionnez un sujet</option>
+              <option>Demande générale</option>
+              <option>Informations sur les réservations</option>
+              <option>Problème ou incident</option>
+              <option>Autre sujet</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Écrivez votre message ici..." required></textarea>
+          </div>
+          <div class="field full">
+            <label class="consent"><input type="checkbox" name="Acepta política de privacidad" value="Sí" required><span>J’ai lu et j’accepte la <a href="confidentialite.fr.html" target="_blank" rel="noopener">Politique de confidentialité</a>. *</span></label>
+          </div>
+          <div class="field full">
+            <button class="submit-btn" type="submit">Envoyer le message</button>
+          </div>
+        </div>
+      </form>
+      <p class="privacy-note">Les champs marqués d’un * sont obligatoires. Merci de ne pas inclure de données sensibles dans votre message.</p>
+    </section>
+  </main>
+  <footer>
+    <p><a href="index.fr.html">Accueil</a><a href="mentions-legales.fr.html">Mentions légales</a><a href="confidentialite.fr.html">Politique de confidentialité</a></p>
+    <p>© 2026 Hotel Bookings · Tous droits réservés</p>
+  </footer>
+</body>
+</html>
