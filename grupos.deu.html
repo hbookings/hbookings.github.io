@@ -891,7 +891,6 @@
     ========================= */
 
     footer {
-        position: relative;
         margin-top: 50px;
         padding: 30px 20px;
 
@@ -899,10 +898,6 @@
         color: #ffffff;
 
         text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
     }
 
     .footer-links {
@@ -911,64 +906,28 @@
         align-items: center;
         flex-wrap: wrap;
 
-        gap: 0;
-
-        margin-bottom: 0;
-    }
-
-    .footer-legal {
-        position: static;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0;
-    }
-
-    .footer-legal a {
-        display: block;
-        padding: 17px 10px;
-        color: #ffffff;
-        background-color: #15438B;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-        white-space: nowrap;
-    }
-
-    .footer-legal a:hover {
-        color: #ffffff;
-        text-decoration: none;
+        margin-bottom: 15px;
     }
 
     .footer-links a {
         display: block;
-
-        padding: 17px 15px;
+        padding: 10px 15px;
 
         color: #ffffff;
-        background-color: #15438B;
 
         text-decoration: none;
 
         font-size: 14px;
         font-weight: 500;
-
-        white-space: nowrap;
     }
 
     .footer-links a:hover {
-        background-color: #15438B;
-        color: #ffffff;
-        text-decoration: none;
+        text-decoration: underline;
     }
 
     footer p {
         color: #ffffff;
-
         font-size: 12px;
-        font-weight: 400;
-        flex-basis: 100%;
     }
 
 
@@ -1445,27 +1404,6 @@
 
 
 
-/* BOTÓN VOLVER ARRIBA */
-    .go-top {
-        position: fixed;
-        right: 24px;
-        bottom: 24px;
-        z-index: 2000;
-        width: 46px;
-        height: 46px;
-        border: none;
-        border-radius: 50%;
-        background-color: #15438B;
-        color: #ffffff;
-        font-size: 27px;
-        font-weight: 900;
-        line-height: 1;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-    }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -1488,12 +1426,12 @@
 
         <a
             class="nav-logo"
-            href="index.de.html"
-            aria-label="Hotel Bookings - Accueil"
+            href="index.html"
+            aria-label="Hotelreservierungen - Home"
         >
             <img
                 src="images/hb.png"
-                alt="Hotel Bookings"
+                alt="Hotelreservierungen"
             >
         </a>
 
@@ -1507,113 +1445,119 @@
 
             <div class="nav-item">
 
-                <a href="https://expedia.com/affiliate/akXQD5f">
-                    Flüge
+                <a href="#">
+                    Unterkünfte & Flüge
                 </a>
 
             </div>
 
 
-            <!-- VISITA LA SPAGNA -->
+            <!-- VISITA ESPAÑA -->
 
             <div class="nav-item">
 
-                <a
-                    href="#"
-                    aria-haspopup="true"
-                >
-                    Spanien entdecken ▾
+                <a href="#" aria-haspopup="true">
+                    Spanien besuchen ▾
                 </a>
 
                 <div class="dropdown">
 
-                    <a href="https://expedia.com/affiliate/oORB0iQ">Madrid</a>
-                    <a href="https://expedia.com/affiliate/qMqY2pB">Barcelona</a>
-                    <a href="https://expedia.com/affiliate/QkPaYST">Valencia</a>
-                    <a href="https://expedia.com/affiliate/I8ZObt9">Palma de Mallorca</a>
-                    <a href="https://expedia.com/affiliate/Yy11AWI">Alicante</a>
-                    <a href="https://expedia.com/affiliate/773Mx3y">Córdoba</a>
-                    <a href="https://expedia.com/affiliate/pFZGtip">Granada</a>
-                    <a href="https://expedia.com/affiliate/A2CvwkV">Santiago de Compostela</a>
-                    <a href="https://expedia.com/affiliate/yCGw0OH">Benidorm</a>
-                    <a href="https://expedia.com/affiliate/ZhbijJg">Segovia</a>
+                    <a href="#">Madrid</a>
+                    <a href="#">Barcelona</a>
+                    <a href="#">Valencia</a>
+                    <a href="#">Palma de Mallorca</a>
+                    <a href="#">Alicante</a>
+                    <a href="#">Córdoba</a>
+                    <a href="#">Granada</a>
+                    <a href="#">Santiago de Compostela</a>
+                    <a href="#">Benidorm</a>
+                    <a href="#">Segovia</a>
 
                 </div>
 
             </div>
 
 
-            <!-- VISITA LA COSTA BRAVA -->
+            <!-- VISITA COSTA BRAVA -->
 
             <div class="nav-item">
 
-                <a
-                    href="#"
-                    aria-haspopup="true"
-                >
-                    Costa Brava entdecken ▾
+                <a href="#" aria-haspopup="true">
+                    Costa Brava besuchen ▾
                 </a>
 
                 <div class="dropdown">
 
-                    <a href="https://expedia.com/affiliate/tWmPAl1">Blanes</a>
-                    <a href="https://expedia.com/affiliate/LAk77XA">Lloret de Mar</a>
-                    <a href="https://expedia.com/affiliate/Et95xg9">Palafrugell</a>
-                    <a href="https://expedia.com/affiliate/ujYa4rw">Sant Feliu de Guíxols</a>
-                    <a href="https://expedia.com/affiliate/u5YUwBT">Roses</a>
-                    <a href="https://expedia.com/affiliate/BTYoCpM">Platja d'Aro</a>
-                    <a href="https://expedia.com/affiliate/ENJXW9V">L'Escala</a>
-                    <a href="https://expedia.com/affiliate/45TpZnK">Tossa de Mar</a>
-                    <a href="https://expedia.com/affiliate/kfYfp2V">Cadaqués</a>
-                    <a href="https://expedia.com/affiliate/DOpGOwZ">Begur</a>
+                    <a href="#">Blanes</a>
+                    <a href="#">Lloret de Mar</a>
+                    <a href="#">Palafrugell</a>
+                    <a href="#">Sant Feliu de Guíxols</a>
+                    <a href="#">Roses</a>
+                    <a href="#">Platja d'Aro</a>
+                    <a href="#">L'Escala</a>
+                    <a href="#">Tossa de Mar</a>
+                    <a href="#">Cadaqués</a>
+                    <a href="#">Begur</a>
 
                 </div>
 
             </div>
 
 
-            <!-- GRUPPENBUCHUNGEN -->
+            <!-- RESERVA DE GRUPOS -->
 
             <div class="nav-item">
 
-                <a href="grupos.deu_CORREGIDO.html">
-                    Gruppenbuchungen
+                <a href="reservas-grupos.html">
+                    Gruppenreservierung
                 </a>
 
             </div>
 
 
-            <!-- LINGUE -->
+            <!-- IDIOMAS -->
 
             <div class="nav-item">
 
-                <a
-                    href="#"
-                    aria-haspopup="true"
-                >
+                <a href="#" aria-haspopup="true">
                     Sprachen ▾
                 </a>
 
                 <div class="dropdown">
 
-                    <a href="index.de.html">
-                        Spanisch
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('es'); return false;"
+                    >
+                        Spanish
                     </a>
 
-                    <a href="index.en.html">
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('en'); return false;"
+                    >
                         English
                     </a>
 
-                    <a href="index.de.html">
-                        Französisch
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('fr'); return false;"
+                    >
+                        French
                     </a>
 
-                    <a href="index.de.html">
-                        Deutsch
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('de'); return false;"
+                    >
+                        German
                     </a>
 
-                    <a href="index.de.html">
-                        Italienisch
+                    <a
+                        href="#"
+                        onclick="cambiarIdioma('it'); return false;"
+                    >
+                        Italian
                     </a>
 
                 </div>
@@ -2314,11 +2258,11 @@
                         </div>
                         <div class="special-room-pax">
                             <div>
-                                <span>ERW</span>
+                                <span>AD</span>
                                 <select id="familiarHabitacionErwachsene" name="familiarHabitacionErwachsene"></select>
                             </div>
                             <div>
-                                <span>KIN</span>
+                                <span>CH</span>
                                 <select id="familiarHabitacionNinos" name="familiarHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2348,11 +2292,11 @@
                         </div>
                         <div class="special-room-pax">
                             <div>
-                                <span>ERW</span>
+                                <span>AD</span>
                                 <select id="juniorHabitacionErwachsene" name="juniorHabitacionErwachsene"></select>
                             </div>
                             <div>
-                                <span>KIN</span>
+                                <span>CH</span>
                                 <select id="juniorHabitacionNinos" name="juniorHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2382,11 +2326,11 @@
                         </div>
                         <div class="special-room-pax">
                             <div>
-                                <span>ERW</span>
+                                <span>AD</span>
                                 <select id="superiorHabitacionErwachsene" name="superiorHabitacionErwachsene"></select>
                             </div>
                             <div>
-                                <span>KIN</span>
+                                <span>CH</span>
                                 <select id="superiorHabitacionNinos" name="superiorHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2416,11 +2360,11 @@
                         </div>
                         <div class="special-room-pax">
                             <div>
-                                <span>ERW</span>
+                                <span>AD</span>
                                 <select id="suiteHabitacionErwachsene" name="suiteHabitacionErwachsene"></select>
                             </div>
                             <div>
-                                <span>KIN</span>
+                                <span>CH</span>
                                 <select id="suiteHabitacionNinos" name="suiteHabitacionNinos"></select>
                             </div>
                             <div>
@@ -2446,11 +2390,11 @@
                             <span id="totalHabitacionesEspecialesTabla"></span>
                         </div>
                         <div>
-                            <span>ERW</span>
+                            <span>AD</span>
                             <span id="totalHabitacionesEspecialesAD"></span>
                         </div>
                         <div>
-                            <span>KIN</span>
+                            <span>CH</span>
                             <span id="totalHabitacionesEspecialesNI"></span>
                         </div>
                         <div>
@@ -2597,8 +2541,8 @@
                     <th rowspan="2" class="summary-special-bold">GESAMT GÄSTE</th>
                 </tr>
                 <tr>
-                    <th>ERW</th>
-                    <th>KIN</th>
+                    <th>AD</th>
+                    <th>CH</th>
                     <th>BB</th>
                     <th>BB+BBETT</th>
                 </tr>
@@ -2606,12 +2550,12 @@
 
             <tbody>
                 <tr>
-                    <td>ERW</td>
+                    <td>AD</td>
                     <td id="resumenStandardAD"></td>
                     <td>SGL</td>
                     <td id="resumenHabitacionesEinzelzimmer"></td>
                     <td id="resumenCapacidadEinzelzimmer" class="summary-standard-edge"></td>
-                    <td>ERW</td>
+                    <td>AD</td>
                     <td id="resumenEspecialAD"></td>
                     <td>FAM</td>
                     <td id="resumenFamiliarHabitaciones"></td>
@@ -2622,12 +2566,12 @@
                     <td id="resumenFamiliarTotal" class="summary-special-bold"></td>
                 </tr>
                 <tr>
-                    <td>KIN</td>
+                    <td>CH</td>
                     <td id="resumenStandardNI"></td>
                     <td>DBL</td>
                     <td id="resumenHabitacionesDoppelzimmer"></td>
                     <td id="resumenCapacidadDoppelzimmer" class="summary-standard-edge"></td>
-                    <td>KIN</td>
+                    <td>CH</td>
                     <td id="resumenEspecialNI"></td>
                     <td>JUN</td>
                     <td id="resumenJuniorHabitaciones"></td>
@@ -2803,10 +2747,10 @@
          <div class="form-actions">
 
              <a
-                 href="index.de.html"
+                 href="index.html"
                  class="btn btn-secondary"
              >
-                 Zurück
+                 Back
              </a>
 
              
@@ -2841,32 +2785,39 @@
 
  <footer>
 
-        <div class="footer-legal">
-            <a href="aviso.de.html">Rechtliche Hinweise</a>
-            <a href="privacidad.de.html">Datenschutzerklärung</a>
-        </div>
+     <div class="footer-links">
 
-        <div class="footer-links">
+         <a href="index.html">
+             Home
+         </a>
 
-            <a href="https://expedia.com/affiliate/akXQD5f">
-                Reiseziele
-            </a>
+         <a href="index.html">
+             Unterkunft
+         </a>
 
-            <a href="grupos.deu_CORREGIDO.html">
-                Gruppenbuchungen
-            </a>
+         <a href="index.html">
+             Reiseziels
+         </a>
 
-            <a href="contacto.de.html">
-                Kontakt
-            </a>
+         <a href="reservas-grupos.html">
+             Gruppenreservierung
+         </a>
 
-        </div>
+         <a href="#">
+             Contact
+         </a>
 
-        <p>
-            © 2026 Hotel Bookings · Alle Rechte vorbehalten
-        </p>
+         <a href="#">
+             Privacy
+         </a>
 
-    </footer>
+     </div>
+
+     <p>
+         © 2026 Hotelreservierungen · All rights reserved
+     </p>
+
+ </footer>
 
 
  <!-- =========================
@@ -3511,7 +3462,7 @@ actualizarSummary();
          const especialTotal =
              especialAD + especialNI + especialBB + especialBC;
 
-         // Los totales de ERW, KIN, BB y BB+BBETT de las ZIMMER ESPECIALES
+         // Los totales de AD, NI, BB y BB+BBETT de las ZIMMER ESPECIALES
          // deben coincidir por separado con los totales introducidos en
          // "ANZAHL DER GÄSTE IN SONDERZIMMERN".
          const especialADIntroducidos =
@@ -3553,7 +3504,7 @@ actualizarSummary();
          const especialPaxTotalElemento =
              document.getElementById("resumenEspecialPaxTotal");
 
-         // La capacidad de camas Standard se calcula solo con ERW + KIN.
+         // La capacidad de camas Standard se calcula solo con AD + NI.
          // Los bebés (BB + BB+BBETT) no ocupan cama, pero sí cuentan en el GESAMT GÄSTE.
          const capacidadStandardConBebes =
              capacidadStandard + standardBB + standardBC;
@@ -3746,19 +3697,6 @@ actualizarSummary();
                  elemento.addEventListener("change", function() {
                      actualizarTotalesHabitacionesEspeciales();
                      calcularTotalPaxHabitacionesEspeciales();
-
-                     // Actualizar explícitamente la celda AD de cada habitación especial.
-                     // Esto evita que las celdas AD del resumen queden desactualizadas.
-                     if (tipoPax === "Erwachsene") {
-                         const celdaAD = document.getElementById(
-                             "resumen" + tipo.charAt(0).toUpperCase() + tipo.slice(1) + "AD"
-                         );
-                         if (celdaAD) {
-                             const valorAD = obtenerValor(tipo + "HabitacionErwachsene");
-                             celdaAD.textContent = valorAD === 0 ? "" : valorAD;
-                         }
-                     }
-
                      actualizarSummary();
                  });
              }
@@ -4144,8 +4082,8 @@ actualizarSummary();
                          <th style="border:1px solid #bbb;border-right:4px solid #000;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">GÄSTE</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TYP</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">ANZAHL ZIMMER</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">ERW</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">KIN</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">AD</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">CH</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">BB</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">COT</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1665%;">GESAMT GÄSTE</th>
@@ -4815,16 +4753,6 @@ actualizarSummary();
 </div>
 
 
- <button type="button" class="go-top" id="goTop" aria-label="Zurück nach oben" title="Zurück nach oben">⬆</button>
-    <script>
-        const goTopButton = document.getElementById("goTop");
-        window.addEventListener("scroll", function () {
-            goTopButton.style.display = window.scrollY > 250 ? "block" : "none";
-        });
-        goTopButton.addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
-</body>
+ </body>
  </html>
 
