@@ -1601,7 +1601,7 @@
             <div class="nav-item">
 
                 <a href="grupos.ita.html">
-                    Prenotazione gruppi
+                    Prenotazione Gruppi
                 </a>
 
             </div>
@@ -1661,7 +1661,7 @@
      <div class="page-header">
 
          <h1>
-             Prenotazione di gruppi
+             Prenotazione di Gruppi
          </h1>
 
          <p>
@@ -2877,7 +2877,7 @@
             </a>
 
             <a href="grupos.ita.html">
-                Prenotazione gruppi
+                Prenotazione Gruppi
             </a>
 
             <a href="contacto.it.html">
@@ -4120,7 +4120,10 @@ actualizarSummary();
     </td><td style="border:1px solid #bbb;">
         <strong>Bambini (da 3 a 12 anni):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}
     </td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
+                     
+<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("familiarBebes") + obtenerValor("juniorBebes") + obtenerValor("superiorBebes") + obtenerValor("suiteBebes")}</td></tr>
+
+
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + Culla:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Neonati + Culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTALE PAX:</strong> ${obtenerValor("adultos") +
   obtenerValor("ninos") +

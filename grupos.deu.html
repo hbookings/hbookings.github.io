@@ -4105,8 +4105,10 @@ actualizarSummary();
                      </tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Erwachsene :</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Erwachsene:</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Kinder (3 bis 12 Jahre):</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Kinder (3 bis 12 Jahre):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys (0 bis 3 Jahre):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Babys (0 bis 3 Jahre):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys + Babybett:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Babys + Babybett</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     
+<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys (0 bis 3 Jahre):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Babys (0 bis 3 Jahre):</strong> ${obtenerValor("familiarBebes") + obtenerValor("juniorBebes") + obtenerValor("superiorBebes") + obtenerValor("suiteBebes")}</td></tr>
+                     
+<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Babys + Babybett:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Babys + Babybett</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>GÄSTE GESAMT:</strong>
 ${obtenerValor("adultos")
  + obtenerValor("ninos")
