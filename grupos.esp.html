@@ -9,6 +9,12 @@
 
  <title>Reserva de grupos | Reservas de hotel</title>
 
+<!-- Favicon de la web -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link
@@ -4633,7 +4639,7 @@ actualizarSummary();
              standard_bc: 
                  obtenerValor("cunas"),
 
-             standard_pax_total: 
+             standard_pax_total:
                  obtenerValor("adultos") +
                  obtenerValor("ninos") +
                  obtenerValor("bebes") +
@@ -4704,47 +4710,7 @@ actualizarSummary();
                  obtenerValor("superiorCunas") +
                  obtenerValor("suiteCunas"),
 
-             especial_ad: 
-                 obtenerValor("familiarAdults") +
-                 obtenerValor("juniorAdults") +
-                 obtenerValor("superiorAdults") +
-                 obtenerValor("suiteAdults"),
 
-             especial_ni: 
-                 obtenerValor("familiarNinos") +
-                 obtenerValor("juniorNinos") +
-                 obtenerValor("superiorNinos") +
-                 obtenerValor("suiteNinos"),
-
-             especial_bb: 
-                 obtenerValor("familiarBebes") +
-                 obtenerValor("juniorBebes") +
-                 obtenerValor("superiorBebes") +
-                 obtenerValor("suiteBebes"),
-
-             especial_bc: 
-                 obtenerValor("familiarCunas") +
-                 obtenerValor("juniorCunas") +
-                 obtenerValor("superiorCunas") +
-                 obtenerValor("suiteCunas"),
-
-             especial_pax_total: 
-                 obtenerValor("familiarAdults") +
-                 obtenerValor("juniorAdults") +
-                 obtenerValor("superiorAdults") +
-                 obtenerValor("suiteAdults") +
-                 obtenerValor("familiarNinos") +
-                 obtenerValor("juniorNinos") +
-                 obtenerValor("superiorNinos") +
-                 obtenerValor("suiteNinos") +
-                 obtenerValor("familiarBebes") +
-                 obtenerValor("juniorBebes") +
-                 obtenerValor("superiorBebes") +
-                 obtenerValor("suiteBebes") +
-                 obtenerValor("familiarCunas") +
-                 obtenerValor("juniorCunas") +
-                 obtenerValor("superiorCunas") +
-                 obtenerValor("suiteCunas"),
 
              familiarTotal:
                  familiarAdults + familiarNinos + familiarBebes + familiarCunas,
@@ -4780,10 +4746,53 @@ actualizarSummary();
              tipo_grupo:
                  tipoGrupo,
 
-             observaciones:
+                          observaciones:
                  observaciones || "Ninguna"
 
          };
+
+
+         // Totales AD, NI, BB y BB+C de personas asignadas a habitaciones especiales
+         templateParams.especial_habitacion_ad =
+             templateParams.familiarHabitacionAdults +
+             templateParams.juniorHabitacionAdults +
+             templateParams.superiorHabitacionAdults +
+             templateParams.suiteHabitacionAdults;
+
+         templateParams.especial_habitacion_ni =
+             templateParams.familiarHabitacionNinos +
+             templateParams.juniorHabitacionNinos +
+             templateParams.superiorHabitacionNinos +
+             templateParams.suiteHabitacionNinos;
+
+         templateParams.especial_habitacion_bb =
+             templateParams.familiarHabitacionBebes +
+             templateParams.juniorHabitacionBebes +
+             templateParams.superiorHabitacionBebes +
+             templateParams.suiteHabitacionBebes;
+
+         templateParams.especial_habitacion_bc =
+             templateParams.familiarHabitacionCunas +
+             templateParams.juniorHabitacionCunas +
+             templateParams.superiorHabitacionCunas +
+             templateParams.suiteHabitacionCunas;
+
+         templateParams.especial_habitacion_pax_total =
+             templateParams.especial_habitacion_ad +
+             templateParams.especial_habitacion_ni +
+             templateParams.especial_habitacion_bb +
+             templateParams.especial_habitacion_bc;
+
+
+         // Total PAX de habitaciones estándar: capacidad + bebés + bebés con cuna
+         templateParams.standard_habitacion_pax_total =
+             (parseInt(individuales, 10) || 0) +
+             (parseInt(doblesDouble, 10) || 0) * 2 +
+             (parseInt(doblesTwin, 10) || 0) * 2 +
+             (parseInt(triples, 10) || 0) * 3 +
+             (parseInt(cuadruples, 10) || 0) * 4 +
+             obtenerValor("bebes") +
+             obtenerValor("cunas");
 
 
          Object.keys(templateParams).forEach(function(key) {
@@ -4800,7 +4809,7 @@ actualizarSummary();
          try {
 
              await emailjs.send(
-                 "service_puextzd",
+                 "service_5dqy3xr",
                  "template_w4owh89",
                  templateParams,
                  {
