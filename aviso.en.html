@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Notice | HotelBookings</title>
+
+<!-- Favicon de la web -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 24px;
+    }
+
+    .legal-container h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .legal-container h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .legal-container p,
+    .legal-container li {
+      font-size: 14px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      overflow-wrap: anywhere;
+    }
+
+    .legal-container p {
+      margin-bottom: 16px;
+    }
+
+    .legal-container ul {
+      margin: 0 0 16px 24px;
+    }
+
+    .legal-container li {
+      margin-bottom: 8px;
+    }
+
+    .legal-contact {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .legal-contact p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .legal-contact p:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-contact a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .legal-contact a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .legal-container {
+        padding: 32px 18px;
+      }
+
+      .legal-container h1 {
+        font-size: 1.8rem;
+      }
+
+      .legal-container h2 {
+        font-size: 1.2rem;
+      }
+
+      .legal-container p,
+      .legal-container li {
+        font-size: 14px;
+      }
+
+      .legal-contact {
+        padding: 0;
+      }
+
+      .legal-contact p {
+        font-size: 14px;
+      }
+    }
+  
+
+    /* Cabecera y footer compartidos con grupos.eng.html */
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
+
+    .navbar {
+        width: 100%;
+        background-color: #15438B;
+    }
+
+    .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        padding: 8px 0;
+    }
+
+    .nav-logo img {
+        display: block;
+        width: 230px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-item > a {
+        display: block;
+        padding: 17px 15px;
+
+        color: #ffffff;
+        background-color: #15438B;
+
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+
+        white-space: nowrap;
+    }
+
+    .nav-item > a:hover {
+        background-color: #1d4f9b;
+    }
+
+
+    /* =========================
+       MENÚS DESPLEGABLES
+    ========================= */
+
+    /* Escritorio */
+
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        min-width: 220px;
+
+        background-color: #ffffff;
+
+        border-radius: 0 0 5px 5px;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+        display: none;
+
+        z-index: 1000;
+    }
+
+    .nav-item:hover > .dropdown {
+        display: block;
+    }
+
+    .dropdown a {
+        display: block;
+
+        padding: 11px 15px;
+
+        color: #333333;
+        background-color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 400;
+
+        white-space: nowrap;
+    }
+
+    .dropdown a:hover {
+        color: #ffffff;
+        background-color: #666666;
+    }
+
+
+
+    /* Pie de página de grupos */
+    footer {
+        position: relative;
+        margin-top: 50px;
+        padding: 30px 20px;
+
+        background-color: #15438B;
+        color: #ffffff;
+
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        gap: 0;
+
+        margin-bottom: 0;
+    }
+
+    .footer-legal {
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .footer-legal a {
+        display: block;
+        padding: 17px 10px;
+        color: #ffffff;
+        background-color: #15438B;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    .footer-legal a:hover {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .footer-links a {
+        display: block;
+
+        padding: 17px 15px;
+
+        color: #ffffff;
+        background-color: #15438B;
+
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 500;
+
+        white-space: nowrap;
+    }
+
+    .footer-links a:hover {
+        background-color: #15438B;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    footer p {
+        color: #ffffff;
+
+        font-size: 12px;
+        font-weight: 400;
+        flex-basis: 100%;
+    }
+
+
+
+
+    @media (max-width: 900px) {
+        .nav-container {
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            padding: 10px 15px;
+        }
+        .nav-menu { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 700px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px 0 0;
+        }
+        .nav-logo {
+            justify-content: center;
+            padding: 5px 15px 10px;
+        }
+        .nav-logo img { width: 210px; }
+        .nav-menu {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .nav-item { width: 100%; text-align: center; }
+        .nav-item > a { width: 100%; text-align: center; }
+        .dropdown {
+            position: static;
+            width: 100%;
+            min-width: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .nav-item:hover > .dropdown { display: none; }
+        .nav-item.dropdown-open > .dropdown { display: block; }
+        .dropdown a { text-align: center; white-space: normal; }
+    }
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+
+        <a
+            class="nav-logo"
+            href="index.html"
+            aria-label="HotelBookings - Inicio"
+        >
+            <img
+                src="images/hb.png"
+                alt="HotelBookings"
+            >
+        </a>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <div class="nav-menu">
+
+
+<!-- HOME -->
+    <div class="nav-item">
+        <a href="index.html">
+            Home
+        </a>
+    </div>
+
+
+            <!-- ALOJAMIENTO Y VUELOS -->
+
+            <div class="nav-item">
+
+                <a href="https://expedia.com/affiliate/aRlmC5S
+">
+                    Flights
+                </a>
+
+            </div>
+
+
+            <!-- VISITA ESPAÑA -->
+
+            <div class="nav-item">
+
+                <a
+                    href="#"
+                    aria-haspopup="true"
+                >
+                    Visit Spain ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="https://expedia.com/affiliate/pWDjXnU">Madrid</a>
+                    <a href="https://expedia.com/affiliate/evQdzxL">Barcelona</a>
+                    <a href="https://expedia.com/affiliate/dWqCH16">Valencia</a>
+                    <a href="https://expedia.com/affiliate/xvcNjqh">Palma de Mallorca</a>
+                    <a href="https://expedia.com/affiliate/7BhHCae">Alicante</a>
+                    <a href="https://expedia.com/affiliate/LW8W1Uz">Córdoba</a>
+                    <a href="https://expedia.com/affiliate/ZZr81H1">Granada</a>
+                    <a href="https://expedia.com/affiliate/9jAXscv">Santiago de Compostela</a>
+                    <a href="https://expedia.com/affiliate/WIouKta">Benidorm</a>
+                    <a href="https://expedia.com/affiliate/MUaclUd">Segovia</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISITA COSTA BRAVA -->
+
+            <div class="nav-item">
+
+                <a
+                    href="#"
+                    aria-haspopup="true"
+                >
+                    Visit the Costa Brava ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="https://expedia.com/affiliate/0V8Fo1A">Blanes</a>
+                    <a href="https://expedia.com/affiliate/WTwMqyc">Lloret de Mar</a>
+                    <a href="https://expedia.com/affiliate/NdpOuDJ">Palafrugell</a>
+                    <a href="https://expedia.com/affiliate/jq9I7RX">Sant Feliu de Guíxols</a>
+                    <a href="https://expedia.com/affiliate/HncLyD6">Roses</a>
+                    <a href="https://expedia.com/affiliate/JtdDEDL">Platja d'Aro</a>
+                    <a href="https://expedia.com/affiliate/YoJpcH9">L'Escala</a>
+                    <a href="https://expedia.com/affiliate/H23fXWv">Tossa de Mar</a>
+                    <a href="https://expedia.com/affiliate/vw4YPlk">Cadaqués</a>
+                    <a href="https://expedia.com/affiliate/VqIzv2F">Begur</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESERVA DE GRUPOS -->
+
+            <div class="nav-item">
+
+                <a href="grupos.eng.html">
+                    Group Bookings
+                </a>
+
+            </div>
+
+
+            <!-- IDIOMAS -->
+
+            <div class="nav-item">
+
+                <a
+                    href="#"
+                    aria-haspopup="true"
+                >
+                    Languages ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="aviso.es.html">
+                        Español
+                    </a>
+
+                    <a href="aviso.en.html">
+                        English
+                    </a>
+
+                    <a href="aviso.fr.html">
+                        Français
+                    </a>
+
+                    <a href="aviso.de.html">
+                        Deutsch
+                    </a>
+
+                    <a href="aviso.it.html">
+                        Italiano
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+  <main class="legal-container">
+    <h1>Legal Notice</h1>
+
+    <h2>1. General Information</h2>
+    <p>
+      This Legal Notice governs access to, browsing of, and use of the HotelBookings
+      website (hereinafter, the “Website”).
+    </p>
+    <p>
+      In accordance with applicable information requirements, the identifying details
+      of the Website owner are provided below:
+    </p>
+
+    <div class="legal-contact">
+      <p><strong>Owner:</strong> HotelBookings, Ltd.</p>
+      <p><strong>Address:</strong> 80 Calle Rosa, Isla Verde, Carolina, PR 00979, United States</p>
+      <p><strong>Email:</strong> <a href="mailto:hotelbookings@outlook.es">hotelbookings@outlook.es</a></p>
+      <p><strong>Website:</strong> <a href="https://hbookings.github.io" target="_blank" rel="noopener noreferrer">https://www.hbookings.github.io</a></p>
+    </div>
+
+    <h2>2. Access and Use Conditions</h2>
+    <p>
+      Access to the Website is free of charge, without prejudice to any Internet
+      connection fees charged by the user's service provider.
+    </p>
+    <p>
+      Users agree to use the Website diligently, properly, and lawfully, in accordance
+      with applicable law, good faith, public order, and this Legal Notice.
+    </p>
+    <p>
+      The Website may not be used for unlawful purposes or in any way that could cause
+      damage, disrupt its normal operation, affect the rights or interests of the
+      owner or third parties, or interfere with the services offered.
+    </p>
+
+    <h2>3. Nature of the Service and Relationship with Expedia</h2>
+    <p>
+      HotelBookings is an informational and promotional website related to
+      accommodation and travel services. The Website may display information,
+      recommendations, and links to external platforms where users can check
+      accommodation options, prices, and availability.
+    </p>
+    <p>
+      HotelBookings does not own, operate, or manage the accommodations that may
+      appear on the Website and does not directly provide accommodation services
+      advertised by third parties.
+    </p>
+    <p>
+      When users follow links to Expedia or other third-party platforms, searches,
+      bookings, contracts, payments, and service delivery are subject to the terms
+      and conditions of the relevant platform or provider.
+    </p>
+    <p>
+      HotelBookings is not a party to any contract entered into between a user and
+      an accommodation provider, unless expressly stated otherwise. Any questions,
+      changes, complaints, or issues relating to a booking should be addressed to
+      the provider or platform through which the service was booked.
+    </p>
+
+    <h2>4. Links to Third-Party Websites</h2>
+    <p>
+      The Website may include links to websites, platforms, or services operated by
+      third parties. These links are provided solely for informational, reference,
+      or commercial purposes.
+    </p>
+    <p>
+      HotelBookings does not control or guarantee the availability, accuracy,
+      currency, security, or legality of content, products, or services offered
+      on third-party websites.
+    </p>
+    <p>
+      The inclusion of a link does not necessarily imply any relationship,
+      partnership, approval, or endorsement by HotelBookings. Users access
+      external websites at their own responsibility and should review their
+      terms of use and privacy policies.
+    </p>
+
+    <h2>5. Information About Destinations, Accommodation, and Prices</h2>
+    <p>
+      Information about destinations, accommodation, features, services,
+      availability, and prices may come from third parties or external sources.
+      Although reasonable efforts are made to provide useful and up-to-date
+      information, completeness, accuracy, and continuous updates cannot be guaranteed.
+    </p>
+    <p>
+      Prices, taxes, fees, booking conditions, availability, and other accommodation
+      details may change at any time. The final price and conditions are those
+      displayed by the relevant provider at the time of booking.
+    </p>
+    <p>
+      Users are responsible for checking all relevant information before making
+      a booking or purchasing any service.
+    </p>
+
+    <h2>6. Affiliate Links and Advertising</h2>
+    <p>
+      The Website may contain affiliate links and advertising links. This means
+      HotelBookings may receive a commission or other compensation when users
+      follow certain links or make a purchase or booking through them, without
+      necessarily incurring any additional cost.
+    </p>
+    <p>
+      Any such compensation does not guarantee the availability of a service or
+      determine the final contractual terms, which are set by the relevant
+      third-party provider.
+    </p>
+    <p>
+      The presence of affiliate links or advertising does not constitute an absolute
+      guarantee or recommendation, nor does it imply responsibility for products
+      or services offered by third parties.
+    </p>
+
+    <h2>7. Intellectual Property</h2>
+    <p>
+      Website content, including but not limited to text, designs, graphic elements,
+      logos, structure, code, and other materials, may be protected by intellectual
+      or industrial property rights owned by HotelBookings or by third parties
+      who have authorized their use.
+    </p>
+    <p>
+      Reproduction, distribution, public communication, transformation, or any other
+      form of exploitation of such content is prohibited without prior authorization
+      from the rights holders, except where permitted by law.
+    </p>
+    <p>
+      Trademarks, trade names, logos, and other distinctive signs belonging to
+      third parties that may appear on the Website remain the property of their
+      respective owners and are displayed for informational or identification
+      purposes only.
+    </p>
+
+    <h2>8. Responsible Use of the Website</h2>
+    <p>
+      Users agree not to take any action that may damage, overload, disable, or
+      impair the Website, its systems, or its available services, or prevent other
+      users from using them normally.
+    </p>
+    <p>
+      Users must not attempt to access systems, accounts, data, or restricted areas
+      without authorization, introduce malicious software, or take actions that
+      compromise the security or integrity of the Website.
+    </p>
+
+    <h2>9. Liability</h2>
+    <p>
+      HotelBookings makes reasonable efforts to keep the Website available and
+      provide useful information. However, it does not guarantee uninterrupted
+      availability, the absence of technical errors or security issues, or
+      continuous service.
+    </p>
+    <p>
+      To the extent permitted by applicable law, HotelBookings shall not be liable
+      for damages arising from service interruptions, errors or omissions in
+      third-party content, misuse of the Website, or access to external websites.
+    </p>
+    <p>
+      HotelBookings is also not responsible for the quality, safety, availability,
+      terms, or performance of services contracted directly with accommodation
+      providers, agencies, platforms, or other external suppliers.
+    </p>
+    <p>
+      Nothing in this Legal Notice excludes or limits liability that cannot be
+      excluded or limited under applicable law.
+    </p>
+
+    <h2>10. Privacy and Cookies</h2>
+    <p>
+      Any personal data collected through the Website will be processed in
+      accordance with applicable data protection laws and the information provided
+      in the relevant privacy policy.
+    </p>
+    <p>
+      The Website may use cookies or similar technologies, either its own or those
+      of third parties. Where required, information about their use will be provided
+      and user consent will be requested in accordance with applicable law.
+    </p>
+    <p>
+      Third-party websites accessed through links may apply their own privacy and
+      cookie policies, which are outside the control of HotelBookings.
+    </p>
+
+    <h2>11. Applicable Law</h2>
+    <p>
+      This Legal Notice shall be governed by the laws applicable to the circumstances
+      and by any mandatory legal provisions that may apply.
+    </p>
+    <p>
+      In the event of a dispute, the parties shall submit to the courts with
+      jurisdiction under applicable law, without prejudice to any rights consumers
+      may have under mandatory legal provisions.
+    </p>
+
+    <h2>12. Amendments to This Legal Notice</h2>
+    <p>
+      HotelBookings reserves the right to amend, update, or revise this Legal
+      Notice at any time to reflect legal or technical changes or changes to
+      the operation of the Website.
+    </p>
+    <p>
+      Amendments will take effect when published on this page. Users are encouraged
+      to review this Legal Notice periodically.
+    </p>
+  </main>
+
+<footer>
+
+        <div class="footer-legal">
+            <a href="aviso.en.html">Legal Notice</a>
+            <a href="privacidad.en.html">Privacy Policy</a>
+        </div>
+
+        <div class="footer-links">
+
+            <a href="https://expedia.com/affiliate/shn7qdL
+">
+                Destinations
+            </a>
+
+            <a href="grupos.eng.html">
+                Group Bookings
+            </a>
+
+            <a href="contacto.en.html">
+                Contact
+            </a>
+
+        </div>
+
+        <p>
+            © 2027 HotelBookings, Ltd. · Todos los derechos reservados
+        </p>
+
+    </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const navItems = document.querySelectorAll(".nav-item > a[aria-haspopup='true']");
+    navItems.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            if (window.matchMedia("(max-width: 700px)").matches) {
+                event.preventDefault();
+                const navItem = this.parentElement;
+                document.querySelectorAll(".nav-item.dropdown-open").forEach(function (item) {
+                    if (item !== navItem) item.classList.remove("dropdown-open");
+                });
+                navItem.classList.toggle("dropdown-open");
+            }
+        });
+    });
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".nav-menu")) {
+            document.querySelectorAll(".nav-item.dropdown-open").forEach(function (item) {
+                item.classList.remove("dropdown-open");
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>

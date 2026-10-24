@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | HotelBookings</title>
+
+<!-- Favicon de la web -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .legal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 24px;
+        }
+
+        .legal-container h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .legal-container h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .legal-container p,
+        .legal-container li {
+            font-size: 14px;
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+            overflow-wrap: anywhere;
+        }
+
+        .legal-container p {
+            margin-bottom: 16px;
+        }
+
+        .legal-container ul {
+            margin: 0 0 16px 24px;
+        }
+
+        .legal-container li {
+            margin-bottom: 8px;
+        }
+
+        .legal-contact {
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .legal-contact p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .legal-contact p:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-contact a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .legal-contact a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .legal-container {
+                padding: 32px 18px;
+            }
+
+            .legal-container h1 {
+                font-size: 1.8rem;
+            }
+
+            .legal-container h2 {
+                font-size: 1.2rem;
+            }
+
+            .legal-container p,
+            .legal-container li {
+                font-size: 14px;
+            }
+
+            .legal-contact {
+                padding: 0;
+            }
+
+            .legal-contact p {
+                font-size: 14px;
+            }
+        }
+
+        .navbar {
+            width: 100%;
+            background: #15438B;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            padding: 8px 0;
+        }
+
+        .nav-logo img {
+            display: block;
+            width: 230px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            display: block;
+            padding: 17px 15px;
+            color: #fff;
+            background: #15438B;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .nav-item > a:hover {
+            background: #1d4f9b;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: #fff;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+            display: none;
+            z-index: 1000;
+        }
+
+        .nav-item:hover > .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 11px 15px;
+            color: #333;
+            background: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .dropdown a:hover {
+            color: #fff;
+            background: #666;
+        }
+
+        footer {
+            position: relative;
+            margin-top: 50px;
+            padding: 30px 20px;
+            background: #15438B;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0;
+            margin-bottom: 0;
+        }
+
+        .footer-legal {
+            position: static;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .footer-legal a {
+            display: block;
+            padding: 17px 10px;
+            color: #fff;
+            background: #15438B;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .footer-legal a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-links a {
+            display: block;
+            padding: 17px 15px;
+            color: #fff;
+            background: #15438B;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .footer-links a:hover {
+            background: #15438B;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer p {
+            color: #fff;
+            font-size: 12px;
+            font-weight: 400;
+            flex-basis: 100%;
+        }
+
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 10px 20px;
+                padding: 10px 15px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 5px;
+                padding: 10px 0 0;
+            }
+
+            .nav-logo {
+                justify-content: center;
+                padding: 5px 15px 10px;
+            }
+
+            .nav-logo img {
+                width: 210px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-item {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-item > a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dropdown {
+                position: static;
+                width: 100%;
+                min-width: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .nav-item:hover > .dropdown {
+                display: none;
+            }
+
+            .nav-item.dropdown-open > .dropdown {
+                display: block;
+            }
+
+            .dropdown a {
+                text-align: center;
+                white-space: normal;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+
+            .footer-legal,
+            .footer-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .footer-legal a,
+            .footer-links a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <a class="nav-logo" href="index.html" aria-label="Hotel Bookings - Home">
+                <img src="images/hb.png" alt="Hotel Bookings">
+            </a>
+
+            <div class="nav-menu">
+
+                <div class="nav-item">
+                    <a href="index.html">Home</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="https://expedia.com/affiliate/aRlmC5S
+">Flights</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" aria-haspopup="true">Visit Spain ▾</a>
+                    <div class="dropdown">
+                        <a href="https://expedia.com/affiliate/HOyKfkE">Madrid</a>
+                        <a href="https://expedia.com/affiliate/hRA7KUp">Barcelona</a>
+                        <a href="https://expedia.com/affiliate/pV9cb59">Valencia</a>
+                        <a href="https://expedia.com/affiliate/W9UE57g">Palma de Mallorca</a>
+                        <a href="https://expedia.com/affiliate/PRZ2Rul">Alicante</a>
+                        <a href="https://expedia.com/affiliate/iFu0u37">Córdoba</a>
+                        <a href="https://expedia.com/affiliate/UMvRxti">Granada</a>
+                        <a href="https://expedia.com/affiliate/ZFCmKRo">Santiago de Compostela</a>
+                        <a href="https://expedia.com/affiliate/krBOtmQ">Benidorm</a>
+                        <a href="https://expedia.com/affiliate/NAweQvG">Segovia</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" aria-haspopup="true">Visit the Costa Brava ▾</a>
+                    <div class="dropdown">
+                        <a href="https://expedia.com/affiliate/ndfgNkU">Blanes</a>
+                        <a href="https://expedia.com/affiliate/IWP29Gu">Lloret de Mar</a>
+                        <a href="https://expedia.com/affiliate/D6iEkM4">Palafrugell</a>
+                        <a href="https://expedia.com/affiliate/zPASvyI">Sant Feliu de Guíxols</a>
+                        <a href="https://expedia.com/affiliate/Zsdmwrv">Roses</a>
+                        <a href="https://expedia.com/affiliate/wez6it2">Platja d'Aro</a>
+                        <a href="https://expedia.com/affiliate/LUtvaB6">L'Escala</a>
+                        <a href="https://expedia.com/affiliate/EGTTtGt">Tossa de Mar</a>
+                        <a href="https://expedia.com/affiliate/UZx4I6G">Cadaqués</a>
+                        <a href="https://expedia.com/affiliate/Xb4XC5a">Begur</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="grupos.eng.html">Group Bookings</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" aria-haspopup="true">Languages ▾</a>
+                    <div class="dropdown">
+                        <a href="privacidad.es.html">Español</a>
+                        <a href="privacidad.en.html">English</a>
+                        <a href="privacidad.fr.html">Français</a>
+                        <a href="privacidad.de.html">Deutsch</a>
+                        <a href="privacidad.it.html">Italiano</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="legal-container">
+
+        <h1>Privacy Policy</h1>
+
+        <p>
+            At HotelBookings, we respect the privacy of people who visit our website.
+            This Privacy Policy explains how our website operates, what information may
+            be involved when you use its services, and who is responsible for personal
+            data provided through external services.
+        </p>
+
+        <p>
+            HotelBookings is an informational website that allows users to explore
+            information about destinations and accommodation and access external search
+            and booking services, including Expedia's search engine. Bookings and services
+            provided by third parties are governed by those providers' terms and policies.
+        </p>
+
+        <h2>1. Website operator</h2>
+
+        <div class="legal-contact">
+            <p><strong>Legal entity:</strong> HotelBookings, Ltd.</p>
+            <p><strong>Address:</strong> 80 Calle Rosa, Isla Verde, Carolina, PR 00979, United States</p>
+            <p><strong>Email:</strong> <a href="mailto:hotelbookings@outlook.es">hotelbookings@outlook.es</a></p>
+            <p><strong>Website:</strong> <a href="https://www.hbookings.github.io">https://www.hbookings.github.io</a></p>
+        </div>
+
+        <h2>2. Individual bookings through Expedia</h2>
+
+        <p>
+            When a person uses the Expedia search engine, links or booking tools available
+            on HotelBookings, they may be redirected to a website or service operated by
+            Expedia or entities related to that platform.
+        </p>
+
+        <p>
+            The personal data required to make and manage individual bookings is collected
+            by Expedia in accordance with its own Privacy Policy and the terms applicable
+            to the service.
+        </p>
+
+        <p>
+            HotelBookings does not control Expedia's systems or the data processing
+            practices applied by that platform. The processing of data entered into its
+            external services is subject to its privacy policies and terms. We recommend
+            reading them before providing personal data or completing a booking.
+        </p>
+
+        <h2>3. Group booking requests</h2>
+
+        <p>
+            HotelBookings may offer a form or contact channel for group accommodation
+            requests. For group bookings, the personal data provided in the request is
+            collected directly by the accommodation provider receiving the booking request,
+            which will be responsible for processing that data in accordance with its own
+            privacy policy and applicable law.
+        </p>
+
+        <p>
+            HotelBookings does not control the privacy practices, systems or data processing
+            decisions of the receiving accommodation provider once it has received the
+            request. Questions regarding the subsequent use of that data should be directed
+            to the relevant accommodation provider.
+        </p>
+
+        <h2>4. Information HotelBookings may receive</h2>
+
+        <p>
+            HotelBookings seeks to limit the information it receives to what is necessary
+            to operate its website and respond to communications sent to it. Depending on
+            how the website is used, it may receive information that users include in a
+            message addressed to HotelBookings, such as their name, email address and the
+            content of their enquiry.
+        </p>
+
+        <p>
+            If HotelBookings were to collect personal data directly, its processing would
+            be governed by the purposes, retention conditions and other criteria described
+            in Section 7 of this Privacy Policy, as well as by any applicable legal
+            obligations.
+        </p>
+
+        <h2>5. Cookies and tracking technologies</h2>
+
+        <p>
+            HotelBookings does not install or use its own tracking cookies to track visitor
+            activity, create advertising profiles or monitor behaviour on the website.
+        </p>
+
+        <p>
+            However, some links or tools may direct users to third-party services, such as
+            Expedia. These external services may use their own cookies or other technologies
+            in accordance with their privacy practices and policies. HotelBookings does not
+            control the cookies that such third parties may install when users access their
+            platforms.
+        </p>
+
+        <p>
+            For information about cookies and technologies used by an external provider,
+            please consult that provider's published privacy and cookie policies.
+        </p>
+
+        <h2>6. Links to third-party websites</h2>
+
+        <p>
+            This website may include links to pages, search engines, accommodation providers
+            and other services operated by third parties. These links are provided to make
+            it easier for visitors to access information or services that may be useful.
+        </p>
+
+        <p>
+            HotelBookings takes reasonable measures to protect information it receives
+            directly against unauthorised access, use, alteration or disclosure.
+            HotelBookings will never share data that has been provided to it directly.
+        </p>
+
+        <h2>7. Purpose and retention of information</h2>
+
+        <p>
+            When HotelBookings receives information directly from a person, it may use it
+            to respond to an enquiry, manage a communication, handle a request related to
+            its services or maintain the security and operation of the website.
+        </p>
+
+        <p>
+            HotelBookings will retain information received directly for as long as is
+            reasonably necessary to fulfil these purposes, address potential issues and
+            comply with applicable legal obligations. When the information is no longer
+            necessary, it will be deleted or no longer used, as appropriate and to the
+            extent permitted by applicable law.
+        </p>
+
+        <p>
+            The retention periods applicable to data collected directly by Expedia or other
+            providers are governed by those providers' policies, not by HotelBookings'
+            retention practices.
+        </p>
+
+        <h2>8. Information security</h2>
+
+        <p>
+            HotelBookings takes reasonable measures to protect information it receives
+            directly against unauthorised access, use, alteration or disclosure.
+            However, no electronic transmission or storage system can guarantee absolute
+            security.
+        </p>
+
+        <p>
+            HotelBookings does not administer the internal systems of external providers
+            and cannot guarantee the security of information provided directly to those
+            providers. For questions concerning data sent to Expedia or an accommodation
+            provider, users should contact the provider that received the data.
+        </p>
+
+        <h2>9. Rights of data subjects</h2>
+
+        <p>
+            Depending on applicable law and the circumstances of the processing, individuals
+            may have the right to request access to their personal data, its rectification
+            or erasure, restriction of processing, or to object to certain uses, as well as
+            to exercise other rights recognised by the relevant legislation.
+        </p>
+
+        <p>
+            If the information was provided directly to HotelBookings, you may send your
+            request to the contact email address listed on this page. To exercise rights
+            regarding data collected or processed by Expedia, an accommodation provider or
+            another external provider, you must contact that provider directly, as it is
+            responsible for handling requests concerning data under its control.
+        </p>
+
+        <p>
+            HotelBookings will assess requests it receives in relation to the information
+            it processes and respond in accordance with its applicable obligations.
+        </p>
+
+        <h2>10. Data Protection Officer</h2>
+
+        <p>
+            For matters relating to data protection, you may contact the Data Protection Officer:
+        </p>
+
+        <div class="legal-contact">
+            <p><strong>Data Protection Officer:</strong> NBV DataProtection</p>
+            <p><strong>Address:</strong> 1200 SW 8th Street, Brickell, Miami, FL 33130, United States</p>
+            <p><strong>Email:</strong> <a href="mailto:info@nbv.dp.com">info@nbv.dp.com</a></p>
+        </div>
+
+        <h2>11. Applicable law</h2>
+
+        <p>
+            This Privacy Policy shall be interpreted in accordance with the laws of the
+            Commonwealth of Puerto Rico, to the extent applicable. Any matter relating to
+            this policy shall be addressed in accordance with applicable law and the
+            jurisdiction of the relevant authorities.
+        </p>
+
+        <h2>12. Changes to this Privacy Policy</h2>
+
+        <p>
+            HotelBookings may update this Privacy Policy when necessary to reflect changes
+            in the operation of the website, its services or applicable legal obligations.
+            The current version will be available on this page.
+        </p>
+
+    </main>
+
+    <footer>
+        <div class="footer-legal">
+            <a href="aviso.en.html">Legal Notice</a>
+            <a href="privacidad.en.html">Privacy Policy</a>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://expedia.com/affiliate/shn7qdL
+">Destinations</a>
+            <a href="grupos.eng.html">Group Bookings</a>
+            <a href="contacto.en.html">Contact</a>
+        </div>
+
+        <p>© 2027 HotelBookings, Ltd. · All rights reserved</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-item > a[aria-haspopup="true"]').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const item = this.parentElement;
+
+                document.querySelectorAll('.nav-item.dropdown-open').forEach(function(openItem) {
+                    if (openItem !== item) {
+                        openItem.classList.remove('dropdown-open');
+                    }
+                });
+
+                item.classList.toggle('dropdown-open');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav-menu')) {
+                document.querySelectorAll('.nav-item.dropdown-open').forEach(function(item) {
+                    item.classList.remove('dropdown-open');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rechtliche Hinweise | HotelBookings</title>
+
+<!-- Favicon de la web -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 24px;
+    }
+
+    .legal-container h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .legal-container h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .legal-container p,
+    .legal-container li {
+      font-size: 14px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      overflow-wrap: anywhere;
+    }
+
+    .legal-container p {
+      margin-bottom: 16px;
+    }
+
+    .legal-container ul {
+      margin: 0 0 16px 24px;
+    }
+
+    .legal-container li {
+      margin-bottom: 8px;
+    }
+
+    .legal-contact {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .legal-contact p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .legal-contact p:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-contact a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .legal-contact a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .legal-container {
+        padding: 32px 18px;
+      }
+
+      .legal-container h1 {
+        font-size: 1.8rem;
+      }
+
+      .legal-container h2 {
+        font-size: 1.2rem;
+      }
+
+      .legal-container p,
+      .legal-container li {
+        font-size: 14px;
+      }
+
+      .legal-contact {
+        padding: 0;
+      }
+
+      .legal-contact p {
+        font-size: 14px;
+      }
+    }
+  
+
+    /* Cabecera y footer compartidos con grupos.deu.html */
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
+
+    .navbar {
+        width: 100%;
+        background-color: #15438B;
+    }
+
+    .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        padding: 8px 0;
+    }
+
+    .nav-logo img {
+        display: block;
+        width: 230px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-item > a {
+        display: block;
+        padding: 17px 15px;
+
+        color: #ffffff;
+        background-color: #15438B;
+
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+
+        white-space: nowrap;
+    }
+
+    .nav-item > a:hover {
+        background-color: #1d4f9b;
+    }
+
+
+    /* =========================
+       MENÚS DESPLEGABLES
+    ========================= */
+
+    /* Escritorio */
+
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        min-width: 220px;
+
+        background-color: #ffffff;
+
+        border-radius: 0 0 5px 5px;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+        display: none;
+
+        z-index: 1000;
+    }
+
+    .nav-item:hover > .dropdown {
+        display: block;
+    }
+
+    .dropdown a {
+        display: block;
+
+        padding: 11px 15px;
+
+        color: #333333;
+        background-color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 400;
+
+        white-space: nowrap;
+    }
+
+    .dropdown a:hover {
+        color: #ffffff;
+        background-color: #666666;
+    }
+
+
+
+    /* Pie de página de grupos */
+    footer {
+        position: relative;
+        margin-top: 50px;
+        padding: 30px 20px;
+
+        background-color: #15438B;
+        color: #ffffff;
+
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        gap: 0;
+
+        margin-bottom: 0;
+    }
+
+    .footer-legal {
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .footer-legal a {
+        display: block;
+        padding: 17px 10px;
+        color: #ffffff;
+        background-color: #15438B;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    .footer-legal a:hover {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .footer-links a {
+        display: block;
+
+        padding: 17px 15px;
+
+        color: #ffffff;
+        background-color: #15438B;
+
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 500;
+
+        white-space: nowrap;
+    }
+
+    .footer-links a:hover {
+        background-color: #15438B;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    footer p {
+        color: #ffffff;
+
+        font-size: 12px;
+        font-weight: 400;
+        flex-basis: 100%;
+    }
+
+
+
+
+    @media (max-width: 900px) {
+        .nav-container {
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            padding: 10px 15px;
+        }
+        .nav-menu { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 700px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px 0 0;
+        }
+        .nav-logo {
+            justify-content: center;
+            padding: 5px 15px 10px;
+        }
+        .nav-logo img { width: 210px; }
+        .nav-menu {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .nav-item { width: 100%; text-align: center; }
+        .nav-item > a { width: 100%; text-align: center; }
+        .dropdown {
+            position: static;
+            width: 100%;
+            min-width: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .nav-item:hover > .dropdown { display: none; }
+        .nav-item.dropdown-open > .dropdown { display: block; }
+        .dropdown a { text-align: center; white-space: normal; }
+    }
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+
+        <a
+            class="nav-logo"
+            href="index.html"
+            aria-label="HotelBookings - Startseite"
+        >
+            <img
+                src="images/hb.png"
+                alt="HotelBookings"
+            >
+        </a>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <div class="nav-menu">
+
+
+<!-- HOME -->
+    <div class="nav-item">
+        <a href="index.html">
+            Startseite
+        </a>
+    </div>
+
+
+            <!-- ALOJAMIENTO Y VUELOS -->
+
+            <div class="nav-item">
+
+                <a href="https://expedia.com/affiliate/l9zFH9U">
+                    Flüge
+                </a>
+
+            </div>
+
+
+            <!-- VISITA ESPAÑA -->
+
+            <div class="nav-item">
+
+                <a
+                    href="#"
+                    aria-haspopup="true"
+                >
+                    Spanien besuchen ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="https://expedia.com/affiliate/Ew5dsV9">Madrid</a>
+                    <a href="https://expedia.com/affiliate/6Eabr5X">Barcelona</a>
+                    <a href="https://expedia.com/affiliate/2CP2Wyz">Valencia</a>
+                    <a href="https://expedia.com/affiliate/l0wewhp">Palma de Mallorca</a>
+                    <a href="https://expedia.com/affiliate/pV5vLAr">Alicante</a>
+                    <a href="https://expedia.com/affiliate/QDVvc03">Córdoba</a>
+                    <a href="https://expedia.com/affiliate/XSUerFx">Granada</a>
+                    <a href="https://expedia.com/affiliate/9iG3qvB">Santiago de Compostela</a>
+                    <a href="https://expedia.com/affiliate/WKYlNoW">Benidorm</a>
+                    <a href="https://expedia.com/affiliate/YwSSpFJ">Segovia</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISITA COSTA BRAVA -->
+
+            <div class="nav-item">
+
+                <a
+                    href="#"
+                    aria-haspopup="true"
+                >
+                    Costa Brava besuchen ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="https://expedia.com/affiliate/lsqZOK5">Blanes</a>
+                    <a href="https://expedia.com/affiliate/HrHzfmO">Lloret de Mar</a>
+                    <a href="https://expedia.com/affiliate/UF1JzSp">Palafrugell</a>
+                    <a href="https://expedia.com/affiliate/BzytndK">Sant Feliu de Guíxols</a>
+                    <a href="https://expedia.com/affiliate/64YUHWW">Roses</a>
+                    <a href="https://expedia.com/affiliate/i2wN5NK">Platja d'Aro</a>
+                    <a href="https://expedia.com/affiliate/L266xwC">L'Escala</a>
+                    <a href="https://expedia.com/affiliate/5D6Ncx7">Tossa de Mar</a>
+                    <a href="https://expedia.com/affiliate/kTMQ41z">Cadaqués</a>
+                    <a href="https://expedia.com/affiliate/u0AxrKa">Begur</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESERVA DE GRUPOS -->
+
+            <div class="nav-item">
+
+                <a href="grupos.deu.html">
+                    Gruppenbuchungen
+                </a>
+
+            </div>
+
+
+            <!-- IDIOMAS -->
+
+            <div class="nav-item">
+
+                <a
+                    href="#"
+                    aria-haspopup="true"
+                >
+                    Sprachen ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="aviso.es.html">
+                        Español
+                    </a>
+
+                    <a href="aviso.en.html">
+                        English
+                    </a>
+
+                    <a href="aviso.fr.html">
+                        Français
+                    </a>
+
+                    <a href="aviso.de.html">
+                        Deutsch
+                    </a>
+
+                    <a href="aviso.it.html">
+                        Italiano
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+    <main class="legal-container">
+    <h1>Rechtliche Hinweise</h1>
+
+    <h2>1. Allgemeine Informationen</h2>
+    <p>Diese rechtlichen Hinweise regeln den Zugang zu, die Navigation auf und die Nutzung der Website Hotel Bookings (nachfolgend „Website“).</p>
+    <p>Gemäß den geltenden Informationspflichten werden nachfolgend die Identifikationsdaten des Betreibers der Website angegeben:</p>
+
+    <div class="legal-contact">
+      <p><strong>Betreiber:</strong> HotelBookings, Ltd.</p>
+      <p><strong>Adresse:</strong> 80 Calle Rosa, Isla Verde, Carolina, PR 00979, United States</p>
+      <p><strong>E-Mail:</strong> <a href="mailto:hotelbookings@outlook.es">hotelbookings@outlook.es</a></p>
+      <p><strong>Website:</strong> <a href="https://hbookings.github.io" target="_blank" rel="noopener noreferrer">https://www.hbookings.github.io</a></p>
+    </div>
+
+    <h2>2. Zugangs- und Nutzungsbedingungen</h2>
+    <p>Der Zugang zur Website ist kostenlos. Hiervon unberührt bleiben etwaige Internetverbindungskosten, die vom jeweiligen Internetanbieter des Nutzers erhoben werden.</p>
+    <p>Der Nutzer verpflichtet sich, die Website sorgfältig, ordnungsgemäß und rechtmäßig sowie im Einklang mit den geltenden Gesetzen, dem Grundsatz von Treu und Glauben, der öffentlichen Ordnung und diesen rechtlichen Hinweisen zu nutzen.</p>
+    <p>Es ist untersagt, die Website für rechtswidrige Zwecke oder in einer Weise zu nutzen, die Schäden verursachen, den normalen Betrieb beeinträchtigen, Rechte oder Interessen des Betreibers oder Dritter verletzen oder die angebotenen Dienste beeinträchtigen könnte.</p>
+
+    <h2>3. Art des Dienstes und Verhältnis zu Expedia</h2>
+    <p>Hotel Bookings ist eine Informations- und Werbewebsite für Unterkünfte und touristische Dienstleistungen. Die Website kann Informationen, Empfehlungen und Links zu externen Plattformen enthalten, auf denen Unterkünfte, Preise und Verfügbarkeiten eingesehen werden können.</p>
+    <p>Hotel Bookings ist weder Eigentümer noch Betreiber oder Verwalter der Unterkünfte, die auf der Website erscheinen können, und erbringt die von Dritten angebotenen Beherbergungsleistungen nicht selbst.</p>
+    <p>Wenn Nutzer Links zu Expedia oder anderen Drittanbieterplattformen aufrufen, unterliegen Suchanfragen, Buchungen, Vertragsabschlüsse, Zahlungen und die Erbringung der Dienstleistungen den Bedingungen der jeweiligen Plattform oder des jeweiligen Anbieters.</p>
+    <p>Hotel Bookings ist nicht Vertragspartei eines Vertrags, der zwischen einem Nutzer und einem Unterkunftsanbieter geschlossen wird, sofern nicht ausdrücklich etwas anderes angegeben ist. Fragen, Änderungen, Beschwerden oder Probleme im Zusammenhang mit einer Buchung sind an den Anbieter oder die Plattform zu richten, über die die Buchung vorgenommen wurde.</p>
+
+    <h2>4. Links zu Websites Dritter</h2>
+    <p>Die Website kann Links zu Websites, Plattformen oder Diensten enthalten, die von Dritten betrieben werden. Diese Links werden ausschließlich zu Informations-, Referenz- oder kommerziellen Zwecken bereitgestellt.</p>
+    <p>Hotel Bookings kontrolliert weder die Verfügbarkeit, Richtigkeit, Aktualität, Sicherheit oder Rechtmäßigkeit der Inhalte noch der Produkte oder Dienstleistungen, die auf Websites Dritter angeboten werden, und übernimmt hierfür keine Garantie.</p>
+    <p>Die Aufnahme eines Links bedeutet nicht zwangsläufig, dass eine Beziehung, Partnerschaft, Zustimmung oder Empfehlung seitens Hotel Bookings besteht. Der Zugriff auf externe Websites erfolgt in der Verantwortung des Nutzers. Dieser sollte die jeweiligen Nutzungsbedingungen und Datenschutzhinweise prüfen.</p>
+
+    <h2>5. Informationen zu Reisezielen, Unterkünften und Preisen</h2>
+    <p>Informationen über Reiseziele, Unterkünfte, Ausstattungsmerkmale, Dienstleistungen, Verfügbarkeiten und Preise können von Dritten oder aus externen Quellen stammen. Obwohl angemessene Anstrengungen unternommen werden, um nützliche und aktuelle Informationen bereitzustellen, können deren Vollständigkeit, Richtigkeit und ständige Aktualität nicht garantiert werden.</p>
+    <p>Preise, Steuern, Gebühren, Buchungsbedingungen, Verfügbarkeiten und andere Merkmale der Unterkünfte können sich jederzeit ändern. Maßgeblich sind der endgültige Preis und die Bedingungen, die der jeweilige Anbieter zum Zeitpunkt der Buchung anzeigt.</p>
+    <p>Der Nutzer ist dafür verantwortlich, alle relevanten Informationen zu überprüfen, bevor er eine Buchung vornimmt oder eine Dienstleistung in Anspruch nimmt.</p>
+
+    <h2>6. Affiliate-Links und Werbung</h2>
+    <p>Die Website kann Affiliate-Links und Werbelinks enthalten. Das bedeutet, dass Hotel Bookings möglicherweise eine Provision oder eine andere Vergütung erhält, wenn Nutzer bestimmte Links aufrufen oder über diese Links einen Kauf oder eine Buchung tätigen. Hierdurch entstehen dem Nutzer nicht zwangsläufig zusätzliche Kosten.</p>
+    <p>Eine mögliche Vergütung garantiert weder die Verfügbarkeit einer Dienstleistung noch bestimmt sie die endgültigen Vertragsbedingungen. Diese werden vom jeweiligen Drittanbieter festgelegt.</p>
+    <p>Das Vorhandensein von Affiliate-Links oder Werbung stellt weder eine uneingeschränkte Garantie noch eine absolute Empfehlung dar und begründet keine Verantwortung für Produkte oder Dienstleistungen, die von Dritten angeboten werden.</p>
+
+    <h2>7. Geistiges Eigentum</h2>
+    <p>Die eigenen Inhalte der Website, einschließlich, aber nicht beschränkt auf Texte, Designs, grafische Elemente, Logos, Struktur, Code und sonstige Materialien, können durch Rechte des geistigen oder gewerblichen Eigentums geschützt sein, die Hotel Bookings oder Dritten zustehen, welche deren Nutzung genehmigt haben.</p>
+    <p>Die Vervielfältigung, Verbreitung, öffentliche Wiedergabe, Bearbeitung oder jede andere Form der Verwertung dieser Inhalte ist ohne vorherige Zustimmung der jeweiligen Rechteinhaber untersagt, sofern dies nicht gesetzlich ausdrücklich erlaubt ist.</p>
+    <p>Marken, Handelsnamen, Logos und sonstige Kennzeichen Dritter, die auf der Website erscheinen können, bleiben Eigentum ihrer jeweiligen Inhaber und werden ausschließlich zu Informations- oder Identifikationszwecken dargestellt.</p>
+
+    <h2>8. Verantwortungsvolle Nutzung der Website</h2>
+    <p>Der Nutzer verpflichtet sich, keine Handlungen vorzunehmen, die die Website, ihre Systeme oder die verfügbaren Dienste beschädigen, überlasten, außer Betrieb setzen oder beeinträchtigen könnten oder die normale Nutzung durch andere Nutzer verhindern.</p>
+    <p>Der Nutzer darf nicht versuchen, sich unbefugt Zugang zu Systemen, Konten, Daten oder geschützten Bereichen zu verschaffen, Schadsoftware einzuschleusen oder Handlungen vorzunehmen, welche die Sicherheit oder Integrität der Website gefährden.</p>
+
+    <h2>9. Haftung</h2>
+    <p>Hotel Bookings bemüht sich in angemessenem Umfang, die Website verfügbar zu halten und nützliche Informationen bereitzustellen. Eine Garantie für einen unterbrechungsfreien Betrieb oder für die Abwesenheit technischer Fehler, Sicherheitsprobleme oder Ausfälle wird jedoch nicht übernommen.</p>
+    <p>Soweit gesetzlich zulässig, haftet Hotel Bookings nicht für Schäden, die durch Dienstunterbrechungen, Fehler oder Auslassungen in Inhalten Dritter, eine unsachgemäße Nutzung der Website oder den Zugriff auf externe Websites entstehen.</p>
+    <p>Hotel Bookings ist außerdem nicht für die Qualität, Sicherheit, Verfügbarkeit, Bedingungen oder Erfüllung von Dienstleistungen verantwortlich, die direkt bei Unterkünften, Agenturen, Plattformen oder anderen externen Anbietern gebucht werden.</p>
+    <p>Keine Bestimmung dieser rechtlichen Hinweise schließt eine Haftung aus oder beschränkt sie, soweit ein solcher Ausschluss oder eine solche Beschränkung nach geltendem Recht unzulässig ist.</p>
+
+    <h2>10. Datenschutz und Cookies</h2>
+    <p>Personenbezogene Daten, die gegebenenfalls über die Website erhoben werden, werden gemäß den geltenden Datenschutzbestimmungen und den Informationen in der entsprechenden Datenschutzerklärung verarbeitet.</p>
+    <p>Die Website kann eigene Cookies oder Cookies Dritter sowie ähnliche Technologien verwenden. Soweit erforderlich, werden Informationen über deren Verwendung bereitgestellt und die Einwilligung des Nutzers gemäß den geltenden Vorschriften eingeholt.</p>
+    <p>Websites Dritter, die über Links aufgerufen werden, können eigene Datenschutz- und Cookie-Richtlinien anwenden, auf die Hotel Bookings keinen Einfluss hat.</p>
+
+    <h2>11. Anwendbares Recht</h2>
+    <p>Diese rechtlichen Hinweise unterliegen dem Recht, das auf den jeweiligen Sachverhalt anwendbar ist, sowie gegebenenfalls zwingenden gesetzlichen Bestimmungen.</p>
+    <p>Im Streitfall richtet sich die Zuständigkeit der Gerichte nach den geltenden gesetzlichen Bestimmungen. Zwingende Rechte, die Verbrauchern gesetzlich zustehen, bleiben hiervon unberührt.</p>
+
+    <h2>12. Änderungen der rechtlichen Hinweise</h2>
+    <p>Hotel Bookings behält sich das Recht vor, diese rechtlichen Hinweise jederzeit zu ändern, zu aktualisieren oder zu überarbeiten, um rechtlichen oder technischen Entwicklungen sowie Änderungen des Betriebs der Website Rechnung zu tragen.</p>
+    <p>Die Änderungen treten mit ihrer Veröffentlichung auf dieser Seite in Kraft. Nutzern wird empfohlen, diese rechtlichen Hinweise regelmäßig zu überprüfen.</p>
+  </main>
+
+<footer>
+
+        <div class="footer-legal">
+            <a href="aviso.de.html">Rechtliche Hinweise</a>
+            <a href="privacidad.de.html">Datenschutzerklärung</a>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://expedia.com/affiliate/D8srMjm
+">Reiseziele</a>
+            <a href="grupos.deu.html">Gruppenbuchungen</a>
+            <a href="contacto.de.html">Kontakt</a>
+        </div>
+
+        <p>© 2027 HotelBookings, Ltd. · Alle Rechte vorbehalten</p>
+
+    </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const navItems = document.querySelectorAll(".nav-item > a[aria-haspopup='true']");
+    navItems.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            if (window.matchMedia("(max-width: 700px)").matches) {
+                event.preventDefault();
+                const navItem = this.parentElement;
+                document.querySelectorAll(".nav-item.dropdown-open").forEach(function (item) {
+                    if (item !== navItem) item.classList.remove("dropdown-open");
+                });
+                navItem.classList.toggle("dropdown-open");
+            }
+        });
+    });
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".nav-menu")) {
+            document.querySelectorAll(".nav-item.dropdown-open").forEach(function (item) {
+                item.classList.remove("dropdown-open");
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
