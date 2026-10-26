@@ -3077,7 +3077,7 @@ footer p {
          "suite"
      ].forEach(function(tipo) {
 
-         calcularPaxEspecial(tipo);
+         calcularTotales();
 
      });
 
@@ -3226,6 +3226,8 @@ footer p {
              obtenerValor("juniorCunas") +
              obtenerValor("superiorCunas") +
              obtenerValor("suiteCunas");
+
+
 
 
          /* =========================
@@ -3760,7 +3762,7 @@ actualizarSummary();
                      "change",
                      function() {
 
-                         calcularPaxEspecial(tipo);
+                         calcularTotales();
 
                      }
                  );
