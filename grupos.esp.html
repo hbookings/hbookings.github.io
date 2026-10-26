@@ -4754,6 +4754,42 @@ actualizarSummary();
          };
 
 
+
+
+         // Totales de personas en habitaciones especiales
+         templateParams.especial_ad =
+             obtenerValor("familiarAdults") +
+             obtenerValor("juniorAdults") +
+             obtenerValor("superiorAdults") +
+             obtenerValor("suiteAdults");
+
+         templateParams.especial_ni =
+             obtenerValor("familiarNinos") +
+             obtenerValor("juniorNinos") +
+             obtenerValor("superiorNinos") +
+             obtenerValor("suiteNinos");
+
+         templateParams.especial_bb =
+             obtenerValor("familiarBebes") +
+             obtenerValor("juniorBebes") +
+             obtenerValor("superiorBebes") +
+             obtenerValor("suiteBebes");
+
+         templateParams.especial_bc =
+             obtenerValor("familiarCunas") +
+             obtenerValor("juniorCunas") +
+             obtenerValor("superiorCunas") +
+             obtenerValor("suiteCunas");
+
+         templateParams.especial_pax_total =
+             templateParams.especial_ad +
+             templateParams.especial_ni +
+             templateParams.especial_bb +
+             templateParams.especial_bc;
+
+
+
+
          // Totales AD, NI, BB y BB+C de personas asignadas a habitaciones especiales
          templateParams.especial_habitacion_ad =
              templateParams.familiarHabitacionAdults +
