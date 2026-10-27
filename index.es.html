@@ -162,6 +162,29 @@
     }
 
 
+
+
+    /* =========================
+       BANDERAS DEL MENÚ DE IDIOMAS
+    ========================= */
+
+    .dropdown a.language-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .language-flag {
+        display: inline-block;
+        flex-shrink: 0;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+
+
+
     .dropdown a:hover {
     color: #ffffff;
     background-color: #666666;
@@ -830,29 +853,36 @@
                     Idiomas ▾
                 </a>
 
-                <div class="dropdown">
+                
+<div class="dropdown">
 
-                    <a href="index.es.html">
-                        Español
-                    </a>
+    <a href="index.es.html" class="language-option">
+        <span>Español</span>
+        <span class="language-flag" aria-hidden="true">🇪🇸</span>
+    </a>
 
-                    <a href="index.en.html">
-                        English
-                    </a>
+    <a href="index.en.html" class="language-option">
+        <span>English</span>
+        <span class="language-flag" aria-hidden="true">🇬🇧</span>
+    </a>
 
-                    <a href="index.fr.html">
-                        Français
-                    </a>
+    <a href="index.fr.html" class="language-option">
+        <span>Français</span>
+        <span class="language-flag" aria-hidden="true">🇫🇷</span>
+    </a>
 
-                    <a href="index.de.html">
-                        Deutsch
-                    </a>
+    <a href="index.de.html" class="language-option">
+        <span>Deutsch</span>
+        <span class="language-flag" aria-hidden="true">🇩🇪</span>
+    </a>
 
-                    <a href="index.it.html">
-                        Italiano
-                    </a>
+    <a href="index.it.html" class="language-option">
+        <span>Italiano</span>
+        <span class="language-flag" aria-hidden="true">🇮🇹</span>
+    </a>
 
-                </div>
+</div>
+
 
             </div>
 
