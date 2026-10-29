@@ -171,6 +171,24 @@
     }
 
 
+
+/* Banderas a la izquierda del idioma */
+.dropdown a.language-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+/* Tamaño de las banderas */
+.language-flag {
+    width: 24px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
     /* =========================
        CONTENIDO
     ========================= */
@@ -4130,7 +4148,7 @@ actualizarSummary();
         <strong>Bambini (da 3 a 12 anni):</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}
     </td></tr>
                      
-<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("familiarBebes") + obtenerValor("juniorBebes") + obtenerValor("superiorBebes") + obtenerValor("suiteBebes")}</td></tr>
+<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati (da 0 a 3 anni):</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Neonati (da 0 a 3 anni):</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
 
 
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Neonati + Culla:</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Neonati + Culla:</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>

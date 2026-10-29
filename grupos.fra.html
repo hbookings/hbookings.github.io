@@ -170,6 +170,25 @@
     }
 
 
+
+/* Banderas a la izquierda del idioma */
+.dropdown a.language-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+/* Tamaño de las banderas */
+.language-flag {
+    width: 24px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+
     /* =========================
        CONTENIDO
     ========================= */
@@ -3077,7 +3096,7 @@ footer p {
          "suite"
      ].forEach(function(tipo) {
 
-         calcularTotales();
+         calcularPaxEspecial(tipo);
 
      });
 
@@ -3762,7 +3781,7 @@ actualizarSummary();
                      "change",
                      function() {
 
-                         calcularTotales();
+                         calcularPaxEspecial(tipo);
 
                      }
                  );
@@ -3889,7 +3908,7 @@ actualizarSummary();
 
          btnEnviar.disabled = true;
          btnEnviar.textContent =
-             "Sending...";
+             "En cours d’envoi...";
 
 
          const entrada =
@@ -4104,7 +4123,7 @@ actualizarSummary();
 
                  <div style="text-align:center;margin-bottom:18px;">
                      <div style="font-size:18px;font-weight:700;letter-spacing:.5px;">RÉSERVATIONS D’HÔTEL</div>
-                     <div style="font-size:16px;font-weight:700;margin-top:5px;">Nouvelle demande de réservation de groupe ${escapeHTML(nombreGrupoLimpio)}</div>
+                     <div style="font-size:16px;font-weight:700;margin-top:5px;">Nouvelle demande de réservation de Groupe ${escapeHTML(nombreGrupoLimpio)}</div>
                  </div>
 
                  <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">COORDONNÉES</h3>
@@ -4134,7 +4153,7 @@ actualizarSummary();
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adultes :</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Adultes :</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Enfants (de 3 à 12 ans) :</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Enfants (de 3 à 12 ans) :</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
                      
-<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés (de 0 à 3 ans) :</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Bébés (de 0 à 3 ans) :</strong> ${obtenerValor("familiarBebes") + obtenerValor("juniorBebes") + obtenerValor("superiorBebes") + obtenerValor("suiteBebes")}</td></tr>
+<tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés (de 0 à 3 ans) :</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Bébés (de 0 à 3 ans) :</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés + Lit bébé :</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Bébés + Lit bébé :</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL DES PERSONNES :</strong>
 ${obtenerValor("adultos")
