@@ -1,4 +1,4 @@
-﻿ <!DOCTYPE html>
+ <!DOCTYPE html>
 
  <html lang="fr-FR">
  <head>
@@ -3433,7 +3433,6 @@ if (totalHabitacionesEspecialesTablaElemento) {
 
 actualizarTotalesHabitacionesEspeciales();
 calcularTotalPaxHabitacionesEspeciales();
-actualizarSummary();
 
 
 
@@ -4053,55 +4052,55 @@ actualizarSummary();
             PERSONNES ESPECIALES
          ========================== */
 
-         const familiarAdults =
+         const familiarHabitacionAdults =
              obtenerValor("familiarHabitacionAdults");
 
-         const familiarNinos =
+         const familiarHabitacionNinos =
              obtenerValor("familiarHabitacionNinos");
 
-         const familiarBebes =
+         const familiarHabitacionBebes =
              obtenerValor("familiarHabitacionBebes");
 
-         const familiarCunas =
+         const familiarHabitacionCunas =
              obtenerValor("familiarHabitacionCunas");
 
 
-         const juniorAdults =
+         const juniorHabitacionAdults =
              obtenerValor("juniorHabitacionAdults");
 
-         const juniorNinos =
+         const juniorHabitacionNinos =
              obtenerValor("juniorHabitacionNinos");
 
-         const juniorBebes =
+         const juniorHabitacionBebes =
              obtenerValor("juniorHabitacionBebes");
 
-         const juniorCunas =
+         const juniorHabitacionCunas =
              obtenerValor("juniorHabitacionCunas");
 
 
-         const superiorAdults =
+         const superiorHabitacionAdults =
              obtenerValor("superiorHabitacionAdults");
 
-         const superiorNinos =
+         const superiorHabitacionNinos =
              obtenerValor("superiorHabitacionNinos");
 
-         const superiorBebes =
+         const superiorHabitacionBebes =
              obtenerValor("superiorHabitacionBebes");
 
-         const superiorCunas =
+         const superiorHabitacionCunas =
              obtenerValor("superiorHabitacionCunas");
 
 
-         const suiteAdults =
+         const suiteHabitacionAdults =
              obtenerValor("suiteHabitacionAdults");
 
-         const suiteNinos =
+         const suiteHabitacionNinos =
              obtenerValor("suiteHabitacionNinos");
 
-         const suiteBebes =
+         const suiteHabitacionBebes =
              obtenerValor("suiteHabitacionBebes");
 
-         const suiteCunas =
+         const suiteHabitacionCunas =
              obtenerValor("suiteHabitacionCunas");
 
 
@@ -4150,16 +4149,16 @@ actualizarSummary();
                          <th width="50%" style="border:1px solid #bbb;border-right:4px solid #000;background:#e9e9e9;text-align:center;">NOMBRE DE PERSONNES EN CHAMBRES STANDARD<br><span style="font-size:11px;font-weight:normal;">Individuelle, Double, Triple, Quadruple</span></th>
                          <th width="50%" style="border:1px solid #bbb;background:#e9e9e9;text-align:center;">NOMBRE DE PERSONNES EN CHAMBRES SPÉCIALES<br><span style="font-size:11px;font-weight:normal;">Familiale, Junior, Supérieure, Suite</span></th>
                      </tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adultes :</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Adultes :</strong> ${familiarAdults + juniorAdults + superiorAdults + suiteAdults}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Enfants (de 3 à 12 ans) :</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Enfants (de 3 à 12 ans) :</strong> ${familiarNinos + juniorNinos + superiorNinos + suiteNinos}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Adultes :</strong> ${obtenerValor("adultos")}</td><td style="border:1px solid #bbb;"><strong>Adultes :</strong> ${obtenerValor("familiarAdults") + obtenerValor("juniorAdults") + obtenerValor("superiorAdults") + obtenerValor("suiteAdults")}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Enfants (de 3 à 12 ans) :</strong> ${obtenerValor("ninos")}</td><td style="border:1px solid #bbb;"><strong>Enfants (de 3 à 12 ans) :</strong> ${obtenerValor("familiarNinos") + obtenerValor("juniorNinos") + obtenerValor("superiorNinos") + obtenerValor("suiteNinos")}</td></tr>
                      
 <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés (de 0 à 3 ans) :</strong> ${obtenerValor("bebes")}</td><td style="border:1px solid #bbb;"><strong>Bébés (de 0 à 3 ans) :</strong> ${familiarBebes + juniorBebes + superiorBebes + suiteBebes}</td></tr>
-                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés + Lit bébé :</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Bébés + Lit bébé :</strong> ${familiarCunas + juniorCunas + superiorCunas + suiteCunas}</td></tr>
+                     <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>Bébés + Lit bébé :</strong> ${obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>Bébés + Lit bébé :</strong> ${obtenerValor("familiarCunas") + obtenerValor("juniorCunas") + obtenerValor("superiorCunas") + obtenerValor("suiteCunas")}</td></tr>
                      <tr><td style="border:1px solid #bbb;border-right:4px solid #000;"><strong>TOTAL DES PERSONNES :</strong>
 ${obtenerValor("adultos")
  + obtenerValor("ninos")
  + obtenerValor("bebes")
- + obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>TOTAL DES PERSONNES :</strong> ${familiarAdults + familiarNinos + familiarBebes + familiarCunas + juniorAdults + juniorNinos + juniorBebes + juniorCunas + superiorAdults + superiorNinos + superiorBebes + superiorCunas + suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td></tr>
+ + obtenerValor("cunas")}</td><td style="border:1px solid #bbb;"><strong>TOTAL DES PERSONNES :</strong> ${obtenerValor("familiarAdults") + obtenerValor("familiarNinos") + obtenerValor("familiarBebes") + obtenerValor("familiarCunas") + obtenerValor("juniorAdults") + obtenerValor("juniorNinos") + obtenerValor("juniorBebes") + obtenerValor("juniorCunas") + obtenerValor("superiorAdults") + obtenerValor("superiorNinos") + obtenerValor("superiorBebes") + obtenerValor("superiorCunas") + obtenerValor("suiteAdults") + obtenerValor("suiteNinos") + obtenerValor("suiteBebes") + obtenerValor("suiteCunas")}</td></tr>
                  </table>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">NOMBRE DE CHAMBRES</h3>
@@ -4198,11 +4197,11 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(individuales,10)||0)*1}</td>
                          <td style="border:1px solid #bbb;"><strong>Familiale</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${familiar}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${familiarCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarAdults + familiarNinos + familiarBebes + familiarCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarHabitacionAdults}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarHabitacionNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarHabitacionBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${familiarHabitacionCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${familiarHabitacionAdults + familiarHabitacionNinos + familiarHabitacionBebes + familiarHabitacionCunas}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Double (Lit double)</strong></td>
@@ -4210,11 +4209,11 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesDouble,10)||0)*2}</td>
                          <td style="border:1px solid #bbb;"><strong>Junior</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${junior}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${juniorCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${juniorAdults + juniorNinos + juniorBebes + juniorCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorHabitacionAdults}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorHabitacionNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorHabitacionBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${juniorHabitacionCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${juniorHabitacionAdults + juniorHabitacionNinos + juniorHabitacionBebes + juniorHabitacionCunas}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Double (Lits jumeaux)</strong></td>
@@ -4222,11 +4221,11 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesTwin,10)||0)*2}</td>
                          <td style="border:1px solid #bbb;"><strong>Superior</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${superior}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${superiorCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${superiorAdults + superiorNinos + superiorBebes + superiorCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorHabitacionAdults}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorHabitacionNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorHabitacionBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${superiorHabitacionCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${superiorHabitacionAdults + superiorHabitacionNinos + superiorHabitacionBebes + superiorHabitacionCunas}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Triple</strong></td>
@@ -4234,11 +4233,11 @@ ${obtenerValor("adultos")
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(triples,10)||0)*3}</td>
                          <td style="border:1px solid #bbb;"><strong>Suite</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${suite}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteAdults}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteNinos}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteBebes}</td>
-                         <td style="border:1px solid #bbb;text-align:center;">${suiteCunas}</td>
-                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${suiteAdults + suiteNinos + suiteBebes + suiteCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteHabitacionAdults}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteHabitacionNinos}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteHabitacionBebes}</td>
+                         <td style="border:1px solid #bbb;text-align:center;">${suiteHabitacionCunas}</td>
+                         <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${suiteHabitacionAdults + suiteHabitacionNinos + suiteHabitacionBebes + suiteHabitacionCunas}</td>
                      </tr>
                      <tr>
                          <td style="border:1px solid #bbb;"><strong>Quadruple</strong></td>
@@ -4391,52 +4390,52 @@ ${obtenerValor("adultos")
                  suite,
 
              familiarAdults:
-                 familiarAdults,
+                 obtenerValor("familiarAdults"),
 
              familiarNinos:
-                 familiarNinos,
+                 obtenerValor("familiarNinos"),
 
              familiarBebes:
-                 familiarBebes,
+                 obtenerValor("familiarBebes"),
 
              familiarCunas:
-                 familiarCunas,
+                 obtenerValor("familiarCunas"),
 
              juniorAdults:
-                 juniorAdults,
+                 obtenerValor("juniorAdults"),
 
              juniorNinos:
-                 juniorNinos,
+                 obtenerValor("juniorNinos"),
 
              juniorBebes:
-                 juniorBebes,
+                 obtenerValor("juniorBebes"),
 
              juniorCunas:
-                 juniorCunas,
+                 obtenerValor("juniorCunas"),
 
              superiorAdults:
-                 superiorAdults,
+                 obtenerValor("superiorAdults"),
 
              superiorNinos:
-                 superiorNinos,
+                 obtenerValor("superiorNinos"),
 
              superiorBebes:
-                 superiorBebes,
+                 obtenerValor("superiorBebes"),
 
              superiorCunas:
-                 superiorCunas,
+                 obtenerValor("superiorCunas"),
 
              suiteAdults:
-                 suiteAdults,
+                 obtenerValor("suiteAdults"),
 
              suiteNinos:
-                 suiteNinos,
+                 obtenerValor("suiteNinos"),
 
              suiteBebes:
-                 suiteBebes,
+                 obtenerValor("suiteBebes"),
 
              suiteCunas:
-                 suiteCunas,
+                 obtenerValor("suiteCunas"),
 
              familiarHabitacionAdults:
                  obtenerValor("familiarHabitacionAdults"),
