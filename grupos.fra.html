@@ -4052,6 +4052,29 @@ calcularTotalPaxHabitacionesEspeciales();
             PERSONNES ESPECIALES
          ========================== */
 
+         // Valeurs du récapitulatif général des personnes en chambres spéciales.
+         // Elles restent distinctes des personnes réparties par type de chambre.
+         const familiarAdults = obtenerValor("familiarAdults");
+         const familiarNinos = obtenerValor("familiarNinos");
+         const familiarBebes = obtenerValor("familiarBebes");
+         const familiarCunas = obtenerValor("familiarCunas");
+
+         const juniorAdults = obtenerValor("juniorAdults");
+         const juniorNinos = obtenerValor("juniorNinos");
+         const juniorBebes = obtenerValor("juniorBebes");
+         const juniorCunas = obtenerValor("juniorCunas");
+
+         const superiorAdults = obtenerValor("superiorAdults");
+         const superiorNinos = obtenerValor("superiorNinos");
+         const superiorBebes = obtenerValor("superiorBebes");
+         const superiorCunas = obtenerValor("superiorCunas");
+
+         const suiteAdults = obtenerValor("suiteAdults");
+         const suiteNinos = obtenerValor("suiteNinos");
+         const suiteBebes = obtenerValor("suiteBebes");
+         const suiteCunas = obtenerValor("suiteCunas");
+
+         // Valeurs des personnes effectivement réparties dans chaque chambre spéciale.
          const familiarHabitacionAdults =
              obtenerValor("familiarHabitacionAdults");
 
