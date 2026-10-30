@@ -37,7 +37,7 @@
 
     body {
         background: #ffffff;
-        color: #333333;
+        color: #666666;
         font-family: 'Poppins', sans-serif;
     }
 
@@ -59,7 +59,7 @@
 
     .navbar {
         width: 100%;
-        background-color: #15438B;
+        background-color: #1e3d70;
     }
 
     .nav-container {
@@ -103,7 +103,7 @@
         padding: 17px 15px;
 
         color: #ffffff;
-        background-color: #15438B;
+        background-color: #1e3d70;
 
         text-decoration: none;
         font-size: 14px;
@@ -113,7 +113,7 @@
     }
 
     .nav-item > a:hover {
-        background-color: #1d4f9b;
+        background-color: #1e3d70;
     }
 
 
@@ -134,8 +134,6 @@
 
         border-radius: 0 0 5px 5px;
 
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-
         display: none;
 
         z-index: 1000;
@@ -151,7 +149,7 @@
 
         padding: 11px 15px;
 
-        color: #333333;
+        color: #666666;
         background-color: #ffffff;
 
         text-decoration: none;
@@ -169,12 +167,30 @@
 }
 
 
+/* Banderas a la izquierda del idioma */
+.dropdown a.language-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+/* Tamaño de las banderas */
+.language-flag {
+    width: 24px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+
     /* =========================
        BUSCADOR
     ========================= */
 
     .search-section {
-        background-color: #15438B;
+        background-color: #1e3d70;
         padding: 35px 20px;
         text-align: center;
     }
@@ -199,7 +215,7 @@
         background-color: #ffffff;
         border-radius: 6px;
 
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+        
     }
 
     .hotel-search input,
@@ -210,7 +226,7 @@
         padding: 13px;
 
         background-color: #ffffff;
-        color: #333333;
+        color: #666666;
 
         border: 1px solid #cccccc;
         border-radius: 4px;
@@ -221,7 +237,7 @@
 
     .hotel-search input:focus,
     .hotel-search select:focus {
-        outline: 2px solid #15438B;
+        outline: 2px solid #1e3d70;
         outline-offset: 1px;
     }
 
@@ -301,7 +317,7 @@
         transition: transform 0.3s ease;
         transform-origin: center top;
 
-        color: #15438B;
+        color: #1e3d70;
 
         font-size: 16px;
         font-weight: 500;
@@ -352,7 +368,7 @@
 
     .groups-caption {
         padding: 10px 5px 5px;
-        color: #15438B;
+        color: #1e3d70;
         font-size: 16px;
         font-weight: 500;
         line-height: 1.5;
@@ -380,7 +396,7 @@
         margin-top: 50px;
         padding: 30px 20px;
 
-        background-color: #15438B;
+        background-color: #1e3d70;
         color: #ffffff;
 
         text-align: center;
@@ -414,7 +430,7 @@
         display: block;
         padding: 17px 10px;
         color: #ffffff;
-        background-color: #15438B;
+        background-color: #1e3d70;
         text-decoration: none;
         font-size: 14px;
         font-weight: 500;
@@ -432,7 +448,7 @@
         padding: 17px 15px;
 
         color: #ffffff;
-        background-color: #15438B;
+        background-color: #1e3d70;
 
         text-decoration: none;
 
@@ -443,7 +459,7 @@
     }
 
     .footer-links a:hover {
-        background-color: #15438B;
+        background-color: #1e3d70;
         color: #ffffff;
         text-decoration: none;
     }
@@ -665,7 +681,7 @@
         height: 46px;
         border: none;
         border-radius: 50%;
-        background-color: #15438B;
+        background-color: #1e3d70;
         color: #ffffff;
         font-size: 27px;
         font-weight: 900;
@@ -696,8 +712,6 @@
         height: 692.7px;
     }
 }
-
-
 
 
 
@@ -828,28 +842,31 @@
                 </a>
 
                 <div class="dropdown">
+        <a href="index.es.html" class="language-option">
+            <img src="flags/es.svg" class="language-flag" alt="">
+            <span>Español</span>
+        </a>
 
-                    <a href="index.es.html">
-                        Espagnol
-                    </a>
+        <a href="index.en.html" class="language-option">
+            <img src="flags/en.svg" class="language-flag" alt="">
+            <span>English</span>
+        </a>
 
-                    <a href="index.en.html">
-                        English
-                    </a>
+        <a href="index.fr.html" class="language-option">
+            <img src="flags/fr.svg" class="language-flag" alt="">
+            <span>Français</span>
+        </a>
 
-                    <a href="index.fr.html">
-                        Français
-                    </a>
+        <a href="index.de.html" class="language-option">
+            <img src="flags/de.svg" class="language-flag" alt="">
+            <span>Deutsch</span>
+        </a>
 
-                    <a href="index.de.html">
-                        Deutsch
-                    </a>
-
-                    <a href="index.it.html">
-                        Italiano
-                    </a>
-
-                </div>
+        <a href="index.it.html" class="language-option">
+            <img src="flags/it.svg" class="language-flag" alt="">
+            <span>Italiano</span>
+        </a>
+    </div>
 
             </div>
 

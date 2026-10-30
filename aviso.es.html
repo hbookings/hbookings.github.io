@@ -249,6 +249,24 @@
     }
 
 
+/* Banderas a la izquierda del idioma */
+.dropdown a.language-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+/* Tamaño de las banderas */
+.language-flag {
+    width: 24px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+
 
     /* Pie de página de grupos */
     footer {
@@ -355,6 +373,37 @@
       .footer-legal, .footer-links { flex-direction: column; width: 100%; }
       .footer-legal a, .footer-links a { width: 100%; text-align: center; }
     }
+
+
+
+    .go-top {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 2000;
+        width: 46px;
+        height: 46px;
+        border: none;
+        border-radius: 50%;
+        background-color: #15438B;
+        color: #ffffff;
+        font-size: 27px;
+        font-weight: 900;
+        line-height: 1;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .go-top:hover {
+        background-color: #1d4f9b;
+    }
+
+
+
+
 </style>
 </head>
 
@@ -482,29 +531,33 @@
                     Idiomas ▾
                 </a>
 
-                <div class="dropdown">
+                 <div class="dropdown">
 
-                    <a href="aviso.es.html">
-                        Español
-                    </a>
+        <a href="aviso.es.html" class="language-option">
+            <img src="flags/es.svg" class="language-flag" alt="">
+            <span>Español</span>
+        </a>
 
-                    <a href="aviso.en.html">
-                        English
-                    </a>
+        <a href="aviso.en.html" class="language-option">
+            <img src="flags/en.svg" class="language-flag" alt="">
+            <span>English</span>
+        </a>
 
-                    <a href="aviso.fr.html">
-                        Français
-                    </a>
+        <a href="aviso.fr.html" class="language-option">
+            <img src="flags/fr.svg" class="language-flag" alt="">
+            <span>Français</span>
+        </a>
 
-                    <a href="aviso.de.html">
-                        Deutsch
-                    </a>
+        <a href="aviso.de.html" class="language-option">
+            <img src="flags/de.svg" class="language-flag" alt="">
+            <span>Deutsch</span>
+        </a>
 
-                    <a href="aviso.it.html">
-                        Italiano
-                    </a>
-
-                </div>
+        <a href="aviso.it.html" class="language-option">
+            <img src="flags/it.svg" class="language-flag" alt="">
+            <span>Italiano</span>
+        </a>
+    </div>
 
             </div>
 
@@ -781,5 +834,17 @@
       }
     });
   </script>
+
+
+    <button type="button" class="go-top" id="goTop" aria-label="Back to top" title="Back to top">⬆</button>
+    <script>
+        const goTopButton = document.getElementById("goTop");
+        window.addEventListener("scroll", function () {
+            goTopButton.style.display = window.scrollY > 250 ? "flex" : "none";
+        });
+        goTopButton.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
 </body>
 </html>
