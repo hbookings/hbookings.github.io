@@ -1179,7 +1179,7 @@
 
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
 
-        color: #28a745;
+        color: #4b764c;
 
         font-size: 22px;
         font-weight: 600;
@@ -1495,7 +1495,7 @@
     }
 
     .go-top:hover {
-        background-color: #1d4f9b;
+        background-color: #cf6d17;
     }
 
 </style>
@@ -3623,8 +3623,8 @@ actualizarSummary();
 
          if (resumenCheckMessage) {
              if (standardDescuadre || especialDescuadre) {
-                 resumenCheckMessage.textContent =
-                     "I PAX DELLE CAMERE INSERITE NON CORRISPONDONO AI PAX INSERITI.";
+                 resumenCheckMessage.innerHTML =
+                     "I DATI INSERITI NELLE SEZIONI «Numero di ospiti» E «Numero di camere» NON CORRISPONDONO.<br>SI PREGA DI VERIFICARLI.";
                  resumenCheckMessage.classList.add("show");
              } else {
                  resumenCheckMessage.textContent = "";
@@ -4777,7 +4777,7 @@ actualizarSummary();
                  successPopup.style.display =
                      "none";
 
-             }, 1100);
+             }, 2800);
 
 
          } catch (error) {
@@ -4911,7 +4911,9 @@ actualizarSummary();
 
 
 <div id="successPopup" class="success-popup">
-    Domanda inviata con successo.
+Richiesta inviata correttamente.<br>
+La contatteremo a breve.<br>
+Grazie mille.
 </div>
 
 

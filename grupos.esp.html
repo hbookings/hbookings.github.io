@@ -3662,8 +3662,8 @@ actualizarSummary();
 
          if (resumenCheckMessage) {
              if (standardDescuadre || especialDescuadre) {
-                 resumenCheckMessage.textContent =
-                     "LAS PAX QUE HA INTRODUCIDO EN EL APARTADO 'Número de habitaciones' NO COINCIDEN CON EL TOTAL DE PAX EN 'Número de huéspedes'.";
+                 resumenCheckMessage.innerHTML =
+                     "LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>POR FAVOR, REVÍSELOS.";
                  resumenCheckMessage.classList.add("show");
              } else {
                  resumenCheckMessage.textContent = "";
@@ -4901,7 +4901,7 @@ actualizarSummary();
                  successPopup.style.display =
                      "none";
 
-             }, 2700);
+             }, 2800);
 
 
          } catch (error) {

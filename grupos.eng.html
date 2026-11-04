@@ -1181,7 +1181,7 @@
 
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
 
-        color: #28a745;
+        color: #4b764c;
 
         font-size: 22px;
         font-weight: 600;
@@ -1496,7 +1496,7 @@
     }
 
     .go-top:hover {
-        background-color: #1d4f9b;
+        background-color: #cf6d17;
     }
 
 
@@ -3616,8 +3616,8 @@ actualizarSummary();
 
          if (resumenCheckMessage) {
              if (standardDescuadre || especialDescuadre) {
-                 resumenCheckMessage.textContent =
-                     "GUESTS in the ROOMS ENTERED do NOT match the GUESTS ENTERED !!";
+                 resumenCheckMessage.innerHTML =
+                     "THE INFORMATION ENTERED IN THE “Number of guests” AND “Number of rooms” SECTIONS DOES NOT MATCH.<br>PLEASE CHECK IT.";
                  resumenCheckMessage.classList.add("show");
              } else {
                  resumenCheckMessage.textContent = "";
@@ -4798,7 +4798,7 @@ ${obtenerValor("adultos")
                  successPopup.style.display =
                      "none";
 
-             }, 1100);
+             }, 2800);
 
 
          } catch (error) {
@@ -4932,7 +4932,9 @@ ${obtenerValor("adultos")
 
 
 <div id="successPopup" class="success-popup">
-    Request sent successfully.
+Request submitted successfully.<br>
+We will be in touch with you shortly.<br>
+Thank you.
 </div>
 
 

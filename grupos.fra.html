@@ -1138,7 +1138,7 @@
 
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
 
-        color: #28a745;
+        color: #4b764c;
 
         font-size: 22px;
         font-weight: 600;
@@ -1516,7 +1516,7 @@ footer p {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
 .go-top:hover {
-    background-color: #1d4f9b;
+    background-color: #cf6d17;
 }
 
 </style>
@@ -3635,8 +3635,8 @@ calcularTotalPaxHabitacionesEspeciales();
 
          if (resumenCheckMessage) {
              if (standardDescuadre || especialDescuadre) {
-                 resumenCheckMessage.textContent =
-                     "LE NOMBRE DE PERSONNES DANS LES CHAMBRES SAISIES NE CORRESPOND PAS AU NOMBRE DE PERSONNES SAISI.";
+                 resumenCheckMessage.innerHTML =
+                     "LES INFORMATIONS SAISIES DANS LES RUBRIQUES « Nombre de personnes » ET « Nombre de chambres » NE CORRESPONDENT PAS.<br>VEUILLEZ LES VÉRIFIER.";
                  resumenCheckMessage.classList.add("show");
              } else {
                  resumenCheckMessage.textContent = "";
@@ -4800,7 +4800,7 @@ ${obtenerValor("adultos")
                  successPopup.style.display =
                      "none";
 
-             }, 1100);
+             }, 2800);
 
 
          } catch (error) {
@@ -4934,7 +4934,9 @@ ${obtenerValor("adultos")
 
 
 <div id="successPopup" class="success-popup">
-    Demande envoyée avec succès.
+Demande envoyée avec succès.<br>
+Nous prendrons contact avec vous dans les plus brefs délais.<br>
+Merci beaucoup.
 </div>
 
 

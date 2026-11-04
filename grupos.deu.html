@@ -1179,7 +1179,7 @@
 
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
 
-        color: #28a745;
+        color: #4b764c;
 
         font-size: 22px;
         font-weight: 600;
@@ -1494,7 +1494,7 @@
     }
 
     .go-top:hover {
-        background-color: #1d4f9b;
+        background-color: #cf6d17;
     }
 
 
@@ -3614,8 +3614,8 @@ actualizarSummary();
 
          if (resumenCheckMessage) {
              if (standardDescuadre || especialDescuadre) {
-                 resumenCheckMessage.textContent =
-                     "Die GÄSTE in den EINGETRAGENEN ZIMMERN stimmen NICHT mit den EINGETRAGENEN GÄSTEN überein!";
+                 resumenCheckMessage.innerHTML =
+                     "DIE IN DEN ABSCHNITTEN „Anzahl der Gäste“ UND „Anzahl der Zimmer“ EINGEGEBENEN DATEN STIMMEN NICHT ÜBEREIN.<br>BITTE ÜBERPRÜFEN SIE DIESE.";
                  resumenCheckMessage.classList.add("show");
              } else {
                  resumenCheckMessage.textContent = "";
@@ -4796,7 +4796,7 @@ ${obtenerValor("adultos")
                  successPopup.style.display =
                      "none";
 
-             }, 1100);
+             }, 2800);
 
 
          } catch (error) {
@@ -4930,7 +4930,9 @@ ${obtenerValor("adultos")
 
 
 <div id="successPopup" class="success-popup">
-    Anfrage erfolgreich gesendet.
+Anfrage erfolgreich übermittelt.<br>
+Wir werden uns in Kürze mit Ihnen in Verbindung setzen.<br>
+Vielen Dank.
 </div>
 
 
