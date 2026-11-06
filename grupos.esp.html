@@ -3253,32 +3253,43 @@
             PAX ESPECIALES
          ========================== */
 
-         // El total final se calcula con lo que el usuario ha escrito
-         // en la tabla de habitaciones especiales, aunque no coincida
-         // con la distribución indicada en "Número de huéspedes".
-         const especialAdults =
-             obtenerValor("familiarHabitacionAdults") +
-             obtenerValor("juniorHabitacionAdults") +
-             obtenerValor("superiorHabitacionAdults") +
-             obtenerValor("suiteHabitacionAdults");
 
-         const especialNinos =
-             obtenerValor("familiarHabitacionNinos") +
-             obtenerValor("juniorHabitacionNinos") +
-             obtenerValor("superiorHabitacionNinos") +
-             obtenerValor("suiteHabitacionNinos");
+         const tiposEspeciales = [
+             "familiar",
+             "junior",
+             "superior",
+             "suite"
+         ];
 
-         const especialBebes =
-             obtenerValor("familiarHabitacionBebes") +
-             obtenerValor("juniorHabitacionBebes") +
-             obtenerValor("superiorHabitacionBebes") +
-             obtenerValor("suiteHabitacionBebes");
+         const especialAdults = tiposEspeciales.reduce(
+             (total, tipo) =>
+                 total + obtenerValor(tipo + "Adults"),
+             0
+         );
 
-         const especialCunas =
-             obtenerValor("familiarHabitacionCunas") +
-             obtenerValor("juniorHabitacionCunas") +
-             obtenerValor("superiorHabitacionCunas") +
-             obtenerValor("suiteHabitacionCunas");
+         const especialNinos = tiposEspeciales.reduce(
+             (total, tipo) =>
+                 total + obtenerValor(tipo + "Ninos"),
+             0
+         );
+
+         const especialBebes = tiposEspeciales.reduce(
+             (total, tipo) =>
+                 total + obtenerValor(tipo + "Bebes"),
+             0
+         );
+
+         const especialCunas = tiposEspeciales.reduce(
+             (total, tipo) =>
+                 total + obtenerValor(tipo + "Cunas"),
+             0
+         );
+
+         const totalPaxEspeciales =
+             especialAdults +
+             especialNinos +
+             especialBebes +
+             especialCunas;
 
 
          /* =========================
@@ -3319,14 +3330,6 @@ const totalPaxStandard =
 // TOTAL DE LA TABLA "N.º DE PAX EN HABITACIONES ESPECIALES":
 // sumar EXCLUSIVAMENTE los selectores del apartado NÚMERO DE PAX.
 // No leer aquí ningún campo terminado en "Habitacion".
-const totalPaxEspeciales = [
-    "familiarAdults", "juniorAdults", "superiorAdults", "suiteAdults",
-    "familiarNinos", "juniorNinos", "superiorNinos", "suiteNinos",
-    "familiarBebes", "juniorBebes", "superiorBebes", "suiteBebes",
-    "familiarCunas", "juniorCunas", "superiorCunas", "suiteCunas"
-].reduce(function(total, id) {
-    return total + obtenerValor(id);
-}, 0);
 
 
          /* =========================
@@ -3715,11 +3718,11 @@ actualizarSummary();
              resumenBebesHabitaciones: standardBB,
              resumenBebesCunaHabitaciones: standardBC,
              resumenHabitacionesStandardTotal: totalHabitacionesStandardSummary,
-             resumenEspecialAD: especialAD,
-             resumenEspecialNI: especialNI,
-             resumenEspecialBB: especialBB,
-             resumenEspecialBC: especialBC,
-             resumenEspecialTotal: especialTotal,
+             resumenEspecialAD: especialADIntroducidos,
+             resumenEspecialNI: especialNIIntroducidos,
+             resumenEspecialBB: especialBBIntroducidos,
+             resumenEspecialBC: especialBCIntroducidos,
+             resumenEspecialTotal: especialPaxIntroducidas,
              resumenEspecialHabitacionesTotal: especialHabitaciones,
              resumenEspecialADTotal: especialAD,
              resumenEspecialNITotal: especialNI,
