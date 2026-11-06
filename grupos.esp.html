@@ -3316,23 +3316,17 @@ const totalPaxStandard =
 // En el apartado "NÚMERO DE PAX", esta cifra debe reflejar
 // exclusivamente lo indicado en sus propios campos, sin sumar
 // las cantidades introducidas en "NÚMERO DE HABITACIONES".
-const totalPaxEspeciales =
-    obtenerValor("familiarAdults") +
-    obtenerValor("juniorAdults") +
-    obtenerValor("superiorAdults") +
-    obtenerValor("suiteAdults") +
-    obtenerValor("familiarNinos") +
-    obtenerValor("juniorNinos") +
-    obtenerValor("superiorNinos") +
-    obtenerValor("suiteNinos") +
-    obtenerValor("familiarBebes") +
-    obtenerValor("juniorBebes") +
-    obtenerValor("superiorBebes") +
-    obtenerValor("suiteBebes") +
-    obtenerValor("familiarCunas") +
-    obtenerValor("juniorCunas") +
-    obtenerValor("superiorCunas") +
-    obtenerValor("suiteCunas");
+// TOTAL DE LA TABLA "N.º DE PAX EN HABITACIONES ESPECIALES":
+// sumar EXCLUSIVAMENTE los selectores del apartado NÚMERO DE PAX.
+// No leer aquí ningún campo terminado en "Habitacion".
+const totalPaxEspeciales = [
+    "familiarAdults", "juniorAdults", "superiorAdults", "suiteAdults",
+    "familiarNinos", "juniorNinos", "superiorNinos", "suiteNinos",
+    "familiarBebes", "juniorBebes", "superiorBebes", "suiteBebes",
+    "familiarCunas", "juniorCunas", "superiorCunas", "suiteCunas"
+].reduce(function(total, id) {
+    return total + obtenerValor(id);
+}, 0);
 
 
          /* =========================
@@ -4504,7 +4498,7 @@ actualizarSummary();
                  </table>
 
                  <div style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin:16px 0;">
-                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;border:2px solid #333;min-width:260px;">
+                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;border:2px solid #333;min-width:260px;margin-left:auto;margin-right:auto;">
                          <tr><td style="border-bottom:1px solid #999;font-weight:700;">TOTAL PAX</td><td style="border-bottom:1px solid #999;font-weight:700;">${totales.totalPax}</td></tr>
                          <tr><td style="font-weight:700;">TOTAL HABITACIONES</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
                      </table>
