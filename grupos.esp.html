@@ -4272,10 +4272,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Adultos:</strong> ${
-                usuarioFamiliarAdults +
-                usuarioJuniorAdults +
-                usuarioSuperiorAdults +
-                usuarioSuiteAdults
+                familiarAdults +
+                juniorAdults +
+                superiorAdults +
+                suiteAdults
             }
         </td>
     </tr>
@@ -4286,10 +4286,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Niños (de 3 a 12 años):</strong> ${
-                usuarioFamiliarNinos +
-                usuarioJuniorNinos +
-                usuarioSuperiorNinos +
-                usuarioSuiteNinos
+                familiarNinos +
+                juniorNinos +
+                superiorNinos +
+                suiteNinos
             }
         </td>
     </tr>
@@ -4300,10 +4300,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Bebés (de 0 a 3 años):</strong> ${
-                usuarioFamiliarBebes +
-                usuarioJuniorBebes +
-                usuarioSuperiorBebes +
-                usuarioSuiteBebes
+                familiarBebes +
+                juniorBebes +
+                superiorBebes +
+                suiteBebes
             }
         </td>
     </tr>
@@ -4314,10 +4314,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Bebés + Cuna:</strong> ${
-                usuarioFamiliarCunas +
-                usuarioJuniorCunas +
-                usuarioSuperiorCunas +
-                usuarioSuiteCunas
+                familiarCunas +
+                juniorCunas +
+                superiorCunas +
+                suiteCunas
             }
         </td>
     </tr>
@@ -4333,22 +4333,22 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>TOTAL DE PAX:</strong> ${
-                usuarioFamiliarAdults +
-                usuarioFamiliarNinos +
-                usuarioFamiliarBebes +
-                usuarioFamiliarCunas +
-                usuarioJuniorAdults +
-                usuarioJuniorNinos +
-                usuarioJuniorBebes +
-                usuarioJuniorCunas +
-                usuarioSuperiorAdults +
-                usuarioSuperiorNinos +
-                usuarioSuperiorBebes +
-                usuarioSuperiorCunas +
-                usuarioSuiteAdults +
-                usuarioSuiteNinos +
-                usuarioSuiteBebes +
-                usuarioSuiteCunas
+                familiarAdults +
+                familiarNinos +
+                familiarBebes +
+                familiarCunas +
+                juniorAdults +
+                juniorNinos +
+                juniorBebes +
+                juniorCunas +
+                superiorAdults +
+                superiorNinos +
+                superiorBebes +
+                superiorCunas +
+                suiteAdults +
+                suiteNinos +
+                suiteBebes +
+                suiteCunas
             }
         </td>
     </tr>
@@ -4742,53 +4742,53 @@ actualizarSummary();
 
              resumen_pax_ad:
                  obtenerValor("adultos") +
-                 usuarioFamiliarAdults +
-                 usuarioJuniorAdults +
-                 usuarioSuperiorAdults +
-                 usuarioSuiteAdults,
+                 familiarAdults +
+                 juniorAdults +
+                 superiorAdults +
+                 suiteAdults,
 
              resumen_pax_ni:
                  obtenerValor("ninos") +
-                 usuarioFamiliarNinos +
-                 usuarioJuniorNinos +
-                 usuarioSuperiorNinos +
-                 usuarioSuiteNinos,
+                 familiarNinos +
+                 juniorNinos +
+                 superiorNinos +
+                 suiteNinos,
 
              resumen_pax_bb:
                  obtenerValor("bebes") +
-                 usuarioFamiliarBebes +
-                 usuarioJuniorBebes +
-                 usuarioSuperiorBebes +
-                 usuarioSuiteBebes,
+                 familiarBebes +
+                 juniorBebes +
+                 superiorBebes +
+                 suiteBebes,
 
              resumen_pax_bc:
                  obtenerValor("cunas") +
-                 usuarioFamiliarCunas +
-                 usuarioJuniorCunas +
-                 usuarioSuperiorCunas +
-                 usuarioSuiteCunas,
+                 familiarCunas +
+                 juniorCunas +
+                 superiorCunas +
+                 suiteCunas,
 
              resumen_pax_total:
                  obtenerValor("adultos") +
                  obtenerValor("ninos") +
                  obtenerValor("bebes") +
                  obtenerValor("cunas") +
-                 usuarioFamiliarAdults +
-                 usuarioJuniorAdults +
-                 usuarioSuperiorAdults +
-                 usuarioSuiteAdults +
-                 usuarioFamiliarNinos +
-                 usuarioJuniorNinos +
-                 usuarioSuperiorNinos +
-                 usuarioSuiteNinos +
-                 usuarioFamiliarBebes +
-                 usuarioJuniorBebes +
-                 usuarioSuperiorBebes +
-                 usuarioSuiteBebes +
-                 usuarioFamiliarCunas +
-                 usuarioJuniorCunas +
-                 usuarioSuperiorCunas +
-                 usuarioSuiteCunas,
+                 familiarAdults +
+                 juniorAdults +
+                 superiorAdults +
+                 suiteAdults +
+                 familiarNinos +
+                 juniorNinos +
+                 superiorNinos +
+                 suiteNinos +
+                 familiarBebes +
+                 juniorBebes +
+                 superiorBebes +
+                 suiteBebes +
+                 familiarCunas +
+                 juniorCunas +
+                 superiorCunas +
+                 suiteCunas,
 
 
 
@@ -4836,28 +4836,28 @@ actualizarSummary();
 
          // Totales de personas en habitaciones especiales
          templateParams.especial_ad =
-             usuarioFamiliarAdults +
-             usuarioJuniorAdults +
-             usuarioSuperiorAdults +
-             usuarioSuiteAdults;
+             familiarAdults +
+             juniorAdults +
+             superiorAdults +
+             suiteAdults;
 
          templateParams.especial_ni =
-             usuarioFamiliarNinos +
-             usuarioJuniorNinos +
-             usuarioSuperiorNinos +
-             usuarioSuiteNinos;
+             familiarNinos +
+             juniorNinos +
+             superiorNinos +
+             suiteNinos;
 
          templateParams.especial_bb =
-             usuarioFamiliarBebes +
-             usuarioJuniorBebes +
-             usuarioSuperiorBebes +
-             usuarioSuiteBebes;
+             familiarBebes +
+             juniorBebes +
+             superiorBebes +
+             suiteBebes;
 
          templateParams.especial_bc =
-             usuarioFamiliarCunas +
-             usuarioJuniorCunas +
-             usuarioSuperiorCunas +
-             usuarioSuiteCunas;
+             familiarCunas +
+             juniorCunas +
+             superiorCunas +
+             suiteCunas;
 
          templateParams.especial_pax_total =
              templateParams.especial_ad +
