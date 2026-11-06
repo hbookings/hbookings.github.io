@@ -3991,6 +3991,43 @@ actualizarSummary();
          const totales =
              calcularTotales();
 
+         // Comprobar si los datos de "Número de huéspedes" coinciden
+         // con las cantidades asignadas en "Número de habitaciones".
+         // Esta comprobación solo genera un aviso: no modifica ni bloquea el envío.
+         const standardPaxIntroducidos =
+             obtenerValor("adultos") +
+             obtenerValor("ninos") +
+             obtenerValor("bebes") +
+             obtenerValor("cunas");
+
+         const standardPaxEnHabitaciones =
+             obtenerValor("individuales") +
+             obtenerValor("doblesDouble") * 2 +
+             obtenerValor("doblesTwin") * 2 +
+             obtenerValor("triples") * 3 +
+             obtenerValor("cuadruples") * 4 +
+             obtenerValor("bebes") +
+             obtenerValor("cunas");
+
+         const standardDescuadreEnvio =
+             standardPaxIntroducidos !== standardPaxEnHabitaciones;
+
+         const especialDescuadreEnvio =
+             obtenerValor("familiarAdults") + obtenerValor("juniorAdults") + obtenerValor("superiorAdults") + obtenerValor("suiteAdults") !==
+                 obtenerValor("familiarHabitacionAdults") + obtenerValor("juniorHabitacionAdults") + obtenerValor("superiorHabitacionAdults") + obtenerValor("suiteHabitacionAdults") ||
+             obtenerValor("familiarNinos") + obtenerValor("juniorNinos") + obtenerValor("superiorNinos") + obtenerValor("suiteNinos") !==
+                 obtenerValor("familiarHabitacionNinos") + obtenerValor("juniorHabitacionNinos") + obtenerValor("superiorHabitacionNinos") + obtenerValor("suiteHabitacionNinos") ||
+             obtenerValor("familiarBebes") + obtenerValor("juniorBebes") + obtenerValor("superiorBebes") + obtenerValor("suiteBebes") !==
+                 obtenerValor("familiarHabitacionBebes") + obtenerValor("juniorHabitacionBebes") + obtenerValor("superiorHabitacionBebes") + obtenerValor("suiteHabitacionBebes") ||
+             obtenerValor("familiarCunas") + obtenerValor("juniorCunas") + obtenerValor("superiorCunas") + obtenerValor("suiteCunas") !==
+                 obtenerValor("familiarHabitacionCunas") + obtenerValor("juniorHabitacionCunas") + obtenerValor("superiorHabitacionCunas") + obtenerValor("suiteHabitacionCunas");
+
+         const hayTotalesQueNoCoinciden =
+             standardDescuadreEnvio || especialDescuadreEnvio;
+
+         const avisoTotalesHTML = hayTotalesQueNoCoinciden
+             ? '<span style="color:#d00000;font-weight:700;display:inline-block;margin-left:14px;">Atención, hay Totales que no coinciden !</span>'
+             : "";
 
          /* =========================
             COMPROBAR PASAJEROS
@@ -4451,11 +4488,12 @@ actualizarSummary();
                      </tr>
                  </table>
 
-                 <div style="text-align:center;margin:16px 0;">
-                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin:0 auto;border:2px solid #333;min-width:260px;">
+                 <div style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin:16px 0;">
+                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;border:2px solid #333;min-width:260px;">
                          <tr><td style="border-bottom:1px solid #999;font-weight:700;">TOTAL PAX</td><td style="border-bottom:1px solid #999;font-weight:700;">${totales.totalPax}</td></tr>
                          <tr><td style="font-weight:700;">TOTAL HABITACIONES</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
                      </table>
+                     ${avisoTotalesHTML}
                  </div>
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OBSERVACIONES</h3>
@@ -4473,6 +4511,10 @@ actualizarSummary();
              asunto_usuario: asunto_usuario,
 
              mensaje_usuario: mensaje_usuario_sin_ceros,
+
+             aviso_totales: hayTotalesQueNoCoinciden
+                 ? "Atención, hay Totales que no coinciden !"
+                 : "",
 
              nombre: nombre,
              empresa: empresa || "No indicado",
