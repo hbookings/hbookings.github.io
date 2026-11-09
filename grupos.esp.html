@@ -4038,8 +4038,8 @@ actualizarSummary();
              standardDescuadreEnvio || especialDescuadreEnvio;
 
          const avisoTotalesHTML = hayTotalesQueNoCoinciden
-             ? '<style>@keyframes avisoTotalesParpadeo{0%,49%{visibility:visible}50%,100%{visibility:hidden}}</style><div style="color:#d00000;font-weight:700;text-align:center;margin:0 auto 14px;animation:avisoTotalesParpadeo 1s steps(1,end) infinite;-webkit-animation:avisoTotalesParpadeo 1s steps(1,end) infinite;">Atención, hay Totales de los apartados NÚMERO DE PAX y NÚMERO DE HABITACIONES que no coinciden !</div>'
-             : "";
+    ? '<div style="color:#d00000;font-weight:700;text-align:center;margin:0 auto 14px;">Atención, hay Totales en los apartados NÚMERO DE PAX y NÚMERO DE HABITACIONES que no coinciden !</div>'
+    : "";
 
          /* =========================
             COMPROBAR PASAJEROS
@@ -4508,6 +4508,7 @@ actualizarSummary();
                  </div>
                  ${avisoTotalesHTML}
 
+
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OBSERVACIONES</h3>
                  <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Ninguna")}</div>
 
@@ -4525,8 +4526,8 @@ actualizarSummary();
              mensaje_usuario: mensaje_usuario_sin_ceros,
 
              aviso_totales: hayTotalesQueNoCoinciden
-                 ? "Atención, hay Totales que no coinciden !"
-                 : "",
+    ? "Atención, hay Totales en los apartados NÚMERO DE PAX y NÚMERO DE HABITACIONES que no coinciden !"
+    : "",
 
              nombre: nombre,
              empresa: empresa || "No indicado",
@@ -4743,55 +4744,14 @@ actualizarSummary();
              cuadruples_pax:
                  (parseInt(cuadruples, 10) || 0) * 4,
 
-             resumen_pax_ad:
-                 obtenerValor("adultos") +
-                 familiarAdults +
-                 juniorAdults +
-                 superiorAdults +
-                 suiteAdults,
 
-             resumen_pax_ni:
-                 obtenerValor("ninos") +
-                 familiarNinos +
-                 juniorNinos +
-                 superiorNinos +
-                 suiteNinos,
 
-             resumen_pax_bb:
-                 obtenerValor("bebes") +
-                 familiarBebes +
-                 juniorBebes +
-                 superiorBebes +
-                 suiteBebes,
-
-             resumen_pax_bc:
-                 obtenerValor("cunas") +
-                 familiarCunas +
-                 juniorCunas +
-                 superiorCunas +
-                 suiteCunas,
-
-             resumen_pax_total:
-                 obtenerValor("adultos") +
-                 obtenerValor("ninos") +
-                 obtenerValor("bebes") +
-                 obtenerValor("cunas") +
-                 familiarAdults +
-                 juniorAdults +
-                 superiorAdults +
-                 suiteAdults +
-                 familiarNinos +
-                 juniorNinos +
-                 superiorNinos +
-                 suiteNinos +
-                 familiarBebes +
-                 juniorBebes +
-                 superiorBebes +
-                 suiteBebes +
-                 familiarCunas +
-                 juniorCunas +
-                 superiorCunas +
-                 suiteCunas,
+             // RESUMEN PAX: mismos valores que en la copia del Usuario.
+             resumen_pax_ad: totales.adultos,
+             resumen_pax_ni: totales.ninos,
+             resumen_pax_bb: totales.bebes,
+             resumen_pax_bc: totales.cunas,
+             resumen_pax_total: totales.totalPax,
 
 
 
