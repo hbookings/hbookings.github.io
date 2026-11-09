@@ -3255,41 +3255,61 @@
 
 
          const tiposEspeciales = [
-             "familiar",
-             "junior",
-             "superior",
-             "suite"
-         ];
+    "familiar",
+    "junior",
+    "superior",
+    "suite"
+];
 
-         const especialAdults = tiposEspeciales.reduce(
-             (total, tipo) =>
-                 total + obtenerValor(tipo + "Adults"),
-             0
-         );
+// PAX indicados en "Número de huéspedes".
+// Se mantienen para los controles de discrepancia.
+const especialAdultsIntroducidos = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "Adults"),
+    0
+);
 
-         const especialNinos = tiposEspeciales.reduce(
-             (total, tipo) =>
-                 total + obtenerValor(tipo + "Ninos"),
-             0
-         );
+const especialNinosIntroducidos = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "Ninos"),
+    0
+);
 
-         const especialBebes = tiposEspeciales.reduce(
-             (total, tipo) =>
-                 total + obtenerValor(tipo + "Bebes"),
-             0
-         );
+const especialBebesIntroducidos = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "Bebes"),
+    0
+);
 
-         const especialCunas = tiposEspeciales.reduce(
-             (total, tipo) =>
-                 total + obtenerValor(tipo + "Cunas"),
-             0
-         );
+const especialCunasIntroducidas = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "Cunas"),
+    0
+);
 
-         const totalPaxEspeciales =
-             especialAdults +
-             especialNinos +
-             especialBebes +
-             especialCunas;
+const totalPaxEspeciales =
+    especialAdultsIntroducidos +
+    especialNinosIntroducidos +
+    especialBebesIntroducidos +
+    especialCunasIntroducidos;
+
+// Ocupación real de "Número de habitaciones".
+// Estos valores se suman a los de habitaciones estándar.
+const especialAdults = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "HabitacionAdults"),
+    0
+);
+
+const especialNinos = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "HabitacionNinos"),
+    0
+);
+
+const especialBebes = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "HabitacionBebes"),
+    0
+);
+
+const especialCunas = tiposEspeciales.reduce(
+    (total, tipo) => total + obtenerValor(tipo + "HabitacionCunas"),
+    0
+);
 
 
          /* =========================
@@ -3851,12 +3871,13 @@ actualizarSummary();
              );
 
              if (elemento) {
-                 elemento.addEventListener("change", function() {
-                     actualizarTotalesHabitacionesEspeciales();
-                     calcularTotalPaxHabitacionesEspeciales();
-                     actualizarSummary();
-                 });
-             }
+    elemento.addEventListener("change", function() {
+        actualizarTotalesHabitacionesEspeciales();
+        calcularTotalPaxHabitacionesEspeciales();
+        actualizarSummary();
+        calcularTotales();
+    });
+}
          });
      });
 
