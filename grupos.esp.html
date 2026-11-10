@@ -3253,63 +3253,29 @@
             PAX ESPECIALES
          ========================== */
 
+         const especialAdults =
+             obtenerValor("familiarAdults") +
+             obtenerValor("juniorAdults") +
+             obtenerValor("superiorAdults") +
+             obtenerValor("suiteAdults");
 
-         const tiposEspeciales = [
-    "familiar",
-    "junior",
-    "superior",
-    "suite"
-];
+         const especialNinos =
+             obtenerValor("familiarNinos") +
+             obtenerValor("juniorNinos") +
+             obtenerValor("superiorNinos") +
+             obtenerValor("suiteNinos");
 
-// PAX indicados en "Número de huéspedes".
-// Se mantienen para los controles de discrepancia.
-const especialAdultsIntroducidos = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "Adults"),
-    0
-);
+         const especialBebes =
+             obtenerValor("familiarBebes") +
+             obtenerValor("juniorBebes") +
+             obtenerValor("superiorBebes") +
+             obtenerValor("suiteBebes");
 
-const especialNinosIntroducidos = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "Ninos"),
-    0
-);
-
-const especialBebesIntroducidos = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "Bebes"),
-    0
-);
-
-const especialCunasIntroducidas = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "Cunas"),
-    0
-);
-
-const totalPaxEspeciales =
-    especialAdultsIntroducidos +
-    especialNinosIntroducidos +
-    especialBebesIntroducidos +
-    especialCunasIntroducidos;
-
-// Ocupación real de "Número de habitaciones".
-// Estos valores se suman a los de habitaciones estándar.
-const especialAdults = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "HabitacionAdults"),
-    0
-);
-
-const especialNinos = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "HabitacionNinos"),
-    0
-);
-
-const especialBebes = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "HabitacionBebes"),
-    0
-);
-
-const especialCunas = tiposEspeciales.reduce(
-    (total, tipo) => total + obtenerValor(tipo + "HabitacionCunas"),
-    0
-);
+         const especialCunas =
+             obtenerValor("familiarCunas") +
+             obtenerValor("juniorCunas") +
+             obtenerValor("superiorCunas") +
+             obtenerValor("suiteCunas");
 
 
          /* =========================
@@ -3344,12 +3310,11 @@ const totalPaxStandard =
     standardBebes +
     standardCunas;
 
-// En el apartado "NÚMERO DE PAX", esta cifra debe reflejar
-// exclusivamente lo indicado en sus propios campos, sin sumar
-// las cantidades introducidas en "NÚMERO DE HABITACIONES".
-// TOTAL DE LA TABLA "N.º DE PAX EN HABITACIONES ESPECIALES":
-// sumar EXCLUSIVAMENTE los selectores del apartado NÚMERO DE PAX.
-// No leer aquí ningún campo terminado en "Habitacion".
+const totalPaxEspeciales =
+    especialAdults +
+    especialNinos +
+    especialBebes +
+    especialCunas;
 
 
          /* =========================
@@ -3738,11 +3703,11 @@ actualizarSummary();
              resumenBebesHabitaciones: standardBB,
              resumenBebesCunaHabitaciones: standardBC,
              resumenHabitacionesStandardTotal: totalHabitacionesStandardSummary,
-             resumenEspecialAD: especialADIntroducidos,
-             resumenEspecialNI: especialNIIntroducidos,
-             resumenEspecialBB: especialBBIntroducidos,
-             resumenEspecialBC: especialBCIntroducidos,
-             resumenEspecialTotal: especialPaxIntroducidas,
+             resumenEspecialAD: especialAD,
+             resumenEspecialNI: especialNI,
+             resumenEspecialBB: especialBB,
+             resumenEspecialBC: especialBC,
+             resumenEspecialTotal: especialTotal,
              resumenEspecialHabitacionesTotal: especialHabitaciones,
              resumenEspecialADTotal: especialAD,
              resumenEspecialNITotal: especialNI,
@@ -3871,13 +3836,12 @@ actualizarSummary();
              );
 
              if (elemento) {
-    elemento.addEventListener("change", function() {
-        actualizarTotalesHabitacionesEspeciales();
-        calcularTotalPaxHabitacionesEspeciales();
-        actualizarSummary();
-        calcularTotales();
-    });
-}
+                 elemento.addEventListener("change", function() {
+                     actualizarTotalesHabitacionesEspeciales();
+                     calcularTotalPaxHabitacionesEspeciales();
+                     actualizarSummary();
+                 });
+             }
          });
      });
 
@@ -4024,43 +3988,6 @@ actualizarSummary();
          const totales =
              calcularTotales();
 
-         // Comprobar si los datos de "Número de huéspedes" coinciden
-         // con las cantidades asignadas en "Número de habitaciones".
-         // Esta comprobación solo genera un aviso: no modifica ni bloquea el envío.
-         const standardPaxIntroducidos =
-             obtenerValor("adultos") +
-             obtenerValor("ninos") +
-             obtenerValor("bebes") +
-             obtenerValor("cunas");
-
-         const standardPaxEnHabitaciones =
-             obtenerValor("individuales") +
-             obtenerValor("doblesDouble") * 2 +
-             obtenerValor("doblesTwin") * 2 +
-             obtenerValor("triples") * 3 +
-             obtenerValor("cuadruples") * 4 +
-             obtenerValor("bebes") +
-             obtenerValor("cunas");
-
-         const standardDescuadreEnvio =
-             standardPaxIntroducidos !== standardPaxEnHabitaciones;
-
-         const especialDescuadreEnvio =
-             obtenerValor("familiarAdults") + obtenerValor("juniorAdults") + obtenerValor("superiorAdults") + obtenerValor("suiteAdults") !==
-                 obtenerValor("familiarHabitacionAdults") + obtenerValor("juniorHabitacionAdults") + obtenerValor("superiorHabitacionAdults") + obtenerValor("suiteHabitacionAdults") ||
-             obtenerValor("familiarNinos") + obtenerValor("juniorNinos") + obtenerValor("superiorNinos") + obtenerValor("suiteNinos") !==
-                 obtenerValor("familiarHabitacionNinos") + obtenerValor("juniorHabitacionNinos") + obtenerValor("superiorHabitacionNinos") + obtenerValor("suiteHabitacionNinos") ||
-             obtenerValor("familiarBebes") + obtenerValor("juniorBebes") + obtenerValor("superiorBebes") + obtenerValor("suiteBebes") !==
-                 obtenerValor("familiarHabitacionBebes") + obtenerValor("juniorHabitacionBebes") + obtenerValor("superiorHabitacionBebes") + obtenerValor("suiteHabitacionBebes") ||
-             obtenerValor("familiarCunas") + obtenerValor("juniorCunas") + obtenerValor("superiorCunas") + obtenerValor("suiteCunas") !==
-                 obtenerValor("familiarHabitacionCunas") + obtenerValor("juniorHabitacionCunas") + obtenerValor("superiorHabitacionCunas") + obtenerValor("suiteHabitacionCunas");
-
-         const hayTotalesQueNoCoinciden =
-             standardDescuadreEnvio || especialDescuadreEnvio;
-
-         const avisoTotalesHTML = hayTotalesQueNoCoinciden
-    ? '<div style="color:#d00000;font-weight:700;text-align:center;margin:0 auto 14px;">Atención, hay Totales en los apartados NÚMERO DE PAX y NÚMERO DE HABITACIONES que no coinciden !</div>'
-    : "";
 
          /* =========================
             COMPROBAR PASAJEROS
@@ -4238,35 +4165,6 @@ actualizarSummary();
          const usuarioSuiteBebes = obtenerValor("suiteHabitacionBebes");
          const usuarioSuiteCunas = obtenerValor("suiteHabitacionCunas");
 
-         // RESUMEN DE PAX: suma los datos de «Número de huéspedes»
-         // (habitaciones estándar y especiales) y la ocupación indicada
-         // en «Número de habitaciones» para las habitaciones especiales.
-         const resumenAdultos = obtenerValor("adultos") +
-             obtenerValor("familiarAdults") + obtenerValor("juniorAdults") +
-             obtenerValor("superiorAdults") + obtenerValor("suiteAdults") +
-             usuarioFamiliarAdults + usuarioJuniorAdults +
-             usuarioSuperiorAdults + usuarioSuiteAdults;
-
-         const resumenNinos = obtenerValor("ninos") +
-             obtenerValor("familiarNinos") + obtenerValor("juniorNinos") +
-             obtenerValor("superiorNinos") + obtenerValor("suiteNinos") +
-             usuarioFamiliarNinos + usuarioJuniorNinos +
-             usuarioSuperiorNinos + usuarioSuiteNinos;
-
-         const resumenBebes = obtenerValor("bebes") +
-             obtenerValor("familiarBebes") + obtenerValor("juniorBebes") +
-             obtenerValor("superiorBebes") + obtenerValor("suiteBebes") +
-             usuarioFamiliarBebes + usuarioJuniorBebes +
-             usuarioSuperiorBebes + usuarioSuiteBebes;
-
-         const resumenCunas = obtenerValor("cunas") +
-             obtenerValor("familiarCunas") + obtenerValor("juniorCunas") +
-             obtenerValor("superiorCunas") + obtenerValor("suiteCunas") +
-             usuarioFamiliarCunas + usuarioJuniorCunas +
-             usuarioSuperiorCunas + usuarioSuiteCunas;
-
-         const resumenTotalPax = resumenAdultos + resumenNinos +
-             resumenBebes + resumenCunas;
 
          /* =========================
             COPIA PARA EL USUARIO
@@ -4325,10 +4223,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Adultos:</strong> ${
-                familiarAdults +
-                juniorAdults +
-                superiorAdults +
-                suiteAdults
+                obtenerValor("familiarAdults") +
+                obtenerValor("juniorAdults") +
+                obtenerValor("superiorAdults") +
+                obtenerValor("suiteAdults")
             }
         </td>
     </tr>
@@ -4339,10 +4237,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Niños (de 3 a 12 años):</strong> ${
-                familiarNinos +
-                juniorNinos +
-                superiorNinos +
-                suiteNinos
+                obtenerValor("familiarNinos") +
+                obtenerValor("juniorNinos") +
+                obtenerValor("superiorNinos") +
+                obtenerValor("suiteNinos")
             }
         </td>
     </tr>
@@ -4353,10 +4251,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Bebés (de 0 a 3 años):</strong> ${
-                familiarBebes +
-                juniorBebes +
-                superiorBebes +
-                suiteBebes
+                obtenerValor("familiarBebes") +
+                obtenerValor("juniorBebes") +
+                obtenerValor("superiorBebes") +
+                obtenerValor("suiteBebes")
             }
         </td>
     </tr>
@@ -4367,10 +4265,10 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>Bebés + Cuna:</strong> ${
-                familiarCunas +
-                juniorCunas +
-                superiorCunas +
-                suiteCunas
+                obtenerValor("familiarCunas") +
+                obtenerValor("juniorCunas") +
+                obtenerValor("superiorCunas") +
+                obtenerValor("suiteCunas")
             }
         </td>
     </tr>
@@ -4386,22 +4284,22 @@ actualizarSummary();
         </td>
         <td style="border:1px solid #bbb;">
             <strong>TOTAL DE PAX:</strong> ${
-                familiarAdults +
-                familiarNinos +
-                familiarBebes +
-                familiarCunas +
-                juniorAdults +
-                juniorNinos +
-                juniorBebes +
-                juniorCunas +
-                superiorAdults +
-                superiorNinos +
-                superiorBebes +
-                superiorCunas +
-                suiteAdults +
-                suiteNinos +
-                suiteBebes +
-                suiteCunas
+                obtenerValor("familiarAdults") +
+                obtenerValor("familiarNinos") +
+                obtenerValor("familiarBebes") +
+                obtenerValor("familiarCunas") +
+                obtenerValor("juniorAdults") +
+                obtenerValor("juniorNinos") +
+                obtenerValor("juniorBebes") +
+                obtenerValor("juniorCunas") +
+                obtenerValor("superiorAdults") +
+                obtenerValor("superiorNinos") +
+                obtenerValor("superiorBebes") +
+                obtenerValor("superiorCunas") +
+                obtenerValor("suiteAdults") +
+                obtenerValor("suiteNinos") +
+                obtenerValor("suiteBebes") +
+                obtenerValor("suiteCunas")
             }
         </td>
     </tr>
@@ -4525,11 +4423,11 @@ actualizarSummary();
                          <td width="48%" style="vertical-align:top;padding-right:6px;">
                              <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
                                  <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">RESUMEN DE PAX</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTAL</th></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Adultos</td><td style="border:1px solid #bbb;text-align:center;">${resumenAdultos}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Niños (de 3 a 12 años)</td><td style="border:1px solid #bbb;text-align:center;">${resumenNinos}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bebés (de 0 a 3 años)</td><td style="border:1px solid #bbb;text-align:center;">${resumenBebes}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bebés + Cuna</td><td style="border:1px solid #bbb;text-align:center;">${resumenCunas}</td></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PAX</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${resumenTotalPax}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Adultos</td><td style="border:1px solid #bbb;text-align:center;">${totales.adultos + obtenerValor("familiarHabitacionAdults") + obtenerValor("juniorHabitacionAdults") + obtenerValor("superiorHabitacionAdults") + obtenerValor("suiteHabitacionAdults")}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Niños (de 3 a 12 años)</td><td style="border:1px solid #bbb;text-align:center;">${totales.ninos + obtenerValor("familiarHabitacionNinos") + obtenerValor("juniorHabitacionNinos") + obtenerValor("superiorHabitacionNinos") + obtenerValor("suiteHabitacionNinos")}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bebés (de 0 a 3 años)</td><td style="border:1px solid #bbb;text-align:center;">${totales.bebes + obtenerValor("familiarHabitacionBebes") + obtenerValor("juniorHabitacionBebes") + obtenerValor("superiorHabitacionBebes") + obtenerValor("suiteHabitacionBebes")}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">Bebés + Cuna</td><td style="border:1px solid #bbb;text-align:center;">${totales.cunas + obtenerValor("familiarHabitacionCunas") + obtenerValor("juniorHabitacionCunas") + obtenerValor("superiorHabitacionCunas") + obtenerValor("suiteHabitacionCunas")}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PAX</td><td style="border:1px solid #bbb;text-align:center;font-weight:700;">${totales.totalPax + obtenerValor("familiarHabitacionAdults") + obtenerValor("juniorHabitacionAdults") + obtenerValor("superiorHabitacionAdults") + obtenerValor("suiteHabitacionAdults") + obtenerValor("familiarHabitacionNinos") + obtenerValor("juniorHabitacionNinos") + obtenerValor("superiorHabitacionNinos") + obtenerValor("suiteHabitacionNinos") + obtenerValor("familiarHabitacionBebes") + obtenerValor("juniorHabitacionBebes") + obtenerValor("superiorHabitacionBebes") + obtenerValor("suiteHabitacionBebes") + obtenerValor("familiarHabitacionCunas") + obtenerValor("juniorHabitacionCunas") + obtenerValor("superiorHabitacionCunas") + obtenerValor("suiteHabitacionCunas")}</td></tr>
                              </table>
                          </td>
                          <td width="52%" style="vertical-align:top;padding-left:6px;">
@@ -4550,14 +4448,12 @@ actualizarSummary();
                      </tr>
                  </table>
 
-                 <div style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin:16px 0;">
-                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;border:2px solid #333;min-width:260px;margin-left:auto;margin-right:auto;">
+                 <div style="text-align:center;margin:16px 0;">
+                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin:0 auto;border:2px solid #333;min-width:260px;">
                          <tr><td style="border-bottom:1px solid #999;font-weight:700;">TOTAL PAX</td><td style="border-bottom:1px solid #999;font-weight:700;">${totales.totalPax}</td></tr>
                          <tr><td style="font-weight:700;">TOTAL HABITACIONES</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
                      </table>
                  </div>
-                 ${avisoTotalesHTML}
-
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OBSERVACIONES</h3>
                  <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Ninguna")}</div>
@@ -4574,10 +4470,6 @@ actualizarSummary();
              asunto_usuario: asunto_usuario,
 
              mensaje_usuario: mensaje_usuario_sin_ceros,
-
-             aviso_totales: hayTotalesQueNoCoinciden
-    ? "Atención, hay Totales en los apartados NÚMERO DE PAX y NÚMERO DE HABITACIONES que no coinciden !"
-    : "",
 
              nombre: nombre,
              empresa: empresa || "No indicado",
@@ -4794,14 +4686,87 @@ actualizarSummary();
              cuadruples_pax:
                  (parseInt(cuadruples, 10) || 0) * 4,
 
+             resumen_pax_ad:
+                 obtenerValor("adultos") +
+                 obtenerValor("familiarAdults") +
+                 obtenerValor("juniorAdults") +
+                 obtenerValor("superiorAdults") +
+                 obtenerValor("suiteAdults")
+                 + obtenerValor("familiarHabitacionAdults")
+                 + obtenerValor("juniorHabitacionAdults")
+                 + obtenerValor("superiorHabitacionAdults")
+                 + obtenerValor("suiteHabitacionAdults"),
 
+             resumen_pax_ni:
+                 obtenerValor("ninos") +
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos")
+                 + obtenerValor("familiarHabitacionNinos")
+                 + obtenerValor("juniorHabitacionNinos")
+                 + obtenerValor("superiorHabitacionNinos")
+                 + obtenerValor("suiteHabitacionNinos"),
 
-             // RESUMEN PAX: mismos valores que en la copia del Usuario.
-             resumen_pax_ad: totales.adultos,
-             resumen_pax_ni: totales.ninos,
-             resumen_pax_bb: totales.bebes,
-             resumen_pax_bc: totales.cunas,
-             resumen_pax_total: totales.totalPax,
+             resumen_pax_bb:
+                 obtenerValor("bebes") +
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes")
+                 + obtenerValor("familiarHabitacionBebes")
+                 + obtenerValor("juniorHabitacionBebes")
+                 + obtenerValor("superiorHabitacionBebes")
+                 + obtenerValor("suiteHabitacionBebes"),
+
+             resumen_pax_bc:
+                 obtenerValor("cunas") +
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas")
+                 + obtenerValor("familiarHabitacionCunas")
+                 + obtenerValor("juniorHabitacionCunas")
+                 + obtenerValor("superiorHabitacionCunas")
+                 + obtenerValor("suiteHabitacionCunas"),
+
+             resumen_pax_total:
+                 obtenerValor("adultos") +
+                 obtenerValor("ninos") +
+                 obtenerValor("bebes") +
+                 obtenerValor("cunas") +
+                 obtenerValor("familiarAdults") +
+                 obtenerValor("juniorAdults") +
+                 obtenerValor("superiorAdults") +
+                 obtenerValor("suiteAdults") +
+                 obtenerValor("familiarNinos") +
+                 obtenerValor("juniorNinos") +
+                 obtenerValor("superiorNinos") +
+                 obtenerValor("suiteNinos") +
+                 obtenerValor("familiarBebes") +
+                 obtenerValor("juniorBebes") +
+                 obtenerValor("superiorBebes") +
+                 obtenerValor("suiteBebes") +
+                 obtenerValor("familiarCunas") +
+                 obtenerValor("juniorCunas") +
+                 obtenerValor("superiorCunas") +
+                 obtenerValor("suiteCunas")
+                 + obtenerValor("familiarHabitacionAdults")
+                 + obtenerValor("juniorHabitacionAdults")
+                 + obtenerValor("superiorHabitacionAdults")
+                 + obtenerValor("suiteHabitacionAdults")
+                 + obtenerValor("familiarHabitacionNinos")
+                 + obtenerValor("juniorHabitacionNinos")
+                 + obtenerValor("superiorHabitacionNinos")
+                 + obtenerValor("suiteHabitacionNinos")
+                 + obtenerValor("familiarHabitacionBebes")
+                 + obtenerValor("juniorHabitacionBebes")
+                 + obtenerValor("superiorHabitacionBebes")
+                 + obtenerValor("suiteHabitacionBebes")
+                 + obtenerValor("familiarHabitacionCunas")
+                 + obtenerValor("juniorHabitacionCunas")
+                 + obtenerValor("superiorHabitacionCunas")
+                 + obtenerValor("suiteHabitacionCunas"),
 
 
 
@@ -4849,28 +4814,28 @@ actualizarSummary();
 
          // Totales de personas en habitaciones especiales
          templateParams.especial_ad =
-             familiarAdults +
-             juniorAdults +
-             superiorAdults +
-             suiteAdults;
+             obtenerValor("familiarAdults") +
+             obtenerValor("juniorAdults") +
+             obtenerValor("superiorAdults") +
+             obtenerValor("suiteAdults");
 
          templateParams.especial_ni =
-             familiarNinos +
-             juniorNinos +
-             superiorNinos +
-             suiteNinos;
+             obtenerValor("familiarNinos") +
+             obtenerValor("juniorNinos") +
+             obtenerValor("superiorNinos") +
+             obtenerValor("suiteNinos");
 
          templateParams.especial_bb =
-             familiarBebes +
-             juniorBebes +
-             superiorBebes +
-             suiteBebes;
+             obtenerValor("familiarBebes") +
+             obtenerValor("juniorBebes") +
+             obtenerValor("superiorBebes") +
+             obtenerValor("suiteBebes");
 
          templateParams.especial_bc =
-             familiarCunas +
-             juniorCunas +
-             superiorCunas +
-             suiteCunas;
+             obtenerValor("familiarCunas") +
+             obtenerValor("juniorCunas") +
+             obtenerValor("superiorCunas") +
+             obtenerValor("suiteCunas");
 
          templateParams.especial_pax_total =
              templateParams.especial_ad +
