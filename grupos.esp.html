@@ -3289,27 +3289,41 @@ const totalPaxEspeciales =
     especialBebesIntroducidos +
     especialCunasIntroducidos;
 
-// Ocupación real de "Número de habitaciones".
-// Estos valores se suman a los de habitaciones estándar.
-const especialAdults = tiposEspeciales.reduce(
+// PAX de "Número de huéspedes" + PAX añadidos directamente
+// en las columnas AD/NI/BB/BC de "N.º HABS. ESPECIALES".
+// Ambos apartados son acumulativos para el RESUMEN PAX.
+const especialAdultsHabitaciones = tiposEspeciales.reduce(
     (total, tipo) => total + obtenerValor(tipo + "HabitacionAdults"),
     0
 );
 
-const especialNinos = tiposEspeciales.reduce(
+const especialNinosHabitaciones = tiposEspeciales.reduce(
     (total, tipo) => total + obtenerValor(tipo + "HabitacionNinos"),
     0
 );
 
-const especialBebes = tiposEspeciales.reduce(
+const especialBebesHabitaciones = tiposEspeciales.reduce(
     (total, tipo) => total + obtenerValor(tipo + "HabitacionBebes"),
     0
 );
 
-const especialCunas = tiposEspeciales.reduce(
+const especialCunasHabitaciones = tiposEspeciales.reduce(
     (total, tipo) => total + obtenerValor(tipo + "HabitacionCunas"),
     0
 );
+
+// Total de PAX especiales: suma de los dos apartados.
+const especialAdults =
+    especialAdultsIntroducidos + especialAdultsHabitaciones;
+
+const especialNinos =
+    especialNinosIntroducidos + especialNinosHabitaciones;
+
+const especialBebes =
+    especialBebesIntroducidos + especialBebesHabitaciones;
+
+const especialCunas =
+    especialCunasIntroducidas + especialCunasHabitaciones;
 
 
          /* =========================
