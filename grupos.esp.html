@@ -3289,9 +3289,8 @@ const totalPaxEspeciales =
     especialBebesIntroducidos +
     especialCunasIntroducidos;
 
-// PAX de "Número de huéspedes" + PAX añadidos directamente
-// en las columnas AD/NI/BB/BC de "N.º HABS. ESPECIALES".
-// Ambos apartados son acumulativos para el RESUMEN PAX.
+// PAX adicionales indicados directamente en la tabla
+// "N.º DE HABITACIONES ESPECIALES" (columnas AD/NI/BB/BB+C).
 const especialAdultsHabitaciones = tiposEspeciales.reduce(
     (total, tipo) => total + obtenerValor(tipo + "HabitacionAdults"),
     0
@@ -3312,7 +3311,9 @@ const especialCunasHabitaciones = tiposEspeciales.reduce(
     0
 );
 
-// Total de PAX especiales: suma de los dos apartados.
+// RESUMEN PAX: sumar los huéspedes estándar,
+// los huéspedes especiales del apartado "Número de huéspedes"
+// y las cantidades adicionales de la tabla de habitaciones especiales.
 const especialAdults =
     especialAdultsIntroducidos + especialAdultsHabitaciones;
 
