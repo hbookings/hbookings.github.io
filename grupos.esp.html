@@ -4590,23 +4590,6 @@ function actualizarTotalesFinales() {
 </tr>
 
 
-<tr>
-    <td style="border:1px solid #bbb;text-align:left;">
-        Diferencia PAX habitaciones estándar
-    </td>
-    <td style="border:1px solid #bbb;text-align:center;">
-        ${formatearDiferencia(obtenerDiferenciaPaxHabitacionesStandard())}
-    </td>
-</tr>
-
-<tr>
-    <td style="border:1px solid #bbb;text-align:left;">
-        Diferencia PAX habitaciones especiales
-    </td>
-    <td style="border:1px solid #bbb;text-align:center;">
-        ${formatearDiferencia(obtenerDiferenciaPaxHabitacionesEspeciales())}
-    </td>
-</tr>
 
 
 
@@ -4646,6 +4629,34 @@ function actualizarTotalesFinales() {
                          <tr><td style="font-weight:700;">TOTAL HABITACIONES</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
                      </table>
                  </div>
+
+                 ${(() => {
+                     const hayDescuadreEmail =
+                         obtenerDiferenciaPaxHabitacionesStandard() !== 0 ||
+                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("adultos") !== 0 ||
+                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("ninos") !== 0 ||
+                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("bebes") !== 0 ||
+                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("cunas") !== 0;
+
+                     if (!hayDescuadreEmail) return "";
+
+                     return `
+                         <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#fdf2f2;color:#8a1f1f;font-weight:700;text-align:center;">
+                             LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>
+                             POR FAVOR, REVÍSELOS.
+                         </div>
+                         <div style="margin-top:12px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+                             <div style="display:flex;justify-content:space-between;padding:5px 0;">
+                                 <strong>DIFERENCIA PAX HABITACIONES ESTÁNDAR</strong>
+                                 <strong>${formatearDiferencia(obtenerDiferenciaPaxHabitacionesStandard())}</strong>
+                             </div>
+                             <div style="display:flex;justify-content:space-between;padding:5px 0;">
+                                 <strong>DIFERENCIA PAX HABITACIONES ESPECIALES</strong>
+                                 <strong>${formatearDiferencia(obtenerDiferenciaPaxHabitacionesEspeciales())}</strong>
+                             </div>
+                         </div>
+                     `;
+                 })()}
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OBSERVACIONES</h3>
                  <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Ninguna")}</div>
