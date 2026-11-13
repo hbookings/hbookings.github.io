@@ -1403,7 +1403,8 @@
     font-weight: 700 !important;
 }
 
-.summary-check-message {
+.summary-check-message,
+#diferenciasPaxHabitaciones {
     display: none;
     width: 100%;
     margin-top: 6px;
@@ -1411,16 +1412,12 @@
     font-size: 12px;
     font-weight: 700;
     text-align: center;
+    line-height: 1.4;
 }
 
-.summary-check-message.show {
+.summary-check-message.show,
+#diferenciasPaxHabitaciones.show {
     display: block;
-}
-
-.summary-table .summary-check-error {
-    color: #c00000 !important;
-    font-weight: 700 !important;
-    animation: summaryBlink 2s step-start infinite;
 }
 
 @keyframes summaryBlink {
@@ -2812,11 +2809,24 @@
 
         <div id="resumenCheckMessage" class="summary-check-message"></div>
 
+
     </div>
 
 </section>
 
+<div id="diferenciasPaxHabitaciones" class="summary-differences"
+     style="margin-top:12px; padding:10px; border:1px solid #ccc; border-radius:5px;">
 
+    <div style="display:flex; justify-content:space-between; padding:5px 0;">
+        <strong>DIFERENCIA PAX HABITACIONES ESTÁNDAR</strong>
+        <strong id="diferenciaPaxStandard">0</strong>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; padding:5px 0;">
+        <strong>DIFERENCIA PAX HABITACIONES ESPECIALES</strong>
+        <strong id="diferenciaPaxEspecial">0</strong>
+    </div>
+</div>
 
 
          <div class="final-totals-box">
@@ -3660,16 +3670,17 @@ actualizarSummary();
              especialBB !== especialBBIntroducidos ||
              especialBC !== especialBCIntroducidos;
 
-         if (resumenCheckMessage) {
-             if (standardDescuadre || especialDescuadre) {
-                 resumenCheckMessage.innerHTML =
-                     "LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>POR FAVOR, REVÍSELOS.";
-                 resumenCheckMessage.classList.add("show");
-             } else {
-                 resumenCheckMessage.textContent = "";
-                 resumenCheckMessage.classList.remove("show");
-             }
-         }
+if (resumenCheckMessage) {
+    if (standardDescuadre || especialDescuadre) {
+        resumenCheckMessage.innerHTML =
+            "LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>POR FAVOR, REVÍSELOS.";
+
+        resumenCheckMessage.classList.add("show");
+    } else {
+        resumenCheckMessage.innerHTML = "";
+        resumenCheckMessage.classList.remove("show");
+    }
+}
 
          if (standardPaxTotalElemento) {
              standardPaxTotalElemento.classList.toggle(
@@ -3684,6 +3695,21 @@ actualizarSummary();
                  especialDescuadre
              );
          }
+
+
+// Mostrar u ocultar el cuadro independiente de diferencias.
+const diferenciasPaxHabitaciones =
+    document.getElementById("diferenciasPaxHabitaciones");
+
+if (diferenciasPaxHabitaciones) {
+    if (standardDescuadre || especialDescuadre) {
+        diferenciasPaxHabitaciones.classList.add("show");
+    } else {
+        diferenciasPaxHabitaciones.classList.remove("show");
+    }
+}
+
+
 
          const valoresSummary = {
              resumenStandardAD: standardAD,
@@ -3726,70 +3752,73 @@ actualizarSummary();
 
      }
 
-     /* =========================
-        TOTALS FINALES
-     ========================== */
+
+/* =========================
+   TOTALS FINALES
+========================== */
 
 function obtenerPaxAsignadosHabitacionesEspeciales() {
     return ["familiar", "junior", "superior", "suite"].reduce(function(total, tipo) {
-        return total + obtenerValor(tipo + "HabitacionAdults")
-                   + obtenerValor(tipo + "HabitacionNinos")
-                   + obtenerValor(tipo + "HabitacionBebes")
-                   + obtenerValor(tipo + "HabitacionCunas");
+        return total
+            + obtenerValor(tipo + "HabitacionAdults")
+            + obtenerValor(tipo + "HabitacionNinos")
+            + obtenerValor(tipo + "HabitacionBebes")
+            + obtenerValor(tipo + "HabitacionCunas");
     }, 0);
 }
 
 function obtenerPaxEspecialesIntroducidos() {
     return ["familiar", "junior", "superior", "suite"].reduce(function(total, tipo) {
-        return total + obtenerValor(tipo + "Adults")
-                   + obtenerValor(tipo + "Ninos")
-                   + obtenerValor(tipo + "Bebes")
-                   + obtenerValor(tipo + "Cunas");
+        return total
+            + obtenerValor(tipo + "Adults")
+            + obtenerValor(tipo + "Ninos")
+            + obtenerValor(tipo + "Bebes")
+            + obtenerValor(tipo + "Cunas");
     }, 0);
 }
 
+// PAX declarados en habitaciones estándar.
+function obtenerPaxStandardIntroducidos() {
+    return obtenerValor("adultos")
+        + obtenerValor("ninos")
+        + obtenerValor("bebes")
+        + obtenerValor("cunas");
+}
+
+// Capacidad estándar, incluyendo bebés y cunas como PAX.
+function obtenerCapacidadHabitacionesStandard() {
+    return obtenerValor("individuales")
+        + (obtenerValor("doblesDouble") * 2)
+        + (obtenerValor("doblesTwin") * 2)
+        + (obtenerValor("triples") * 3)
+        + (obtenerValor("cuadruples") * 4)
+        + obtenerValor("bebes")
+        + obtenerValor("cunas");
+}
+
+// DIFERENCIA ESTÁNDAR = CAPACIDAD - PAX DECLARADOS.
+function obtenerDiferenciaPaxHabitacionesStandard() {
+    return obtenerCapacidadHabitacionesStandard()
+        - obtenerPaxStandardIntroducidos();
+}
+
+// DIFERENCIA ESPECIAL = PAX ASIGNADOS - PAX DECLARADOS.
 function obtenerDiferenciaPaxHabitacionesEspeciales() {
     return obtenerPaxAsignadosHabitacionesEspeciales()
-         - obtenerPaxEspecialesIntroducidos();
+        - obtenerPaxEspecialesIntroducidos();
 }
 
-function obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria(categoria) {
-    const sufijo = {
-        adultos: "Adults",
-        ninos: "Ninos",
-        bebes: "Bebes",
-        cunas: "Cunas"
-    }[categoria];
-
-    if (!sufijo) return 0;
-
-    const asignados = ["familiar", "junior", "superior", "suite"].reduce(function(total, tipo) {
-        return total + obtenerValor(tipo + "Habitacion" + sufijo);
-    }, 0);
-
-    const declarados = ["familiar", "junior", "superior", "suite"].reduce(function(total, tipo) {
-        return total + obtenerValor(tipo + sufijo);
-    }, 0);
-
-    return asignados - declarados;
-}
-
-function calcularTotalesBasePax() {
-    return obtenerValor("adultos") + obtenerValor("ninos")
-         + obtenerValor("bebes") + obtenerValor("cunas")
-         + obtenerValor("familiarAdults") + obtenerValor("juniorAdults")
-         + obtenerValor("superiorAdults") + obtenerValor("suiteAdults")
-         + obtenerValor("familiarNinos") + obtenerValor("juniorNinos")
-         + obtenerValor("superiorNinos") + obtenerValor("suiteNinos")
-         + obtenerValor("familiarBebes") + obtenerValor("juniorBebes")
-         + obtenerValor("superiorBebes") + obtenerValor("suiteBebes")
-         + obtenerValor("familiarCunas") + obtenerValor("juniorCunas")
-         + obtenerValor("superiorCunas") + obtenerValor("suiteCunas");
-}
-
+// TOTAL FINAL = CAPACIDAD ESTÁNDAR + PAX ASIGNADOS ESPECIALES.
 function obtenerTotalPaxFinal() {
-    return calcularTotalesBasePax()
-         + obtenerDiferenciaPaxHabitacionesEspeciales();
+    return obtenerCapacidadHabitacionesStandard()
+        + obtenerPaxAsignadosHabitacionesEspeciales();
+}
+
+// Formato de diferencias: +2, −2 o 0.
+function formatearDiferencia(valor) {
+    if (valor > 0) return "+" + valor;
+    if (valor < 0) return "−" + Math.abs(valor);
+    return "0";
 }
 
 function actualizarTotalesFinales() {
@@ -3798,13 +3827,33 @@ function actualizarTotalesFinales() {
     const paxFinal = document.getElementById("totalPaxFinal");
 
     if (habitacionesFinal) {
-        habitacionesFinal.textContent = habitaciones ? habitaciones.textContent : "0";
+        habitacionesFinal.textContent = habitaciones
+            ? habitaciones.textContent
+            : "0";
     }
 
     if (paxFinal) {
         paxFinal.textContent = obtenerTotalPaxFinal();
     }
+
+    const diferenciaStandard = document.getElementById("diferenciaPaxStandard");
+    const diferenciaEspecial = document.getElementById("diferenciaPaxEspecial");
+
+    if (diferenciaStandard) {
+        diferenciaStandard.textContent = formatearDiferencia(
+            obtenerDiferenciaPaxHabitacionesStandard()
+        );
+    }
+
+    if (diferenciaEspecial) {
+        diferenciaEspecial.textContent = formatearDiferencia(
+            obtenerDiferenciaPaxHabitacionesEspeciales()
+        );
+    }
 }
+
+
+
 
      /* =========================
         ACTUALIZACIÓN AUTOMÁTICA
@@ -3896,9 +3945,7 @@ function actualizarTotalesFinales() {
 
              if (elemento) {
                  elemento.addEventListener("change", function() {
-                     actualizarTotalesHabitacionesEspeciales();
-                     calcularTotalPaxHabitacionesEspeciales();
-                     actualizarSummary();
+                     calcularTotales();
                  });
              }
          });
@@ -4510,6 +4557,28 @@ function actualizarTotalesFinales() {
     </td>
 </tr>
 
+
+<tr>
+    <td style="border:1px solid #bbb;text-align:left;">
+        Diferencia PAX habitaciones estándar
+    </td>
+    <td style="border:1px solid #bbb;text-align:center;">
+        ${formatearDiferencia(obtenerDiferenciaPaxHabitacionesStandard())}
+    </td>
+</tr>
+
+<tr>
+    <td style="border:1px solid #bbb;text-align:left;">
+        Diferencia PAX habitaciones especiales
+    </td>
+    <td style="border:1px solid #bbb;text-align:center;">
+        ${formatearDiferencia(obtenerDiferenciaPaxHabitacionesEspeciales())}
+    </td>
+</tr>
+
+
+
+
 <tr>
     <td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTAL PAX</td>
     <td style="border:1px solid #bbb;text-align:center;font-weight:700;">
@@ -4536,6 +4605,9 @@ function actualizarTotalesFinales() {
                      </tr>
                  </table>
 
+
+
+
                  <div style="text-align:center;margin:16px 0;">
                      <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin:0 auto;border:2px solid #333;min-width:260px;">
                          <tr><td style="border-bottom:1px solid #999;font-weight:700;">TOTAL PAX</td><td style="border-bottom:1px solid #999;font-weight:700;">${obtenerTotalPaxFinal()}</td></tr>
@@ -4553,48 +4625,14 @@ function actualizarTotalesFinales() {
 
 
 
+const diferenciaPaxStandard =
+    obtenerDiferenciaPaxHabitacionesStandard();
+
 const diferenciaPaxEspeciales =
-    obtenerValor("familiarHabitacionAdults") +
-    obtenerValor("juniorHabitacionAdults") +
-    obtenerValor("superiorHabitacionAdults") +
-    obtenerValor("suiteHabitacionAdults") +
+    obtenerDiferenciaPaxHabitacionesEspeciales();
 
-    obtenerValor("familiarHabitacionNinos") +
-    obtenerValor("juniorHabitacionNinos") +
-    obtenerValor("superiorHabitacionNinos") +
-    obtenerValor("suiteHabitacionNinos") +
-
-    obtenerValor("familiarHabitacionBebes") +
-    obtenerValor("juniorHabitacionBebes") +
-    obtenerValor("superiorHabitacionBebes") +
-    obtenerValor("suiteHabitacionBebes") +
-
-    obtenerValor("familiarHabitacionCunas") +
-    obtenerValor("juniorHabitacionCunas") +
-    obtenerValor("superiorHabitacionCunas") +
-    obtenerValor("suiteHabitacionCunas") -
-
-    obtenerValor("familiarAdults") -
-    obtenerValor("juniorAdults") -
-    obtenerValor("superiorAdults") -
-    obtenerValor("suiteAdults") -
-
-    obtenerValor("familiarNinos") -
-    obtenerValor("juniorNinos") -
-    obtenerValor("superiorNinos") -
-    obtenerValor("suiteNinos") -
-
-    obtenerValor("familiarBebes") -
-    obtenerValor("juniorBebes") -
-    obtenerValor("superiorBebes") -
-    obtenerValor("suiteBebes") -
-
-    obtenerValor("familiarCunas") -
-    obtenerValor("juniorCunas") -
-    obtenerValor("superiorCunas") -
-    obtenerValor("suiteCunas");
-
-const totalPaxFinal = totales.totalPax + diferenciaPaxEspeciales;
+const totalPaxFinal =
+    obtenerTotalPaxFinal();
 
 
 
