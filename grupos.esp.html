@@ -3808,6 +3808,38 @@ function obtenerDiferenciaPaxHabitacionesEspeciales() {
         - obtenerPaxEspecialesIntroducidos();
 }
 
+
+// DIFERENCIA DE HABITACIONES ESPECIALES POR CATEGORÍA.
+function obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria(categoria) {
+
+    const categorias = {
+        adultos: "Adults",
+        ninos: "Ninos",
+        bebes: "Bebes",
+        cunas: "Cunas"
+    };
+
+    const sufijo = categorias[categoria];
+
+    if (!sufijo) {
+        return 0;
+    }
+
+    const tipos = ["familiar", "junior", "superior", "suite"];
+
+    const paxAsignados = tipos.reduce(function(total, tipo) {
+        return total + obtenerValor(tipo + "Habitacion" + sufijo);
+    }, 0);
+
+    const paxIntroducidos = tipos.reduce(function(total, tipo) {
+        return total + obtenerValor(tipo + sufijo);
+    }, 0);
+
+    return paxAsignados - paxIntroducidos;
+}
+
+
+
 // TOTAL FINAL = CAPACIDAD ESTÁNDAR + PAX ASIGNADOS ESPECIALES.
 function obtenerTotalPaxFinal() {
     return obtenerCapacidadHabitacionesStandard()
