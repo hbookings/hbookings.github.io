@@ -1407,8 +1407,14 @@
 #diferenciasPaxHabitaciones {
     display: none;
     width: 100%;
-    margin-top: 6px;
-    color: #c00000;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #b94a48;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #333333;
     font-size: 12px;
     font-weight: 700;
     text-align: center;
@@ -1419,6 +1425,16 @@
 #diferenciasPaxHabitaciones.show {
     display: block;
 }
+
+#diferenciasPaxHabitaciones {
+    color: #333333;
+}
+
+.summary-check-message {
+    color: #8a1f1f;
+}
+
+
 
 @keyframes summaryBlink {
     50% {
@@ -2805,12 +2821,10 @@
                     <td id="resumenEspecialPaxTotal" class="summary-special-bold" style="font-weight: 700;"></td>
                 </tr>
             </tbody>
-        </table>
-
-        <div id="resumenCheckMessage" class="summary-check-message"></div>
-
-
+                </table>
     </div>
+
+    <div id="resumenCheckMessage" class="summary-check-message"></div>
 
 </section>
 
@@ -2819,12 +2833,12 @@
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
         <strong>DIFERENCIA PAX HABITACIONES ESTÁNDAR</strong>
-        <strong id="diferenciaPaxStandard">0</strong>
+        <strong id="diferenciaPaxStandard"></strong>
     </div>
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
         <strong>DIFERENCIA PAX HABITACIONES ESPECIALES</strong>
-        <strong id="diferenciaPaxEspecial">0</strong>
+        <strong id="diferenciaPaxEspecial"></strong>
     </div>
 </div>
 
@@ -3850,7 +3864,7 @@ function obtenerTotalPaxFinal() {
 function formatearDiferencia(valor) {
     if (valor > 0) return "+" + valor;
     if (valor < 0) return "−" + Math.abs(valor);
-    return "0";
+    return "";
 }
 
 function actualizarTotalesFinales() {
@@ -4641,7 +4655,7 @@ function actualizarTotalesFinales() {
                      if (!hayDescuadreEmail) return "";
 
                      return `
-                         <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#fdf2f2;color:#8a1f1f;font-weight:700;text-align:center;">
+                         <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#ffffff;color:#8a1f1f;font-weight:700;text-align:center;">
                              LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>
                              POR FAVOR, REVÍSELOS.
                          </div>
