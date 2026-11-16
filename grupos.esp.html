@@ -4693,7 +4693,51 @@ const totalPaxFinal =
 
 
 
+// HTML exclusivo para el correo del Administrador.
+// Se comprueban también las diferencias por categoría para
+// detectar descuadres especiales aunque el saldo total sea cero.
+
+const hayDescuadreAdmin =
+    diferenciaPaxStandard !== 0 ||
+    obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("adultos") !== 0 ||
+    obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("ninos") !== 0 ||
+    obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("bebes") !== 0 ||
+    obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("cunas") !== 0;
+
+const avisoTotales = hayDescuadreAdmin ? `
+    <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#ffffff;color:#8a1f1f;font-weight:700;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.4;">
+        LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>
+        POR FAVOR, REVÍSELOS.
+    </div>
+
+    <table width="100%" cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin-top:12px;border:1px solid #ccc;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;">
+        <tr>
+            <td style="border-bottom:1px solid #ccc;">
+                <strong>DIFERENCIA PAX HABITACIONES ESTÁNDAR</strong>
+            </td>
+            <td style="border-bottom:1px solid #ccc;text-align:right;">
+                <strong>${formatearDiferencia(diferenciaPaxStandard)}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>DIFERENCIA PAX HABITACIONES ESPECIALES</strong>
+            </td>
+            <td style="text-align:right;">
+                <strong>${formatearDiferencia(diferenciaPaxEspeciales)}</strong>
+            </td>
+        </tr>
+    </table>
+` : "";
+
+
+
+
+
+
          const templateParams = {
+
+             aviso_totales: avisoTotales,
 
              asunto_usuario: asunto_usuario,
 
