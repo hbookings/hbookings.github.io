@@ -4644,33 +4644,37 @@ function actualizarTotalesFinales() {
                      </table>
                  </div>
 
-                 ${(() => {
-                     const hayDescuadreEmail =
-                         obtenerDiferenciaPaxHabitacionesStandard() !== 0 ||
-                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("adultos") !== 0 ||
-                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("ninos") !== 0 ||
-                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("bebes") !== 0 ||
-                         obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("cunas") !== 0;
+                 
+${(() => {
+    const hayDescuadreEmail =
+        obtenerDiferenciaPaxHabitacionesStandard() !== 0 ||
+        obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("adultos") !== 0 ||
+        obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("ninos") !== 0 ||
+        obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("bebes") !== 0 ||
+        obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("cunas") !== 0;
 
-                     if (!hayDescuadreEmail) return "";
+    if (!hayDescuadreEmail) return "";
 
-                     return `
-                         <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#ffffff;color:#8a1f1f;font-weight:700;text-align:center;">
-                             LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>
-                             POR FAVOR, REVÍSELOS.
-                         </div>
-                         <div style="margin-top:12px;padding:10px;border:1px solid #ccc;border-radius:5px;">
-                             <div style="display:flex;justify-content:space-between;padding:5px 0;">
-                                 <strong>DIFERENCIA PAX HABITACIONES ESTÁNDAR</strong>
-                                 <strong>${formatearDiferencia(obtenerDiferenciaPaxHabitacionesStandard())}</strong>
-                             </div>
-                             <div style="display:flex;justify-content:space-between;padding:5px 0;">
-                                 <strong>DIFERENCIA PAX HABITACIONES ESPECIALES</strong>
-                                 <strong>${formatearDiferencia(obtenerDiferenciaPaxHabitacionesEspeciales())}</strong>
-                             </div>
-                         </div>
-                     `;
-                 })()}
+    return `
+        <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#ffffff;color:#8a1f1f;font-weight:700;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.4;">
+            LOS DATOS INTRODUCIDOS EN LOS APARTADOS «Número de huéspedes» Y «Número de habitaciones» NO COINCIDEN.<br>
+            POR FAVOR, REVÍSELOS.
+
+            <div style="margin-top:12px;padding:10px;border:1px solid #ccc;border-radius:5px;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:400;">
+                <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
+                    <span style="font-weight:600;color:#333;">DIFERENCIA PAX HABITACIONES ESTÁNDAR</span>
+                    <span style="font-weight:600;color:#333;">${formatearDiferencia(obtenerDiferenciaPaxHabitacionesStandard())}</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
+                    <span style="font-weight:600;color:#333;">DIFERENCIA PAX HABITACIONES ESPECIALES</span>
+                    <span style="font-weight:600;color:#333;">${formatearDiferencia(obtenerDiferenciaPaxHabitacionesEspeciales())}</span>
+                </div>
+            </div>
+        </div>
+    `;
+})()}
+
+
 
                  <h3 style="margin:18px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">OBSERVACIONES</h3>
                  <div style="border:1px solid #bbb;padding:8px;min-height:30px;">${escapeHTML(observaciones || "Ninguna")}</div>
