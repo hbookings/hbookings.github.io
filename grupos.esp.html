@@ -2117,7 +2117,7 @@
                      <h3 class="persons-section-title">
                          <span>N.º DE PAX EN HABITACIONES ESTÁNDAR</span>
                          <span class="persons-section-subtitle">
-                             (Individual, Doble, Triple, Cuádruple)
+                             (Individuales, Dobles, Triples, Cuádruples)
                          </span>
                      </h3>
 
@@ -2269,7 +2269,7 @@
                  </div>
 
                  <div class="total-box total-box-final">
-                     <span class="total-box-label">TOTAL DE PAX</span>
+                     <span class="total-box-label">TOTAL PAX</span>
                      <span class="total-box-value" id="totalPax"></span>
                  </div>
 
@@ -2305,7 +2305,7 @@
             <h3 class="rooms-section-title">
                 <span>N.º DE HABITACIONES ESTÁNDAR</span>
                 <span class="rooms-section-subtitle">
-                    (Individual, Doble, Triple, Cuádruple)
+                    (Individuales, Dobles, Triples, Cuádruples)
                 </span>
             </h3>
 
@@ -2567,7 +2567,7 @@
                             <span id="totalHabitacionesEspecialesCunas"></span>
                         </div>
                         <div>
-                            <span>TOTAL DE PAX</span>
+                            <span>TOTAL PAX</span>
                             <span id="totalPaxHabitacionesEspeciales"></span>
                         </div>
                     </div>
@@ -4324,7 +4324,7 @@ function actualizarTotalesFinales() {
 
          const asunto_usuario =
              "Nueva Solicitud de Reserva Grupo " +
-             nombreGrupoLimpio;
+             nombreGrupoLimpio + ".";
 
          const mensaje_usuario = `
              <div style="font-family:Arial,Helvetica,sans-serif;color:#222;max-width:900px;margin:0 auto;font-size:13px;line-height:1.35;">
@@ -4342,7 +4342,7 @@ function actualizarTotalesFinales() {
 
                  <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">GRUPO</h3>
                  <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
-                     <tr><td width="50%"><strong>Nombre de Grupo:</strong> ${escapeHTML(nombreGrupoLimpio)}</td><td width="50%"><strong>Tipo de grupo:</strong> ${escapeHTML(tipoGrupo || "Ninguna")}</td></tr>
+                     <tr><td width="50%"><strong>Nombre de Grupo:</strong> ${escapeHTML(nombreGrupoLimpio)}</td><td width="50%"><strong>Tipo de Grupo:</strong> ${escapeHTML(tipoGrupo || "Ninguna")}</td></tr>
                  </table>
 
                  <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">DESTINO Y ALOJAMIENTO</h3>
@@ -4488,7 +4488,7 @@ function actualizarTotalesFinales() {
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1665%;">TOTAL PAX</th>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Individual</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Individuales</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${individuales}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(individuales,10)||0)*1}</td>
                          <td style="border:1px solid #bbb;"><strong>Familiar</strong></td>
@@ -4524,7 +4524,7 @@ function actualizarTotalesFinales() {
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioSuperiorAdults + usuarioSuperiorNinos + usuarioSuperiorBebes + usuarioSuperiorCunas}</td>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Triple</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Triples</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${triples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(triples,10)||0)*3}</td>
                          <td style="border:1px solid #bbb;"><strong>Suite</strong></td>
@@ -4536,7 +4536,7 @@ function actualizarTotalesFinales() {
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioSuiteAdults + usuarioSuiteNinos + usuarioSuiteBebes + usuarioSuiteCunas}</td>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Cuádruple</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Cuádruples</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(cuadruples,10)||0)*4}</td>
                          <td style="border:1px solid #bbb;text-align:left;font-weight:700;">TOTALES</td>
