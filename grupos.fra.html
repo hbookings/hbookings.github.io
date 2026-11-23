@@ -1981,16 +1981,16 @@
         Hôtel
     </option>
 
-    <option value="Auberge">
-                Auberge
+    <option value="Hostal">
+                Hostal
     </option>
 
     <option value="Appartements">
         Appartements
     </option>
 
-    <option value="Complexe hôtelier">
-        Complexe hôtelier
+    <option value="Resort">
+        Resort
     </option>
 
     <option value="Autres">
@@ -2832,12 +2832,12 @@
      style="margin-top:12px; padding:10px; border:1px solid #ccc; border-radius:5px;">
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
-        <strong>DIFERENCIA PAX HABITACIONES ESTÁNDAR</strong>
+        <strong>ÉCART DE PERSONNES – CHAMBRES STANDARD</strong>
         <strong id="diferenciaPaxStandard"></strong>
     </div>
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
-        <strong>DIFERENCIA PAX HABITACIONES ESPECIALES</strong>
+        <strong>ÉCART DE PERSONNES – CHAMBRES SPÉCIALES</strong>
         <strong id="diferenciaPaxEspecial"></strong>
     </div>
 </div>
@@ -3687,7 +3687,7 @@ actualizarSummary();
 if (resumenCheckMessage) {
     if (standardDescuadre || especialDescuadre) {
         resumenCheckMessage.innerHTML =
-            "LOS DATOS INTRODUCIDOS EN LOS APARTADOS «NÚMERO DE PERSONAS» Y «NÚMERO DE HABITACIONES» NO COINCIDEN.<br>POR FAVOR, REVÍSELOS.";
+            "LES DONNÉES SAISIES DANS LES RUBRIQUES « NOMBRE DE PERSONNES » ET « NOMBRE DE CHAMBRES » NE CORRESPONDENT PAS.<br>VEUILLEZ LES VÉRIFIER.";
 
         resumenCheckMessage.classList.add("show");
     } else {
@@ -4335,18 +4335,18 @@ function actualizarTotalesFinales() {
                  </div>
 
                  <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">COORDONNÉES</h3>
-                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
+                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;table-layout:fixed;width:100%;">
                      <tr><td width="50%"><strong>Nom complet :</strong> ${escapeHTML(nombre)}</td><td width="50%"><strong>Entreprise / Agence de voyages :</strong> ${escapeHTML(empresa || "Aucune")}</td></tr>
                      <tr><td><strong>E-mail :</strong> ${escapeHTML(email)}</td><td><strong>Téléphone :</strong> ${escapeHTML(telefono)}</td></tr>
                  </table>
 
                  <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">GROUPE</h3>
-                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
+                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;table-layout:fixed;width:100%;">
                      <tr><td width="50%"><strong>Nom du groupe :</strong> ${escapeHTML(nombreGrupoLimpio)}</td><td width="50%"><strong>Type de groupe :</strong> ${escapeHTML(tipoGrupo || "Aucune")}</td></tr>
                  </table>
 
                  <h3 style="margin:14px 0 7px;border-bottom:2px solid #333;padding-bottom:4px;">DESTINATION ET HÉBERGEMENT</h3>
-                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
+                 <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;table-layout:fixed;width:100%;">
                      <tr><td width="50%"><strong>Destination :</strong> ${escapeHTML(destino)}</td><td width="50%"><strong>Hébergement :</strong> ${escapeHTML(alojamiento)}</td></tr>
                      <tr><td><strong>Arrivée :</strong> ${escapeHTML(formatearFecha(entrada))}</td><td><strong>Départ :</strong> ${escapeHTML(formatearFecha(salida))}</td></tr>
                      <tr><td><strong>Jours :</strong> ${calcularDias(entrada, salida)}</td><td><strong>Formule :</strong> ${escapeHTML(regimen)}</td></tr>
@@ -4573,7 +4573,8 @@ function actualizarTotalesFinales() {
                  <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin:8px auto 0;table-layout:fixed;">
                      <tr>
                          <td width="48%" style="vertical-align:top;padding-right:6px;">
-                             <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
+                             <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;width:100%;">
+                                 <colgroup><col style="width:75%;"><col style="width:25%;"></colgroup>
                                  <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">RÉCAPITULATIF DES PERSONNES</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTAL</th></tr>
                                  <tr>
     <td style="border:1px solid #bbb;text-align:left;">Adultes</td>
@@ -4617,7 +4618,8 @@ function actualizarTotalesFinales() {
                              </table>
                          </td>
                          <td width="52%" style="vertical-align:top;padding-left:6px;">
-                             <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
+                             <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;table-layout:fixed;width:100%;">
+                                 <colgroup><col style="width:75%;"><col style="width:25%;"></colgroup>
                                  <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">RÉCAPITULATIF DES CHAMBRES</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTAL</th></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">IND</td><td style="border:1px solid #bbb;text-align:center;">${individuales}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">DBL (lit double)</td><td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td></tr>
@@ -4638,7 +4640,8 @@ function actualizarTotalesFinales() {
 
 
                  <div style="text-align:center;margin:16px 0;">
-                     <table cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin:0 auto;border:2px solid #333;min-width:260px;">
+                     <table width="320" cellspacing="0" cellpadding="8" style="border-collapse:collapse;margin:0 auto;border:2px solid #333;width:320px;table-layout:fixed;">
+                         <colgroup><col style="width:70%;"><col style="width:30%;"></colgroup>
                          <tr><td style="border-bottom:1px solid #999;font-weight:700;">TOTAL DES PERSONNES</td><td style="border-bottom:1px solid #999;font-weight:700;">${obtenerTotalPaxFinal()}</td></tr>
                          <tr><td style="font-weight:700;">TOTAL DES CHAMBRES</td><td style="font-weight:700;">${totales.totalHabitaciones}</td></tr>
                      </table>
