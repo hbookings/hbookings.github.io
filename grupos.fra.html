@@ -2832,12 +2832,12 @@
      style="margin-top:12px; padding:10px; border:1px solid #ccc; border-radius:5px;">
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
-        <strong>ÉCART DE PERSONNES – CHAMBRES STANDARD</strong>
+        <strong>DIFERENCIA PAX HABITACIONES ESTÁNDAR</strong>
         <strong id="diferenciaPaxStandard"></strong>
     </div>
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
-        <strong>ÉCART DE PERSONNES – CHAMBRES SPÉCIALES</strong>
+        <strong>DIFERENCIA PAX HABITACIONES ESPECIALES</strong>
         <strong id="diferenciaPaxEspecial"></strong>
     </div>
 </div>
@@ -3687,7 +3687,7 @@ actualizarSummary();
 if (resumenCheckMessage) {
     if (standardDescuadre || especialDescuadre) {
         resumenCheckMessage.innerHTML =
-            "LES DONNÉES SAISIES DANS LES RUBRIQUES « NOMBRE DE PERSONNES » ET « NOMBRE DE CHAMBRES » NE CORRESPONDENT PAS.<br>VEUILLEZ LES VÉRIFIER.";
+            "LOS DATOS INTRODUCIDOS EN LOS APARTADOS «NÚMERO DE PERSONAS» Y «NÚMERO DE HABITACIONES» NO COINCIDEN.<br>POR FAVOR, REVÍSELOS.";
 
         resumenCheckMessage.classList.add("show");
     } else {
@@ -4090,7 +4090,7 @@ function actualizarTotalesFinales() {
 
          btnEnviar.disabled = true;
          btnEnviar.textContent =
-             "Enviando...";
+             "Envoi en cours…";
 
 
          const entrada =
@@ -4349,7 +4349,7 @@ function actualizarTotalesFinales() {
                  <table width="100%" cellspacing="0" cellpadding="4" style="border-collapse:collapse;">
                      <tr><td width="50%"><strong>Destination :</strong> ${escapeHTML(destino)}</td><td width="50%"><strong>Hébergement :</strong> ${escapeHTML(alojamiento)}</td></tr>
                      <tr><td><strong>Arrivée :</strong> ${escapeHTML(formatearFecha(entrada))}</td><td><strong>Départ :</strong> ${escapeHTML(formatearFecha(salida))}</td></tr>
-                     <tr><td><strong>Durée (jours) :</strong> ${calcularDias(entrada, salida)}</td><td><strong>Formule :</strong> ${escapeHTML(regimen)}</td></tr>
+                     <tr><td><strong>Jours :</strong> ${calcularDias(entrada, salida)}</td><td><strong>Formule :</strong> ${escapeHTML(regimen)}</td></tr>
                  </table>
 
 
@@ -4413,10 +4413,10 @@ function actualizarTotalesFinales() {
 
     <tr>
         <td style="border:1px solid #bbb;border-right:4px solid #000;">
-            <strong>Bébés + lit bébé :</strong> ${obtenerValor("cunas")}
+            <strong>Bébés + Lit bébé :</strong> ${obtenerValor("cunas")}
         </td>
         <td style="border:1px solid #bbb;">
-            <strong>Bébés + lit bébé :</strong> ${
+            <strong>Bébés + Lit bébé :</strong> ${
                 obtenerValor("familiarCunas") +
                 obtenerValor("juniorCunas") +
                 obtenerValor("superiorCunas") +
@@ -4554,7 +4554,7 @@ function actualizarTotalesFinales() {
 </tr>
 
 <tr>
-    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bebés + Cuna</strong></td>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Bébés + Lit bébé</strong></td>
     <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("cunas")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
@@ -4597,7 +4597,7 @@ function actualizarTotalesFinales() {
 </tr>
 
 <tr>
-    <td style="border:1px solid #bbb;text-align:left;">Bebés + Cuna</td>
+    <td style="border:1px solid #bbb;text-align:left;">Bébés + Lit bébé</td>
     <td style="border:1px solid #bbb;text-align:center;">
         ${totales.cunas + obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("cunas")}
     </td>
@@ -4657,8 +4657,8 @@ ${(() => {
 
     return `
         <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#ffffff;color:#8a1f1f;font-weight:700;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.4;">
-            LOS DATOS INTRODUCIDOS EN LOS APARTADOS «NÚMERO DE PERSONAS» Y «NÚMERO DE HABITACIONES» NO COINCIDEN.<br>
-            POR FAVOR, REVÍSELOS.
+            LES DONNÉES SAISIES DANS LES RUBRIQUES « NOMBRE DE PERSONNES » ET « NOMBRE DE CHAMBRES » NE CORRESPONDENT PAS.<br>
+            VEUILLEZ LES VÉRIFIER.
 
             <div style="margin-top:12px;padding:10px;border:1px solid #ccc;border-radius:5px;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:400;">
                 <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
@@ -4710,8 +4710,8 @@ const hayDescuadreAdmin =
 
 const avisoTotales = hayDescuadreAdmin ? `
     <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#ffffff;color:#8a1f1f;font-weight:700;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.4;">
-        LOS DATOS INTRODUCIDOS EN LOS APARTADOS «NÚMERO DE PERSONAS» Y «NÚMERO DE HABITACIONES» NO COINCIDEN.<br>
-        POR FAVOR, REVÍSELOS.
+        LES DONNÉES SAISIES DANS LES RUBRIQUES « NOMBRE DE PERSONNES » ET « NOMBRE DE CHAMBRES » NE CORRESPONDENT PAS.<br>
+        VEUILLEZ LES VÉRIFIER.
     
 <div style="margin-top:12px;padding:10px;border:1px solid #ccc;border-radius:5px;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:400;">
     <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
