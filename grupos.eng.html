@@ -2143,7 +2143,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Infants (aged 0 to 3)
+                                 Babies (aged 0 to 3)
                              </div>
                              <div class="persons-section-value">
                                  <select id="bebes" name="bebes"></select>
@@ -2152,7 +2152,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Infants requiring a cot
+                                 Babies requiring a Cot
                              </div>
                              <div class="persons-section-value">
                                  <select id="cunas" name="cunas"></select>
@@ -2209,7 +2209,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Infants (aged 0 to 3)
+                                 Babies (aged 0 to 3)
                              </div>
                              <div class="persons-section-value">
                                  <select id="familiarBebes" name="familiarBebes"></select>
@@ -2218,7 +2218,7 @@
 
                          <div class="persons-section-row">
                              <div class="persons-section-label">
-                                 Infants requiring a cot
+                                 Babies requiring a Cot
                              </div>
                              <div class="persons-section-value">
                                  <select id="familiarCunas" name="familiarCunas"></select>
@@ -2259,12 +2259,12 @@
                  </div>
 
                  <div class="total-box">
-                     <span class="total-box-label">TOTAL INFANTS</span>
+                     <span class="total-box-label">TOTAL BABIES</span>
                      <span class="total-box-value" id="totalBebes"></span>
                  </div>
 
                  <div class="total-box">
-                     <span class="total-box-label">INFANTS WITH COT</span>
+                     <span class="total-box-label">BABIES WITH COT</span>
                      <span class="total-box-value" id="totalCunas"></span>
                  </div>
 
@@ -2777,7 +2777,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">INFANTS</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">BABIES</td>
                     <td id="resumenBebesHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -2792,7 +2792,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">INFANTS + CUNA</td>
+                    <td colspan="2" style="text-align: right; vertical-align: middle; padding-right: 5px;">BABIES + COT</td>
                     <td id="resumenBebesCunaHabitaciones" class="summary-standard-edge"></td>
                     <td></td>
                     <td></td>
@@ -2846,7 +2846,7 @@
          <div class="final-totals-box">
     <div class="final-totals-title">TOTALS</div>
     <div class="final-totals-head">
-        <div>HABITACIONES</div>
+        <div>ROOMS</div>
         <div>GUESTS</div>
     </div>
     <div class="final-totals-values">
@@ -4399,10 +4399,10 @@ function actualizarTotalesFinales() {
 
     <tr>
         <td style="border:1px solid #bbb;border-right:4px solid #000;">
-            <strong>Infants (aged 0 to 3):</strong> ${obtenerValor("bebes")}
+            <strong>Babies (aged 0 to 3):</strong> ${obtenerValor("bebes")}
         </td>
         <td style="border:1px solid #bbb;">
-            <strong>Infants (aged 0 to 3):</strong> ${
+            <strong>Babies (aged 0 to 3):</strong> ${
                 obtenerValor("familiarBebes") +
                 obtenerValor("juniorBebes") +
                 obtenerValor("superiorBebes") +
@@ -4413,10 +4413,10 @@ function actualizarTotalesFinales() {
 
     <tr>
         <td style="border:1px solid #bbb;border-right:4px solid #000;">
-            <strong>Infants + cot:</strong> ${obtenerValor("cunas")}
+            <strong>Babies + Cot:</strong> ${obtenerValor("cunas")}
         </td>
         <td style="border:1px solid #bbb;">
-            <strong>Infants + cot:</strong> ${
+            <strong>Babies + Cot:</strong> ${
                 obtenerValor("familiarCunas") +
                 obtenerValor("juniorCunas") +
                 obtenerValor("superiorCunas") +
@@ -4548,13 +4548,13 @@ function actualizarTotalesFinales() {
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioFamilyAdults + usuarioFamilyNinos + usuarioFamilyBebes + usuarioFamilyCunas + usuarioJuniorAdults + usuarioJuniorNinos + usuarioJuniorBebes + usuarioJuniorCunas + usuarioSuperiorAdults + usuarioSuperiorNinos + usuarioSuperiorBebes + usuarioSuperiorCunas + usuarioSuiteAdults + usuarioSuiteNinos + usuarioSuiteBebes + usuarioSuiteCunas}</td>
                      </tr>
 <tr>
-    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Infants</strong></td>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babies</strong></td>
     <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("bebes")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
 
 <tr>
-    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Infants + cot</strong></td>
+    <td colspan="2" style="border:1px solid #bbb;text-align:right;"><strong>Babies + Cot</strong></td>
     <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${obtenerValor("cunas")}</td>
     <td colspan="7" style="border:1px solid #bbb;"></td>
 </tr>
@@ -4590,14 +4590,14 @@ function actualizarTotalesFinales() {
 </tr>
 
 <tr>
-    <td style="border:1px solid #bbb;text-align:left;">Infants (aged 0 to 3)</td>
+    <td style="border:1px solid #bbb;text-align:left;">Babies (aged 0 to 3)</td>
     <td style="border:1px solid #bbb;text-align:center;">
         ${totales.bebes + obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("bebes")}
     </td>
 </tr>
 
 <tr>
-    <td style="border:1px solid #bbb;text-align:left;">Infants + cot</td>
+    <td style="border:1px solid #bbb;text-align:left;">Babies + Cot</td>
     <td style="border:1px solid #bbb;text-align:center;">
         ${totales.cunas + obtenerDiferenciaPaxHabitacionesEspecialesPorCategoria("cunas")}
     </td>
@@ -4710,16 +4710,16 @@ const hayDescuadreAdmin =
 
 const avisoTotales = hayDescuadreAdmin ? `
     <div style="margin:18px 0 10px;padding:12px;border:1px solid #b94a48;border-radius:5px;background:#ffffff;color:#8a1f1f;font-weight:700;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.4;">
-        THE DETAILS ENTERED IN THE “NUMBER OF GUESTS” AND “NUMBER OF ROOMS” SECTIONS DO NOT MATCH.<br>
-        PLEASE CHECK THEM.
+        LOS DATOS INTRODUCIDOS EN LOS APARTADOS «NÚMERO DE PERSONAS» Y «NÚMERO DE HABITACIONES» NO COINCIDEN.<br>
+        POR FAVOR, REVÍSELOS.
     
 <div style="margin-top:12px;padding:10px;border:1px solid #ccc;border-radius:5px;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:400;">
     <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
-        <span style="font-weight:600;color:#333;">GUEST DIFFERENCE – STANDARD ROOMS</span>
+        <span style="font-weight:600;color:#333;">DIFERENCIA PAX HABITACIONES ESTÁNDAR</span>
         <span style="font-weight:600;color:#333;">${formatearDiferencia(diferenciaPaxStandard)}</span>
     </div>
     <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
-        <span style="font-weight:600;color:#333;">GUEST DIFFERENCE – SPECIAL ROOMS</span>
+        <span style="font-weight:600;color:#333;">DIFERENCIA PAX HABITACIONES ESPECIALES</span>
         <span style="font-weight:600;color:#333;">${formatearDiferencia(diferenciaPaxEspeciales)}</span>
     </div>
 </div>
