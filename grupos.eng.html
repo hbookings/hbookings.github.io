@@ -2694,10 +2694,10 @@
                 </tr>
                 <tr>
                     <th rowspan="2">TYPE</th>
-                    <th rowspan="2">NO. OF ROOMS</th>
+                    <th rowspan="2">ROOMS</th>
                     <th rowspan="2" class="summary-standard-edge">GUESTS</th>
                     <th rowspan="2">TYPE</th>
-                    <th rowspan="2">NO. OF ROOMS</th>
+                    <th rowspan="2">ROOMS</th>
                     <th colspan="4">GUESTS</th>
                     <th rowspan="2" class="summary-special-bold">TOTAL GUESTS</th>
                 </tr>
@@ -2832,12 +2832,12 @@
      style="margin-top:12px; padding:10px; border:1px solid #ccc; border-radius:5px;">
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
-        <strong>GUEST DIFFERENCE – STANDARD ROOMS</strong>
+        <strong>GUEST DIFFERENCE IN STANDARD ROOMS</strong>
         <strong id="diferenciaPaxStandard"></strong>
     </div>
 
     <div style="display:flex; justify-content:space-between; padding:5px 0;">
-        <strong>GUEST DIFFERENCE – SPECIAL ROOMS</strong>
+        <strong>GUEST DIFFERENCE IN SPECIAL ROOMS</strong>
         <strong id="diferenciaPaxEspecial"></strong>
     </div>
 </div>
@@ -4477,10 +4477,10 @@ function actualizarTotalesFinales() {
                      </tr>
                      <tr>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TYPE</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">NO. OF ROOMS</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">ROOMS</th>
                          <th style="border:1px solid #bbb;border-right:4px solid #000;background:#f5f5f5;text-align:center;width:7%;font-weight:700;">GUESTS</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:left;">TYPE</th>
-                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">NO. OF ROOMS</th>
+                         <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">ROOMS</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">AD</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">NI</th>
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1667%;">BB</th>
@@ -4619,7 +4619,7 @@ function actualizarTotalesFinales() {
                          <td width="52%" style="vertical-align:top;padding-left:6px;">
                              <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
                                  <tr><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">ROOM SUMMARY</th><th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;">TOTAL</th></tr>
-                                 <tr><td style="border:1px solid #bbb;text-align:left;">IND</td><td style="border:1px solid #bbb;text-align:center;">${individuales}</td></tr>
+                                 <tr><td style="border:1px solid #bbb;text-align:left;">SGL</td><td style="border:1px solid #bbb;text-align:center;">${individuales}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Double bed)</td><td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">DBL (Twin beds)</td><td style="border:1px solid #bbb;text-align:center;">${doblesTwin}</td></tr>
                                  <tr><td style="border:1px solid #bbb;text-align:left;">TRI</td><td style="border:1px solid #bbb;text-align:center;">${triples}</td></tr>
@@ -4662,11 +4662,11 @@ ${(() => {
 
             <div style="margin-top:12px;padding:10px;border:1px solid #ccc;border-radius:5px;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:400;">
                 <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
-                    <span style="font-weight:600;color:#333;">GUEST DIFFERENCE – STANDARD ROOMS</span>
+                    <span style="font-weight:600;color:#333;">GUEST DIFFERENCE IN STANDARD ROOMS</span>
                     <span style="font-weight:600;color:#333;">${formatearDiferencia(obtenerDiferenciaPaxHabitacionesStandard())}</span>
                 </div>
                 <div style="display:flex;justify-content:space-between;padding:5px 0;color:#333;font-weight:400;">
-                    <span style="font-weight:600;color:#333;">GUEST DIFFERENCE – SPECIAL ROOMS</span>
+                    <span style="font-weight:600;color:#333;">GUEST DIFFERENCE IN SPECIAL ROOMS</span>
                     <span style="font-weight:600;color:#333;">${formatearDiferencia(obtenerDiferenciaPaxHabitacionesEspeciales())}</span>
                 </div>
             </div>
