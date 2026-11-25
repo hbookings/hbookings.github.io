@@ -2695,7 +2695,7 @@
                 <tr>
                     <th rowspan="2">TYP</th>
                     <th rowspan="2">ZIMMER</th>
-                    <th rowspan="2" class="summary-standard-edge">GÄSTE</th>
+                    <th rowspan="2" class="summary-standard-edge">GÄSTE GESAMT</th>
                     <th rowspan="2">TYP</th>
                     <th rowspan="2">ZIMMER</th>
                     <th colspan="4">GÄSTE</th>
@@ -4604,6 +4604,22 @@ function actualizarTotalesFinales() {
 </tr>
 
 
+${(() => {
+    const differenzStandard = obtenerDiferenciaPaxHabitacionesStandard();
+
+    if (differenzStandard === 0) return "";
+
+    return `
+        <tr>
+            <td style="border:1px solid #bbb;text-align:left;">
+                PAX-DIFFERENZ STANDARDZIMMER
+            </td>
+            <td style="border:1px solid #bbb;text-align:center;">
+                ${formatearDiferencia(differenzStandard)}
+            </td>
+        </tr>
+    `;
+})()}
 
 
 
