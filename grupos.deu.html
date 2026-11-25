@@ -1896,31 +1896,31 @@
                          Gruppentyp auswählen
                      </option>
 
- <option value="Tourist">
+ <option value="Touristen">
      Touristen
  </option>
- <option value="Students">
-     Schüler und Studenten
+ <option value="Studenten">
+     Studenten
  </option>
- <option value="Sports">
+ <option value="Sportgruppen">
      Sportgruppen
  </option>
- <option value="Senior citizens">
+ <option value="Senioren">
      Senioren
  </option>
- <option value="Business">
+ <option value="Geschäftsreisen">
      Geschäftsreisen
  </option>
- <option value="Professional">
+ <option value="Berufsgruppen">
      Berufsgruppen
  </option>
- <option value="Conventions">
+ <option value="Konventionen">
      Konventionen
  </option>
- <option value="Music & Parties">
+ <option value="Musik & Feiern">
      Musik & Feiern
  </option>
- <option value="Other">
+ <option value="Sonstiges">
      Sonstiges
  </option>
 
@@ -2069,23 +2069,23 @@
                              Verpflegungsart auswählen
                          </option>
 
-                         <option value="Room only">
+                         <option value="Nur Übernachtung">
                              Nur Übernachtung
                          </option>
 
-                         <option value="Bed and breakfast">
+                         <option value="Übernachtung mit Frühstück">
                              Übernachtung mit Frühstück
                          </option>
 
-                         <option value="Half board">
+                         <option value="Halbpension">
                              Halbpension
                          </option>
 
-                         <option value="Full board">
+                         <option value="Vollpension">
                              Vollpension
                          </option>
 
-                         <option value="All inclusive">
+                         <option value="All-inclusive">
                              All-inclusive
                          </option>
 
@@ -2162,7 +2162,7 @@
 
 <div class="persons-section-row">
     <div class="persons-section-label">
-        GÄSTE GESAMT
+        GESAMT
     </div>
     <div class="persons-section-value">
         <span id="totalPaxStandard"></span>
@@ -4488,10 +4488,10 @@ function actualizarTotalesFinales() {
                          <th style="border:1px solid #bbb;background:#f5f5f5;text-align:center;width:6.1665%;">GÄSTE GESAMT</th>
                      </tr>
                      <tr>
-                         <td style="border:1px solid #bbb;"><strong>Single</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Einzelzimmer</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${individuales}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(individuales,10)||0)*1}</td>
-                         <td style="border:1px solid #bbb;"><strong>Family</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Familienzimmer</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${familiar}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${usuarioFamilyAdults}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${usuarioFamilyNinos}</td>
@@ -4503,7 +4503,7 @@ function actualizarTotalesFinales() {
                          <td style="border:1px solid #bbb;"><strong>Double (double bed)</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${doblesDouble}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(doblesDouble,10)||0)*2}</td>
-                         <td style="border:1px solid #bbb;"><strong>Junior</strong></td>
+                         <td style="border:1px solid #bbb;"><strong>Juniorzimmer</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${junior}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${usuarioJuniorAdults}</td>
                          <td style="border:1px solid #bbb;text-align:center;">${usuarioJuniorNinos}</td>
@@ -4539,7 +4539,7 @@ function actualizarTotalesFinales() {
                          <td style="border:1px solid #bbb;"><strong>Vierbettzimmer</strong></td>
                          <td style="border:1px solid #bbb;text-align:center;">${cuadruples}</td>
                          <td style="border:1px solid #bbb;border-right:4px solid #000;text-align:center;">${(parseInt(cuadruples,10)||0)*4}</td>
-                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">SUMMEN</td>
+                         <td style="border:1px solid #bbb;text-align:left;font-weight:700;">GESAMT</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${(parseInt(familiar,10)||0)+(parseInt(junior,10)||0)+(parseInt(superior,10)||0)+(parseInt(suite,10)||0)}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioFamilyAdults + usuarioJuniorAdults + usuarioSuperiorAdults + usuarioSuiteAdults}</td>
                          <td style="border:1px solid #bbb;text-align:center;font-weight:700;">${usuarioFamilyNinos + usuarioJuniorNinos + usuarioSuperiorNinos + usuarioSuiteNinos}</td>
