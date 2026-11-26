@@ -4625,6 +4625,24 @@ ${(() => {
 })()}
 
 
+${(() => {
+    const differenzSpezial = obtenerDiferenciaPaxHabitacionesEspeciales();
+
+    if (differenzSpezial === 0) return "";
+
+    return `
+        <tr>
+            <td style="border:1px solid #bbb;text-align:left;">
+                PAX-DIFFERENZ SPEZIALZIMMER
+            </td>
+            <td style="border:1px solid #bbb;text-align:center;">
+                ${differenzSpezial}
+            </td>
+        </tr>
+    `;
+})()}
+
+
 
 
 <tr>
@@ -4758,7 +4776,7 @@ const avisoTotales = hayDescuadreAdmin ? `
 
 
 diferencia_pax_standard: obtenerDiferenciaPaxHabitacionesStandard(),
-
+diferencia_pax_especiales: obtenerDiferenciaPaxHabitacionesEspeciales(),
 
              nombre: nombre,
              empresa: empresa || "Nicht angegeben",
@@ -4975,49 +4993,10 @@ diferencia_pax_standard: obtenerDiferenciaPaxHabitacionesStandard(),
              cuadruples_pax:
                  (parseInt(cuadruples, 10) || 0) * 4,
 
-             resumen_pax_ad:
-    totales.adultos +
-    obtenerValor("familiarHabitacionAdults") +
-    obtenerValor("juniorHabitacionAdults") +
-    obtenerValor("superiorHabitacionAdults") +
-    obtenerValor("suiteHabitacionAdults") -
-    obtenerValor("familiarAdults") -
-    obtenerValor("juniorAdults") -
-    obtenerValor("superiorAdults") -
-    obtenerValor("suiteAdults"),
-
-resumen_pax_ni:
-    totales.ninos +
-    obtenerValor("familiarHabitacionNinos") +
-    obtenerValor("juniorHabitacionNinos") +
-    obtenerValor("superiorHabitacionNinos") +
-    obtenerValor("suiteHabitacionNinos") -
-    obtenerValor("familiarNinos") -
-    obtenerValor("juniorNinos") -
-    obtenerValor("superiorNinos") -
-    obtenerValor("suiteNinos"),
-
-resumen_pax_bb:
-    totales.bebes +
-    obtenerValor("familiarHabitacionBebes") +
-    obtenerValor("juniorHabitacionBebes") +
-    obtenerValor("superiorHabitacionBebes") +
-    obtenerValor("suiteHabitacionBebes") -
-    obtenerValor("familiarBebes") -
-    obtenerValor("juniorBebes") -
-    obtenerValor("superiorBebes") -
-    obtenerValor("suiteBebes"),
-
-resumen_pax_bc:
-    totales.cunas +
-    obtenerValor("familiarHabitacionCunas") +
-    obtenerValor("juniorHabitacionCunas") +
-    obtenerValor("superiorHabitacionCunas") +
-    obtenerValor("suiteHabitacionCunas") -
-    obtenerValor("familiarCunas") -
-    obtenerValor("juniorCunas") -
-    obtenerValor("superiorCunas") -
-    obtenerValor("suiteCunas"),
+resumen_pax_ad: totales.adultos,
+resumen_pax_ni: totales.ninos,
+resumen_pax_bb: totales.bebes,
+resumen_pax_bc: totales.cunas,
 
 resumen_pax_total:
     totalPaxFinal,
