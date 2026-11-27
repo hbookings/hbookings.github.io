@@ -4777,8 +4777,8 @@ const avisoTotales = hayDescuadreAdmin ? `
              mensaje_usuario: mensaje_usuario_sin_ceros,
 
 
-diferencia_pax_standard: obtenerDiferenciaPaxHabitacionesStandard(),
-diferencia_pax_especiales: obtenerDiferenciaPaxHabitacionesEspeciales(),
+diferencia_pax_standard: formatearDiferencia(diferenciaPaxStandard),
+diferencia_pax_especiales: formatearDiferencia(diferenciaPaxEspeciales),
 
              nombre: nombre,
              empresa: empresa || "Nicht angegeben",
